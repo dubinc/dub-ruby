@@ -166,6 +166,14 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::UpdateDomainRequest.new(
   slug: "acme.com",
+  request_body: ::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
+    slug: "acme.com",
+    type: ::OpenApiSDK::Operations::UpdateDomainType::REDIRECT,
+    target: "https://acme.com/landing",
+    expired_url: "https://acme.com/expired",
+    archived: false,
+    placeholder: "https://dub.co/help/article/what-is-dub",
+  ),
 )
     
 res = s.domains.update(req)

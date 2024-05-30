@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.0.1)
+    dub (0.0.2)
       faraday
       faraday-multipart
       rack
@@ -92,8 +92,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  minitest
   dub!
+  minitest
   rubocop
   sorbet-runtime
   tapioca

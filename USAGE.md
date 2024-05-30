@@ -16,7 +16,9 @@ s.config_security(
 res = s.links.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?
@@ -42,7 +44,9 @@ s.config_security(
 res = s.links.upsert(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?

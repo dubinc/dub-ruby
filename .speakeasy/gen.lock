@@ -3,13 +3,16 @@ id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
   docChecksum: 69dc05faa844a9e17f9180677089eb25
   docVersion: 0.0.1
-  speakeasyVersion: 1.272.0
-  generationVersion: 2.312.1
-  releaseVersion: 0.0.1
-  configChecksum: 32333f7ef936e0fd9683e79873e8d15e
+  speakeasyVersion: 1.299.3
+  generationVersion: 2.338.7
+  releaseVersion: 0.0.2
+  configChecksum: 44ad03d0fe9744395542b8d01423cacb
+  repoURL: https://github.com/dubinc/dub-ruby.git
+  installationURL: https://github.com/dubinc/dub-ruby
+  published: true
 features:
   ruby:
-    core: 3.2.11
+    core: 3.2.12
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
