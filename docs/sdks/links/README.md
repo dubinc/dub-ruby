@@ -77,7 +77,9 @@ s.config_security(
 res = s.links.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?
@@ -253,6 +255,13 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::UpdateLinkRequest.new(
   link_id: "<value>",
+  request_body: ::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
+    url: "https://google/com",
+    external_id: "123456",
+    tag_ids: [
+    "<value>",
+  ],
+  ),
 )
     
 res = s.links.update(req)
@@ -299,7 +308,9 @@ res = s.links.create_many(workspace_id="<value>", project_slug="<value>", reques
     ::OpenApiSDK::Operations::RequestBody.new(
       url: "https://google/com",
       external_id: "123456",
-      tag_ids: "<value>",
+      tag_ids: [
+      "<value>",
+    ],
     ),
   ])
 
@@ -346,7 +357,9 @@ s.config_security(
 res = s.links.upsert(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?
