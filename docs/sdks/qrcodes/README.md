@@ -12,7 +12,7 @@ Retrieve a QR code for a link.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

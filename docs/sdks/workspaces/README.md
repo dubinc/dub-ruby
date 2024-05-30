@@ -14,7 +14,7 @@ Retrieve a list of workspaces for the authenticated user.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -48,7 +48,7 @@ Create a new workspace for the authenticated user.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -93,7 +93,7 @@ Retrieve a workspace for the authenticated user.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

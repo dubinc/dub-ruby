@@ -1,6 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -26,7 +26,7 @@ end
 ```
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

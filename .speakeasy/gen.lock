@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
-id: fafecf0d-ca11-4e59-8528-8d390fe1a753
+id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 58f984453d09b11200ae524bf6ab56d2
+  docChecksum: 69dc05faa844a9e17f9180677089eb25
   docVersion: 0.0.1
   speakeasyVersion: 1.272.0
   generationVersion: 2.312.1
   releaseVersion: 0.0.1
-  configChecksum: 7fbd2aec2e7d88c14d9ba20e5e98bcc5
+  configChecksum: 32333f7ef936e0fd9683e79873e8d15e
 features:
   ruby:
     core: 3.2.11
@@ -75,7 +75,7 @@ generatedFiles:
   - sorbet/rbi/gems/yarp@0.13.0.rbi
   - sorbet/tapioca/config.yml
   - sorbet/tapioca/require.rb
-  - openapi.gemspec
+  - dub.gemspec
   - lib/open_api_sdk/models/operations/sort.rb
   - lib/open_api_sdk/models/operations/getlinks_request.rb
   - lib/open_api_sdk/models/operations/getlinks_response.rb
@@ -189,7 +189,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/type.rb
   - lib/open_api_sdk/models/shared/domainschema.rb
   - lib/open_api_sdk/models/shared/security.rb
-  - lib/openapi.rb
+  - lib/dub.rb
   - lib/open_api_sdk/models/operations.rb
   - lib/open_api_sdk/models/shared.rb
   - docs/models/operations/sort.md

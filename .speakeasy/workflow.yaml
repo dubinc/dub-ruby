@@ -1,14 +1,11 @@
 workflowVersion: 1.0.0
 sources:
-    my-first-source:
+    dub:
         inputs:
             - location: https://api.dub.co
         publish:
-            location: registry.speakeasyapi.dev/dub/dub/my-first-source
+            location: registry.speakeasyapi.dev/dub/dub/dub
 targets:
     my-first-target:
         target: ruby
-        source: my-first-source
-        publish:
-            rubygems:
-                token: $rubygems_auth_token
+        source: dub

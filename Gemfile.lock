@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    openapi (0.0.1)
+    dub (0.0.1)
       faraday
       faraday-multipart
       rack
@@ -93,7 +93,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
-  openapi!
+  dub!
   rubocop
   sorbet-runtime
   tapioca

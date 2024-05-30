@@ -1,27 +1,27 @@
 speakeasyVersion: 1.272.0
 sources:
-    my-first-source:
-        sourceNamespace: my-first-source
-        sourceRevisionDigest: sha256:1fc9cef66696d10a03ba8bdeb08ab7ccec816d9809c5dfe1affb3674b94b2811
-        sourceBlobDigest: sha256:f419874975a85d959bb7f38fb61183fe29d6a305913c956ea91c9a7dbd617326
+    dub:
+        sourceNamespace: dub
+        sourceRevisionDigest: sha256:482980395d6303ebfad22767f38f557fe3f7de25a1feb8041a390f273f07fac9
+        sourceBlobDigest: sha256:4244ae7b26b184378f573916c8c4db664978ced4ef26e973a6ee5e7eaff6db65
         tags:
             - latest
 targets:
     my-first-target:
-        source: my-first-source
-        sourceNamespace: my-first-source
-        sourceRevisionDigest: sha256:1fc9cef66696d10a03ba8bdeb08ab7ccec816d9809c5dfe1affb3674b94b2811
-        sourceBlobDigest: sha256:f419874975a85d959bb7f38fb61183fe29d6a305913c956ea91c9a7dbd617326
+        source: dub
+        sourceNamespace: dub
+        sourceRevisionDigest: sha256:482980395d6303ebfad22767f38f557fe3f7de25a1feb8041a390f273f07fac9
+        sourceBlobDigest: sha256:4244ae7b26b184378f573916c8c4db664978ced4ef26e973a6ee5e7eaff6db65
         outLocation: /Users/kiran/Desktop/dub-ruby
 workflow:
     workflowVersion: 1.0.0
     sources:
-        my-first-source:
+        dub:
             inputs:
                 - location: https://api.dub.co
             publish:
-                location: registry.speakeasyapi.dev/dub/dub/my-first-source
+                location: registry.speakeasyapi.dev/dub/dub/dub
     targets:
         my-first-target:
             target: ruby
-            source: my-first-source
+            source: dub

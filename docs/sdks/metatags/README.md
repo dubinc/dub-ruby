@@ -12,7 +12,7 @@ Retrieve the metatags for a URL.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

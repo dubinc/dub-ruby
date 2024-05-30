@@ -19,7 +19,7 @@ Retrieve a list of links for the authenticated workspace. The list will be pagin
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -61,7 +61,7 @@ Create a new link for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -107,7 +107,7 @@ Retrieve the number of links for the authenticated workspace. The provided query
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -149,7 +149,7 @@ Retrieve the info for a link.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -194,7 +194,7 @@ Delete a link for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -238,7 +238,7 @@ Update a link for the authenticated workspace. If there's no change, returns it 
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -282,7 +282,7 @@ Bulk create up to 100 links for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -330,7 +330,7 @@ Upsert a link for the authenticated workspace by its URL. If a link with the sam
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

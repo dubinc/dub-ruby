@@ -1,15 +1,20 @@
-<div align="center">
-  <img src="https://github.com/dubinc/dub/assets/28986134/3815d859-afaa-48f9-a9b3-c09964e4d404" alt="Dub.co Ruby SDK to interact with APIs.">
-  <h3>Dub.co Ruby SDK</h3>
-  <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
-  </a>
+# dub
+
+<div align="left">
+    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
+    <a href="https://opensource.org/licenses/MIT">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
+    </a>
 </div>
 
-<br/>
 
-Learn more about the Dub.co Ruby SDK in the [official documentation](https://dub.co/docs/sdks/ruby/overview).
+## 🏗 **Welcome to your new SDK!** 🏗
+
+It has been generated successfully based on your OpenAPI spec. However, it is not yet ready for production use. Here are some next steps:
+- [ ] 🛠 Make your SDK feel handcrafted by [customizing it](https://www.speakeasyapi.dev/docs/customize-sdks)
+- [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
+- [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
+- [ ] ✨ When ready to productionize, delete this section from the README
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
@@ -26,7 +31,7 @@ gem specific_install
 ### Example 1
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -54,7 +59,7 @@ end
 ### Example 2
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -154,7 +159,7 @@ The following global parameters are available. The required parameters must be s
 ### Example
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

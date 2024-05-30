@@ -13,7 +13,7 @@ Retrieve a list of tags for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -54,7 +54,7 @@ Create a new tag for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

@@ -17,7 +17,7 @@ Retrieve a list of domains associated with the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -58,7 +58,7 @@ Add a domain to the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -107,7 +107,7 @@ Delete a domain from a workspace. It cannot be undone. This will also delete all
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -151,7 +151,7 @@ Update a domain for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -195,7 +195,7 @@ Set a domain as primary for the authenticated workspace.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
@@ -239,7 +239,7 @@ Transfer a domain to another workspace within the authenticated account.
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(

@@ -12,7 +12,7 @@ Retrieve analytics for a link, a domain, or the authenticated workspace. The res
 ### Example Usage
 
 ```ruby
-require 'openapi'
+require 'dub'
 
 
 s = ::OpenApiSDK::Dub.new(
