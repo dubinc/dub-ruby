@@ -9,3 +9,6 @@ targets:
     my-first-target:
         target: ruby
         source: my-first-source
+        publish:
+            rubygems:
+                token: $rubygems_auth_token
