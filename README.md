@@ -15,8 +15,7 @@ Learn more about the Dub.co Ruby SDK in the [official documentation](https://dub
 ## SDK Installation
 
 ```bash
-gem install specific_install
-gem specific_install  
+gem install openapi
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -42,7 +41,9 @@ s.config_security(
 res = s.links.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?
@@ -70,7 +71,9 @@ s.config_security(
 res = s.links.upsert(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
-    tag_ids: "<value>",
+    tag_ids: [
+    "<value>",
+  ],
   ))
 
 if ! res.link_schema.nil?

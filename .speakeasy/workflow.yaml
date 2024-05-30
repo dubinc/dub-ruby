@@ -1,9 +1,10 @@
 workflowVersion: 1.0.0
+speakeasyVersion: latest
 sources:
     my-first-source:
         inputs:
             - location: https://api.dub.co
-        publish:
+        registry:
             location: registry.speakeasyapi.dev/dub/dub/my-first-source
 targets:
     my-first-target:

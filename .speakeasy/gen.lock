@@ -1,15 +1,18 @@
 lockVersion: 2.0.0
 id: fafecf0d-ca11-4e59-8528-8d390fe1a753
 management:
-  docChecksum: 58f984453d09b11200ae524bf6ab56d2
+  docChecksum: 69dc05faa844a9e17f9180677089eb25
   docVersion: 0.0.1
-  speakeasyVersion: 1.272.0
-  generationVersion: 2.312.1
-  releaseVersion: 0.0.1
-  configChecksum: 7fbd2aec2e7d88c14d9ba20e5e98bcc5
+  speakeasyVersion: 1.299.3
+  generationVersion: 2.338.7
+  releaseVersion: 0.0.2
+  configChecksum: bacf7a306e200c7a16dc00a861a89780
+  repoURL: https://github.com/dubinc/dub-ruby.git
+  installationURL: https://github.com/dubinc/dub-ruby
+  published: true
 features:
   ruby:
-    core: 3.2.11
+    core: 3.2.12
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
