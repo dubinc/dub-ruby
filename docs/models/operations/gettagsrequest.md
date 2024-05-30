@@ -1,0 +1,9 @@
+# GetTagsRequest
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `workspace_id`                                                                 | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The ID of the workspace.                                                       |
+| `project_slug`                                                                 | *T.nilable(::String)*                                                          | :heavy_minus_sign:                                                             | The slug of the project. This field is deprecated – use `workspaceId` instead. |
