@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 69dc05faa844a9e17f9180677089eb25
+  docChecksum: 51863c384b062f0d4c1dd02e14254615
   docVersion: 0.0.1
-  speakeasyVersion: 1.299.3
+  speakeasyVersion: 1.299.4
   generationVersion: 2.338.7
-  releaseVersion: 0.0.2
-  configChecksum: 44ad03d0fe9744395542b8d01423cacb
+  releaseVersion: 0.0.3
+  configChecksum: abf023396fe34130c346977fe88dc2a9
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -139,13 +139,16 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/transferdomain_request.rb
   - lib/open_api_sdk/models/operations/transferdomain_response.rb
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
+  - lib/open_api_sdk/models/operations/tracklead_request.rb
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
   - lib/open_api_sdk/models/operations/tracklead_response.rb
   - lib/open_api_sdk/models/operations/paymentprocessor.rb
   - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
+  - lib/open_api_sdk/models/operations/tracksale_request.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/trackcustomer_requestbody.rb
+  - lib/open_api_sdk/models/operations/trackcustomer_request.rb
   - lib/open_api_sdk/models/operations/trackcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/trackcustomer_response.rb
   - lib/open_api_sdk/models/operations/getmetatags_request.rb
@@ -255,13 +258,16 @@ generatedFiles:
   - docs/models/operations/transferdomainrequest.md
   - docs/models/operations/transferdomainresponse.md
   - docs/models/operations/trackleadrequestbody.md
+  - docs/models/operations/trackleadrequest.md
   - docs/models/operations/trackleadresponsebody.md
   - docs/models/operations/trackleadresponse.md
   - docs/models/operations/paymentprocessor.md
   - docs/models/operations/tracksalerequestbody.md
+  - docs/models/operations/tracksalerequest.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/trackcustomerrequestbody.md
+  - docs/models/operations/trackcustomerrequest.md
   - docs/models/operations/trackcustomerresponsebody.md
   - docs/models/operations/trackcustomerresponse.md
   - docs/models/operations/getmetatagsrequest.md
