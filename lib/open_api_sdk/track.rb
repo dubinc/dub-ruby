@@ -19,21 +19,29 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackLeadRequestBody)).returns(::OpenApiSDK::Operations::TrackLeadResponse) }
-    def lead(request)
+    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackLeadRequestBody)).returns(::OpenApiSDK::Operations::TrackLeadResponse) }
+    def lead(workspace_id = nil, project_slug = nil, request_body = nil)
       # lead - Track a lead
       # Track a lead for a short link.
+      request = ::OpenApiSDK::Operations::TrackLeadRequest.new(
+        
+        workspace_id: workspace_id,
+        project_slug: project_slug,
+        request_body: request_body
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/lead"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::TrackLeadRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -104,21 +112,29 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackSaleRequestBody)).returns(::OpenApiSDK::Operations::TrackSaleResponse) }
-    def sale(request)
+    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackSaleRequestBody)).returns(::OpenApiSDK::Operations::TrackSaleResponse) }
+    def sale(workspace_id = nil, project_slug = nil, request_body = nil)
       # sale - Track a sale
       # Track a sale for a short link.
+      request = ::OpenApiSDK::Operations::TrackSaleRequest.new(
+        
+        workspace_id: workspace_id,
+        project_slug: project_slug,
+        request_body: request_body
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/sale"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::TrackSaleRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -189,21 +205,29 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackCustomerRequestBody)).returns(::OpenApiSDK::Operations::TrackCustomerResponse) }
-    def customer(request)
+    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackCustomerRequestBody)).returns(::OpenApiSDK::Operations::TrackCustomerResponse) }
+    def customer(workspace_id = nil, project_slug = nil, request_body = nil)
       # customer - Track a customer
       # Track a customer for an authenticated workspace.
+      request = ::OpenApiSDK::Operations::TrackCustomerRequest.new(
+        
+        workspace_id: workspace_id,
+        project_slug: project_slug,
+        request_body: request_body
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/customer"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::TrackCustomerRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)

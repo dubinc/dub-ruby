@@ -26,14 +26,12 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
-  click_id: "<value>",
-  event_name: "Signup",
-  customer_id: "<value>",
-)
     
-res = s.track.lead(req)
+res = s.track.lead(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::TrackLeadRequestBody.new(
+    click_id: "<value>",
+    event_name: "Signup",
+    customer_id: "<value>",
+  ))
 
 if ! res.object.nil?
   # handle response
@@ -45,7 +43,9 @@ end
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Operations::TrackLeadRequestBody](../../models/operations/trackleadrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `workspace_id`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The ID of the workspace.                                                                          |
+| `project_slug`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The slug of the project. This field is deprecated – use `workspaceId` instead.                    |
+| `request_body`                                                                                    | [::OpenApiSDK::Operations::TrackLeadRequestBody](../../models/operations/trackleadrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
 
 
 ### Response
@@ -72,14 +72,12 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
-  customer_id: "<value>",
-  amount: 996500,
-  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
-)
     
-res = s.track.sale(req)
+res = s.track.sale(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::TrackSaleRequestBody.new(
+    customer_id: "<value>",
+    amount: 996500,
+    payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
+  ))
 
 if ! res.object.nil?
   # handle response
@@ -91,7 +89,9 @@ end
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Operations::TrackSaleRequestBody](../../models/operations/tracksalerequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `workspace_id`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The ID of the workspace.                                                                          |
+| `project_slug`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The slug of the project. This field is deprecated – use `workspaceId` instead.                    |
+| `request_body`                                                                                    | [::OpenApiSDK::Operations::TrackSaleRequestBody](../../models/operations/tracksalerequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
 
 
 ### Response
@@ -118,12 +118,10 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::TrackCustomerRequestBody.new(
-  customer_id: "<value>",
-)
     
-res = s.track.customer(req)
+res = s.track.customer(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::TrackCustomerRequestBody.new(
+    customer_id: "<value>",
+  ))
 
 if ! res.object.nil?
   # handle response
@@ -135,7 +133,9 @@ end
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::OpenApiSDK::Operations::TrackCustomerRequestBody](../../models/operations/trackcustomerrequestbody.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `workspace_id`                                                                                            | *::String*                                                                                                | :heavy_minus_sign:                                                                                        | The ID of the workspace.                                                                                  |
+| `project_slug`                                                                                            | *::String*                                                                                                | :heavy_minus_sign:                                                                                        | The slug of the project. This field is deprecated – use `workspaceId` instead.                            |
+| `request_body`                                                                                            | [::OpenApiSDK::Operations::TrackCustomerRequestBody](../../models/operations/trackcustomerrequestbody.md) | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
 
 
 ### Response
