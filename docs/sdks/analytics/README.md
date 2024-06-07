@@ -27,6 +27,11 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
   timezone: "America/New_York",
+  city: "New York",
+  device: "Desktop",
+  browser: "Chrome",
+  os: "Windows",
+  referer: "google.com",
 )
     
 res = s.analytics.retrieve(req)
