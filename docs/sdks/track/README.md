@@ -29,7 +29,7 @@ s.config_security(
     
 res = s.track.lead(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::TrackLeadRequestBody.new(
     click_id: "<value>",
-    event_name: "Signup",
+    event_name: "Sign up",
     customer_id: "<value>",
   ))
 
@@ -77,6 +77,7 @@ res = s.track.sale(workspace_id="<value>", project_slug="<value>", request_body=
     customer_id: "<value>",
     amount: 996500,
     payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
+    event_name: "Purchase",
   ))
 
 if ! res.object.nil?

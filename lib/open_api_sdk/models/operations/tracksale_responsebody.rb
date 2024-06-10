@@ -18,6 +18,8 @@ module OpenApiSDK
 
       field :customer_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
 
+      field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
+
       field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
       field :metadata, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
@@ -25,11 +27,12 @@ module OpenApiSDK
       field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor') } }
 
 
-      sig { params(amount: ::Float, currency: ::String, customer_id: ::String, invoice_id: ::String, metadata: T::Hash[Symbol, ::Object], payment_processor: ::String).void }
-      def initialize(amount: nil, currency: nil, customer_id: nil, invoice_id: nil, metadata: nil, payment_processor: nil)
+      sig { params(amount: ::Float, currency: ::String, customer_id: ::String, event_name: ::String, invoice_id: ::String, metadata: T::Hash[Symbol, ::Object], payment_processor: ::String).void }
+      def initialize(amount: nil, currency: nil, customer_id: nil, event_name: nil, invoice_id: nil, metadata: nil, payment_processor: nil)
         @amount = amount
         @currency = currency
         @customer_id = customer_id
+        @event_name = event_name
         @invoice_id = invoice_id
         @metadata = metadata
         @payment_processor = payment_processor
