@@ -19,18 +19,21 @@ module OpenApiSDK
       field :payment_processor, ::OpenApiSDK::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::PaymentProcessor, false) } }
       # The currency of the sale. Accepts ISO 4217 currency codes.
       field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # The name of the sale event. It can be used to track different types of event for example 'Purchase', 'Upgrade', 'Payment', etc.
+      field :event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
       # The invoice ID of the sale.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
       # Additional metadata to be stored with the sale event.
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(amount: ::Integer, customer_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(amount: nil, customer_id: nil, payment_processor: nil, currency: nil, invoice_id: nil, metadata: nil)
+      sig { params(amount: ::Integer, customer_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(amount: nil, customer_id: nil, payment_processor: nil, currency: nil, event_name: nil, invoice_id: nil, metadata: nil)
         @amount = amount
         @customer_id = customer_id
         @payment_processor = payment_processor
         @currency = currency
+        @event_name = event_name
         @invoice_id = invoice_id
         @metadata = metadata
       end
