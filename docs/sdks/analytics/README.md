@@ -15,9 +15,7 @@ Retrieve analytics for a link, a domain, or the authenticated workspace. The res
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",

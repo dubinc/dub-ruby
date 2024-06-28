@@ -16,9 +16,7 @@ Retrieve a list of tags for the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -57,9 +55,7 @@ Create a new tag for the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class AddDomainResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateDomainResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -21,7 +21,7 @@ module OpenApiSDK
       field :bad_request, T.nilable(::OpenApiSDK::Shared::BadRequest)
       # This response is sent when a request conflicts with the current state of the server.
       field :conflict, T.nilable(::OpenApiSDK::Shared::Conflict)
-      # The domain was added.
+      # The domain was created.
       field :domain_schema, T.nilable(::OpenApiSDK::Shared::DomainSchema)
       # The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
       field :forbidden, T.nilable(::OpenApiSDK::Shared::Forbidden)

@@ -21,6 +21,8 @@ module OpenApiSDK
       field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
       # The description of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
+      field :do_index, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
       # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
       field :domain, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
       # The URL to redirect to when the short link has expired.
@@ -61,13 +63,14 @@ module OpenApiSDK
       field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
 
 
-      sig { params(url: ::String, android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), domain: T.nilable(::String), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), key: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean)).void }
-      def initialize(url: nil, android: nil, archived: nil, comments: nil, description: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, image: nil, ios: nil, key: nil, password: nil, prefix: nil, proxy: nil, public_stats: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil)
+      sig { params(url: ::String, android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), domain: T.nilable(::String), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), key: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean)).void }
+      def initialize(url: nil, android: nil, archived: nil, comments: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, image: nil, ios: nil, key: nil, password: nil, prefix: nil, proxy: nil, public_stats: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil)
         @url = url
         @android = android
         @archived = archived
         @comments = comments
         @description = description
+        @do_index = do_index
         @domain = domain
         @expired_url = expired_url
         @expires_at = expires_at

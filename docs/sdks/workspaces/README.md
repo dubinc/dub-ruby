@@ -17,9 +17,7 @@ Retrieve a list of workspaces for the authenticated user.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -51,9 +49,7 @@ Create a new workspace for the authenticated user.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -96,9 +92,7 @@ Retrieve a workspace for the authenticated user.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",

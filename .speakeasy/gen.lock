@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: ba3e83845a082a6c2321d0eeaaf9c23c
+  docChecksum: f8b1be2fa34844de98cc6c19757c0e81
   docVersion: 0.0.1
-  speakeasyVersion: 1.300.1
-  generationVersion: 2.339.1
-  releaseVersion: 0.0.5
-  configChecksum: ca47740c1f9091bad7d5a9ba60dd3cc6
+  speakeasyVersion: 1.322.1
+  generationVersion: 2.354.2
+  releaseVersion: 0.0.6
+  configChecksum: f0b5e2a48515a0f686bd1178e17f08a3
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.2.13
+    core: 3.2.14
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -122,14 +122,12 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createtag_response.rb
   - lib/open_api_sdk/models/operations/listdomains_request.rb
   - lib/open_api_sdk/models/operations/listdomains_response.rb
-  - lib/open_api_sdk/models/operations/type.rb
-  - lib/open_api_sdk/models/operations/adddomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/adddomain_request.rb
-  - lib/open_api_sdk/models/operations/adddomain_response.rb
+  - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
+  - lib/open_api_sdk/models/operations/createdomain_request.rb
+  - lib/open_api_sdk/models/operations/createdomain_response.rb
   - lib/open_api_sdk/models/operations/deletedomain_request.rb
   - lib/open_api_sdk/models/operations/deletedomain_responsebody.rb
   - lib/open_api_sdk/models/operations/deletedomain_response.rb
-  - lib/open_api_sdk/models/operations/updatedomain_type.rb
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
@@ -192,7 +190,6 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/users.rb
   - lib/open_api_sdk/models/shared/domains.rb
   - lib/open_api_sdk/models/shared/workspaceschema.rb
-  - lib/open_api_sdk/models/shared/type.rb
   - lib/open_api_sdk/models/shared/domainschema.rb
   - lib/open_api_sdk/models/shared/security.rb
   - lib/dub.rb
@@ -241,14 +238,12 @@ generatedFiles:
   - docs/models/operations/createtagresponse.md
   - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
-  - docs/models/operations/type.md
-  - docs/models/operations/adddomainrequestbody.md
-  - docs/models/operations/adddomainrequest.md
-  - docs/models/operations/adddomainresponse.md
+  - docs/models/operations/createdomainrequestbody.md
+  - docs/models/operations/createdomainrequest.md
+  - docs/models/operations/createdomainresponse.md
   - docs/models/operations/deletedomainrequest.md
   - docs/models/operations/deletedomainresponsebody.md
   - docs/models/operations/deletedomainresponse.md
-  - docs/models/operations/updatedomaintype.md
   - docs/models/operations/updatedomainrequestbody.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainresponse.md
@@ -311,7 +306,6 @@ generatedFiles:
   - docs/models/shared/users.md
   - docs/models/shared/domains.md
   - docs/models/shared/workspaceschema.md
-  - docs/models/shared/type.md
   - docs/models/shared/domainschema.md
   - docs/models/shared/security.md
   - docs/sdks/dub/README.md
