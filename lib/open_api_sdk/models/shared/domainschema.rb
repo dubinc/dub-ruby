@@ -13,40 +13,34 @@ module OpenApiSDK
 
       # Whether the domain is archived.
       field :archived, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
-      # The number of clicks on the domain.
-      field :clicks, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
+      # The date the domain was created.
+      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
       # The URL to redirect to when a link under this domain has expired.
       field :expired_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
       # The unique identifier of the domain.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # Prevent search engines from indexing the domain.
-      field :noindex, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('noindex') } }
       # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
       field :placeholder, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
       # Whether the domain is the primary domain for the workspace.
       field :primary, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
       # The domain name.
       field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # The page your users will get redirected to when they visit your domain.
-      field :target, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('target') } }
-      # The type of redirect to use for this domain.
-      field :type, ::OpenApiSDK::Shared::Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Type, false) } }
+      # The date the domain was last updated.
+      field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
       # Whether the domain is verified.
       field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
 
 
-      sig { params(archived: T::Boolean, clicks: ::Float, expired_url: ::String, id: ::String, noindex: T::Boolean, placeholder: ::String, primary: T::Boolean, slug: ::String, target: ::String, type: ::OpenApiSDK::Shared::Type, verified: T::Boolean).void }
-      def initialize(archived: nil, clicks: nil, expired_url: nil, id: nil, noindex: nil, placeholder: nil, primary: nil, slug: nil, target: nil, type: nil, verified: nil)
+      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, placeholder: ::String, primary: T::Boolean, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
+      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, placeholder: nil, primary: nil, slug: nil, updated_at: nil, verified: nil)
         @archived = archived
-        @clicks = clicks
+        @created_at = created_at
         @expired_url = expired_url
         @id = id
-        @noindex = noindex
         @placeholder = placeholder
         @primary = primary
         @slug = slug
-        @target = target
-        @type = type
+        @updated_at = updated_at
         @verified = verified
       end
     end

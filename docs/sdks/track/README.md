@@ -17,9 +17,7 @@ Track a lead for a short link.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -63,9 +61,7 @@ Track a sale for a short link.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -110,9 +106,7 @@ Track a customer for an authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",

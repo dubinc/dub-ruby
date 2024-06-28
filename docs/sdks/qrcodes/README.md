@@ -15,9 +15,7 @@ Retrieve a QR code for a link.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",

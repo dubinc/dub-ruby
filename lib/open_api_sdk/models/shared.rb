@@ -43,7 +43,6 @@ module OpenApiSDK
     autoload :Users, 'open_api_sdk/models/shared/users.rb'
     autoload :Domains, 'open_api_sdk/models/shared/domains.rb'
     autoload :WorkspaceSchema, 'open_api_sdk/models/shared/workspaceschema.rb'
-    autoload :Type, 'open_api_sdk/models/shared/type.rb'
     autoload :DomainSchema, 'open_api_sdk/models/shared/domainschema.rb'
     autoload :Security, 'open_api_sdk/models/shared/security.rb'
   end

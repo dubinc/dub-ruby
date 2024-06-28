@@ -102,11 +102,11 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::AddDomainRequestBody)).returns(::OpenApiSDK::Operations::AddDomainResponse) }
-    def add(workspace_id = nil, project_slug = nil, request_body = nil)
-      # add - Add a domain
-      # Add a domain to the authenticated workspace.
-      request = ::OpenApiSDK::Operations::AddDomainRequest.new(
+    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::CreateDomainRequestBody)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
+    def create(workspace_id = nil, project_slug = nil, request_body = nil)
+      # create - Create a domain
+      # Create a domain for the authenticated workspace.
+      request = ::OpenApiSDK::Operations::CreateDomainRequest.new(
         
         workspace_id: workspace_id,
         project_slug: project_slug,
@@ -118,7 +118,7 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::AddDomainRequest, request, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::CreateDomainRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -137,7 +137,7 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::AddDomainResponse.new(
+      res = ::OpenApiSDK::Operations::CreateDomainResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 201

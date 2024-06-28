@@ -4,7 +4,7 @@
 ### Available Operations
 
 * [list](#list) - Retrieve a list of domains
-* [add](#add) - Add a domain
+* [create](#create) - Create a domain
 * [delete](#delete) - Delete a domain
 * [update](#update) - Update a domain
 * [set_primary](#set_primary) - Set a domain as primary
@@ -20,9 +20,7 @@ Retrieve a list of domains associated with the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -51,9 +49,9 @@ end
 **[T.nilable(::OpenApiSDK::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
 
 
-## add
+## create
 
-Add a domain to the authenticated workspace.
+Create a domain for the authenticated workspace.
 
 ### Example Usage
 
@@ -61,9 +59,7 @@ Add a domain to the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -71,10 +67,8 @@ s.config_security(
 )
 
     
-res = s.domains.add(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::AddDomainRequestBody.new(
+res = s.domains.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateDomainRequestBody.new(
     slug: "acme.com",
-    type: ::OpenApiSDK::Operations::Type::REDIRECT,
-    target: "https://acme.com/landing",
     expired_url: "https://acme.com/expired",
     archived: false,
     placeholder: "https://dub.co/help/article/what-is-dub",
@@ -88,16 +82,16 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The ID of the workspace.                                                                          |
-| `project_slug`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The slug of the project. This field is deprecated – use `workspaceId` instead.                    |
-| `request_body`                                                                                    | [::OpenApiSDK::Operations::AddDomainRequestBody](../../models/operations/adddomainrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `workspace_id`                                                                                          | *::String*                                                                                              | :heavy_minus_sign:                                                                                      | The ID of the workspace.                                                                                |
+| `project_slug`                                                                                          | *::String*                                                                                              | :heavy_minus_sign:                                                                                      | The slug of the project. This field is deprecated – use `workspaceId` instead.                          |
+| `request_body`                                                                                          | [::OpenApiSDK::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
 
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::AddDomainResponse)](../../models/operations/adddomainresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::CreateDomainResponse)](../../models/operations/createdomainresponse.md)**
 
 
 ## delete
@@ -110,9 +104,7 @@ Delete a domain from a workspace. It cannot be undone. This will also delete all
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -154,9 +146,7 @@ Update a domain for the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -168,8 +158,6 @@ req = ::OpenApiSDK::Operations::UpdateDomainRequest.new(
   slug: "acme.com",
   request_body: ::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
     slug: "acme.com",
-    type: ::OpenApiSDK::Operations::UpdateDomainType::REDIRECT,
-    target: "https://acme.com/landing",
     expired_url: "https://acme.com/expired",
     archived: false,
     placeholder: "https://dub.co/help/article/what-is-dub",
@@ -206,9 +194,7 @@ Set a domain as primary for the authenticated workspace.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
@@ -250,9 +236,7 @@ Transfer a domain to another workspace within the authenticated account.
 require 'dub'
 
 
-s = ::OpenApiSDK::Dub.new(
-      workspace_id: "<value>",
-    )
+s = ::OpenApiSDK::Dub.new
 s.config_security(
   ::OpenApiSDK::Shared::Security.new(
     token: "DUB_API_KEY",
