@@ -97,16 +97,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::CreateLinkRequestBody)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
-    def create(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequest)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
+    def create(request)
       # create - Create a new link
       # Create a new link for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::CreateLinkRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
@@ -346,16 +340,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String)).returns(::OpenApiSDK::Operations::DeleteLinkResponse) }
-    def delete(link_id, workspace_id = nil, project_slug = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteLinkRequest)).returns(::OpenApiSDK::Operations::DeleteLinkResponse) }
+    def delete(request)
       # delete - Delete a link
       # Delete a link for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::DeleteLinkRequest.new(
-        
-        link_id: link_id,
-        workspace_id: workspace_id,
-        project_slug: project_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -436,17 +424,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody)).returns(::OpenApiSDK::Operations::UpdateLinkResponse) }
-    def update(link_id, workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequest)).returns(::OpenApiSDK::Operations::UpdateLinkResponse) }
+    def update(request)
       # update - Update a link
       # Update a link for the authenticated workspace. If there's no change, returns it as it is.
-      request = ::OpenApiSDK::Operations::UpdateLinkRequest.new(
-        
-        link_id: link_id,
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -536,16 +517,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(T::Array[::OpenApiSDK::Operations::RequestBody])).returns(::OpenApiSDK::Operations::BulkCreateLinksResponse) }
-    def create_many(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkCreateLinksRequest)).returns(::OpenApiSDK::Operations::BulkCreateLinksResponse) }
+    def create_many(request)
       # create_many - Bulk create links
       # Bulk create up to 100 links for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::BulkCreateLinksRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
@@ -629,16 +604,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::UpsertLinkRequestBody)).returns(::OpenApiSDK::Operations::UpsertLinkResponse) }
-    def upsert(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertLinkRequest)).returns(::OpenApiSDK::Operations::UpsertLinkResponse) }
+    def upsert(request)
       # upsert - Upsert a link
       # Upsert a link for the authenticated workspace by its URL. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
-      request = ::OpenApiSDK::Operations::UpsertLinkRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/upsert"

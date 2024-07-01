@@ -19,15 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String)).returns(::OpenApiSDK::Operations::GetTagsResponse) }
-    def list(workspace_id = nil, project_slug = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetTagsRequest)).returns(::OpenApiSDK::Operations::GetTagsResponse) }
+    def list(request)
       # list - Retrieve a list of tags
       # Retrieve a list of tags for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::GetTagsRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"
@@ -102,16 +97,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::CreateTagRequestBody)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
-    def create(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateTagRequest)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
+    def create(request)
       # create - Create a new tag
       # Create a new tag for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::CreateTagRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"

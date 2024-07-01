@@ -27,8 +27,10 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::ListDomainsRequest.new()
     
-res = s.domains.list(workspace_id="<value>", project_slug="<value>")
+res = s.domains.list(req)
 
 if ! res.domain_schemas.nil?
   # handle response
@@ -38,10 +40,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `workspace_id`                                                                 | *::String*                                                                     | :heavy_minus_sign:                                                             | The ID of the workspace.                                                       |
-| `project_slug`                                                                 | *::String*                                                                     | :heavy_minus_sign:                                                             | The slug of the project. This field is deprecated – use `workspaceId` instead. |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::OpenApiSDK::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
@@ -66,13 +67,17 @@ s.config_security(
   )
 )
 
-    
-res = s.domains.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateDomainRequestBody.new(
+
+req = ::OpenApiSDK::Operations::CreateDomainRequest.new(
+  request_body: ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
     slug: "acme.com",
     expired_url: "https://acme.com/expired",
     archived: false,
     placeholder: "https://dub.co/help/article/what-is-dub",
-  ))
+  ),
+)
+    
+res = s.domains.create(req)
 
 if ! res.domain_schema.nil?
   # handle response
@@ -82,11 +87,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                                          | *::String*                                                                                              | :heavy_minus_sign:                                                                                      | The ID of the workspace.                                                                                |
-| `project_slug`                                                                                          | *::String*                                                                                              | :heavy_minus_sign:                                                                                      | The slug of the project. This field is deprecated – use `workspaceId` instead.                          |
-| `request_body`                                                                                          | [::OpenApiSDK::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [::OpenApiSDK::Operations::CreateDomainRequest](../../models/operations/createdomainrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response

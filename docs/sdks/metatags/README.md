@@ -22,8 +22,12 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::GetMetatagsRequest.new(
+  url: "https://dub.co",
+)
     
-res = s.metatags.get(url="https://dub.co")
+res = s.metatags.get(req)
 
 if ! res.object.nil?
   # handle response
@@ -33,9 +37,9 @@ end
 
 ### Parameters
 
-| Parameter                         | Type                              | Required                          | Description                       | Example                           |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `url`                             | *::String*                        | :heavy_check_mark:                | The URL to retrieve metatags for. | https://dub.co                    |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::OpenApiSDK::Operations::GetMetatagsRequest](../../models/operations/getmetatagsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response

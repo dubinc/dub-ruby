@@ -69,14 +69,18 @@ s.config_security(
   )
 )
 
-    
-res = s.links.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+
+req = ::OpenApiSDK::Operations::CreateLinkRequest.new(
+  request_body: ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
     tag_ids: [
     "<value>",
   ],
-  ))
+  ),
+)
+    
+res = s.links.create(req)
 
 if ! res.link_schema.nil?
   # handle response
@@ -86,11 +90,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                                      | *::String*                                                                                          | :heavy_minus_sign:                                                                                  | The ID of the workspace.                                                                            |
-| `project_slug`                                                                                      | *::String*                                                                                          | :heavy_minus_sign:                                                                                  | The slug of the project. This field is deprecated – use `workspaceId` instead.                      |
-| `request_body`                                                                                      | [::OpenApiSDK::Operations::CreateLinkRequestBody](../../models/operations/createlinkrequestbody.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [::OpenApiSDK::Operations::CreateLinkRequest](../../models/operations/createlinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
@@ -289,8 +291,9 @@ s.config_security(
   )
 )
 
-    
-res = s.links.create_many(workspace_id="<value>", project_slug="<value>", request_body=[
+
+req = ::OpenApiSDK::Operations::BulkCreateLinksRequest.new(
+  request_body: [
     ::OpenApiSDK::Operations::RequestBody.new(
       url: "https://google/com",
       external_id: "123456",
@@ -298,7 +301,10 @@ res = s.links.create_many(workspace_id="<value>", project_slug="<value>", reques
       "<value>",
     ],
     ),
-  ])
+  ],
+)
+    
+res = s.links.create_many(req)
 
 if ! res.link_schemas.nil?
   # handle response
@@ -308,11 +314,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                            | *::String*                                                                                | :heavy_minus_sign:                                                                        | The ID of the workspace.                                                                  |
-| `project_slug`                                                                            | *::String*                                                                                | :heavy_minus_sign:                                                                        | The slug of the project. This field is deprecated – use `workspaceId` instead.            |
-| `request_body`                                                                            | T::Array<[::OpenApiSDK::Operations::RequestBody](../../models/operations/requestbody.md)> | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [::OpenApiSDK::Operations::BulkCreateLinksRequest](../../models/operations/bulkcreatelinksrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 
 ### Response
@@ -337,14 +341,18 @@ s.config_security(
   )
 )
 
-    
-res = s.links.upsert(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
+
+req = ::OpenApiSDK::Operations::UpsertLinkRequest.new(
+  request_body: ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     url: "https://google/com",
     external_id: "123456",
     tag_ids: [
     "<value>",
   ],
-  ))
+  ),
+)
+    
+res = s.links.upsert(req)
 
 if ! res.link_schema.nil?
   # handle response
@@ -354,11 +362,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                                      | *::String*                                                                                          | :heavy_minus_sign:                                                                                  | The ID of the workspace.                                                                            |
-| `project_slug`                                                                                      | *::String*                                                                                          | :heavy_minus_sign:                                                                                  | The slug of the project. This field is deprecated – use `workspaceId` instead.                      |
-| `request_body`                                                                                      | [::OpenApiSDK::Operations::UpsertLinkRequestBody](../../models/operations/upsertlinkrequestbody.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [::OpenApiSDK::Operations::UpsertLinkRequest](../../models/operations/upsertlinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response

@@ -23,8 +23,10 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::GetTagsRequest.new()
     
-res = s.tags.list(workspace_id="<value>", project_slug="<value>")
+res = s.tags.list(req)
 
 if ! res.tag_schemas.nil?
   # handle response
@@ -34,10 +36,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `workspace_id`                                                                 | *::String*                                                                     | :heavy_minus_sign:                                                             | The ID of the workspace.                                                       |
-| `project_slug`                                                                 | *::String*                                                                     | :heavy_minus_sign:                                                             | The slug of the project. This field is deprecated – use `workspaceId` instead. |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [::OpenApiSDK::Operations::GetTagsRequest](../../models/operations/gettagsrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
@@ -62,10 +63,10 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::CreateTagRequest.new()
     
-res = s.tags.create(workspace_id="<value>", project_slug="<value>", request_body=::OpenApiSDK::Operations::CreateTagRequestBody.new(
-    tag: "<value>",
-  ))
+res = s.tags.create(req)
 
 if ! res.tag_schema.nil?
   # handle response
@@ -75,11 +76,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `workspace_id`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The ID of the workspace.                                                                          |
-| `project_slug`                                                                                    | *::String*                                                                                        | :heavy_minus_sign:                                                                                | The slug of the project. This field is deprecated – use `workspaceId` instead.                    |
-| `request_body`                                                                                    | [::OpenApiSDK::Operations::CreateTagRequestBody](../../models/operations/createtagrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [::OpenApiSDK::Operations::CreateTagRequest](../../models/operations/createtagrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response

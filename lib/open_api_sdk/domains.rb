@@ -19,15 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String)).returns(::OpenApiSDK::Operations::ListDomainsResponse) }
-    def list(workspace_id = nil, project_slug = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::ListDomainsRequest)).returns(::OpenApiSDK::Operations::ListDomainsResponse) }
+    def list(request)
       # list - Retrieve a list of domains
       # Retrieve a list of domains associated with the authenticated workspace.
-      request = ::OpenApiSDK::Operations::ListDomainsRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/domains"
@@ -102,16 +97,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::CreateDomainRequestBody)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
-    def create(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateDomainRequest)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
+    def create(request)
       # create - Create a domain
       # Create a domain for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::CreateDomainRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/domains"
@@ -195,16 +184,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String)).returns(::OpenApiSDK::Operations::DeleteDomainResponse) }
-    def delete(slug, workspace_id = nil, project_slug = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteDomainRequest)).returns(::OpenApiSDK::Operations::DeleteDomainResponse) }
+    def delete(request)
       # delete - Delete a domain
       # Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
-      request = ::OpenApiSDK::Operations::DeleteDomainRequest.new(
-        
-        slug: slug,
-        workspace_id: workspace_id,
-        project_slug: project_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -285,17 +268,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody)).returns(::OpenApiSDK::Operations::UpdateDomainResponse) }
-    def update(slug, workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdateDomainRequest)).returns(::OpenApiSDK::Operations::UpdateDomainResponse) }
+    def update(request)
       # update - Update a domain
       # Update a domain for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::UpdateDomainRequest.new(
-        
-        slug: slug,
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -385,16 +361,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String)).returns(::OpenApiSDK::Operations::SetPrimaryDomainResponse) }
-    def set_primary(slug, workspace_id = nil, project_slug = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::SetPrimaryDomainRequest)).returns(::OpenApiSDK::Operations::SetPrimaryDomainResponse) }
+    def set_primary(request)
       # set_primary - Set a domain as primary
       # Set a domain as primary for the authenticated workspace.
-      request = ::OpenApiSDK::Operations::SetPrimaryDomainRequest.new(
-        
-        slug: slug,
-        workspace_id: workspace_id,
-        project_slug: project_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -475,17 +445,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TransferDomainRequestBody)).returns(::OpenApiSDK::Operations::TransferDomainResponse) }
-    def transfer(slug, workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::TransferDomainRequest)).returns(::OpenApiSDK::Operations::TransferDomainResponse) }
+    def transfer(request)
       # transfer - Transfer a domain
       # Transfer a domain to another workspace within the authenticated account.
-      request = ::OpenApiSDK::Operations::TransferDomainRequest.new(
-        
-        slug: slug,
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
