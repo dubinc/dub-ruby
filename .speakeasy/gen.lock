@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: f8b1be2fa34844de98cc6c19757c0e81
+  docChecksum: 5419a35a3e662a9a0df7547a5a8ffdc3
   docVersion: 0.0.1
-  speakeasyVersion: 1.322.1
+  speakeasyVersion: 1.322.3
   generationVersion: 2.354.2
-  releaseVersion: 0.0.6
-  configChecksum: f0b5e2a48515a0f686bd1178e17f08a3
+  releaseVersion: 0.0.7
+  configChecksum: 762d83627c595e44555526056cb6c5ee
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -109,9 +109,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/interval.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
-  - lib/open_api_sdk/models/operations/getworkspaces_response.rb
-  - lib/open_api_sdk/models/operations/createworkspace_requestbody.rb
-  - lib/open_api_sdk/models/operations/createworkspace_response.rb
   - lib/open_api_sdk/models/operations/getworkspace_request.rb
   - lib/open_api_sdk/models/operations/getworkspace_response.rb
   - lib/open_api_sdk/models/operations/gettags_request.rb
@@ -225,9 +222,6 @@ generatedFiles:
   - docs/models/operations/interval.md
   - docs/models/operations/retrieveanalyticsrequest.md
   - docs/models/operations/retrieveanalyticsresponse.md
-  - docs/models/operations/getworkspacesresponse.md
-  - docs/models/operations/createworkspacerequestbody.md
-  - docs/models/operations/createworkspaceresponse.md
   - docs/models/operations/getworkspacerequest.md
   - docs/models/operations/getworkspaceresponse.md
   - docs/models/operations/gettagsrequest.md
