@@ -14,7 +14,7 @@ module OpenApiSDK
       # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
       # The page number for pagination (each page contains 100 links).
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+      field :page, T.nilable(::Integer), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
       # The slug of the project. This field is deprecated – use `workspaceId` instead.
       field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
       # The search term to filter the links by. The search term will be matched against the short link slug and the destination url.
@@ -37,7 +37,7 @@ module OpenApiSDK
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), page: T.nilable(::Float), project_slug: T.nilable(::String), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean), workspace_id: T.nilable(::String)).void }
+      sig { params(domain: T.nilable(::String), page: T.nilable(::Integer), project_slug: T.nilable(::String), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean), workspace_id: T.nilable(::String)).void }
       def initialize(domain: nil, page: nil, project_slug: nil, search: nil, show_archived: nil, sort: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil, workspace_id: nil)
         @domain = domain
         @page = page
