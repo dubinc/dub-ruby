@@ -22,8 +22,12 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::GetWorkspaceRequest.new(
+  id_or_slug: "<value>",
+)
     
-res = s.workspaces.get(id_or_slug="<value>")
+res = s.workspaces.get(req)
 
 if ! res.workspace_schema.nil?
   # handle response
@@ -33,9 +37,9 @@ end
 
 ### Parameters
 
-| Parameter                        | Type                             | Required                         | Description                      |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `id_or_slug`                     | *::String*                       | :heavy_check_mark:               | The ID or slug of the workspace. |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [::OpenApiSDK::Operations::GetWorkspaceRequest](../../models/operations/getworkspacerequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response

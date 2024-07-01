@@ -19,14 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(id_or_slug: ::String).returns(::OpenApiSDK::Operations::GetWorkspaceResponse) }
-    def get(id_or_slug)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetWorkspaceRequest)).returns(::OpenApiSDK::Operations::GetWorkspaceResponse) }
+    def get(request)
       # get - Retrieve a workspace
       # Retrieve a workspace for the authenticated user.
-      request = ::OpenApiSDK::Operations::GetWorkspaceRequest.new(
-        
-        id_or_slug: id_or_slug
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(

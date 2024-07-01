@@ -19,16 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackLeadRequestBody)).returns(::OpenApiSDK::Operations::TrackLeadResponse) }
-    def lead(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackLeadRequest)).returns(::OpenApiSDK::Operations::TrackLeadResponse) }
+    def lead(request)
       # lead - Track a lead
       # Track a lead for a short link.
-      request = ::OpenApiSDK::Operations::TrackLeadRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/lead"
@@ -112,16 +106,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackSaleRequestBody)).returns(::OpenApiSDK::Operations::TrackSaleResponse) }
-    def sale(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackSaleRequest)).returns(::OpenApiSDK::Operations::TrackSaleResponse) }
+    def sale(request)
       # sale - Track a sale
       # Track a sale for a short link.
-      request = ::OpenApiSDK::Operations::TrackSaleRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/sale"
@@ -205,16 +193,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(workspace_id: T.nilable(::String), project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TrackCustomerRequestBody)).returns(::OpenApiSDK::Operations::TrackCustomerResponse) }
-    def customer(workspace_id = nil, project_slug = nil, request_body = nil)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::TrackCustomerRequest)).returns(::OpenApiSDK::Operations::TrackCustomerResponse) }
+    def customer(request)
       # customer - Track a customer
       # Track a customer for an authenticated workspace.
-      request = ::OpenApiSDK::Operations::TrackCustomerRequest.new(
-        
-        workspace_id: workspace_id,
-        project_slug: project_slug,
-        request_body: request_body
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/track/customer"

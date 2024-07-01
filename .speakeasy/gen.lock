@@ -5,8 +5,8 @@ management:
   docVersion: 0.0.1
   speakeasyVersion: 1.322.3
   generationVersion: 2.354.2
-  releaseVersion: 0.0.7
-  configChecksum: 762d83627c595e44555526056cb6c5ee
+  releaseVersion: 0.1.0
+  configChecksum: d684ce1a1229e819eb60a0676c0f779e
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -15,7 +15,6 @@ features:
     core: 3.2.14
     deprecations: 2.81.1
     examples: 2.81.3
-    flattening: 2.81.1
     globalSecurity: 2.81.6
     globalServerURLs: 2.82.3
     globals: 2.82.1

@@ -19,14 +19,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(url: ::String).returns(::OpenApiSDK::Operations::GetMetatagsResponse) }
-    def get(url)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetMetatagsRequest)).returns(::OpenApiSDK::Operations::GetMetatagsResponse) }
+    def get(request)
       # get - Retrieve the metatags for a URL
       # Retrieve the metatags for a URL.
-      request = ::OpenApiSDK::Operations::GetMetatagsRequest.new(
-        
-        url: url
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/metatags"
