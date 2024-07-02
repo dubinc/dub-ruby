@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 5419a35a3e662a9a0df7547a5a8ffdc3
+  docChecksum: c0895b6571175adfc5c4d2c3943adf22
   docVersion: 0.0.1
-  speakeasyVersion: 1.322.3
-  generationVersion: 2.354.2
-  releaseVersion: 0.1.0
-  configChecksum: d684ce1a1229e819eb60a0676c0f779e
+  speakeasyVersion: 1.325.0
+  generationVersion: 2.356.0
+  releaseVersion: 0.1.1
+  configChecksum: 89f71df4ccd8c28d715c267744b85d19
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -110,12 +110,18 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
   - lib/open_api_sdk/models/operations/getworkspace_request.rb
   - lib/open_api_sdk/models/operations/getworkspace_response.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_request.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_response.rb
   - lib/open_api_sdk/models/operations/gettags_request.rb
   - lib/open_api_sdk/models/operations/gettags_response.rb
   - lib/open_api_sdk/models/operations/color.rb
   - lib/open_api_sdk/models/operations/createtag_requestbody.rb
   - lib/open_api_sdk/models/operations/createtag_request.rb
   - lib/open_api_sdk/models/operations/createtag_response.rb
+  - lib/open_api_sdk/models/operations/updatetag_color.rb
+  - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatetag_request.rb
+  - lib/open_api_sdk/models/operations/updatetag_response.rb
   - lib/open_api_sdk/models/operations/listdomains_request.rb
   - lib/open_api_sdk/models/operations/listdomains_response.rb
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
@@ -127,11 +133,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
-  - lib/open_api_sdk/models/operations/setprimarydomain_request.rb
-  - lib/open_api_sdk/models/operations/setprimarydomain_response.rb
-  - lib/open_api_sdk/models/operations/transferdomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/transferdomain_request.rb
-  - lib/open_api_sdk/models/operations/transferdomain_response.rb
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
   - lib/open_api_sdk/models/operations/tracklead_request.rb
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
@@ -223,12 +224,18 @@ generatedFiles:
   - docs/models/operations/retrieveanalyticsresponse.md
   - docs/models/operations/getworkspacerequest.md
   - docs/models/operations/getworkspaceresponse.md
+  - docs/models/operations/updateworkspacerequest.md
+  - docs/models/operations/updateworkspaceresponse.md
   - docs/models/operations/gettagsrequest.md
   - docs/models/operations/gettagsresponse.md
   - docs/models/operations/color.md
   - docs/models/operations/createtagrequestbody.md
   - docs/models/operations/createtagrequest.md
   - docs/models/operations/createtagresponse.md
+  - docs/models/operations/updatetagcolor.md
+  - docs/models/operations/updatetagrequestbody.md
+  - docs/models/operations/updatetagrequest.md
+  - docs/models/operations/updatetagresponse.md
   - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
   - docs/models/operations/createdomainrequestbody.md
@@ -240,11 +247,6 @@ generatedFiles:
   - docs/models/operations/updatedomainrequestbody.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainresponse.md
-  - docs/models/operations/setprimarydomainrequest.md
-  - docs/models/operations/setprimarydomainresponse.md
-  - docs/models/operations/transferdomainrequestbody.md
-  - docs/models/operations/transferdomainrequest.md
-  - docs/models/operations/transferdomainresponse.md
   - docs/models/operations/trackleadrequestbody.md
   - docs/models/operations/trackleadrequest.md
   - docs/models/operations/trackleadresponsebody.md

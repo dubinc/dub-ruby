@@ -8,11 +8,11 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateTagRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateTagRequestBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, pink, brown.
-      field :color, T.nilable(::OpenApiSDK::Operations::Color), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Color, true) } }
+      field :color, T.nilable(::OpenApiSDK::Operations::UpdateTagColor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::UpdateTagColor, true) } }
       # The name of the tag to create.
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The name of the tag to create.
@@ -21,7 +21,7 @@ module OpenApiSDK
       field :tag, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tag') } }
 
 
-      sig { params(color: T.nilable(::OpenApiSDK::Operations::Color), name: T.nilable(::String), tag: T.nilable(::String)).void }
+      sig { params(color: T.nilable(::OpenApiSDK::Operations::UpdateTagColor), name: T.nilable(::String), tag: T.nilable(::String)).void }
       def initialize(color: nil, name: nil, tag: nil)
         @color = color
         @name = name
