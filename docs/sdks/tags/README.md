@@ -5,6 +5,7 @@
 
 * [list](#list) - Retrieve a list of tags
 * [create](#create) - Create a new tag
+* [update](#update) - Update a tag
 
 ## list
 
@@ -84,4 +85,46 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateTagResponse)](../../models/operations/createtagresponse.md)**
+
+
+## update
+
+Update a tag in the workspace.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+
+req = ::OpenApiSDK::Operations::UpdateTagRequest.new(
+  id: "<id>",
+)
+    
+res = s.tags.update(req)
+
+if ! res.tag_schema.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [::OpenApiSDK::Operations::UpdateTagRequest](../../models/operations/updatetagrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::UpdateTagResponse)](../../models/operations/updatetagresponse.md)**
 

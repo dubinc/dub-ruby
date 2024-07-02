@@ -8,22 +8,22 @@ module OpenApiSDK
   module Operations
   
 
-    class TransferDomainRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateTagRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The domain name.
-      field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
+      # The ID of the tag
+      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The slug of the project. This field is deprecated – use `workspaceId` instead.
       field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::TransferDomainRequestBody), { 'request': { 'media_type': 'application/json' } }
+      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateTagRequestBody), { 'request': { 'media_type': 'application/json' } }
       # The ID of the workspace.
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(slug: ::String, project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::TransferDomainRequestBody), workspace_id: T.nilable(::String)).void }
-      def initialize(slug: nil, project_slug: nil, request_body: nil, workspace_id: nil)
-        @slug = slug
+      sig { params(id: ::String, project_slug: T.nilable(::String), request_body: T.nilable(::OpenApiSDK::Operations::UpdateTagRequestBody), workspace_id: T.nilable(::String)).void }
+      def initialize(id: nil, project_slug: nil, request_body: nil, workspace_id: nil)
+        @id = id
         @project_slug = project_slug
         @request_body = request_body
         @workspace_id = workspace_id

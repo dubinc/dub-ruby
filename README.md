@@ -112,11 +112,13 @@ end
 ### [Workspaces](docs/sdks/workspaces/README.md)
 
 * [get](docs/sdks/workspaces/README.md#get) - Retrieve a workspace
+* [update](docs/sdks/workspaces/README.md#update) - Update a workspace
 
 ### [Tags](docs/sdks/tags/README.md)
 
 * [list](docs/sdks/tags/README.md#list) - Retrieve a list of tags
 * [create](docs/sdks/tags/README.md#create) - Create a new tag
+* [update](docs/sdks/tags/README.md#update) - Update a tag
 
 ### [Domains](docs/sdks/domains/README.md)
 
@@ -124,8 +126,6 @@ end
 * [create](docs/sdks/domains/README.md#create) - Create a domain
 * [delete](docs/sdks/domains/README.md#delete) - Delete a domain
 * [update](docs/sdks/domains/README.md#update) - Update a domain
-* [set_primary](docs/sdks/domains/README.md#set_primary) - Set a domain as primary
-* [transfer](docs/sdks/domains/README.md#transfer) - Transfer a domain
 
 ### [Track](docs/sdks/track/README.md)
 
