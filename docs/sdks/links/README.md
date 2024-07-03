@@ -10,6 +10,7 @@
 * [delete](#delete) - Delete a link
 * [update](#update) - Update a link
 * [create_many](#create_many) - Bulk create links
+* [update_many](#update_many) - Bulk update links
 * [upsert](#upsert) - Upsert a link
 
 ## list
@@ -322,6 +323,56 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::BulkCreateLinksResponse)](../../models/operations/bulkcreatelinksresponse.md)**
+
+
+## update_many
+
+Bulk update up to 100 links with the same data for the authenticated workspace.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+
+req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
+  link_ids: [
+    "<value>",
+  ],
+  data: ::OpenApiSDK::Operations::Data.new(
+    url: "https://google/com",
+    tag_ids: [
+    "<value>",
+  ],
+  ),
+)
+    
+res = s.links.update_many(req)
+
+if ! res.link_schemas.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [::OpenApiSDK::Operations::BulkUpdateLinksRequestBody](../../models/operations/bulkupdatelinksrequestbody.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksResponse)](../../models/operations/bulkupdatelinksresponse.md)**
 
 
 ## upsert
