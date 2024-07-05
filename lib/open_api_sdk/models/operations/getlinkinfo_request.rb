@@ -19,19 +19,16 @@ module OpenApiSDK
       field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
       # The unique ID of the short link.
       field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
-      # The slug of the project. This field is deprecated – use `workspaceId` instead.
-      field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
       # The ID of the workspace.
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), external_id: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), project_slug: T.nilable(::String), workspace_id: T.nilable(::String)).void }
-      def initialize(domain: nil, external_id: nil, key: nil, link_id: nil, project_slug: nil, workspace_id: nil)
+      sig { params(domain: T.nilable(::String), external_id: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), workspace_id: T.nilable(::String)).void }
+      def initialize(domain: nil, external_id: nil, key: nil, link_id: nil, workspace_id: nil)
         @domain = domain
         @external_id = external_id
         @key = key
         @link_id = link_id
-        @project_slug = project_slug
         @workspace_id = workspace_id
       end
     end

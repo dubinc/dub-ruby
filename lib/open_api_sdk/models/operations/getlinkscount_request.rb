@@ -15,8 +15,6 @@ module OpenApiSDK
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
       # The field to group the links by.
       field :group_by, T.nilable(::Object), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
-      # The slug of the project. This field is deprecated – use `workspaceId` instead.
-      field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
       # The search term to filter the links by. The search term will be matched against the short link slug and the destination url.
       field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
       # Whether to include archived links in the response. Defaults to `false` if not provided.
@@ -35,11 +33,10 @@ module OpenApiSDK
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), group_by: T.nilable(::Object), project_slug: T.nilable(::String), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean), workspace_id: T.nilable(::String)).void }
-      def initialize(domain: nil, group_by: nil, project_slug: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil, workspace_id: nil)
+      sig { params(domain: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean), workspace_id: T.nilable(::String)).void }
+      def initialize(domain: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil, workspace_id: nil)
         @domain = domain
         @group_by = group_by
-        @project_slug = project_slug
         @search = search
         @show_archived = show_archived
         @tag_id = tag_id

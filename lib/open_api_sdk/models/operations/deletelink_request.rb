@@ -13,16 +13,13 @@ module OpenApiSDK
 
       # The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.
       field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
-      # The slug of the project. This field is deprecated – use `workspaceId` instead.
-      field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
       # The ID of the workspace.
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(link_id: ::String, project_slug: T.nilable(::String), workspace_id: T.nilable(::String)).void }
-      def initialize(link_id: nil, project_slug: nil, workspace_id: nil)
+      sig { params(link_id: ::String, workspace_id: T.nilable(::String)).void }
+      def initialize(link_id: nil, workspace_id: nil)
         @link_id = link_id
-        @project_slug = project_slug
         @workspace_id = workspace_id
       end
     end

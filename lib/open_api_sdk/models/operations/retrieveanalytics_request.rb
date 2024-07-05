@@ -37,8 +37,6 @@ module OpenApiSDK
       field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
       # The OS to retrieve analytics for.
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
-      # The slug of the project. This field is deprecated – use `workspaceId` instead.
-      field :project_slug, T.nilable(::String), { 'query_param': { 'field_name': 'projectSlug', 'style': 'form', 'explode': true } }
       # Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
       field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
       # The referer to retrieve analytics for.
@@ -57,8 +55,8 @@ module OpenApiSDK
       field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), project_slug: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String), workspace_id: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, project_slug: nil, qr: nil, referer: nil, root: nil, start: nil, tag_id: nil, timezone: nil, url: nil, workspace_id: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String), workspace_id: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, root: nil, start: nil, tag_id: nil, timezone: nil, url: nil, workspace_id: nil)
         @browser = browser
         @city = city
         @country = country
@@ -72,7 +70,6 @@ module OpenApiSDK
         @key = key
         @link_id = link_id
         @os = os
-        @project_slug = project_slug
         @qr = qr
         @referer = referer
         @root = root
