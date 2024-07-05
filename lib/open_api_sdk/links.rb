@@ -22,7 +22,7 @@ module OpenApiSDK
     sig { params(request: T.nilable(::OpenApiSDK::Operations::GetLinksRequest)).returns(::OpenApiSDK::Operations::GetLinksResponse) }
     def list(request)
       # list - Retrieve a list of links
-      # Retrieve a list of links for the authenticated workspace. The list will be paginated and the provided query parameters allow filtering the returned links.
+      # Retrieve a paginated list of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
@@ -186,8 +186,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::GetLinksCountRequest)).returns(::OpenApiSDK::Operations::GetLinksCountResponse) }
     def count(request)
-      # count - Retrieve the number of links
-      # Retrieve the number of links for the authenticated workspace. The provided query parameters allow filtering the returned links.
+      # count - Retrieve links count
+      # Retrieve the number of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/count"
