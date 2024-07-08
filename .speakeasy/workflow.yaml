@@ -13,3 +13,7 @@ targets:
         publish:
             rubygems:
                 token: $rubygems_auth_token
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/dub/dub/code-samples-ruby-my-first-target
