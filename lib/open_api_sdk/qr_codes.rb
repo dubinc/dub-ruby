@@ -27,7 +27,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/qr"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetQRCodeRequest, request, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetQRCodeRequest, request)
       headers['Accept'] = 'application/json;q=1, image/png;q=0'
       headers['user-agent'] = @sdk_configuration.user_agent
 

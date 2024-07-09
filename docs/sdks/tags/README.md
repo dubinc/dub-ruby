@@ -24,22 +24,14 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::GetTagsRequest.new()
     
-res = s.tags.list(req)
+res = s.tags.list()
 
 if ! res.tag_schemas.nil?
   # handle response
 end
 
 ```
-
-### Parameters
-
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [::OpenApiSDK::Operations::GetTagsRequest](../../models/operations/gettagsrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
@@ -65,7 +57,7 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::CreateTagRequest.new()
+req = ::OpenApiSDK::Operations::CreateTagRequestBody.new()
     
 res = s.tags.create(req)
 
@@ -77,9 +69,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::OpenApiSDK::Operations::CreateTagRequest](../../models/operations/createtagrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::OpenApiSDK::Operations::CreateTagRequestBody](../../models/operations/createtagrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
@@ -104,12 +96,8 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::UpdateTagRequest.new(
-  id: "<id>",
-)
     
-res = s.tags.update(req)
+res = s.tags.update(id="<value>", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())
 
 if ! res.tag_schema.nil?
   # handle response
@@ -119,9 +107,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::OpenApiSDK::Operations::UpdateTagRequest](../../models/operations/updatetagrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | The ID of the tag to update.                                                                      |
+| `request_body`                                                                                    | [::OpenApiSDK::Operations::UpdateTagRequestBody](../../models/operations/updatetagrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
 
 
 ### Response

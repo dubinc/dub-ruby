@@ -22,7 +22,6 @@ module OpenApiSDK
     field :security, T.nilable(::OpenApiSDK::Shared::Security)
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
-    field :globals, Hash[Symbol, Hash[Symbol, Hash[Symbol, Object]]]
     field :language, String
     field :openapi_doc_version, String
     field :sdk_version, String
@@ -30,19 +29,18 @@ module OpenApiSDK
     field :user_agent, String
 
 
-    sig { params(client: Faraday::Connection, security: T.nilable(::OpenApiSDK::Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer), globals: T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]]).void }
-    def initialize(client, security, server_url, server_idx, globals)
+    sig { params(client: Faraday::Connection, security: T.nilable(::OpenApiSDK::Shared::Security), server_url: T.nilable(String), server_idx: T.nilable(Integer)).void }
+    def initialize(client, security, server_url, server_idx)
       @client = client
       @server_url = server_url
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       @security = security
-      @globals = globals.nil? ? {} : globals
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.1.3'
-      @gen_version = '2.359.6'
-      @user_agent = 'speakeasy-sdk/ruby 0.1.3 2.359.6 0.0.1 dub'
+      @sdk_version = '0.2.0'
+      @gen_version = '2.361.10'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.0 2.361.10 0.0.1 dub'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

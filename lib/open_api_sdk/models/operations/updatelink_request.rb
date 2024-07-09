@@ -15,15 +15,12 @@ module OpenApiSDK
       field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
 
       field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody), { 'request': { 'media_type': 'application/json' } }
-      # The ID of the workspace.
-      field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(link_id: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody), workspace_id: T.nilable(::String)).void }
-      def initialize(link_id: nil, request_body: nil, workspace_id: nil)
+      sig { params(link_id: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody)).void }
+      def initialize(link_id: nil, request_body: nil)
         @link_id = link_id
         @request_body = request_body
-        @workspace_id = workspace_id
       end
     end
   end

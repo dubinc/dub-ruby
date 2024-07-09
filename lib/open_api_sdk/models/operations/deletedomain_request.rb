@@ -13,14 +13,11 @@ module OpenApiSDK
 
       # The domain name.
       field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
-      # The ID of the workspace.
-      field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(slug: ::String, workspace_id: T.nilable(::String)).void }
-      def initialize(slug: nil, workspace_id: nil)
+      sig { params(slug: ::String).void }
+      def initialize(slug: nil)
         @slug = slug
-        @workspace_id = workspace_id
       end
     end
   end
