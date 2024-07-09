@@ -25,12 +25,10 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::TrackLeadRequest.new(
-  request_body: ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
-    click_id: "<value>",
-    event_name: "Sign up",
-    customer_id: "<value>",
-  ),
+req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
+  click_id: "<value>",
+  event_name: "Sign up",
+  customer_id: "<value>",
 )
     
 res = s.track.lead(req)
@@ -43,9 +41,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::OpenApiSDK::Operations::TrackLeadRequest](../../models/operations/trackleadrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::OpenApiSDK::Operations::TrackLeadRequestBody](../../models/operations/trackleadrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
@@ -71,13 +69,11 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::TrackSaleRequest.new(
-  request_body: ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
-    customer_id: "<value>",
-    amount: 996500,
-    payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
-    event_name: "Purchase",
-  ),
+req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
+  customer_id: "<value>",
+  amount: 996500,
+  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
+  event_name: "Purchase",
 )
     
 res = s.track.sale(req)
@@ -90,9 +86,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::OpenApiSDK::Operations::TrackSaleRequest](../../models/operations/tracksalerequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::OpenApiSDK::Operations::TrackSaleRequestBody](../../models/operations/tracksalerequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
@@ -118,7 +114,9 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::TrackCustomerRequest.new()
+req = ::OpenApiSDK::Operations::TrackCustomerRequestBody.new(
+  customer_id: "<value>",
+)
     
 res = s.track.customer(req)
 
@@ -130,9 +128,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Operations::TrackCustomerRequest](../../models/operations/trackcustomerrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [::OpenApiSDK::Operations::TrackCustomerRequestBody](../../models/operations/trackcustomerrequestbody.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response

@@ -15,15 +15,12 @@ module OpenApiSDK
       field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
 
       field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody), { 'request': { 'media_type': 'application/json' } }
-      # The ID of the workspace.
-      field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(slug: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody), workspace_id: T.nilable(::String)).void }
-      def initialize(slug: nil, request_body: nil, workspace_id: nil)
+      sig { params(slug: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody)).void }
+      def initialize(slug: nil, request_body: nil)
         @slug = slug
         @request_body = request_body
-        @workspace_id = workspace_id
       end
     end
   end

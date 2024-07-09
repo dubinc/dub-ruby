@@ -19,21 +19,19 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::ListDomainsRequest)).returns(::OpenApiSDK::Operations::ListDomainsResponse) }
-    def list(request)
+    sig { returns(::OpenApiSDK::Operations::ListDomainsResponse) }
+    def list
       # list - Retrieve a list of domains
       # Retrieve a list of domains associated with the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/domains"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListDomainsRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -97,7 +95,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateDomainRequest)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateDomainRequestBody)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
     def create(request)
       # create - Create a domain
       # Create a domain for the authenticated workspace.
@@ -105,15 +103,13 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/domains"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::CreateDomainRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -194,17 +190,14 @@ module OpenApiSDK
         ::OpenApiSDK::Operations::DeleteDomainRequest,
         base_url,
         '/domains/{slug}',
-        request,
-        @sdk_configuration.globals
+        request
       )
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::DeleteDomainRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.delete(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -278,19 +271,16 @@ module OpenApiSDK
         ::OpenApiSDK::Operations::UpdateDomainRequest,
         base_url,
         '/domains/{slug}',
-        request,
-        @sdk_configuration.globals
+        request
       )
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::UpdateDomainRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)

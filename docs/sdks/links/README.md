@@ -71,14 +71,12 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::CreateLinkRequest.new(
-  request_body: ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-    url: "https://google/com",
-    external_id: "123456",
-    tag_ids: [
-    "<value>",
-  ],
-  ),
+req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+  "<value>",
+],
 )
     
 res = s.links.create(req)
@@ -91,9 +89,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::OpenApiSDK::Operations::CreateLinkRequest](../../models/operations/createlinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [::OpenApiSDK::Operations::CreateLinkRequestBody](../../models/operations/createlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
@@ -201,12 +199,8 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::DeleteLinkRequest.new(
-  link_id: "<value>",
-)
     
-res = s.links.delete(req)
+res = s.links.delete(link_id="<value>")
 
 if ! res.object.nil?
   # handle response
@@ -216,9 +210,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::OpenApiSDK::Operations::DeleteLinkRequest](../../models/operations/deletelinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
 
 
 ### Response
@@ -243,19 +237,14 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::UpdateLinkRequest.new(
-  link_id: "<value>",
-  request_body: ::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
-    url: "https://google/com",
+    
+res = s.links.update(link_id="<value>", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
+    url: "https://google.com",
     external_id: "123456",
     tag_ids: [
     "<value>",
   ],
-  ),
-)
-    
-res = s.links.update(req)
+  ))
 
 if ! res.link_schema.nil?
   # handle response
@@ -265,9 +254,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::OpenApiSDK::Operations::UpdateLinkRequest](../../models/operations/updatelinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
+| `request_body`                                                                                                                        | [::OpenApiSDK::Operations::UpdateLinkRequestBody](../../models/operations/updatelinkrequestbody.md)                                   | :heavy_minus_sign:                                                                                                                    | N/A                                                                                                                                   |
 
 
 ### Response
@@ -293,17 +283,15 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::BulkCreateLinksRequest.new(
-  request_body: [
-    ::OpenApiSDK::Operations::RequestBody.new(
-      url: "https://google/com",
-      external_id: "123456",
-      tag_ids: [
-      "<value>",
-    ],
-    ),
+req = [
+  ::OpenApiSDK::Operations::RequestBody.new(
+    url: "https://google.com",
+    external_id: "123456",
+    tag_ids: [
+    "<value>",
   ],
-)
+  ),
+]
     
 res = s.links.create_many(req)
 
@@ -315,9 +303,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::OpenApiSDK::Operations::BulkCreateLinksRequest](../../models/operations/bulkcreatelinksrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `request`                                                            | [T::Array[::OpenApiSDK::Operations::RequestBody]](../../models//.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
 
 
 ### Response
@@ -348,7 +336,7 @@ req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
     "<value>",
   ],
   data: ::OpenApiSDK::Operations::Data.new(
-    url: "https://google/com",
+    url: "https://google.com",
     tag_ids: [
     "<value>",
   ],
@@ -393,14 +381,12 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::UpsertLinkRequest.new(
-  request_body: ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
-    url: "https://google/com",
-    external_id: "123456",
-    tag_ids: [
-    "<value>",
-  ],
-  ),
+req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+  "<value>",
+],
 )
     
 res = s.links.upsert(req)
@@ -413,9 +399,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::OpenApiSDK::Operations::UpsertLinkRequest](../../models/operations/upsertlinkrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [::OpenApiSDK::Operations::UpsertLinkRequestBody](../../models/operations/upsertlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response

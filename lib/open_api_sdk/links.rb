@@ -27,7 +27,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksRequest, request, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -97,7 +97,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequest)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequestBody)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
     def create(request)
       # create - Create a new link
       # Create a new link for the authenticated workspace.
@@ -105,15 +105,13 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::CreateLinkRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -192,7 +190,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/count"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksCountRequest, request, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksCountRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -270,7 +268,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/info"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinkInfoRequest, request, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinkInfoRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -350,17 +348,14 @@ module OpenApiSDK
         ::OpenApiSDK::Operations::DeleteLinkRequest,
         base_url,
         '/links/{linkId}',
-        request,
-        @sdk_configuration.globals
+        request
       )
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::DeleteLinkRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.delete(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -434,19 +429,16 @@ module OpenApiSDK
         ::OpenApiSDK::Operations::UpdateLinkRequest,
         base_url,
         '/links/{linkId}',
-        request,
-        @sdk_configuration.globals
+        request
       )
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::UpdateLinkRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -517,7 +509,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkCreateLinksRequest)).returns(::OpenApiSDK::Operations::BulkCreateLinksResponse) }
+    sig { params(request: T.nilable(T::Array[::OpenApiSDK::Operations::RequestBody])).returns(::OpenApiSDK::Operations::BulkCreateLinksResponse) }
     def create_many(request)
       # create_many - Bulk create links
       # Bulk create up to 100 links for the authenticated workspace.
@@ -525,15 +517,13 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::BulkCreateLinksRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -689,7 +679,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertLinkRequest)).returns(::OpenApiSDK::Operations::UpsertLinkResponse) }
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertLinkRequestBody)).returns(::OpenApiSDK::Operations::UpsertLinkResponse) }
     def upsert(request)
       # upsert - Upsert a link
       # Upsert a link for the authenticated workspace by its URL. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
@@ -697,15 +687,13 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/upsert"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::UpsertLinkRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.put(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)

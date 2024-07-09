@@ -19,21 +19,19 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetTagsRequest)).returns(::OpenApiSDK::Operations::GetTagsResponse) }
-    def list(request)
+    sig { returns(::OpenApiSDK::Operations::GetTagsResponse) }
+    def list
       # list - Retrieve a list of tags
       # Retrieve a list of tags for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetTagsRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -97,7 +95,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateTagRequest)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateTagRequestBody)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
     def create(request)
       # create - Create a new tag
       # Create a new tag for the authenticated workspace.
@@ -105,15 +103,13 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::CreateTagRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)
@@ -194,19 +190,16 @@ module OpenApiSDK
         ::OpenApiSDK::Operations::UpdateTagRequest,
         base_url,
         '/tags/{id}',
-        request,
-        @sdk_configuration.globals
+        request
       )
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::UpdateTagRequest, request, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)

@@ -11,13 +11,16 @@ module OpenApiSDK
     class UpdateWorkspaceRequest < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The ID or slug of the workspace.
+      # The ID or slug of the workspace to update.
       field :id_or_slug, ::String, { 'path_param': { 'field_name': 'idOrSlug', 'style': 'simple', 'explode': false } }
 
+      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateWorkspaceRequestBody), { 'request': { 'media_type': 'application/json' } }
 
-      sig { params(id_or_slug: ::String).void }
-      def initialize(id_or_slug: nil)
+
+      sig { params(id_or_slug: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateWorkspaceRequestBody)).void }
+      def initialize(id_or_slug: nil, request_body: nil)
         @id_or_slug = id_or_slug
+        @request_body = request_body
       end
     end
   end

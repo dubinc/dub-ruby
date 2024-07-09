@@ -36,14 +36,12 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::CreateLinkRequest.new(
-  request_body: ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-    url: "https://google/com",
-    external_id: "123456",
-    tag_ids: [
-    "<value>",
-  ],
-  ),
+req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+  "<value>",
+],
 )
     
 res = s.links.create(req)
@@ -68,14 +66,12 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::UpsertLinkRequest.new(
-  request_body: ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
-    url: "https://google/com",
-    external_id: "123456",
-    tag_ids: [
-    "<value>",
-  ],
-  ),
+req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+  "<value>",
+],
 )
     
 res = s.links.upsert(req)
@@ -138,49 +134,6 @@ end
 
 * [get](docs/sdks/metatags/README.md#get) - Retrieve the metatags for a URL
 <!-- End Available Resources and Operations [operations] -->
-
-<!-- Start Global Parameters [global-parameters] -->
-## Global Parameters
-
-Certain parameters are configured globally. These parameters may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, These global values will be used as defaults on the operations that use them. When such operations are called, there is a place in each to override the global value, if needed.
-
-For example, you can set `workspaceId` to `"<value>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `list`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
-
-
-### Available Globals
-
-The following global parameters are available.
-
-| Name | Type | Required | Description |
-| ---- | ---- |:--------:| ----------- |
-| workspace_id | ::String |  | The workspace_id parameter. |
-| project_slug | ::String |  | The project_slug parameter. |
-
-
-### Example
-
-```ruby
-require 'dub'
-
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-
-req = ::OpenApiSDK::Operations::GetLinksRequest.new()
-    
-res = s.links.list(req)
-
-if ! res.link_schemas.nil?
-  # handle response
-end
-
-```
-<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection

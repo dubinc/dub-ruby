@@ -18,16 +18,12 @@ module OpenApiSDK
     sig do
       params(client: Faraday::Request,
              security: T.nilable(Shared::Security),
-             workspace_id: ::String,
-             project_slug: ::String,
              server_idx: Integer,
              server_url: String,
              url_params: T::Hash[Symbol, String]).void
     end
     def initialize(client: nil,
                    security: nil,
-                   workspace_id: nil,
-                   project_slug: nil,
                    server_idx: nil,
                    server_url: nil,
                    url_params: nil)
@@ -35,8 +31,6 @@ module OpenApiSDK
       ## Instantiates the SDK configuring it with the provided parameters.
       # @param [Faraday::Request] client The faraday HTTP client to use for all operations
       # @param [Shared::Security] security The security details required for authentication
-      # @param [::String] workspace_id: Configures the workspace_id parameter for all supported operations
-      # @param [::String] project_slug: Configures the project_slug parameter for all supported operations
       # @param [::Integer] server_idx The index of the server to use for all operations
       # @param [::String] server_url The server URL to use for all operations
       # @param [::Hash<::Symbol, ::String>] url_params Parameters to optionally template the server URL with
@@ -57,20 +51,7 @@ module OpenApiSDK
       end
       server_idx = 0 if server_idx.nil?
 
-      globals = {
-        'parameters': {
-          'queryParam': {
-            'workspace_id': workspace_id,
-            'project_slug': project_slug,
-          },
-          'pathParam': {
-          },
-          'header': {
-          }
-        }
-      }
-
-      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server_idx, globals)
+      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server_idx)
       init_sdks
     end
 

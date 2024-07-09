@@ -25,22 +25,14 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::ListDomainsRequest.new()
     
-res = s.domains.list(req)
+res = s.domains.list()
 
 if ! res.domain_schemas.nil?
   # handle response
 end
 
 ```
-
-### Parameters
-
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::OpenApiSDK::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
@@ -66,13 +58,11 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::CreateDomainRequest.new(
-  request_body: ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
-    slug: "acme.com",
-    expired_url: "https://acme.com/expired",
-    archived: false,
-    placeholder: "https://dub.co/help/article/what-is-dub",
-  ),
+req = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
+  slug: "acme.com",
+  expired_url: "https://acme.com/expired",
+  archived: false,
+  placeholder: "https://dub.co/help/article/what-is-dub",
 )
     
 res = s.domains.create(req)
@@ -85,9 +75,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::OpenApiSDK::Operations::CreateDomainRequest](../../models/operations/createdomainrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [::OpenApiSDK::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
@@ -112,12 +102,8 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::DeleteDomainRequest.new(
-  slug: "acme.com",
-)
     
-res = s.domains.delete(req)
+res = s.domains.delete(slug="acme.com")
 
 if ! res.object.nil?
   # handle response
@@ -127,9 +113,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::OpenApiSDK::Operations::DeleteDomainRequest](../../models/operations/deletedomainrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter          | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `slug`             | *::String*         | :heavy_check_mark: | The domain name.   | acme.com           |
 
 
 ### Response
@@ -154,18 +140,13 @@ s.config_security(
   )
 )
 
-
-req = ::OpenApiSDK::Operations::UpdateDomainRequest.new(
-  slug: "acme.com",
-  request_body: ::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
+    
+res = s.domains.update(slug="acme.com", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
     slug: "acme.com",
     expired_url: "https://acme.com/expired",
     archived: false,
     placeholder: "https://dub.co/help/article/what-is-dub",
-  ),
-)
-    
-res = s.domains.update(req)
+  ))
 
 if ! res.domain_schema.nil?
   # handle response
@@ -175,9 +156,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::OpenApiSDK::Operations::UpdateDomainRequest](../../models/operations/updatedomainrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `slug`                                                                                                  | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The domain name.                                                                                        | acme.com                                                                                                |
+| `request_body`                                                                                          | [::OpenApiSDK::Operations::UpdateDomainRequestBody](../../models/operations/updatedomainrequestbody.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |                                                                                                         |
 
 
 ### Response

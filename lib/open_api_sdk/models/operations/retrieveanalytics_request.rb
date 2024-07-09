@@ -51,12 +51,10 @@ module OpenApiSDK
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
       # The URL to retrieve analytics for.
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
-      # The ID of the workspace.
-      field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String), workspace_id: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, root: nil, start: nil, tag_id: nil, timezone: nil, url: nil, workspace_id: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, root: nil, start: nil, tag_id: nil, timezone: nil, url: nil)
         @browser = browser
         @city = city
         @country = country
@@ -77,7 +75,6 @@ module OpenApiSDK
         @tag_id = tag_id
         @timezone = timezone
         @url = url
-        @workspace_id = workspace_id
       end
     end
   end

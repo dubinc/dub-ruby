@@ -31,12 +31,10 @@ module OpenApiSDK
       field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'userId', 'style': 'form', 'explode': true } }
       # Whether to include tags in the response. Defaults to `false` if not provided.
       field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
-      # The ID of the workspace.
-      field :workspace_id, T.nilable(::String), { 'query_param': { 'field_name': 'workspaceId', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), page: T.nilable(::Integer), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean), workspace_id: T.nilable(::String)).void }
-      def initialize(domain: nil, page: nil, search: nil, show_archived: nil, sort: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil, workspace_id: nil)
+      sig { params(domain: T.nilable(::String), page: T.nilable(::Integer), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
+      def initialize(domain: nil, page: nil, search: nil, show_archived: nil, sort: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil)
         @domain = domain
         @page = page
         @search = search
@@ -47,7 +45,6 @@ module OpenApiSDK
         @tag_names = tag_names
         @user_id = user_id
         @with_tags = with_tags
-        @workspace_id = workspace_id
       end
     end
   end
