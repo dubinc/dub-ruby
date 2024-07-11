@@ -3,10 +3,10 @@ id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
   docChecksum: d074e83422312242c953b9123b5c20aa
   docVersion: 0.0.1
-  speakeasyVersion: 1.331.0
-  generationVersion: 2.365.0
-  releaseVersion: 0.2.2
-  configChecksum: 988f62797bc8373c0deeae2f8ea218d2
+  speakeasyVersion: 1.331.2
+  generationVersion: 2.366.1
+  releaseVersion: 0.2.2-alpha
+  configChecksum: 79fe3ffab0dd5c26188ed3b500bbb16e
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
