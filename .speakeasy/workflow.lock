@@ -1,9 +1,9 @@
-speakeasyVersion: 1.333.0
+speakeasyVersion: 1.335.0
 sources:
     dub:
         sourceNamespace: dub
-        sourceRevisionDigest: sha256:ce4b328e70b9c1429b63e0345626ed2ddf815bb426f1d19cf79133f9a31d9276
-        sourceBlobDigest: sha256:5e93a6a1759109dda3ef47cd041442e55226960e2806743a2988e9676a9475b6
+        sourceRevisionDigest: sha256:7177dac4f7b9270fc0265d84c6c157f8767f58ee70f97ad96331538591371e29
+        sourceBlobDigest: sha256:2cf5a2a09626860055cb6e2b3af1d6cf5b048c0cf2c562e188dd0c46d3a97208
         tags:
             - latest
             - main
@@ -11,10 +11,10 @@ targets:
     my-first-target:
         source: dub
         sourceNamespace: dub
-        sourceRevisionDigest: sha256:ce4b328e70b9c1429b63e0345626ed2ddf815bb426f1d19cf79133f9a31d9276
-        sourceBlobDigest: sha256:5e93a6a1759109dda3ef47cd041442e55226960e2806743a2988e9676a9475b6
+        sourceRevisionDigest: sha256:7177dac4f7b9270fc0265d84c6c157f8767f58ee70f97ad96331538591371e29
+        sourceBlobDigest: sha256:2cf5a2a09626860055cb6e2b3af1d6cf5b048c0cf2c562e188dd0c46d3a97208
         codeSamplesNamespace: code-samples-ruby-my-first-target
-        codeSamplesRevisionDigest: sha256:0cfc97f5b373058fc17edaf84c19e667aaa6e516ee06eff16ed6c7c40139b1b5
+        codeSamplesRevisionDigest: sha256:42dde76acf083756fbf6534a6df6b6a79a2a9afef520461a40d25f3252052c48
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0
