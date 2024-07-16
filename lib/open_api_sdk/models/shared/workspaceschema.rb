@@ -49,12 +49,12 @@ module OpenApiSDK
       field :users, T::Array[::OpenApiSDK::Shared::Users], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users') } }
       # The users limit of the workspace.
       field :users_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usersLimit') } }
-      # Whether the workspace is enrolled in the beta testing program.
-      field :beta_tester, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('betaTester') } }
+      # The feature flags of the workspace, indicating which features are enabled.
+      field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(billing_cycle_start: ::Float, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, beta_tester: T.nilable(T::Boolean)).void }
-      def initialize(billing_cycle_start: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, beta_tester: nil)
+      sig { params(billing_cycle_start: ::Float, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(billing_cycle_start: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @billing_cycle_start = billing_cycle_start
         @created_at = created_at
         @domains = domains
@@ -74,7 +74,7 @@ module OpenApiSDK
         @usage_limit = usage_limit
         @users = users
         @users_limit = users_limit
-        @beta_tester = beta_tester
+        @flags = flags
       end
     end
   end
