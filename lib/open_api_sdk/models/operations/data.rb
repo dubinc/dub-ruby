@@ -17,7 +17,7 @@ module OpenApiSDK
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
       # The comments for the short link.
       field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
-      # The description of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The custom link preview description (og:description). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
       field :do_index, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
@@ -27,7 +27,7 @@ module OpenApiSDK
       field :expires_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
       # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
       field :geo, T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
-      # The image of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
       # The iOS destination URL for the short link for iOS device targeting.
       field :ios, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
@@ -47,16 +47,18 @@ module OpenApiSDK
       field :tag_ids, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagIds') } }
       # The unique name of the tags assigned to the short link (case insensitive).
       field :tag_names, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
-      # The title of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # Whether to track conversions for the short link.
       field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
       # The destination URL of the short link.
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+      # The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      field :video, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
 
 
-      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), url: T.nilable(::String)).void }
-      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, geo: nil, image: nil, ios: nil, password: nil, proxy: nil, public_stats: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil, url: nil)
+      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), url: T.nilable(::String), video: T.nilable(::String)).void }
+      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, geo: nil, image: nil, ios: nil, password: nil, proxy: nil, public_stats: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil, url: nil, video: nil)
         @android = android
         @archived = archived
         @comments = comments
@@ -77,6 +79,7 @@ module OpenApiSDK
         @title = title
         @track_conversion = track_conversion
         @url = url
+        @video = video
       end
     end
   end
