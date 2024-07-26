@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.2.2.pre.alpha.3)
+    dub (0.2.2.pre.alpha.4)
       faraday
       faraday-multipart
       rack
@@ -18,7 +18,7 @@ GEM
       logger
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
-    faraday-net_http (3.1.0)
+    faraday-net_http (3.1.1)
       net-http
     json (2.7.1)
     language_server-protocol (3.17.0.3)
