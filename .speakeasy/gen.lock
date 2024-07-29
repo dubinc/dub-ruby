@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: abaf709df8818e2099256e8478ab3dc0
+  docChecksum: e0d1746d131c608a54c04b32762b2faa
   docVersion: 0.0.1
-  speakeasyVersion: 1.346.0
-  generationVersion: 2.379.3
-  releaseVersion: 0.2.2-alpha.4
-  configChecksum: 3fb5093f4816b01680b06b24a8a04c82
+  speakeasyVersion: 1.348.1
+  generationVersion: 2.380.1
+  releaseVersion: 0.2.2-alpha.5
+  configChecksum: dd240c2a591fd37e3d0812366f9e931a
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -121,6 +121,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
   - lib/open_api_sdk/models/operations/updatetag_request.rb
   - lib/open_api_sdk/models/operations/updatetag_response.rb
+  - lib/open_api_sdk/models/operations/listdomains_request.rb
   - lib/open_api_sdk/models/operations/listdomains_response.rb
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
   - lib/open_api_sdk/models/operations/createdomain_response.rb
@@ -176,6 +177,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/tagschema.rb
   - lib/open_api_sdk/models/shared/linkgeotargeting.rb
   - lib/open_api_sdk/models/shared/countrycode.rb
+  - lib/open_api_sdk/models/shared/continentcode.rb
   - lib/open_api_sdk/models/shared/plan.rb
   - lib/open_api_sdk/models/shared/role.rb
   - lib/open_api_sdk/models/shared/users.rb
@@ -229,6 +231,7 @@ generatedFiles:
   - docs/models/operations/updatetagrequestbody.md
   - docs/models/operations/updatetagrequest.md
   - docs/models/operations/updatetagresponse.md
+  - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
   - docs/models/operations/createdomainrequestbody.md
   - docs/models/operations/createdomainresponse.md
@@ -284,6 +287,7 @@ generatedFiles:
   - docs/models/shared/tagschema.md
   - docs/models/shared/linkgeotargeting.md
   - docs/models/shared/countrycode.md
+  - docs/models/shared/continentcode.md
   - docs/models/shared/plan.md
   - docs/models/shared/role.md
   - docs/models/shared/users.md
