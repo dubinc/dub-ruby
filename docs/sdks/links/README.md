@@ -31,7 +31,10 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::GetLinksRequest.new()
+req = ::OpenApiSDK::Operations::GetLinksRequest.new(
+  page: 1.0,
+  page_size: 50.0,
+)
     
 res = s.links.list(req)
 
