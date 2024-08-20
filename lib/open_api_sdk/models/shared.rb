@@ -39,6 +39,7 @@ module OpenApiSDK
     autoload :LinkGeoTargeting, 'open_api_sdk/models/shared/linkgeotargeting.rb'
     autoload :CountryCode, 'open_api_sdk/models/shared/countrycode.rb'
     autoload :ContinentCode, 'open_api_sdk/models/shared/continentcode.rb'
+    autoload :ClickEvents, 'open_api_sdk/models/shared/clickevents.rb'
     autoload :Plan, 'open_api_sdk/models/shared/plan.rb'
     autoload :Role, 'open_api_sdk/models/shared/role.rb'
     autoload :Users, 'open_api_sdk/models/shared/users.rb'

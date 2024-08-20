@@ -106,6 +106,10 @@ end
 
 * [retrieve](docs/sdks/analytics/README.md#retrieve) - Retrieve analytics for a link, a domain, or the authenticated workspace.
 
+### [Events](docs/sdks/events/README.md)
+
+* [list](docs/sdks/events/README.md#list) - Retrieve a list of events
+
 ### [Workspaces](docs/sdks/workspaces/README.md)
 
 * [get](docs/sdks/workspaces/README.md#get) - Retrieve a workspace

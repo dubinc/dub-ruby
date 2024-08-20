@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                 | Type                  | Required              | Description           | Example               |
-| --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
-| `token`               | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   | DUB_API_KEY           |
+| Field              | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `token`            | *::String*         | :heavy_check_mark: | N/A                | DUB_API_KEY        |

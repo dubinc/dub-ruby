@@ -36,6 +36,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
@@ -73,6 +75,8 @@ if ! res.workspace_schema.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

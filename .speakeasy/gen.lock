@@ -1,22 +1,22 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: e0d1746d131c608a54c04b32762b2faa
+  docChecksum: f10061c7787170c0db643f22823c9aa9
   docVersion: 0.0.1
-  speakeasyVersion: 1.348.1
-  generationVersion: 2.380.1
-  releaseVersion: 0.2.2-alpha.5
-  configChecksum: dd240c2a591fd37e3d0812366f9e931a
+  speakeasyVersion: 1.376.0
+  generationVersion: 2.402.5
+  releaseVersion: 0.2.2-alpha.6
+  configChecksum: afc7bf2c2dd1ba112cfa587f00dcf0df
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.2.18
+    core: 3.2.19
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.6
+    globalSecurity: 2.81.7
     globalServerURLs: 2.82.3
     nameOverrides: 2.81.2
 generatedFiles:
@@ -24,6 +24,7 @@ generatedFiles:
   - lib/open_api_sdk/links.rb
   - lib/open_api_sdk/qr_codes.rb
   - lib/open_api_sdk/analytics.rb
+  - lib/open_api_sdk/events.rb
   - lib/open_api_sdk/workspaces.rb
   - lib/open_api_sdk/tags.rb
   - lib/open_api_sdk/domains.rb
@@ -108,6 +109,12 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/interval.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
+  - lib/open_api_sdk/models/operations/queryparam_event.rb
+  - lib/open_api_sdk/models/operations/queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/order.rb
+  - lib/open_api_sdk/models/operations/sortby.rb
+  - lib/open_api_sdk/models/operations/listevents_request.rb
+  - lib/open_api_sdk/models/operations/listevents_response.rb
   - lib/open_api_sdk/models/operations/getworkspace_request.rb
   - lib/open_api_sdk/models/operations/getworkspace_response.rb
   - lib/open_api_sdk/models/operations/updateworkspace_requestbody.rb
@@ -178,6 +185,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/linkgeotargeting.rb
   - lib/open_api_sdk/models/shared/countrycode.rb
   - lib/open_api_sdk/models/shared/continentcode.rb
+  - lib/open_api_sdk/models/shared/clickevents.rb
   - lib/open_api_sdk/models/shared/plan.rb
   - lib/open_api_sdk/models/shared/role.rb
   - lib/open_api_sdk/models/shared/users.rb
@@ -218,6 +226,12 @@ generatedFiles:
   - docs/models/operations/interval.md
   - docs/models/operations/retrieveanalyticsrequest.md
   - docs/models/operations/retrieveanalyticsresponse.md
+  - docs/models/operations/queryparamevent.md
+  - docs/models/operations/queryparaminterval.md
+  - docs/models/operations/order.md
+  - docs/models/operations/sortby.md
+  - docs/models/operations/listeventsrequest.md
+  - docs/models/operations/listeventsresponse.md
   - docs/models/operations/getworkspacerequest.md
   - docs/models/operations/getworkspaceresponse.md
   - docs/models/operations/updateworkspacerequestbody.md
@@ -288,6 +302,7 @@ generatedFiles:
   - docs/models/shared/linkgeotargeting.md
   - docs/models/shared/countrycode.md
   - docs/models/shared/continentcode.md
+  - docs/models/shared/clickevents.md
   - docs/models/shared/plan.md
   - docs/models/shared/role.md
   - docs/models/shared/users.md
@@ -299,6 +314,7 @@ generatedFiles:
   - docs/sdks/links/README.md
   - docs/sdks/qrcodes/README.md
   - docs/sdks/analytics/README.md
+  - docs/sdks/events/README.md
   - docs/sdks/workspaces/README.md
   - docs/sdks/tags/README.md
   - docs/sdks/domains/README.md
