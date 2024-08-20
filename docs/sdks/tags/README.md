@@ -34,6 +34,8 @@ end
 ```
 
 
+
+
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetTagsResponse)](../../models/operations/gettagsresponse.md)**
@@ -66,6 +68,8 @@ if ! res.tag_schema.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -104,6 +108,8 @@ if ! res.tag_schema.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

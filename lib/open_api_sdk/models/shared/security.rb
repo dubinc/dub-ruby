@@ -12,10 +12,10 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :token, T.nilable(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
+      field :token, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
 
 
-      sig { params(token: T.nilable(::String)).void }
+      sig { params(token: ::String).void }
       def initialize(token: nil)
         @token = token
       end

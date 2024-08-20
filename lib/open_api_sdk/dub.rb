@@ -13,7 +13,7 @@ module OpenApiSDK
   class Dub
     extend T::Sig
 
-    attr_accessor :links, :qr_codes, :analytics, :workspaces, :tags, :domains, :track, :metatags
+    attr_accessor :links, :qr_codes, :analytics, :events, :workspaces, :tags, :domains, :track, :metatags
 
     sig do
       params(client: Faraday::Request,
@@ -78,6 +78,7 @@ module OpenApiSDK
       @links = Links.new(@sdk_configuration)
       @qr_codes = QRCodes.new(@sdk_configuration)
       @analytics = Analytics.new(@sdk_configuration)
+      @events = Events.new(@sdk_configuration)
       @workspaces = Workspaces.new(@sdk_configuration)
       @tags = Tags.new(@sdk_configuration)
       @domains = Domains.new(@sdk_configuration)

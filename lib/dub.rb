@@ -10,6 +10,7 @@ module OpenApiSDK
   autoload :Links, 'open_api_sdk/links'
   autoload :QRCodes, 'open_api_sdk/qr_codes'
   autoload :Analytics, 'open_api_sdk/analytics'
+  autoload :Events, 'open_api_sdk/events'
   autoload :Workspaces, 'open_api_sdk/workspaces'
   autoload :Tags, 'open_api_sdk/tags'
   autoload :Domains, 'open_api_sdk/domains'
