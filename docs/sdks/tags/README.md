@@ -1,5 +1,6 @@
 # Tags
 
+## Overview
 
 ### Available Operations
 
@@ -33,12 +34,11 @@ end
 
 ```
 
-
-
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetTagsResponse)](../../models/operations/gettagsresponse.md)**
+
+
 
 
 ## create
@@ -69,18 +69,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::OpenApiSDK::Operations::CreateTagRequestBody](../../models/operations/createtagrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateTagResponse)](../../models/operations/createtagresponse.md)**
+
+
 
 
 ## update
@@ -109,8 +108,6 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -118,8 +115,8 @@ end
 | `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | The ID of the tag to update.                                                                      |
 | `request_body`                                                                                    | [::OpenApiSDK::Operations::UpdateTagRequestBody](../../models/operations/updatetagrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateTagResponse)](../../models/operations/updatetagresponse.md)**
+
 
