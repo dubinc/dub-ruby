@@ -1,5 +1,6 @@
 # Links
 
+## Overview
 
 ### Available Operations
 
@@ -44,18 +45,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [::OpenApiSDK::Operations::GetLinksRequest](../../models/operations/getlinksrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetLinksResponse)](../../models/operations/getlinksresponse.md)**
+
+
 
 
 ## create
@@ -92,18 +92,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::OpenApiSDK::Operations::CreateLinkRequestBody](../../models/operations/createlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateLinkResponse)](../../models/operations/createlinkresponse.md)**
+
+
 
 
 ## count
@@ -134,18 +133,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::OpenApiSDK::Operations::GetLinksCountRequest](../../models/operations/getlinkscountrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetLinksCountResponse)](../../models/operations/getlinkscountresponse.md)**
+
+
 
 
 ## get
@@ -179,18 +177,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::OpenApiSDK::Operations::GetLinkInfoRequest](../../models/operations/getlinkinforequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetLinkInfoResponse)](../../models/operations/getlinkinforesponse.md)**
+
+
 
 
 ## delete
@@ -219,18 +216,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteLinkResponse)](../../models/operations/deletelinkresponse.md)**
+
+
 
 
 ## update
@@ -265,8 +261,6 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
@@ -274,10 +268,11 @@ end
 | `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
 | `request_body`                                                                                                                        | [::OpenApiSDK::Operations::UpdateLinkRequestBody](../../models/operations/updatelinkrequestbody.md)                                   | :heavy_minus_sign:                                                                                                                    | N/A                                                                                                                                   |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateLinkResponse)](../../models/operations/updatelinkresponse.md)**
+
+
 
 
 ## create_many
@@ -316,18 +311,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | `request`                                                            | [T::Array[::OpenApiSDK::Operations::RequestBody]](../../models//.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::BulkCreateLinksResponse)](../../models/operations/bulkcreatelinksresponse.md)**
+
+
 
 
 ## update_many
@@ -368,18 +362,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                     | [::OpenApiSDK::Operations::BulkUpdateLinksRequestBody](../../models/operations/bulkupdatelinksrequestbody.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksResponse)](../../models/operations/bulkupdatelinksresponse.md)**
+
+
 
 
 ## upsert
@@ -416,16 +409,14 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::OpenApiSDK::Operations::UpsertLinkRequestBody](../../models/operations/upsertlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpsertLinkResponse)](../../models/operations/upsertlinkresponse.md)**
+
 

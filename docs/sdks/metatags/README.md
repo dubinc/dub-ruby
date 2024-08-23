@@ -1,5 +1,6 @@
 # Metatags
 
+## Overview
 
 ### Available Operations
 
@@ -35,16 +36,14 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::OpenApiSDK::Operations::GetMetatagsRequest](../../models/operations/getmetatagsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetMetatagsResponse)](../../models/operations/getmetatagsresponse.md)**
+
 

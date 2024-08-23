@@ -13,6 +13,8 @@ module OpenApiSDK
 
       # The date and time when the billing cycle starts for the workspace.
       field :billing_cycle_start, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('billingCycleStart') } }
+      # Whether the workspace has conversion tracking enabled (d.to/conversions).
+      field :conversion_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
       # The date and time when the workspace was created.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
       # The domains of the workspace.
@@ -33,6 +35,10 @@ module OpenApiSDK
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The plan of the workspace.
       field :plan, ::OpenApiSDK::Shared::Plan, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('plan'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Plan, false) } }
+      # The limit of tracked revenue in the current billing cycle (in cents).
+      field :sales_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesLimit') } }
+      # The dollar amount of tracked revenue in the current billing cycle (in cents).
+      field :sales_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesUsage') } }
       # The slug of the workspace.
       field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
       # [BETA]: The Stripe Connect ID of the workspace.
@@ -53,9 +59,10 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(billing_cycle_start: ::Float, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(billing_cycle_start: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @billing_cycle_start = billing_cycle_start
+        @conversion_enabled = conversion_enabled
         @created_at = created_at
         @domains = domains
         @domains_limit = domains_limit
@@ -66,6 +73,8 @@ module OpenApiSDK
         @logo = logo
         @name = name
         @plan = plan
+        @sales_limit = sales_limit
+        @sales_usage = sales_usage
         @slug = slug
         @stripe_connect_id = stripe_connect_id
         @stripe_id = stripe_id

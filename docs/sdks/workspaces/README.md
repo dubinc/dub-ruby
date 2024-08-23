@@ -1,5 +1,6 @@
 # Workspaces
 
+## Overview
 
 ### Available Operations
 
@@ -36,18 +37,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [::OpenApiSDK::Operations::GetWorkspaceRequest](../../models/operations/getworkspacerequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetWorkspaceResponse)](../../models/operations/getworkspaceresponse.md)**
+
+
 
 
 ## update
@@ -76,8 +76,6 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
@@ -85,8 +83,8 @@ end
 | `id_or_slug`                                                                                                  | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The ID or slug of the workspace to update.                                                                    |
 | `request_body`                                                                                                | [::OpenApiSDK::Operations::UpdateWorkspaceRequestBody](../../models/operations/updateworkspacerequestbody.md) | :heavy_minus_sign:                                                                                            | N/A                                                                                                           |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateWorkspaceResponse)](../../models/operations/updateworkspaceresponse.md)**
+
 

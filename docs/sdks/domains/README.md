@@ -1,5 +1,6 @@
 # Domains
 
+## Overview
 
 ### Available Operations
 
@@ -39,18 +40,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::OpenApiSDK::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
+
+
 
 
 ## create
@@ -86,18 +86,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::OpenApiSDK::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateDomainResponse)](../../models/operations/createdomainresponse.md)**
+
+
 
 
 ## delete
@@ -126,18 +125,17 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter          | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | `slug`             | *::String*         | :heavy_check_mark: | The domain name.   | acme.com           |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteDomainResponse)](../../models/operations/deletedomainresponse.md)**
+
+
 
 
 ## update
@@ -171,8 +169,6 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
@@ -180,8 +176,8 @@ end
 | `slug`                                                                                                  | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The domain name.                                                                                        | acme.com                                                                                                |
 | `request_body`                                                                                          | [::OpenApiSDK::Operations::UpdateDomainRequestBody](../../models/operations/updatedomainrequestbody.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |                                                                                                         |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateDomainResponse)](../../models/operations/updatedomainresponse.md)**
+
 

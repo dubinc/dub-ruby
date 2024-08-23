@@ -1,5 +1,6 @@
 # QRCodes
 
+## Overview
 
 ### Available Operations
 
@@ -35,16 +36,14 @@ end
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::OpenApiSDK::Operations::GetQRCodeRequest](../../models/operations/getqrcoderequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetQRCodeResponse)](../../models/operations/getqrcoderesponse.md)**
+
 

@@ -61,6 +61,8 @@ module OpenApiSDK
       field :qr_code, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qrCode') } }
       # Whether the short link uses link cloaking.
       field :rewrite, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
+      # [BETA]: The total dollar amount of sales the short links has generated (in cents).
+      field :sale_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
       # [BETA]: The number of sales the short links has generated.
       field :sales, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales') } }
       # The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
@@ -97,8 +99,8 @@ module OpenApiSDK
       field :workspace_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workspaceId') } }
 
 
-      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, password: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, workspace_id: ::String).void }
-      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, password: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, workspace_id: nil)
+      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, password: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, workspace_id: ::String).void }
+      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, password: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, workspace_id: nil)
         @android = android
         @archived = archived
         @clicks = clicks
@@ -123,6 +125,7 @@ module OpenApiSDK
         @public_stats = public_stats
         @qr_code = qr_code
         @rewrite = rewrite
+        @sale_amount = sale_amount
         @sales = sales
         @short_link = short_link
         @tag_id = tag_id
