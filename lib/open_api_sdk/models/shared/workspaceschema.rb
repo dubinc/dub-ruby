@@ -11,6 +11,10 @@ module OpenApiSDK
     class WorkspaceSchema < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
+      # The AI limit of the workspace.
+      field :ai_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiLimit') } }
+      # The AI usage of the workspace.
+      field :ai_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiUsage') } }
       # The date and time when the billing cycle starts for the workspace.
       field :billing_cycle_start, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('billingCycleStart') } }
       # Whether the workspace has conversion tracking enabled (d.to/conversions).
@@ -35,6 +39,10 @@ module OpenApiSDK
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The plan of the workspace.
       field :plan, ::OpenApiSDK::Shared::Plan, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('plan'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Plan, false) } }
+      # The ID of the referral link of the workspace.
+      field :referral_link_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referralLinkId') } }
+      # The number of signups referred by the workspace.
+      field :referred_signups, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referredSignups') } }
       # The limit of tracked revenue in the current billing cycle (in cents).
       field :sales_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesLimit') } }
       # The dollar amount of tracked revenue in the current billing cycle (in cents).
@@ -59,8 +67,10 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(ai_limit: ::Float, ai_usage: ::Float, billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, referral_link_id: ::String, referred_signups: ::Float, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(ai_limit: nil, ai_usage: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, referral_link_id: nil, referred_signups: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+        @ai_limit = ai_limit
+        @ai_usage = ai_usage
         @billing_cycle_start = billing_cycle_start
         @conversion_enabled = conversion_enabled
         @created_at = created_at
@@ -73,6 +83,8 @@ module OpenApiSDK
         @logo = logo
         @name = name
         @plan = plan
+        @referral_link_id = referral_link_id
+        @referred_signups = referred_signups
         @sales_limit = sales_limit
         @sales_usage = sales_usage
         @slug = slug
