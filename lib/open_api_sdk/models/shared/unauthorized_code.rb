@@ -13,6 +13,5 @@ module OpenApiSDK
         UNAUTHORIZED = new('unauthorized')
       end
     end
-
   end
 end

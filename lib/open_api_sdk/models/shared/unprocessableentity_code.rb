@@ -13,6 +13,5 @@ module OpenApiSDK
         UNPROCESSABLE_ENTITY = new('unprocessable_entity')
       end
     end
-
   end
 end

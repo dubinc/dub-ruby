@@ -13,6 +13,5 @@ module OpenApiSDK
         FORBIDDEN = new('forbidden')
       end
     end
-
   end
 end

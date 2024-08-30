@@ -13,6 +13,5 @@ module OpenApiSDK
         CONFLICT = new('conflict')
       end
     end
-
   end
 end

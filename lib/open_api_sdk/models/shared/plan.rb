@@ -19,6 +19,5 @@ module OpenApiSDK
         ENTERPRISE = new('enterprise')
       end
     end
-
   end
 end

@@ -14,6 +14,5 @@ module OpenApiSDK
         MEMBER = new('member')
       end
     end
-
   end
 end

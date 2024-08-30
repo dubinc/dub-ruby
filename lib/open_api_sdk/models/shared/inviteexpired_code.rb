@@ -13,6 +13,5 @@ module OpenApiSDK
         INVITE_EXPIRED = new('invite_expired')
       end
     end
-
   end
 end

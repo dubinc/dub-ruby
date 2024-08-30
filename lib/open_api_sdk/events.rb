@@ -44,7 +44,7 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::ClickEvents])
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::ClickEvent])
           res.click_events = out
         end
       elsif r.status == 400

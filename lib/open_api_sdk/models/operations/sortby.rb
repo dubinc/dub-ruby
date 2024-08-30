@@ -11,9 +11,7 @@ module OpenApiSDK
     class SortBy < T::Enum
       enums do
         TIMESTAMP = new('timestamp')
-        AMOUNT = new('amount')
       end
     end
-
   end
 end

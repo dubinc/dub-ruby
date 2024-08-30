@@ -13,6 +13,5 @@ module OpenApiSDK
         RATE_LIMIT_EXCEEDED = new('rate_limit_exceeded')
       end
     end
-
   end
 end

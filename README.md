@@ -11,8 +11,25 @@
 
 Learn more about the Dub.co Ruby SDK in the [official documentation](https://dub.co/docs/sdks/ruby/overview).
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Dub.co API: Dub is link management infrastructure for companies to create marketing campaigns, link sharing features, and referral programs.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed using [RubyGems](https://rubygems.org/):
 
 ```bash
 gem install dub

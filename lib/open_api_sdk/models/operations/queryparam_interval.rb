@@ -20,6 +20,5 @@ module OpenApiSDK
         ALL_UNFILTERED = new('all_unfiltered')
       end
     end
-
   end
 end

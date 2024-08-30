@@ -16,6 +16,5 @@ module OpenApiSDK
         H = new('H')
       end
     end
-
   end
 end
