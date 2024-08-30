@@ -262,6 +262,5 @@ module OpenApiSDK
         XK = new('XK')
       end
     end
-
   end
 end

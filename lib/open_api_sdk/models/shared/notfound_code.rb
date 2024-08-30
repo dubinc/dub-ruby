@@ -13,6 +13,5 @@ module OpenApiSDK
         NOT_FOUND = new('not_found')
       end
     end
-
   end
 end

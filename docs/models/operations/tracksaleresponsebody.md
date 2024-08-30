@@ -5,12 +5,10 @@ A sale was tracked.
 
 ## Fields
 
-| Field                       | Type                        | Required                    | Description                 |
-| --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `event_name`                | *::String*                  | :heavy_check_mark:          | N/A                         |
-| `customer_id`               | *::String*                  | :heavy_check_mark:          | N/A                         |
-| `amount`                    | *::Float*                   | :heavy_check_mark:          | N/A                         |
-| `payment_processor`         | *::String*                  | :heavy_check_mark:          | N/A                         |
-| `invoice_id`                | *::String*                  | :heavy_check_mark:          | N/A                         |
-| `currency`                  | *::String*                  | :heavy_check_mark:          | N/A                         |
-| `metadata`                  | T::Hash[Symbol, *::Object*] | :heavy_check_mark:          | N/A                         |
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `event_name`                                                                                | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `customer`                                                                                  | [::OpenApiSDK::Operations::TrackSaleCustomer](../../models/operations/tracksalecustomer.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `sale`                                                                                      | [::OpenApiSDK::Operations::Sale](../../models/operations/sale.md)                           | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `click`                                                                                     | [::OpenApiSDK::Operations::TrackSaleClick](../../models/operations/tracksaleclick.md)       | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `link`                                                                                      | [::OpenApiSDK::Operations::TrackSaleLink](../../models/operations/tracksalelink.md)         | :heavy_check_mark:                                                                          | N/A                                                                                         |

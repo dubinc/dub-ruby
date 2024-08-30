@@ -24,6 +24,5 @@ module OpenApiSDK
         TRIGGER = new('trigger')
       end
     end
-
   end
 end

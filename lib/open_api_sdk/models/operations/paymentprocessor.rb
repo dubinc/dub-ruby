@@ -15,6 +15,5 @@ module OpenApiSDK
         PADDLE = new('paddle')
       end
     end
-
   end
 end

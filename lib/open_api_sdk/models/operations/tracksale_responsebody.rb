@@ -12,30 +12,24 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+      field :click, ::OpenApiSDK::Operations::TrackSaleClick, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click') } }
 
-      field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
-
-      field :customer_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
+      field :customer, ::OpenApiSDK::Operations::TrackSaleCustomer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
       field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
 
-      field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
+      field :link, ::OpenApiSDK::Operations::TrackSaleLink, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
 
-      field :metadata, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
-
-      field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor') } }
+      field :sale, ::OpenApiSDK::Operations::Sale, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale') } }
 
 
-      sig { params(amount: ::Float, currency: ::String, customer_id: ::String, event_name: ::String, invoice_id: ::String, metadata: T::Hash[Symbol, ::Object], payment_processor: ::String).void }
-      def initialize(amount: nil, currency: nil, customer_id: nil, event_name: nil, invoice_id: nil, metadata: nil, payment_processor: nil)
-        @amount = amount
-        @currency = currency
-        @customer_id = customer_id
+      sig { params(click: ::OpenApiSDK::Operations::TrackSaleClick, customer: ::OpenApiSDK::Operations::TrackSaleCustomer, event_name: ::String, link: ::OpenApiSDK::Operations::TrackSaleLink, sale: ::OpenApiSDK::Operations::Sale).void }
+      def initialize(click: nil, customer: nil, event_name: nil, link: nil, sale: nil)
+        @click = click
+        @customer = customer
         @event_name = event_name
-        @invoice_id = invoice_id
-        @metadata = metadata
-        @payment_processor = payment_processor
+        @link = link
+        @sale = sale
       end
     end
   end

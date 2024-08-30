@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: eed7a2ad5cc93c07aac35e5c6d536a9a
+  docChecksum: 721d398075627f52145125ad6074cef5
   docVersion: 0.0.1
-  speakeasyVersion: 1.379.0
-  generationVersion: 2.404.3
-  releaseVersion: 0.2.2-alpha.8
-  configChecksum: 99db5c5c4717564a3245a6b7e08eb66d
+  speakeasyVersion: 1.385.0
+  generationVersion: 2.407.2
+  releaseVersion: 0.2.2-alpha.9
+  configChecksum: db0a988e009b3fb8fdf8f429f41fc0b9
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -139,10 +139,19 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
+  - lib/open_api_sdk/models/operations/customer.rb
+  - lib/open_api_sdk/models/operations/click.rb
+  - lib/open_api_sdk/models/operations/geo.rb
+  - lib/open_api_sdk/models/operations/link.rb
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
   - lib/open_api_sdk/models/operations/tracklead_response.rb
   - lib/open_api_sdk/models/operations/paymentprocessor.rb
   - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
+  - lib/open_api_sdk/models/operations/tracksale_customer.rb
+  - lib/open_api_sdk/models/operations/sale.rb
+  - lib/open_api_sdk/models/operations/tracksale_click.rb
+  - lib/open_api_sdk/models/operations/tracksale_geo.rb
+  - lib/open_api_sdk/models/operations/tracksale_link.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/trackcustomer_requestbody.rb
@@ -185,7 +194,8 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/linkgeotargeting.rb
   - lib/open_api_sdk/models/shared/countrycode.rb
   - lib/open_api_sdk/models/shared/continentcode.rb
-  - lib/open_api_sdk/models/shared/clickevents.rb
+  - lib/open_api_sdk/models/shared/event.rb
+  - lib/open_api_sdk/models/shared/clickevent.rb
   - lib/open_api_sdk/models/shared/plan.rb
   - lib/open_api_sdk/models/shared/role.rb
   - lib/open_api_sdk/models/shared/users.rb
@@ -256,10 +266,19 @@ generatedFiles:
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainresponse.md
   - docs/models/operations/trackleadrequestbody.md
+  - docs/models/operations/customer.md
+  - docs/models/operations/click.md
+  - docs/models/operations/geo.md
+  - docs/models/operations/link.md
   - docs/models/operations/trackleadresponsebody.md
   - docs/models/operations/trackleadresponse.md
   - docs/models/operations/paymentprocessor.md
   - docs/models/operations/tracksalerequestbody.md
+  - docs/models/operations/tracksalecustomer.md
+  - docs/models/operations/sale.md
+  - docs/models/operations/tracksaleclick.md
+  - docs/models/operations/tracksalegeo.md
+  - docs/models/operations/tracksalelink.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/trackcustomerrequestbody.md
@@ -302,7 +321,8 @@ generatedFiles:
   - docs/models/shared/linkgeotargeting.md
   - docs/models/shared/countrycode.md
   - docs/models/shared/continentcode.md
-  - docs/models/shared/clickevents.md
+  - docs/models/shared/event.md
+  - docs/models/shared/clickevent.md
   - docs/models/shared/plan.md
   - docs/models/shared/role.md
   - docs/models/shared/users.md

@@ -13,6 +13,5 @@ module OpenApiSDK
         INTERNAL_SERVER_ERROR = new('internal_server_error')
       end
     end
-
   end
 end

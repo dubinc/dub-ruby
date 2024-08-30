@@ -15,6 +15,5 @@ module OpenApiSDK
         LAST_CLICKED = new('lastClicked')
       end
     end
-
   end
 end

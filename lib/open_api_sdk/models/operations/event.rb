@@ -16,6 +16,5 @@ module OpenApiSDK
         COMPOSITE = new('composite')
       end
     end
-
   end
 end

@@ -5,13 +5,12 @@
 
 
 module OpenApiSDK
-  module Operations
+  module Shared
   
-    # Order
-    class Order < T::Enum
+
+    class Event < T::Enum
       enums do
-        ASC = new('asc')
-        DESC = new('desc')
+        CLICK = new('click')
       end
     end
   end

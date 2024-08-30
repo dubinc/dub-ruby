@@ -19,6 +19,5 @@ module OpenApiSDK
         BROWN = new('brown')
       end
     end
-
   end
 end

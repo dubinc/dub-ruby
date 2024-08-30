@@ -13,6 +13,5 @@ module OpenApiSDK
         BAD_REQUEST = new('bad_request')
       end
     end
-
   end
 end
