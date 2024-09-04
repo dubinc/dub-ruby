@@ -11,6 +11,7 @@
 * [delete](#delete) - Delete a link
 * [update](#update) - Update a link
 * [create_many](#create_many) - Bulk create links
+* [delete_many](#delete_many) - Bulk delete links
 * [update_many](#update_many) - Bulk update links
 * [upsert](#upsert) - Upsert a link
 
@@ -320,6 +321,49 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::BulkCreateLinksResponse)](../../models/operations/bulkcreatelinksresponse.md)**
+
+
+
+
+## delete_many
+
+Bulk delete up to 100 links for the authenticated workspace.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+
+req = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(
+  link_ids: "clux0rgak00011...,clux0rgak00022...",
+)
+    
+res = s.links.delete_many(req)
+
+if ! res.object.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [::OpenApiSDK::Operations::BulkDeleteLinksRequest](../../models/operations/bulkdeletelinksrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::BulkDeleteLinksResponse)](../../models/operations/bulkdeletelinksresponse.md)**
 
 
 

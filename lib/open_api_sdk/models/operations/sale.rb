@@ -18,14 +18,17 @@ module OpenApiSDK
 
       field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
+      field :metadata, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+
       field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor') } }
 
 
-      sig { params(amount: ::Float, currency: ::String, invoice_id: ::String, payment_processor: ::String).void }
-      def initialize(amount: nil, currency: nil, invoice_id: nil, payment_processor: nil)
+      sig { params(amount: ::Float, currency: ::String, invoice_id: ::String, metadata: T::Hash[Symbol, ::Object], payment_processor: ::String).void }
+      def initialize(amount: nil, currency: nil, invoice_id: nil, metadata: nil, payment_processor: nil)
         @amount = amount
         @currency = currency
         @invoice_id = invoice_id
+        @metadata = metadata
         @payment_processor = payment_processor
       end
     end
