@@ -12,48 +12,12 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :bot, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bot') } }
-
-      field :browser, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('browser') } }
-
-      field :city, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
-
-      field :continent, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('continent') } }
-
-      field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
-
-      field :device, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('device') } }
-
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
-      field :ip, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ip') } }
 
-      field :os, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('os') } }
-
-      field :qr, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
-
-      field :referer, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referer') } }
-
-      field :ua, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ua') } }
-
-      field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
-
-
-      sig { params(bot: T::Boolean, browser: ::String, city: ::String, continent: ::String, country: ::String, device: ::String, id: ::String, ip: ::String, os: ::String, qr: T::Boolean, referer: ::String, ua: ::String, url: ::String).void }
-      def initialize(bot: nil, browser: nil, city: nil, continent: nil, country: nil, device: nil, id: nil, ip: nil, os: nil, qr: nil, referer: nil, ua: nil, url: nil)
-        @bot = bot
-        @browser = browser
-        @city = city
-        @continent = continent
-        @country = country
-        @device = device
+      sig { params(id: ::String).void }
+      def initialize(id: nil)
         @id = id
-        @ip = ip
-        @os = os
-        @qr = qr
-        @referer = referer
-        @ua = ua
-        @url = url
       end
     end
   end

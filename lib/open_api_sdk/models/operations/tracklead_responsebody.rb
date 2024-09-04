@@ -16,17 +16,11 @@ module OpenApiSDK
 
       field :customer, ::OpenApiSDK::Operations::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
-      field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
 
-      field :link, ::OpenApiSDK::Operations::Link, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
-
-
-      sig { params(click: ::OpenApiSDK::Operations::Click, customer: ::OpenApiSDK::Operations::Customer, event_name: ::String, link: ::OpenApiSDK::Operations::Link).void }
-      def initialize(click: nil, customer: nil, event_name: nil, link: nil)
+      sig { params(click: ::OpenApiSDK::Operations::Click, customer: ::OpenApiSDK::Operations::Customer).void }
+      def initialize(click: nil, customer: nil)
         @click = click
         @customer = customer
-        @event_name = event_name
-        @link = link
       end
     end
   end

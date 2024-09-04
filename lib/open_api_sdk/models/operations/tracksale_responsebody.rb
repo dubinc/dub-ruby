@@ -12,23 +12,17 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :click, ::OpenApiSDK::Operations::TrackSaleClick, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click') } }
-
       field :customer, ::OpenApiSDK::Operations::TrackSaleCustomer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
       field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
 
-      field :link, ::OpenApiSDK::Operations::TrackSaleLink, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
-
       field :sale, ::OpenApiSDK::Operations::Sale, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale') } }
 
 
-      sig { params(click: ::OpenApiSDK::Operations::TrackSaleClick, customer: ::OpenApiSDK::Operations::TrackSaleCustomer, event_name: ::String, link: ::OpenApiSDK::Operations::TrackSaleLink, sale: ::OpenApiSDK::Operations::Sale).void }
-      def initialize(click: nil, customer: nil, event_name: nil, link: nil, sale: nil)
-        @click = click
+      sig { params(customer: ::OpenApiSDK::Operations::TrackSaleCustomer, event_name: ::String, sale: ::OpenApiSDK::Operations::Sale).void }
+      def initialize(customer: nil, event_name: nil, sale: nil)
         @customer = customer
         @event_name = event_name
-        @link = link
         @sale = sale
       end
     end
