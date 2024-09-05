@@ -344,7 +344,9 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(
-  link_ids: "clux0rgak00011...,clux0rgak00022...",
+  link_ids: [
+    "<value>",
+  ],
 )
     
 res = s.links.delete_many(req)

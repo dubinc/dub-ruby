@@ -29,7 +29,7 @@ module OpenApiSDK
       field :expires_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
       # This is the ID of the link in your database. If set, it can be used to identify the link in the future. Must be prefixed with `ext_` when passed as a query parameter.
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-
+      # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
       field :geo, T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
       # The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
