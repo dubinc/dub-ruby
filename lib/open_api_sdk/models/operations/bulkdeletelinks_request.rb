@@ -12,10 +12,10 @@ module OpenApiSDK
       extend T::Sig
 
       # Comma-separated list of link IDs to delete. Maximum of 100 IDs. Non-existing IDs will be ignored.
-      field :link_ids, ::String, { 'query_param': { 'field_name': 'linkIds', 'style': 'form', 'explode': true } }
+      field :link_ids, T::Array[::String], { 'query_param': { 'field_name': 'linkIds', 'style': 'form', 'explode': false } }
 
 
-      sig { params(link_ids: ::String).void }
+      sig { params(link_ids: T::Array[::String]).void }
       def initialize(link_ids: nil)
         @link_ids = link_ids
       end
