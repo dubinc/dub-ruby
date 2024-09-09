@@ -11,44 +11,73 @@ module OpenApiSDK
     class ClickEvent < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-
+      # Deprecated. Use `click.browser` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :browser, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('browser') } }
-
+      # Deprecated. Use `click.city` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :city, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
 
+      field :click, ::OpenApiSDK::Shared::Click, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click') } }
+      # Deprecated. Use `click.id` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click_id') } }
-
+      # Deprecated. Use `click.continent` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :continent, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('continent') } }
-
+      # Deprecated. Use `click.country` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
-
+      # Deprecated. Use `click.device` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :device, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('device') } }
-
+      # Deprecated. Use `link.domain` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
 
       field :event, ::OpenApiSDK::Shared::Event, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('event'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Event, false) } }
-
+      # Deprecated. Use `click.ip` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :ip, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ip') } }
-
+      # Deprecated. Use `link.key` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }
 
+      field :link, ::OpenApiSDK::Shared::Link, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
+      # Deprecated. Use `link.id` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :link_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link_id') } }
-
+      # Deprecated. Use `click.os` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :os, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('os') } }
-
+      # Deprecated. Use `click.qr` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :qr, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
-
-      field :referer, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referer') } }
-
-      field :timestamp, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp') } }
-
+      # Deprecated. Use `click.url` instead.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
+      field :timestamp, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp') } }
 
-      sig { params(browser: ::String, city: ::String, click_id: ::String, continent: ::String, country: ::String, device: ::String, domain: ::String, event: ::OpenApiSDK::Shared::Event, ip: ::String, key: ::String, link_id: ::String, os: ::String, qr: ::Float, referer: ::String, timestamp: ::String, url: ::String).void }
-      def initialize(browser: nil, city: nil, click_id: nil, continent: nil, country: nil, device: nil, domain: nil, event: nil, ip: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, timestamp: nil, url: nil)
+
+      sig { params(browser: ::String, city: ::String, click: ::OpenApiSDK::Shared::Click, click_id: ::String, continent: ::String, country: ::String, device: ::String, domain: ::String, event: ::OpenApiSDK::Shared::Event, ip: ::String, key: ::String, link: ::OpenApiSDK::Shared::Link, link_id: ::String, os: ::String, qr: ::Float, url: ::String, timestamp: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, click: nil, click_id: nil, continent: nil, country: nil, device: nil, domain: nil, event: nil, ip: nil, key: nil, link: nil, link_id: nil, os: nil, qr: nil, url: nil, timestamp: nil)
         @browser = browser
         @city = city
+        @click = click
         @click_id = click_id
         @continent = continent
         @country = country
@@ -57,12 +86,12 @@ module OpenApiSDK
         @event = event
         @ip = ip
         @key = key
+        @link = link
         @link_id = link_id
         @os = os
         @qr = qr
-        @referer = referer
-        @timestamp = timestamp
         @url = url
+        @timestamp = timestamp
       end
     end
   end

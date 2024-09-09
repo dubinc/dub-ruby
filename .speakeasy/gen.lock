@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 7c8dd0ae20e4cc445c3ce05b75fe9ca9
+  docChecksum: f3ea51a606238d49d3b0b22c61387b74
   docVersion: 0.0.1
-  speakeasyVersion: 1.390.7
-  generationVersion: 2.409.8
-  releaseVersion: 0.2.2-alpha.11
-  configChecksum: ec5723c6f3b59b4e7eda46ff27fe5312
+  speakeasyVersion: 1.393.2
+  generationVersion: 2.413.0
+  releaseVersion: 0.2.2-alpha.12
+  configChecksum: 77aeb12caa6b95b6174658e06825a9b2
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.2.19
+    core: 3.2.20
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -20,24 +20,297 @@ features:
     globalServerURLs: 2.82.3
     nameOverrides: 2.81.2
 generatedFiles:
-  - lib/open_api_sdk/sdkconfiguration.rb
-  - lib/open_api_sdk/links.rb
-  - lib/open_api_sdk/qr_codes.rb
-  - lib/open_api_sdk/analytics.rb
-  - lib/open_api_sdk/events.rb
-  - lib/open_api_sdk/workspaces.rb
-  - lib/open_api_sdk/tags.rb
-  - lib/open_api_sdk/domains.rb
-  - lib/open_api_sdk/track.rb
-  - lib/open_api_sdk/metatags.rb
-  - lib/open_api_sdk/dub.rb
+  - .gitattributes
   - .rubocop.yml
+  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - USAGE.md
+  - docs/models/operations/bulkcreatelinksresponse.md
+  - docs/models/operations/bulkdeletelinksrequest.md
+  - docs/models/operations/bulkdeletelinksresponse.md
+  - docs/models/operations/bulkdeletelinksresponsebody.md
+  - docs/models/operations/bulkupdatelinksrequestbody.md
+  - docs/models/operations/bulkupdatelinksresponse.md
+  - docs/models/operations/click.md
+  - docs/models/operations/color.md
+  - docs/models/operations/createdomainrequestbody.md
+  - docs/models/operations/createdomainresponse.md
+  - docs/models/operations/createlinkrequestbody.md
+  - docs/models/operations/createlinkresponse.md
+  - docs/models/operations/createtagrequestbody.md
+  - docs/models/operations/createtagresponse.md
+  - docs/models/operations/customer.md
+  - docs/models/operations/data.md
+  - docs/models/operations/deletedomainrequest.md
+  - docs/models/operations/deletedomainresponse.md
+  - docs/models/operations/deletedomainresponsebody.md
+  - docs/models/operations/deletelinkrequest.md
+  - docs/models/operations/deletelinkresponse.md
+  - docs/models/operations/deletelinkresponsebody.md
+  - docs/models/operations/deletetagrequest.md
+  - docs/models/operations/deletetagresponse.md
+  - docs/models/operations/deletetagresponsebody.md
+  - docs/models/operations/event.md
+  - docs/models/operations/getlinkinforequest.md
+  - docs/models/operations/getlinkinforesponse.md
+  - docs/models/operations/getlinkscountrequest.md
+  - docs/models/operations/getlinkscountresponse.md
+  - docs/models/operations/getlinksrequest.md
+  - docs/models/operations/getlinksresponse.md
+  - docs/models/operations/getmetatagsrequest.md
+  - docs/models/operations/getmetatagsresponse.md
+  - docs/models/operations/getmetatagsresponsebody.md
+  - docs/models/operations/getqrcoderequest.md
+  - docs/models/operations/getqrcoderesponse.md
+  - docs/models/operations/gettagsresponse.md
+  - docs/models/operations/getworkspacerequest.md
+  - docs/models/operations/getworkspaceresponse.md
+  - docs/models/operations/groupby.md
+  - docs/models/operations/interval.md
+  - docs/models/operations/level.md
+  - docs/models/operations/listdomainsrequest.md
+  - docs/models/operations/listdomainsresponse.md
+  - docs/models/operations/listeventsrequest.md
+  - docs/models/operations/listeventsresponse.md
+  - docs/models/operations/order.md
+  - docs/models/operations/paymentprocessor.md
+  - docs/models/operations/queryparamevent.md
+  - docs/models/operations/queryparaminterval.md
+  - docs/models/operations/requestbody.md
+  - docs/models/operations/retrieveanalyticsrequest.md
+  - docs/models/operations/retrieveanalyticsresponse.md
+  - docs/models/operations/sale.md
+  - docs/models/operations/sort.md
+  - docs/models/operations/sortby.md
+  - docs/models/operations/trackcustomerrequestbody.md
+  - docs/models/operations/trackcustomerresponse.md
+  - docs/models/operations/trackcustomerresponsebody.md
+  - docs/models/operations/trackleadrequestbody.md
+  - docs/models/operations/trackleadresponse.md
+  - docs/models/operations/trackleadresponsebody.md
+  - docs/models/operations/tracksalecustomer.md
+  - docs/models/operations/tracksalerequestbody.md
+  - docs/models/operations/tracksaleresponse.md
+  - docs/models/operations/tracksaleresponsebody.md
+  - docs/models/operations/updatedomainrequest.md
+  - docs/models/operations/updatedomainrequestbody.md
+  - docs/models/operations/updatedomainresponse.md
+  - docs/models/operations/updatelinkrequest.md
+  - docs/models/operations/updatelinkrequestbody.md
+  - docs/models/operations/updatelinkresponse.md
+  - docs/models/operations/updatetagcolor.md
+  - docs/models/operations/updatetagrequest.md
+  - docs/models/operations/updatetagrequestbody.md
+  - docs/models/operations/updatetagresponse.md
+  - docs/models/operations/updateworkspacerequest.md
+  - docs/models/operations/updateworkspacerequestbody.md
+  - docs/models/operations/updateworkspaceresponse.md
+  - docs/models/operations/upsertlinkrequestbody.md
+  - docs/models/operations/upsertlinkresponse.md
+  - docs/models/shared/badrequest.md
+  - docs/models/shared/click.md
+  - docs/models/shared/clickevent.md
+  - docs/models/shared/clickeventgeo.md
+  - docs/models/shared/code.md
+  - docs/models/shared/color.md
+  - docs/models/shared/conflict.md
+  - docs/models/shared/conflictcode.md
+  - docs/models/shared/conflicterror.md
+  - docs/models/shared/continentcode.md
+  - docs/models/shared/countrycode.md
+  - docs/models/shared/domains.md
+  - docs/models/shared/domainschema.md
+  - docs/models/shared/error.md
+  - docs/models/shared/event.md
+  - docs/models/shared/forbidden.md
+  - docs/models/shared/forbiddencode.md
+  - docs/models/shared/forbiddenerror.md
+  - docs/models/shared/geo.md
+  - docs/models/shared/internalservererror.md
+  - docs/models/shared/internalservererrorcode.md
+  - docs/models/shared/internalservererrorerror.md
+  - docs/models/shared/inviteexpired.md
+  - docs/models/shared/inviteexpiredcode.md
+  - docs/models/shared/inviteexpirederror.md
+  - docs/models/shared/link.md
+  - docs/models/shared/linkgeotargeting.md
+  - docs/models/shared/linkschema.md
+  - docs/models/shared/notfound.md
+  - docs/models/shared/notfoundcode.md
+  - docs/models/shared/notfounderror.md
+  - docs/models/shared/plan.md
+  - docs/models/shared/ratelimitexceeded.md
+  - docs/models/shared/ratelimitexceededcode.md
+  - docs/models/shared/ratelimitexceedederror.md
+  - docs/models/shared/role.md
+  - docs/models/shared/security.md
+  - docs/models/shared/tagschema.md
+  - docs/models/shared/unauthorized.md
+  - docs/models/shared/unauthorizedcode.md
+  - docs/models/shared/unauthorizederror.md
+  - docs/models/shared/unprocessableentity.md
+  - docs/models/shared/unprocessableentitycode.md
+  - docs/models/shared/unprocessableentityerror.md
+  - docs/models/shared/users.md
+  - docs/models/shared/workspaceschema.md
+  - docs/sdks/analytics/README.md
+  - docs/sdks/domains/README.md
+  - docs/sdks/dub/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/links/README.md
+  - docs/sdks/metatags/README.md
+  - docs/sdks/qrcodes/README.md
+  - docs/sdks/tags/README.md
+  - docs/sdks/track/README.md
+  - docs/sdks/workspaces/README.md
+  - dub.gemspec
+  - lib/dub.rb
+  - lib/open_api_sdk/analytics.rb
+  - lib/open_api_sdk/domains.rb
+  - lib/open_api_sdk/dub.rb
+  - lib/open_api_sdk/events.rb
+  - lib/open_api_sdk/links.rb
+  - lib/open_api_sdk/metatags.rb
+  - lib/open_api_sdk/models/operations.rb
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_response.rb
+  - lib/open_api_sdk/models/operations/bulkdeletelinks_request.rb
+  - lib/open_api_sdk/models/operations/bulkdeletelinks_response.rb
+  - lib/open_api_sdk/models/operations/bulkdeletelinks_responsebody.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_requestbody.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
+  - lib/open_api_sdk/models/operations/click.rb
+  - lib/open_api_sdk/models/operations/color.rb
+  - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
+  - lib/open_api_sdk/models/operations/createdomain_response.rb
+  - lib/open_api_sdk/models/operations/createlink_requestbody.rb
+  - lib/open_api_sdk/models/operations/createlink_response.rb
+  - lib/open_api_sdk/models/operations/createtag_requestbody.rb
+  - lib/open_api_sdk/models/operations/createtag_response.rb
+  - lib/open_api_sdk/models/operations/customer.rb
+  - lib/open_api_sdk/models/operations/data.rb
+  - lib/open_api_sdk/models/operations/deletedomain_request.rb
+  - lib/open_api_sdk/models/operations/deletedomain_response.rb
+  - lib/open_api_sdk/models/operations/deletedomain_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletelink_request.rb
+  - lib/open_api_sdk/models/operations/deletelink_response.rb
+  - lib/open_api_sdk/models/operations/deletelink_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletetag_request.rb
+  - lib/open_api_sdk/models/operations/deletetag_response.rb
+  - lib/open_api_sdk/models/operations/deletetag_responsebody.rb
+  - lib/open_api_sdk/models/operations/event.rb
+  - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
+  - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
+  - lib/open_api_sdk/models/operations/getlinks_request.rb
+  - lib/open_api_sdk/models/operations/getlinks_response.rb
+  - lib/open_api_sdk/models/operations/getlinkscount_request.rb
+  - lib/open_api_sdk/models/operations/getlinkscount_response.rb
+  - lib/open_api_sdk/models/operations/getmetatags_request.rb
+  - lib/open_api_sdk/models/operations/getmetatags_response.rb
+  - lib/open_api_sdk/models/operations/getmetatags_responsebody.rb
+  - lib/open_api_sdk/models/operations/getqrcode_request.rb
+  - lib/open_api_sdk/models/operations/getqrcode_response.rb
+  - lib/open_api_sdk/models/operations/gettags_response.rb
+  - lib/open_api_sdk/models/operations/getworkspace_request.rb
+  - lib/open_api_sdk/models/operations/getworkspace_response.rb
+  - lib/open_api_sdk/models/operations/groupby.rb
+  - lib/open_api_sdk/models/operations/interval.rb
+  - lib/open_api_sdk/models/operations/level.rb
+  - lib/open_api_sdk/models/operations/listdomains_request.rb
+  - lib/open_api_sdk/models/operations/listdomains_response.rb
+  - lib/open_api_sdk/models/operations/listevents_request.rb
+  - lib/open_api_sdk/models/operations/listevents_response.rb
+  - lib/open_api_sdk/models/operations/order.rb
+  - lib/open_api_sdk/models/operations/paymentprocessor.rb
+  - lib/open_api_sdk/models/operations/queryparam_event.rb
+  - lib/open_api_sdk/models/operations/queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/requestbody.rb
+  - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
+  - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
+  - lib/open_api_sdk/models/operations/sale.rb
+  - lib/open_api_sdk/models/operations/sort.rb
+  - lib/open_api_sdk/models/operations/sortby.rb
+  - lib/open_api_sdk/models/operations/trackcustomer_requestbody.rb
+  - lib/open_api_sdk/models/operations/trackcustomer_response.rb
+  - lib/open_api_sdk/models/operations/trackcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
+  - lib/open_api_sdk/models/operations/tracklead_response.rb
+  - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
+  - lib/open_api_sdk/models/operations/tracksale_customer.rb
+  - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
+  - lib/open_api_sdk/models/operations/tracksale_response.rb
+  - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
+  - lib/open_api_sdk/models/operations/updatedomain_request.rb
+  - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatedomain_response.rb
+  - lib/open_api_sdk/models/operations/updatelink_request.rb
+  - lib/open_api_sdk/models/operations/updatelink_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatelink_response.rb
+  - lib/open_api_sdk/models/operations/updatetag_color.rb
+  - lib/open_api_sdk/models/operations/updatetag_request.rb
+  - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatetag_response.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_request.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_requestbody.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_response.rb
+  - lib/open_api_sdk/models/operations/upsertlink_requestbody.rb
+  - lib/open_api_sdk/models/operations/upsertlink_response.rb
+  - lib/open_api_sdk/models/shared.rb
+  - lib/open_api_sdk/models/shared/badrequest.rb
+  - lib/open_api_sdk/models/shared/click.rb
+  - lib/open_api_sdk/models/shared/clickevent.rb
+  - lib/open_api_sdk/models/shared/clickevent_geo.rb
+  - lib/open_api_sdk/models/shared/code.rb
+  - lib/open_api_sdk/models/shared/color.rb
+  - lib/open_api_sdk/models/shared/conflict.rb
+  - lib/open_api_sdk/models/shared/conflict_code.rb
+  - lib/open_api_sdk/models/shared/conflict_error.rb
+  - lib/open_api_sdk/models/shared/continentcode.rb
+  - lib/open_api_sdk/models/shared/countrycode.rb
+  - lib/open_api_sdk/models/shared/domains.rb
+  - lib/open_api_sdk/models/shared/domainschema.rb
+  - lib/open_api_sdk/models/shared/error.rb
+  - lib/open_api_sdk/models/shared/event.rb
+  - lib/open_api_sdk/models/shared/forbidden.rb
+  - lib/open_api_sdk/models/shared/forbidden_code.rb
+  - lib/open_api_sdk/models/shared/forbidden_error.rb
+  - lib/open_api_sdk/models/shared/geo.rb
+  - lib/open_api_sdk/models/shared/internalservererror.rb
+  - lib/open_api_sdk/models/shared/internalservererror_code.rb
+  - lib/open_api_sdk/models/shared/internalservererror_error.rb
+  - lib/open_api_sdk/models/shared/inviteexpired.rb
+  - lib/open_api_sdk/models/shared/inviteexpired_code.rb
+  - lib/open_api_sdk/models/shared/inviteexpired_error.rb
+  - lib/open_api_sdk/models/shared/link.rb
+  - lib/open_api_sdk/models/shared/linkgeotargeting.rb
+  - lib/open_api_sdk/models/shared/linkschema.rb
+  - lib/open_api_sdk/models/shared/notfound.rb
+  - lib/open_api_sdk/models/shared/notfound_code.rb
+  - lib/open_api_sdk/models/shared/notfound_error.rb
+  - lib/open_api_sdk/models/shared/plan.rb
+  - lib/open_api_sdk/models/shared/ratelimitexceeded.rb
+  - lib/open_api_sdk/models/shared/ratelimitexceeded_code.rb
+  - lib/open_api_sdk/models/shared/ratelimitexceeded_error.rb
+  - lib/open_api_sdk/models/shared/role.rb
+  - lib/open_api_sdk/models/shared/security.rb
+  - lib/open_api_sdk/models/shared/tagschema.rb
+  - lib/open_api_sdk/models/shared/unauthorized.rb
+  - lib/open_api_sdk/models/shared/unauthorized_code.rb
+  - lib/open_api_sdk/models/shared/unauthorized_error.rb
+  - lib/open_api_sdk/models/shared/unprocessableentity.rb
+  - lib/open_api_sdk/models/shared/unprocessableentity_code.rb
+  - lib/open_api_sdk/models/shared/unprocessableentity_error.rb
+  - lib/open_api_sdk/models/shared/users.rb
+  - lib/open_api_sdk/models/shared/workspaceschema.rb
+  - lib/open_api_sdk/qr_codes.rb
+  - lib/open_api_sdk/sdkconfiguration.rb
+  - lib/open_api_sdk/tags.rb
+  - lib/open_api_sdk/track.rb
   - lib/open_api_sdk/utils/metadata_fields.rb
   - lib/open_api_sdk/utils/t.rb
   - lib/open_api_sdk/utils/utils.rb
+  - lib/open_api_sdk/workspaces.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes
   - sorbet/rbi/annotations/faraday.rbi
@@ -78,264 +351,686 @@ generatedFiles:
   - sorbet/rbi/gems/yarp@0.13.0.rbi
   - sorbet/tapioca/config.yml
   - sorbet/tapioca/require.rb
-  - dub.gemspec
-  - lib/open_api_sdk/models/operations/sort.rb
-  - lib/open_api_sdk/models/operations/getlinks_request.rb
-  - lib/open_api_sdk/models/operations/getlinks_response.rb
-  - lib/open_api_sdk/models/operations/createlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/createlink_response.rb
-  - lib/open_api_sdk/models/operations/getlinkscount_request.rb
-  - lib/open_api_sdk/models/operations/getlinkscount_response.rb
-  - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
-  - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
-  - lib/open_api_sdk/models/operations/deletelink_request.rb
-  - lib/open_api_sdk/models/operations/deletelink_responsebody.rb
-  - lib/open_api_sdk/models/operations/deletelink_response.rb
-  - lib/open_api_sdk/models/operations/updatelink_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatelink_request.rb
-  - lib/open_api_sdk/models/operations/updatelink_response.rb
-  - lib/open_api_sdk/models/operations/requestbody.rb
-  - lib/open_api_sdk/models/operations/bulkcreatelinks_response.rb
-  - lib/open_api_sdk/models/operations/bulkdeletelinks_request.rb
-  - lib/open_api_sdk/models/operations/bulkdeletelinks_responsebody.rb
-  - lib/open_api_sdk/models/operations/bulkdeletelinks_response.rb
-  - lib/open_api_sdk/models/operations/data.rb
-  - lib/open_api_sdk/models/operations/bulkupdatelinks_requestbody.rb
-  - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
-  - lib/open_api_sdk/models/operations/upsertlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/upsertlink_response.rb
-  - lib/open_api_sdk/models/operations/level.rb
-  - lib/open_api_sdk/models/operations/getqrcode_request.rb
-  - lib/open_api_sdk/models/operations/getqrcode_response.rb
-  - lib/open_api_sdk/models/operations/event.rb
-  - lib/open_api_sdk/models/operations/groupby.rb
-  - lib/open_api_sdk/models/operations/interval.rb
-  - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
-  - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
-  - lib/open_api_sdk/models/operations/queryparam_event.rb
-  - lib/open_api_sdk/models/operations/queryparam_interval.rb
-  - lib/open_api_sdk/models/operations/order.rb
-  - lib/open_api_sdk/models/operations/sortby.rb
-  - lib/open_api_sdk/models/operations/listevents_request.rb
-  - lib/open_api_sdk/models/operations/listevents_response.rb
-  - lib/open_api_sdk/models/operations/getworkspace_request.rb
-  - lib/open_api_sdk/models/operations/getworkspace_response.rb
-  - lib/open_api_sdk/models/operations/updateworkspace_requestbody.rb
-  - lib/open_api_sdk/models/operations/updateworkspace_request.rb
-  - lib/open_api_sdk/models/operations/updateworkspace_response.rb
-  - lib/open_api_sdk/models/operations/gettags_response.rb
-  - lib/open_api_sdk/models/operations/color.rb
-  - lib/open_api_sdk/models/operations/createtag_requestbody.rb
-  - lib/open_api_sdk/models/operations/createtag_response.rb
-  - lib/open_api_sdk/models/operations/updatetag_color.rb
-  - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatetag_request.rb
-  - lib/open_api_sdk/models/operations/updatetag_response.rb
-  - lib/open_api_sdk/models/operations/listdomains_request.rb
-  - lib/open_api_sdk/models/operations/listdomains_response.rb
-  - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/createdomain_response.rb
-  - lib/open_api_sdk/models/operations/deletedomain_request.rb
-  - lib/open_api_sdk/models/operations/deletedomain_responsebody.rb
-  - lib/open_api_sdk/models/operations/deletedomain_response.rb
-  - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatedomain_request.rb
-  - lib/open_api_sdk/models/operations/updatedomain_response.rb
-  - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
-  - lib/open_api_sdk/models/operations/click.rb
-  - lib/open_api_sdk/models/operations/customer.rb
-  - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
-  - lib/open_api_sdk/models/operations/tracklead_response.rb
-  - lib/open_api_sdk/models/operations/paymentprocessor.rb
-  - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
-  - lib/open_api_sdk/models/operations/tracksale_customer.rb
-  - lib/open_api_sdk/models/operations/sale.rb
-  - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
-  - lib/open_api_sdk/models/operations/tracksale_response.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_requestbody.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_responsebody.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_response.rb
-  - lib/open_api_sdk/models/operations/getmetatags_request.rb
-  - lib/open_api_sdk/models/operations/getmetatags_responsebody.rb
-  - lib/open_api_sdk/models/operations/getmetatags_response.rb
-  - lib/open_api_sdk/models/shared/internalservererror_code.rb
-  - lib/open_api_sdk/models/shared/internalservererror_error.rb
-  - lib/open_api_sdk/models/shared/internalservererror.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded_code.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded_error.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity_code.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity_error.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity.rb
-  - lib/open_api_sdk/models/shared/inviteexpired_code.rb
-  - lib/open_api_sdk/models/shared/inviteexpired_error.rb
-  - lib/open_api_sdk/models/shared/inviteexpired.rb
-  - lib/open_api_sdk/models/shared/conflict_code.rb
-  - lib/open_api_sdk/models/shared/conflict_error.rb
-  - lib/open_api_sdk/models/shared/conflict.rb
-  - lib/open_api_sdk/models/shared/notfound_code.rb
-  - lib/open_api_sdk/models/shared/notfound_error.rb
-  - lib/open_api_sdk/models/shared/notfound.rb
-  - lib/open_api_sdk/models/shared/forbidden_code.rb
-  - lib/open_api_sdk/models/shared/forbidden_error.rb
-  - lib/open_api_sdk/models/shared/forbidden.rb
-  - lib/open_api_sdk/models/shared/unauthorized_code.rb
-  - lib/open_api_sdk/models/shared/unauthorized_error.rb
-  - lib/open_api_sdk/models/shared/unauthorized.rb
-  - lib/open_api_sdk/models/shared/code.rb
-  - lib/open_api_sdk/models/shared/error.rb
-  - lib/open_api_sdk/models/shared/badrequest.rb
-  - lib/open_api_sdk/models/shared/geo.rb
-  - lib/open_api_sdk/models/shared/linkschema.rb
-  - lib/open_api_sdk/models/shared/color.rb
-  - lib/open_api_sdk/models/shared/tagschema.rb
-  - lib/open_api_sdk/models/shared/linkgeotargeting.rb
-  - lib/open_api_sdk/models/shared/countrycode.rb
-  - lib/open_api_sdk/models/shared/continentcode.rb
-  - lib/open_api_sdk/models/shared/event.rb
-  - lib/open_api_sdk/models/shared/clickevent.rb
-  - lib/open_api_sdk/models/shared/plan.rb
-  - lib/open_api_sdk/models/shared/role.rb
-  - lib/open_api_sdk/models/shared/users.rb
-  - lib/open_api_sdk/models/shared/domains.rb
-  - lib/open_api_sdk/models/shared/workspaceschema.rb
-  - lib/open_api_sdk/models/shared/domainschema.rb
-  - lib/open_api_sdk/models/shared/security.rb
-  - lib/dub.rb
-  - lib/open_api_sdk/models/operations.rb
-  - lib/open_api_sdk/models/shared.rb
-  - docs/models/operations/sort.md
-  - docs/models/operations/getlinksrequest.md
-  - docs/models/operations/getlinksresponse.md
-  - docs/models/operations/createlinkrequestbody.md
-  - docs/models/operations/createlinkresponse.md
-  - docs/models/operations/getlinkscountrequest.md
-  - docs/models/operations/getlinkscountresponse.md
-  - docs/models/operations/getlinkinforequest.md
-  - docs/models/operations/getlinkinforesponse.md
-  - docs/models/operations/deletelinkrequest.md
-  - docs/models/operations/deletelinkresponsebody.md
-  - docs/models/operations/deletelinkresponse.md
-  - docs/models/operations/updatelinkrequestbody.md
-  - docs/models/operations/updatelinkrequest.md
-  - docs/models/operations/updatelinkresponse.md
-  - docs/models/operations/requestbody.md
-  - docs/models/operations/bulkcreatelinksresponse.md
-  - docs/models/operations/bulkdeletelinksrequest.md
-  - docs/models/operations/bulkdeletelinksresponsebody.md
-  - docs/models/operations/bulkdeletelinksresponse.md
-  - docs/models/operations/data.md
-  - docs/models/operations/bulkupdatelinksrequestbody.md
-  - docs/models/operations/bulkupdatelinksresponse.md
-  - docs/models/operations/upsertlinkrequestbody.md
-  - docs/models/operations/upsertlinkresponse.md
-  - docs/models/operations/level.md
-  - docs/models/operations/getqrcoderequest.md
-  - docs/models/operations/getqrcoderesponse.md
-  - docs/models/operations/event.md
-  - docs/models/operations/groupby.md
-  - docs/models/operations/interval.md
-  - docs/models/operations/retrieveanalyticsrequest.md
-  - docs/models/operations/retrieveanalyticsresponse.md
-  - docs/models/operations/queryparamevent.md
-  - docs/models/operations/queryparaminterval.md
-  - docs/models/operations/order.md
-  - docs/models/operations/sortby.md
-  - docs/models/operations/listeventsrequest.md
-  - docs/models/operations/listeventsresponse.md
-  - docs/models/operations/getworkspacerequest.md
-  - docs/models/operations/getworkspaceresponse.md
-  - docs/models/operations/updateworkspacerequestbody.md
-  - docs/models/operations/updateworkspacerequest.md
-  - docs/models/operations/updateworkspaceresponse.md
-  - docs/models/operations/gettagsresponse.md
-  - docs/models/operations/color.md
-  - docs/models/operations/createtagrequestbody.md
-  - docs/models/operations/createtagresponse.md
-  - docs/models/operations/updatetagcolor.md
-  - docs/models/operations/updatetagrequestbody.md
-  - docs/models/operations/updatetagrequest.md
-  - docs/models/operations/updatetagresponse.md
-  - docs/models/operations/listdomainsrequest.md
-  - docs/models/operations/listdomainsresponse.md
-  - docs/models/operations/createdomainrequestbody.md
-  - docs/models/operations/createdomainresponse.md
-  - docs/models/operations/deletedomainrequest.md
-  - docs/models/operations/deletedomainresponsebody.md
-  - docs/models/operations/deletedomainresponse.md
-  - docs/models/operations/updatedomainrequestbody.md
-  - docs/models/operations/updatedomainrequest.md
-  - docs/models/operations/updatedomainresponse.md
-  - docs/models/operations/trackleadrequestbody.md
-  - docs/models/operations/click.md
-  - docs/models/operations/customer.md
-  - docs/models/operations/trackleadresponsebody.md
-  - docs/models/operations/trackleadresponse.md
-  - docs/models/operations/paymentprocessor.md
-  - docs/models/operations/tracksalerequestbody.md
-  - docs/models/operations/tracksalecustomer.md
-  - docs/models/operations/sale.md
-  - docs/models/operations/tracksaleresponsebody.md
-  - docs/models/operations/tracksaleresponse.md
-  - docs/models/operations/trackcustomerrequestbody.md
-  - docs/models/operations/trackcustomerresponsebody.md
-  - docs/models/operations/trackcustomerresponse.md
-  - docs/models/operations/getmetatagsrequest.md
-  - docs/models/operations/getmetatagsresponsebody.md
-  - docs/models/operations/getmetatagsresponse.md
-  - docs/models/shared/internalservererrorcode.md
-  - docs/models/shared/internalservererrorerror.md
-  - docs/models/shared/internalservererror.md
-  - docs/models/shared/ratelimitexceededcode.md
-  - docs/models/shared/ratelimitexceedederror.md
-  - docs/models/shared/ratelimitexceeded.md
-  - docs/models/shared/unprocessableentitycode.md
-  - docs/models/shared/unprocessableentityerror.md
-  - docs/models/shared/unprocessableentity.md
-  - docs/models/shared/inviteexpiredcode.md
-  - docs/models/shared/inviteexpirederror.md
-  - docs/models/shared/inviteexpired.md
-  - docs/models/shared/conflictcode.md
-  - docs/models/shared/conflicterror.md
-  - docs/models/shared/conflict.md
-  - docs/models/shared/notfoundcode.md
-  - docs/models/shared/notfounderror.md
-  - docs/models/shared/notfound.md
-  - docs/models/shared/forbiddencode.md
-  - docs/models/shared/forbiddenerror.md
-  - docs/models/shared/forbidden.md
-  - docs/models/shared/unauthorizedcode.md
-  - docs/models/shared/unauthorizederror.md
-  - docs/models/shared/unauthorized.md
-  - docs/models/shared/code.md
-  - docs/models/shared/error.md
-  - docs/models/shared/badrequest.md
-  - docs/models/shared/geo.md
-  - docs/models/shared/linkschema.md
-  - docs/models/shared/color.md
-  - docs/models/shared/tagschema.md
-  - docs/models/shared/linkgeotargeting.md
-  - docs/models/shared/countrycode.md
-  - docs/models/shared/continentcode.md
-  - docs/models/shared/event.md
-  - docs/models/shared/clickevent.md
-  - docs/models/shared/plan.md
-  - docs/models/shared/role.md
-  - docs/models/shared/users.md
-  - docs/models/shared/domains.md
-  - docs/models/shared/workspaceschema.md
-  - docs/models/shared/domainschema.md
-  - docs/models/shared/security.md
-  - docs/sdks/dub/README.md
-  - docs/sdks/links/README.md
-  - docs/sdks/qrcodes/README.md
-  - docs/sdks/analytics/README.md
-  - docs/sdks/events/README.md
-  - docs/sdks/workspaces/README.md
-  - docs/sdks/tags/README.md
-  - docs/sdks/domains/README.md
-  - docs/sdks/track/README.md
-  - docs/sdks/metatags/README.md
-  - USAGE.md
-  - .gitattributes
-  - CONTRIBUTING.md
+examples:
+  getLinks:
+    speakeasy-default-get-links:
+      parameters:
+        query:
+          page: 1
+          pageSize: 50
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createLink:
+    speakeasy-default-create-link:
+      requestBody:
+        application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "domain": "lighthearted-kilogram.name", "key": "<key>", "externalId": "<value>", "url": "https://impartial-dump.com", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "https://staid-garment.org", "password": "uL1dlrnUXohO_B9", "proxy": false, "title": "<value>", "description": "Advanced incremental contingency", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://sweaty-executor.org", "qrCode": "http://impassioned-beast.name", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "1009.66", "lastClicked": "<value>", "leads": "3577.62", "sales": "6519.85", "saleAmount": "1325.85", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getLinksCount:
+    speakeasy-default-get-links-count:
+      responses:
+        "200":
+          application/json: "2641.66"
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getLinkInfo:
+    speakeasy-default-get-link-info:
+      parameters:
+        query:
+          linkId: "clux0rgak00011..."
+          externalId: "ext_123456"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "domain": "ringed-blow.name", "key": "<key>", "externalId": "<value>", "url": "https://monumental-spaghetti.name", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "https://joyous-relative.info", "password": "H9v5zJBmg5IWAUj", "proxy": false, "title": "<value>", "description": "Seamless exuding focus group", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://mundane-bee.biz", "qrCode": "http://fuzzy-fishbone.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8930.92", "lastClicked": "<value>", "leads": "2433.54", "sales": "21.08", "saleAmount": "7802.62", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  deleteLink:
+    speakeasy-default-delete-link:
+      parameters:
+        path:
+          linkId: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<id>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updateLink:
+    speakeasy-default-update-link:
+      parameters:
+        path:
+          linkId: "<value>"
+      requestBody:
+        application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "domain": "tidy-amazon.name", "key": "<key>", "externalId": "<value>", "url": "http://grand-pupa.org", "trackConversion": false, "archived": false, "expiresAt": "<value>", "expiredUrl": "https://limited-hutch.org", "password": "vPKDk8CkuAMJjbG", "proxy": true, "title": "<value>", "description": "Assimilated encompassing pricing structure", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": false, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://boiling-latitude.info", "qrCode": "http://exciting-curry.info", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "3529.33", "lastClicked": "<value>", "leads": "6476.71", "sales": "8246.79", "saleAmount": "4518.6", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  bulkCreateLinks:
+    speakeasy-default-bulk-create-links:
+      requestBody:
+        application/json: []
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  bulkDeleteLinks:
+    speakeasy-default-bulk-delete-links:
+      parameters:
+        query:
+          linkIds: ["clux0rgak00011...", "clux0rgak00022..."]
+      responses:
+        "200":
+          application/json: {"deletedCount": "5277.63"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  bulkUpdateLinks:
+    speakeasy-default-bulk-update-links:
+      requestBody:
+        application/json: {"linkIds": [], "data": {"url": "https://google.com", "tagIds": ["clux0rgak00011..."]}}
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  upsertLink:
+    speakeasy-default-upsert-link:
+      requestBody:
+        application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "domain": "monthly-hometown.info", "key": "<key>", "externalId": "<value>", "url": "https://honored-equality.info", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "http://smart-toenail.com", "password": "ZDcrQrPcHBWicBf", "proxy": false, "title": "<value>", "description": "Synergized 3rd generation local area network", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "https://anguished-wiseguy.org", "qrCode": "https://well-documented-snowman.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8112.06", "lastClicked": "<value>", "leads": "3096.04", "sales": "8082.68", "saleAmount": "4842.28", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getQRCode:
+    speakeasy-default-get-QR-code:
+      parameters:
+        query:
+          url: "https://brief-micronutrient.org"
+      responses:
+        "200":
+          image/png: "<value>"
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  retrieveAnalytics:
+    speakeasy-default-retrieve-analytics:
+      parameters:
+        query:
+          timezone: "America/New_York"
+          city: "New York"
+          device: "Desktop"
+          browser: "Chrome"
+          os: "Windows"
+          referer: "google.com"
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  listEvents:
+    speakeasy-default-list-events:
+      parameters:
+        query:
+          timezone: "America/New_York"
+          city: "New York"
+          device: "Desktop"
+          browser: "Chrome"
+          os: "Windows"
+          referer: "google.com"
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getWorkspace:
+    speakeasy-default-get-workspace:
+      parameters:
+        path:
+          idOrSlug: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "business extra", "stripeId": "<value>", "billingCycleStart": "900.65", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5588.34", "usageLimit": "8441.99", "linksUsage": "5442.21", "linksLimit": "8306.36", "salesUsage": "5212.35", "salesLimit": "785.92", "domainsLimit": "9699.61", "tagsLimit": "8661.61", "usersLimit": "4580.49", "aiUsage": "7352.87", "aiLimit": "4508.24", "referralLinkId": "<value>", "conversionEnabled": true, "createdAt": "<value>", "users": [], "domains": []}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updateWorkspace:
+    speakeasy-default-update-workspace:
+      parameters:
+        path:
+          idOrSlug: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "enterprise", "stripeId": "<value>", "billingCycleStart": "245.55", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5971.29", "usageLimit": "156.52", "linksUsage": "3446.2", "linksLimit": "7084.55", "salesUsage": "9914.64", "salesLimit": "2703.24", "domainsLimit": "6276.9", "tagsLimit": "6841.99", "usersLimit": "4888.52", "aiUsage": "4430.76", "aiLimit": "9840.08", "referralLinkId": "<value>", "conversionEnabled": true, "createdAt": "<value>", "users": [], "domains": []}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getTags:
+    speakeasy-default-get-tags:
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createTag:
+    speakeasy-default-create-tag:
+      responses:
+        "201":
+          application/json: {"id": "<id>", "name": "<value>", "color": "blue"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  deleteTag:
+    speakeasy-default-delete-tag:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updateTag:
+    speakeasy-default-update-tag:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "color": "brown"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  listDomains:
+    speakeasy-default-list-domains:
+      parameters:
+        query:
+          page: 1
+          pageSize: 50
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createDomain:
+    speakeasy-default-create-domain:
+      requestBody:
+        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
+      responses:
+        "201":
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "createdAt": "<value>", "updatedAt": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  deleteDomain:
+    speakeasy-default-delete-domain:
+      parameters:
+        path:
+          slug: "acme.com"
+      responses:
+        "200":
+          application/json: {"slug": "acme.com"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updateDomain:
+    speakeasy-default-update-domain:
+      parameters:
+        path:
+          slug: "acme.com"
+      requestBody:
+        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "createdAt": "<value>", "updatedAt": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  trackLead:
+    speakeasy-default-track-lead:
+      requestBody:
+        application/json: {"clickId": "<value>", "eventName": "Sign up", "customerId": "<value>"}
+      responses:
+        "200":
+          application/json: {"click": {"id": "<id>"}, "customer": {"id": "<id>", "name": "<value>", "email": "Katelin24@hotmail.com", "avatar": "https://loremflickr.com/640/480"}}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  trackSale:
+    speakeasy-default-track-sale:
+      requestBody:
+        application/json: {"customerId": "<value>", "amount": 996500, "paymentProcessor": "shopify", "eventName": "Purchase"}
+      responses:
+        "200":
+          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Larry73@hotmail.com", "avatar": "https://loremflickr.com/640/480"}, "sale": {"amount": "8624.01", "currency": "Nakfa", "paymentProcessor": "<value>", "invoiceId": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  trackCustomer:
+    speakeasy-default-track-customer:
+      responses:
+        "200":
+          application/json: {"customerId": "<value>", "customerName": "<value>", "customerEmail": "<value>", "customerAvatar": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getMetatags:
+    speakeasy-default-get-metatags:
+      parameters:
+        query:
+          url: "https://dub.co"
+      responses:
+        "200":
+          application/json: {"title": "Dub.co - Link Management for Modern Marketing Teams", "description": "Dub.co is the open-source link management infrastructure ...", "image": "https://assets.dub.co/thumbnail.jpg"}
