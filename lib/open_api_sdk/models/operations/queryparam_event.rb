@@ -13,7 +13,6 @@ module OpenApiSDK
         CLICKS = new('clicks')
         LEADS = new('leads')
         SALES = new('sales')
-        COMPOSITE = new('composite')
       end
     end
   end

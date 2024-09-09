@@ -6,6 +6,7 @@
 
 * [list](#list) - Retrieve a list of tags
 * [create](#create) - Create a new tag
+* [delete](#delete) - Delete a tag
 * [update](#update) - Update a tag
 
 ## list
@@ -78,6 +79,45 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreateTagResponse)](../../models/operations/createtagresponse.md)**
+
+
+
+
+## delete
+
+Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+    
+res = s.tags.delete(id="<value>")
+
+if ! res.object.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                    | Type                         | Required                     | Description                  |
+| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+| `id`                         | *::String*                   | :heavy_check_mark:           | The ID of the tag to delete. |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::DeleteTagResponse)](../../models/operations/deletetagresponse.md)**
 
 
 

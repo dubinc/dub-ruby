@@ -29,7 +29,7 @@ module OpenApiSDK
       field :event, T.nilable(::OpenApiSDK::Operations::QueryParamEvent), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
       # This is the ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-      # The interval to retrieve analytics for. Takes precedence over start and end. If undefined, defaults to 24h.
+      # The interval to retrieve events for. Takes precedence over start and end. If undefined, defaults to 24h.
       field :interval, T.nilable(::OpenApiSDK::Operations::QueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
       # The short link slug.
       field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }

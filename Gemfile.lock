@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.2.2.pre.alpha.11)
+    dub (0.2.2.pre.alpha.12)
       faraday
       faraday-multipart
       rack

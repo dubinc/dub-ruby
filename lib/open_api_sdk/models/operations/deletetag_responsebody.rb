@@ -7,11 +7,11 @@
 module OpenApiSDK
   module Operations
   
-    # The deleted link ID.
-    class DeleteLinkResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    # The deleted tag ID.
+    class DeleteTagResponseBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The ID of the link.
+      # The ID of the deleted tag.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
 
