@@ -69,7 +69,7 @@ module OpenApiSDK
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
 
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
-      # The user ID of the creator of the short link.
+
       field :user_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('userId') } }
       # The UTM campaign of the short link.
       field :utm_campaign, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_campaign') } }
