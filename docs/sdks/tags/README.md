@@ -101,7 +101,7 @@ s.config_security(
 )
 
     
-res = s.tags.delete(id="<value>")
+res = s.tags.delete(id="<id>")
 
 if ! res.object.nil?
   # handle response
@@ -140,7 +140,7 @@ s.config_security(
 )
 
     
-res = s.tags.update(id="<value>", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())
+res = s.tags.update(id="<id>", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())
 
 if ! res.tag_schema.nil?
   # handle response
