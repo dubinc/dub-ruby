@@ -15,8 +15,8 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   url: "https://google.com",
   external_id: "123456",
   tag_ids: [
-  "<value>",
-],
+    "clux0rgak00011...",
+  ],
 )
     
 res = s.links.create(req)
@@ -43,8 +43,8 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   url: "https://google.com",
   external_id: "123456",
   tag_ids: [
-  "<value>",
-],
+    "clux0rgak00011...",
+  ],
 )
     
 res = s.links.upsert(req)

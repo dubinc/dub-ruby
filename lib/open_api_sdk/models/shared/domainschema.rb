@@ -29,10 +29,12 @@ module OpenApiSDK
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
       # Whether the domain is verified.
       field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
+      # The registered domain record.
+      field :registered_domain, T.nilable(::OpenApiSDK::Shared::RegisteredDomain), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('registeredDomain') } }
 
 
-      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, placeholder: ::String, primary: T::Boolean, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
-      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, placeholder: nil, primary: nil, slug: nil, updated_at: nil, verified: nil)
+      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, placeholder: ::String, primary: T::Boolean, slug: ::String, updated_at: ::String, verified: T::Boolean, registered_domain: T.nilable(::OpenApiSDK::Shared::RegisteredDomain)).void }
+      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, placeholder: nil, primary: nil, slug: nil, updated_at: nil, verified: nil, registered_domain: nil)
         @archived = archived
         @created_at = created_at
         @expired_url = expired_url
@@ -42,6 +44,7 @@ module OpenApiSDK
         @slug = slug
         @updated_at = updated_at
         @verified = verified
+        @registered_domain = registered_domain
       end
     end
   end

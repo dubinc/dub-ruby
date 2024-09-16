@@ -157,11 +157,11 @@ s.config_security(
 
     
 res = s.domains.update(slug="acme.com", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
-    slug: "acme.com",
-    expired_url: "https://acme.com/expired",
-    archived: false,
-    placeholder: "https://dub.co/help/article/what-is-dub",
-  ))
+  slug: "acme.com",
+  expired_url: "https://acme.com/expired",
+  archived: false,
+  placeholder: "https://dub.co/help/article/what-is-dub",
+))
 
 if ! res.domain_schema.nil?
   # handle response

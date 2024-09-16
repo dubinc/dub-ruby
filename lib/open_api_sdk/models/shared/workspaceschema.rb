@@ -25,6 +25,8 @@ module OpenApiSDK
       field :domains, T::Array[::OpenApiSDK::Shared::Domains], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domains') } }
       # The domains limit of the workspace.
       field :domains_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domainsLimit') } }
+      # Whether the workspace has claimed a free .link domain. (dub.link/free)
+      field :dot_link_claimed, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dotLinkClaimed') } }
       # The unique ID of the workspace.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The invite code of the workspace.
@@ -65,8 +67,8 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(ai_limit: ::Float, ai_usage: ::Float, billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, referral_link_id: ::String, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(ai_limit: nil, ai_usage: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, referral_link_id: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(ai_limit: ::Float, ai_usage: ::Float, billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, plan: ::OpenApiSDK::Shared::Plan, referral_link_id: ::String, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(ai_limit: nil, ai_usage: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, plan: nil, referral_link_id: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @ai_limit = ai_limit
         @ai_usage = ai_usage
         @billing_cycle_start = billing_cycle_start
@@ -74,6 +76,7 @@ module OpenApiSDK
         @created_at = created_at
         @domains = domains
         @domains_limit = domains_limit
+        @dot_link_claimed = dot_link_claimed
         @id = id
         @invite_code = invite_code
         @links_limit = links_limit

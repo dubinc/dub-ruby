@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: ffa6151096521151b68b6e0bf18ca941
+  docChecksum: 5124eb4c8a9ec61cd5ee7393fdecd832
   docVersion: 0.0.1
-  speakeasyVersion: 1.396.2
-  generationVersion: 2.415.0
-  releaseVersion: 0.2.2-alpha.14
-  configChecksum: 8c865bd1749d61c8f595b196ca3b9a57
+  speakeasyVersion: 1.396.9
+  generationVersion: 2.415.7
+  releaseVersion: 0.2.2-alpha.15
+  configChecksum: 5a80410b90e263dde52330aa239b8daa
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.2.20
+    core: 3.2.22
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -145,6 +145,7 @@ generatedFiles:
   - docs/models/shared/ratelimitexceeded.md
   - docs/models/shared/ratelimitexceededcode.md
   - docs/models/shared/ratelimitexceedederror.md
+  - docs/models/shared/registereddomain.md
   - docs/models/shared/role.md
   - docs/models/shared/security.md
   - docs/models/shared/tagschema.md
@@ -293,6 +294,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/ratelimitexceeded.rb
   - lib/open_api_sdk/models/shared/ratelimitexceeded_code.rb
   - lib/open_api_sdk/models/shared/ratelimitexceeded_error.rb
+  - lib/open_api_sdk/models/shared/registereddomain.rb
   - lib/open_api_sdk/models/shared/role.rb
   - lib/open_api_sdk/models/shared/security.rb
   - lib/open_api_sdk/models/shared/tagschema.rb
@@ -705,7 +707,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "business extra", "stripeId": "<value>", "billingCycleStart": "900.65", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5588.34", "usageLimit": "8441.99", "linksUsage": "5442.21", "linksLimit": "8306.36", "salesUsage": "5212.35", "salesLimit": "785.92", "domainsLimit": "9699.61", "tagsLimit": "8661.61", "usersLimit": "4580.49", "aiUsage": "7352.87", "aiLimit": "4508.24", "referralLinkId": "<value>", "conversionEnabled": true, "createdAt": "<value>", "users": [], "domains": []}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "business extra", "stripeId": "<value>", "billingCycleStart": "900.65", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5588.34", "usageLimit": "8441.99", "linksUsage": "5442.21", "linksLimit": "8306.36", "salesUsage": "5212.35", "salesLimit": "785.92", "domainsLimit": "9699.61", "tagsLimit": "8661.61", "usersLimit": "4580.49", "aiUsage": "7352.87", "aiLimit": "4508.24", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": true, "createdAt": "<value>", "users": [], "domains": []}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -731,7 +733,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "enterprise", "stripeId": "<value>", "billingCycleStart": "245.55", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5971.29", "usageLimit": "156.52", "linksUsage": "3446.2", "linksLimit": "7084.55", "salesUsage": "9914.64", "salesLimit": "2703.24", "domainsLimit": "6276.9", "tagsLimit": "6841.99", "usersLimit": "4888.52", "aiUsage": "4430.76", "aiLimit": "9840.08", "referralLinkId": "<value>", "conversionEnabled": true, "createdAt": "<value>", "users": [], "domains": []}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "plan": "enterprise", "stripeId": "<value>", "billingCycleStart": "245.55", "stripeConnectId": "<value>", "inviteCode": "<value>", "usage": "5971.29", "usageLimit": "156.52", "linksUsage": "3446.2", "linksLimit": "7084.55", "salesUsage": "9914.64", "salesLimit": "2703.24", "domainsLimit": "6276.9", "tagsLimit": "6841.99", "usersLimit": "4888.52", "aiUsage": "4430.76", "aiLimit": "9840.08", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": false, "createdAt": "<value>", "users": [], "domains": []}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
