@@ -11,7 +11,7 @@ module OpenApiSDK
     class TrackLeadRequestBody < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
-      # The ID of the click in th Dub. You can read this value from `dclid` cookie.
+      # The ID of the click in th Dub. You can read this value from `dub_id` cookie.
       field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId') } }
       # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
       field :customer_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
