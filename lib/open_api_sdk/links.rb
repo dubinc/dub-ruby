@@ -19,33 +19,40 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetLinksRequest)).returns(::OpenApiSDK::Operations::GetLinksResponse) }
-    def list(request)
-      # list - Retrieve a list of links
-      # Retrieve a paginated list of links for the authenticated workspace.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequestBody)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
+    def create(request)
+      # create - Create a new link
+      # Create a new link for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksRequest, request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      headers['content-type'] = req_content_type
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.get(url) do |req|
+      r = @sdk_configuration.client.post(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::GetLinksResponse.new(
+      res = ::OpenApiSDK::Operations::CreateLinkResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::LinkSchema])
-          res.link_schemas = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::LinkSchema)
+          res.link_schema = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -97,40 +104,33 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequestBody)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
-    def create(request)
-      # create - Create a new link
-      # Create a new link for the authenticated workspace.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetLinksRequest)).returns(::OpenApiSDK::Operations::GetLinksResponse) }
+    def list(request)
+      # list - Retrieve a list of links
+      # Retrieve a paginated list of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
-      headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetLinksRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.post(url) do |req|
+      r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::CreateLinkResponse.new(
+      res = ::OpenApiSDK::Operations::GetLinksResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::LinkSchema)
-          res.link_schema = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::LinkSchema])
+          res.link_schemas = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -338,36 +338,45 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteLinkRequest)).returns(::OpenApiSDK::Operations::DeleteLinkResponse) }
-    def delete(request)
-      # delete - Delete a link
-      # Delete a link for the authenticated workspace.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequest)).returns(::OpenApiSDK::Operations::UpdateLinkResponse) }
+    def update(request)
+      # update - Update a link
+      # Update a link for the authenticated workspace. If there's no change, returns it as it is.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::OpenApiSDK::Operations::DeleteLinkRequest,
+        ::OpenApiSDK::Operations::UpdateLinkRequest,
         base_url,
         '/links/{linkId}',
         request
       )
       headers = {}
+      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
+      headers['content-type'] = req_content_type
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.delete(url) do |req|
+      r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::DeleteLinkResponse.new(
+      res = ::OpenApiSDK::Operations::UpdateLinkResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteLinkResponseBody)
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::LinkSchema)
+          res.link_schema = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -419,45 +428,36 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequest)).returns(::OpenApiSDK::Operations::UpdateLinkResponse) }
-    def update(request)
-      # update - Update a link
-      # Update a link for the authenticated workspace. If there's no change, returns it as it is.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteLinkRequest)).returns(::OpenApiSDK::Operations::DeleteLinkResponse) }
+    def delete(request)
+      # delete - Delete a link
+      # Delete a link for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::OpenApiSDK::Operations::UpdateLinkRequest,
+        ::OpenApiSDK::Operations::DeleteLinkRequest,
         base_url,
         '/links/{linkId}',
         request
       )
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
-      headers['content-type'] = req_content_type
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      r = @sdk_configuration.client.delete(url) do |req|
         req.headers = headers
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::UpdateLinkResponse.new(
+      res = ::OpenApiSDK::Operations::DeleteLinkResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::LinkSchema)
-          res.link_schema = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteLinkResponseBody)
+          res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -594,33 +594,40 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkDeleteLinksRequest)).returns(::OpenApiSDK::Operations::BulkDeleteLinksResponse) }
-    def delete_many(request)
-      # delete_many - Bulk delete links
-      # Bulk delete up to 100 links for the authenticated workspace.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksRequestBody)).returns(::OpenApiSDK::Operations::BulkUpdateLinksResponse) }
+    def update_many(request)
+      # update_many - Bulk update links
+      # Bulk update up to 100 links with the same data for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
       headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::BulkDeleteLinksRequest, request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
+      headers['content-type'] = req_content_type
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.delete(url) do |req|
+      r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::BulkDeleteLinksResponse.new(
+      res = ::OpenApiSDK::Operations::BulkUpdateLinksResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::BulkDeleteLinksResponseBody)
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::LinkSchema])
+          res.link_schemas = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -672,40 +679,33 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksRequestBody)).returns(::OpenApiSDK::Operations::BulkUpdateLinksResponse) }
-    def update_many(request)
-      # update_many - Bulk update links
-      # Bulk update up to 100 links with the same data for the authenticated workspace.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::BulkDeleteLinksRequest)).returns(::OpenApiSDK::Operations::BulkDeleteLinksResponse) }
+    def delete_many(request)
+      # delete_many - Bulk delete links
+      # Bulk delete up to 100 links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
-      headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::BulkDeleteLinksRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      r = @sdk_configuration.client.delete(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::BulkUpdateLinksResponse.new(
+      res = ::OpenApiSDK::Operations::BulkDeleteLinksResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::LinkSchema])
-          res.link_schemas = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::BulkDeleteLinksResponseBody)
+          res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')

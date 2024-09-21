@@ -4,43 +4,10 @@
 
 ### Available Operations
 
-* [list](#list) - Retrieve a list of tags
 * [create](#create) - Create a new tag
-* [delete](#delete) - Delete a tag
+* [list](#list) - Retrieve a list of tags
 * [update](#update) - Update a tag
-
-## list
-
-Retrieve a list of tags for the authenticated workspace.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
-res = s.tags.list()
-
-if ! res.tag_schemas.nil?
-  # handle response
-end
-
-```
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::GetTagsResponse)](../../models/operations/gettagsresponse.md)**
-
-
-
+* [delete](#delete) - Delete a tag
 
 ## create
 
@@ -83,9 +50,9 @@ end
 
 
 
-## delete
+## list
 
-Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
+Retrieve a list of tags for the authenticated workspace.
 
 ### Example Usage
 
@@ -101,23 +68,17 @@ s.config_security(
 )
 
     
-res = s.tags.delete(id="<id>")
+res = s.tags.list()
 
-if ! res.object.nil?
+if ! res.tag_schemas.nil?
   # handle response
 end
 
 ```
 
-### Parameters
-
-| Parameter                    | Type                         | Required                     | Description                  |
-| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
-| `id`                         | *::String*                   | :heavy_check_mark:           | The ID of the tag to delete. |
-
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::DeleteTagResponse)](../../models/operations/deletetagresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::GetTagsResponse)](../../models/operations/gettagsresponse.md)**
 
 
 
@@ -158,5 +119,44 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateTagResponse)](../../models/operations/updatetagresponse.md)**
+
+
+
+
+## delete
+
+Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+    
+res = s.tags.delete(id="<id>")
+
+if ! res.object.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                    | Type                         | Required                     | Description                  |
+| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+| `id`                         | *::String*                   | :heavy_check_mark:           | The ID of the tag to delete. |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::DeleteTagResponse)](../../models/operations/deletetagresponse.md)**
 
 

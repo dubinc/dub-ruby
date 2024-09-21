@@ -110,7 +110,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getQRCode"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::GetQRCodeRequest.new(\n  url: \"https://brief-micronutrient.org\",\n)\n    \nres = s.qr_codes.get(req)\n\nif ! res.res.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::GetQRCodeRequest.new(\n  url: \"https://normal-making.name\",\n)\n    \nres = s.qr_codes.get(req)\n\nif ! res.res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tags"]["get"]
     update:
       "x-codeSamples":
@@ -152,7 +152,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "trackSale"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  customer_id: \"<value>\",\n  amount: 996500,\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,\n  event_name: \"Purchase\",\n)\n    \nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  customer_id: \"<value>\",\n  amount: 996500,\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,\n  event_name: \"Purchase\",\n)\n    \nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
     update:
       "x-codeSamples":

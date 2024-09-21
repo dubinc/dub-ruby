@@ -19,82 +19,6 @@ module OpenApiSDK
     end
 
 
-    sig { returns(::OpenApiSDK::Operations::GetTagsResponse) }
-    def list
-      # list - Retrieve a list of tags
-      # Retrieve a list of tags for the authenticated workspace.
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/tags"
-      headers = {}
-      headers['Accept'] = 'application/json'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.get(url) do |req|
-        req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::OpenApiSDK::Operations::GetTagsResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::TagSchema])
-          res.tag_schemas = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
-          res.bad_request = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
-          res.unauthorized = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
-          res.forbidden = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
-          res.not_found = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
-          res.conflict = out
-        end
-      elsif r.status == 410
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
-          res.invite_expired = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
-          res.unprocessable_entity = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
-          res.rate_limit_exceeded = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
-          res.internal_server_error = out
-        end
-      end
-      res
-    end
-
-
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateTagRequestBody)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
     def create(request)
       # create - Create a new tag
@@ -180,36 +104,31 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteTagRequest)).returns(::OpenApiSDK::Operations::DeleteTagResponse) }
-    def delete(request)
-      # delete - Delete a tag
-      # Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
+    sig { returns(::OpenApiSDK::Operations::GetTagsResponse) }
+    def list
+      # list - Retrieve a list of tags
+      # Retrieve a list of tags for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = Utils.generate_url(
-        ::OpenApiSDK::Operations::DeleteTagRequest,
-        base_url,
-        '/tags/{id}',
-        request
-      )
+      url = "#{base_url}/tags"
       headers = {}
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.delete(url) do |req|
+      r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::DeleteTagResponse.new(
+      res = ::OpenApiSDK::Operations::GetTagsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteTagResponseBody)
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::TagSchema])
+          res.tag_schemas = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -300,6 +219,87 @@ module OpenApiSDK
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::TagSchema)
           res.tag_schema = out
+        end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
+          res.bad_request = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
+          res.unauthorized = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
+          res.forbidden = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
+          res.not_found = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
+          res.conflict = out
+        end
+      elsif r.status == 410
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
+          res.invite_expired = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
+          res.unprocessable_entity = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
+          res.rate_limit_exceeded = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
+          res.internal_server_error = out
+        end
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteTagRequest)).returns(::OpenApiSDK::Operations::DeleteTagResponse) }
+    def delete(request)
+      # delete - Delete a tag
+      # Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::OpenApiSDK::Operations::DeleteTagRequest,
+        base_url,
+        '/tags/{id}',
+        request
+      )
+      headers = {}
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.delete(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::DeleteTagResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteTagResponseBody)
+          res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
