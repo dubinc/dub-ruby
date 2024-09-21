@@ -74,7 +74,7 @@ s.config_security(
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   customer_id: "<value>",
   amount: 996500,
-  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::SHOPIFY,
+  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,
   event_name: "Purchase",
 )
     

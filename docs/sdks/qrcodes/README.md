@@ -25,7 +25,7 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::GetQRCodeRequest.new(
-  url: "https://brief-micronutrient.org",
+  url: "https://normal-making.name",
 )
     
 res = s.qr_codes.get(req)

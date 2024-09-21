@@ -19,84 +19,6 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::ListDomainsRequest)).returns(::OpenApiSDK::Operations::ListDomainsResponse) }
-    def list(request)
-      # list - Retrieve a list of domains
-      # Retrieve a list of domains associated with the authenticated workspace.
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = "#{base_url}/domains"
-      headers = {}
-      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListDomainsRequest, request)
-      headers['Accept'] = 'application/json'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::OpenApiSDK::Operations::ListDomainsResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::DomainSchema])
-          res.domain_schemas = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
-          res.bad_request = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
-          res.unauthorized = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
-          res.forbidden = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
-          res.not_found = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
-          res.conflict = out
-        end
-      elsif r.status == 410
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
-          res.invite_expired = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
-          res.unprocessable_entity = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
-          res.rate_limit_exceeded = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
-          res.internal_server_error = out
-        end
-      end
-      res
-    end
-
-
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateDomainRequestBody)).returns(::OpenApiSDK::Operations::CreateDomainResponse) }
     def create(request)
       # create - Create a domain
@@ -182,36 +104,33 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteDomainRequest)).returns(::OpenApiSDK::Operations::DeleteDomainResponse) }
-    def delete(request)
-      # delete - Delete a domain
-      # Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::ListDomainsRequest)).returns(::OpenApiSDK::Operations::ListDomainsResponse) }
+    def list(request)
+      # list - Retrieve a list of domains
+      # Retrieve a list of domains associated with the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = Utils.generate_url(
-        ::OpenApiSDK::Operations::DeleteDomainRequest,
-        base_url,
-        '/domains/{slug}',
-        request
-      )
+      url = "#{base_url}/domains"
       headers = {}
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::ListDomainsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.delete(url) do |req|
+      r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::DeleteDomainResponse.new(
+      res = ::OpenApiSDK::Operations::ListDomainsResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteDomainResponseBody)
-          res.object = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::DomainSchema])
+          res.domain_schemas = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
@@ -302,6 +221,87 @@ module OpenApiSDK
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::DomainSchema)
           res.domain_schema = out
+        end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
+          res.bad_request = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
+          res.unauthorized = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
+          res.forbidden = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
+          res.not_found = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
+          res.conflict = out
+        end
+      elsif r.status == 410
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
+          res.invite_expired = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
+          res.unprocessable_entity = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
+          res.rate_limit_exceeded = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
+          res.internal_server_error = out
+        end
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::DeleteDomainRequest)).returns(::OpenApiSDK::Operations::DeleteDomainResponse) }
+    def delete(request)
+      # delete - Delete a domain
+      # Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::OpenApiSDK::Operations::DeleteDomainRequest,
+        base_url,
+        '/domains/{slug}',
+        request
+      )
+      headers = {}
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.delete(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::DeleteDomainResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::DeleteDomainResponseBody)
+          res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
