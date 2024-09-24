@@ -19,6 +19,7 @@ module OpenApiSDK
         BROWSERS = new('browsers')
         OS = new('os')
         REFERERS = new('referers')
+        REFERER_URLS = new('referer_urls')
         TOP_LINKS = new('top_links')
         TOP_URLS = new('top_urls')
         TRIGGER = new('trigger')

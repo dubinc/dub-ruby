@@ -31,6 +31,7 @@ req = ::OpenApiSDK::Operations::ListEventsRequest.new(
   browser: "Chrome",
   os: "Windows",
   referer: "google.com",
+  referer_url: "https://dub.co/blog",
 )
     
 res = s.events.list(req)
