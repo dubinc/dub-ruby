@@ -27,9 +27,9 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
-  click_id: "<value>",
+  click_id: "<id>",
   event_name: "Sign up",
-  customer_id: "<value>",
+  customer_id: "<id>",
 )
     
 res = s.track.lead(req)
@@ -72,7 +72,7 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
-  customer_id: "<value>",
+  customer_id: "<id>",
   amount: 996500,
   payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,
   event_name: "Purchase",
@@ -118,7 +118,7 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::TrackCustomerRequestBody.new(
-  customer_id: "<value>",
+  customer_id: "<id>",
 )
     
 res = s.track.customer(req)

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: b6e0f68b0350f243f5aab5565767940a
+  docChecksum: 596f43d83d9b42d6000040c93ba5018d
   docVersion: 0.0.1
-  speakeasyVersion: 1.402.14
-  generationVersion: 2.422.22
-  releaseVersion: 0.2.2-alpha.19
-  configChecksum: 32cb535a89cfd2284794dfbd03dde1c7
+  speakeasyVersion: 1.404.5
+  generationVersion: 2.426.2
+  releaseVersion: 0.2.2-alpha.20
+  configChecksum: 96c720d42460bdf5af4e46aa363d3881
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.2.24
+    core: 3.2.25
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -435,7 +435,7 @@ examples:
       parameters:
         query:
           linkId: "clux0rgak00011..."
-          externalId: "ext_123456"
+          externalId: "123456"
       responses:
         "200":
           application/json: {"id": "<id>", "domain": "ringed-blow.name", "key": "<key>", "externalId": "<value>", "url": "https://monumental-spaghetti.name", "trackConversion": false, "archived": true, "expiresAt": "<value>", "expiredUrl": "https://joyous-relative.info", "password": "H9v5zJBmg5IWAUj", "proxy": false, "title": "<value>", "description": "Seamless exuding focus group", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://mundane-bee.biz", "qrCode": "http://fuzzy-fishbone.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8930.92", "lastClicked": "<value>", "leads": "2433.54", "sales": "21.08", "saleAmount": "7802.62", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}

@@ -1,5 +1,7 @@
 # RateLimitExceeded
 
+The user has sent too many requests in a given amount of time ("rate limiting")
+
 
 ## Fields
 

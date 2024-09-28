@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Shared
   
-
+    # The server cannot find the requested resource.
     class NotFound < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
