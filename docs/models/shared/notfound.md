@@ -1,5 +1,7 @@
 # NotFound
 
+The server cannot find the requested resource.
+
 
 ## Fields
 

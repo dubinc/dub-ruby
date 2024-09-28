@@ -1,5 +1,7 @@
 # InviteExpired
 
+This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+
 
 ## Fields
 

@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Shared
   
-
+    # The server has encountered a situation it does not know how to handle.
     class InternalServerError < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 

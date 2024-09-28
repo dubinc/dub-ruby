@@ -13,7 +13,7 @@ module OpenApiSDK
 
 
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-      # This is the ID of the link in the your database. Must be prefixed with `ext_` when passed as a query parameter.
+      # This is the ID of the link in the your database.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
       # The key of the link to retrieve. E.g. for `d.to/github`, the key is `github`.
       field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }

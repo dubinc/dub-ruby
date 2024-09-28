@@ -167,7 +167,7 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::GetLinkInfoRequest.new(
   link_id: "clux0rgak00011...",
-  external_id: "ext_123456",
+  external_id: "123456",
 )
     
 res = s.links.get(req)
@@ -209,7 +209,7 @@ s.config_security(
 )
 
     
-res = s.links.update(link_id="<value>", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
+res = s.links.update(link_id="<id>", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
   url: "https://google.com",
   external_id: "123456",
   tag_ids: [
@@ -255,7 +255,7 @@ s.config_security(
 )
 
     
-res = s.links.delete(link_id="<value>")
+res = s.links.delete(link_id="<id>")
 
 if ! res.object.nil?
   # handle response
@@ -344,9 +344,6 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
-  link_ids: [
-    "<value>",
-  ],
   data: ::OpenApiSDK::Operations::Data.new(
     url: "https://google.com",
     tag_ids: [
