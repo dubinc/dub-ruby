@@ -49,7 +49,6 @@ end
 
 
 
-
 ## update
 
 Update a workspace by ID or slug.
@@ -86,5 +85,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpdateWorkspaceResponse)](../../models/operations/updateworkspaceresponse.md)**
-
 

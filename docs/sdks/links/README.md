@@ -61,7 +61,6 @@ end
 
 
 
-
 ## list
 
 Retrieve a paginated list of links for the authenticated workspace.
@@ -105,7 +104,6 @@ end
 
 
 
-
 ## count
 
 Retrieve the number of links for the authenticated workspace.
@@ -143,7 +141,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetLinksCountResponse)](../../models/operations/getlinkscountresponse.md)**
-
 
 
 
@@ -187,7 +184,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetLinkInfoResponse)](../../models/operations/getlinkinforesponse.md)**
-
 
 
 
@@ -236,7 +232,6 @@ end
 
 
 
-
 ## delete
 
 Delete a link for the authenticated workspace.
@@ -272,7 +267,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteLinkResponse)](../../models/operations/deletelinkresponse.md)**
-
 
 
 
@@ -324,7 +318,6 @@ end
 
 
 
-
 ## update_many
 
 Bulk update up to 100 links with the same data for the authenticated workspace.
@@ -369,7 +362,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksResponse)](../../models/operations/bulkupdatelinksresponse.md)**
-
 
 
 
@@ -418,7 +410,6 @@ end
 
 
 
-
 ## upsert
 
 Upsert a link for the authenticated workspace by its URL. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
@@ -462,5 +453,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpsertLinkResponse)](../../models/operations/upsertlinkresponse.md)**
-
 

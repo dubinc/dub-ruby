@@ -49,7 +49,6 @@ end
 
 
 
-
 ## list
 
 Retrieve a list of tags for the authenticated workspace.
@@ -79,7 +78,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::GetTagsResponse)](../../models/operations/gettagsresponse.md)**
-
 
 
 
@@ -122,7 +120,6 @@ end
 
 
 
-
 ## delete
 
 Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
@@ -158,5 +155,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteTagResponse)](../../models/operations/deletetagresponse.md)**
-
 

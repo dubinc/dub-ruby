@@ -52,7 +52,6 @@ end
 
 
 
-
 ## sale
 
 Track a sale for a short link.
@@ -98,7 +97,6 @@ end
 
 
 
-
 ## customer
 
 Track a customer for an authenticated workspace.
@@ -138,5 +136,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::TrackCustomerResponse)](../../models/operations/trackcustomerresponse.md)**
-
 

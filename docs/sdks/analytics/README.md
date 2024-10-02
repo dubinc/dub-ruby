@@ -52,4 +52,3 @@ end
 
 **[T.nilable(::OpenApiSDK::Operations::RetrieveAnalyticsResponse)](../../models/operations/retrieveanalyticsresponse.md)**
 
-
