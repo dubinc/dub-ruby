@@ -52,4 +52,3 @@ end
 
 **[T.nilable(::OpenApiSDK::Operations::ListEventsResponse)](../../models/operations/listeventsresponse.md)**
 
-

@@ -46,4 +46,3 @@ end
 
 **[T.nilable(::OpenApiSDK::Operations::GetQRCodeResponse)](../../models/operations/getqrcoderesponse.md)**
 
-

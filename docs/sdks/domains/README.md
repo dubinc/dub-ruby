@@ -54,7 +54,6 @@ end
 
 
 
-
 ## list
 
 Retrieve a list of domains associated with the authenticated workspace.
@@ -95,7 +94,6 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
-
 
 
 
@@ -143,7 +141,6 @@ end
 
 
 
-
 ## delete
 
 Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
@@ -179,5 +176,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::DeleteDomainResponse)](../../models/operations/deletedomainresponse.md)**
-
 

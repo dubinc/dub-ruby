@@ -46,4 +46,3 @@ end
 
 **[T.nilable(::OpenApiSDK::Operations::GetMetatagsResponse)](../../models/operations/getmetatagsresponse.md)**
 
-
