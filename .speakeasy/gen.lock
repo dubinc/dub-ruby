@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: ababac2d9647ce276a0165b7766b1087
+  docChecksum: 5c400b20334e45bb5625715215fcbff4
   docVersion: 0.0.1
-  speakeasyVersion: 1.405.6
-  generationVersion: 2.428.1
-  releaseVersion: 0.2.2-alpha.21
-  configChecksum: db8d5efee7030a236f53691b5e51bb21
+  speakeasyVersion: 1.409.0
+  generationVersion: 2.429.0
+  releaseVersion: 0.2.2-alpha.22
+  configChecksum: c3d6fd0cf1ca281e9a7051cc245f6ee3
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -79,6 +79,7 @@ generatedFiles:
   - docs/models/operations/paymentprocessor.md
   - docs/models/operations/queryparamevent.md
   - docs/models/operations/queryparaminterval.md
+  - docs/models/operations/queryparamtrigger.md
   - docs/models/operations/requestbody.md
   - docs/models/operations/retrieveanalyticsrequest.md
   - docs/models/operations/retrieveanalyticsresponse.md
@@ -95,6 +96,7 @@ generatedFiles:
   - docs/models/operations/tracksalerequestbody.md
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/tracksaleresponsebody.md
+  - docs/models/operations/trigger.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainrequestbody.md
   - docs/models/operations/updatedomainresponse.md
@@ -227,6 +229,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/paymentprocessor.rb
   - lib/open_api_sdk/models/operations/queryparam_event.rb
   - lib/open_api_sdk/models/operations/queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/queryparam_trigger.rb
   - lib/open_api_sdk/models/operations/requestbody.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
@@ -243,6 +246,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
+  - lib/open_api_sdk/models/operations/trigger.rb
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
