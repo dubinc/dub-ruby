@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Operations
   
-    # GroupBy - The parameter to group the analytics data points by. Defaults to 'count' if undefined.
+    # GroupBy - The parameter to group the analytics data points by. Defaults to `count` if undefined. Note that `trigger` is deprecated (use `triggers` instead), but kept for backwards compatibility.
     class GroupBy < T::Enum
       enums do
         COUNT = new('count')
@@ -18,11 +18,12 @@ module OpenApiSDK
         DEVICES = new('devices')
         BROWSERS = new('browsers')
         OS = new('os')
+        TRIGGER = new('trigger')
+        TRIGGERS = new('triggers')
         REFERERS = new('referers')
         REFERER_URLS = new('referer_urls')
         TOP_LINKS = new('top_links')
         TOP_URLS = new('top_urls')
-        TRIGGER = new('trigger')
       end
     end
   end

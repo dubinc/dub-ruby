@@ -25,11 +25,11 @@ module OpenApiSDK
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
       # The end date and time when to retrieve analytics from. If not provided, defaults to the current date.
       field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
-      # The type of event to retrieve analytics for. Defaults to 'clicks'.
+      # The type of event to retrieve analytics for. Defaults to `clicks`.
       field :event, T.nilable(::OpenApiSDK::Operations::Event), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
       # This is the ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-      # The parameter to group the analytics data points by. Defaults to 'count' if undefined.
+      # The parameter to group the analytics data points by. Defaults to `count` if undefined. Note that `trigger` is deprecated (use `triggers` instead), but kept for backwards compatibility.
       field :group_by, T.nilable(::OpenApiSDK::Operations::GroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
       # The interval to retrieve analytics for. Takes precedence over start and end. If undefined, defaults to 24h.
       field :interval, T.nilable(::OpenApiSDK::Operations::Interval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
@@ -39,7 +39,7 @@ module OpenApiSDK
       field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
       # The OS to retrieve analytics for.
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
-      # Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
+      # Deprecated. Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
       field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
       # The referer to retrieve analytics for.
       field :referer, T.nilable(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
@@ -53,12 +53,14 @@ module OpenApiSDK
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
+      # The trigger to retrieve analytics for. If undefined, return both QR and link clicks.
+      field :trigger, T.nilable(::OpenApiSDK::Operations::Trigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
       # The URL to retrieve analytics for.
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, root: nil, start: nil, tag_id: nil, timezone: nil, url: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, root: nil, start: nil, tag_id: nil, timezone: nil, trigger: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -80,6 +82,7 @@ module OpenApiSDK
         @start = start
         @tag_id = tag_id
         @timezone = timezone
+        @trigger = trigger
         @url = url
       end
     end

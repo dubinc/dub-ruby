@@ -43,7 +43,7 @@ module OpenApiSDK
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
 
       field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
+      # Deprecated. Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
       field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
       # The referer to retrieve analytics for.
       field :referer, T.nilable(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
@@ -59,12 +59,14 @@ module OpenApiSDK
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
+      # The trigger to retrieve analytics for. If undefined, return both QR and link clicks.
+      field :trigger, T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
       # The URL to retrieve analytics for.
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::SortBy), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, qr: nil, referer: nil, referer_url: nil, root: nil, sort_by: nil, start: nil, tag_id: nil, timezone: nil, url: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::SortBy), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, qr: nil, referer: nil, referer_url: nil, root: nil, sort_by: nil, start: nil, tag_id: nil, timezone: nil, trigger: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -89,6 +91,7 @@ module OpenApiSDK
         @start = start
         @tag_id = tag_id
         @timezone = timezone
+        @trigger = trigger
         @url = url
       end
     end
