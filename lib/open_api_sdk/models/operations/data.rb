@@ -67,10 +67,12 @@ module OpenApiSDK
       field :utm_term, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
       # The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :video, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
+      # An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
+      field :webhook_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
 
 
-      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String)).void }
-      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, geo: nil, image: nil, ios: nil, password: nil, proxy: nil, public_stats: nil, ref: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil)
+      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String])).void }
+      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, geo: nil, image: nil, ios: nil, password: nil, proxy: nil, public_stats: nil, ref: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, title: nil, track_conversion: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil)
         @android = android
         @archived = archived
         @comments = comments
@@ -98,6 +100,7 @@ module OpenApiSDK
         @utm_source = utm_source
         @utm_term = utm_term
         @video = video
+        @webhook_ids = webhook_ids
       end
     end
   end

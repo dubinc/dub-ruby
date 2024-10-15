@@ -19,32 +19,35 @@ module OpenApiSDK
       field :expired_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
       # The unique identifier of the domain.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The URL to redirect to when a link under this domain doesn't exist.
+      field :not_found_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
       # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
       field :placeholder, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
       # Whether the domain is the primary domain for the workspace.
       field :primary, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
+      # The registered domain record.
+      field :registered_domain, ::OpenApiSDK::Shared::RegisteredDomain, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('registeredDomain') } }
       # The domain name.
       field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
       # The date the domain was last updated.
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
       # Whether the domain is verified.
       field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
-      # The registered domain record.
-      field :registered_domain, T.nilable(::OpenApiSDK::Shared::RegisteredDomain), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('registeredDomain') } }
 
 
-      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, placeholder: ::String, primary: T::Boolean, slug: ::String, updated_at: ::String, verified: T::Boolean, registered_domain: T.nilable(::OpenApiSDK::Shared::RegisteredDomain)).void }
-      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, placeholder: nil, primary: nil, slug: nil, updated_at: nil, verified: nil, registered_domain: nil)
+      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
+      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
         @archived = archived
         @created_at = created_at
         @expired_url = expired_url
         @id = id
+        @not_found_url = not_found_url
         @placeholder = placeholder
         @primary = primary
+        @registered_domain = registered_domain
         @slug = slug
         @updated_at = updated_at
         @verified = verified
-        @registered_domain = registered_domain
       end
     end
   end
