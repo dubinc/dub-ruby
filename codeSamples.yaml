@@ -20,7 +20,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createDomain"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n)\n    \nres = s.domains.create(req)\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  not_found_url: \"https://acme.com/not-found\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n)\n    \nres = s.domains.create(req)\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains/{slug}"]["delete"]
     update:
       "x-codeSamples":
@@ -32,7 +32,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateDomain"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n    \nres = s.domains.update(slug=\"acme.com\", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n))\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n    \nres = s.domains.update(slug=\"acme.com\", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  not_found_url: \"https://acme.com/not-found\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n))\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
   - target: $["paths"]["/events"]["get"]
     update:
       "x-codeSamples":

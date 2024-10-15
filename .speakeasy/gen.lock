@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: a31838ebdf42ec2dd03d62aa6a2b788e
+  docChecksum: dd50d9803155ecb1d90a2bbf2802878d
   docVersion: 0.0.1
-  speakeasyVersion: 1.418.1
+  speakeasyVersion: 1.418.3
   generationVersion: 2.438.3
-  releaseVersion: 0.2.2-alpha.24
-  configChecksum: 7edd5e95423a27f8a574bd8e5f546eaa
+  releaseVersion: 0.2.2-alpha.25
+  configChecksum: 2c8ca9a6afd914888bff6b49abdf05f1
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -392,7 +392,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "lighthearted-kilogram.name", "key": "<key>", "url": "https://impartial-dump.com", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "https://staid-garment.org", "password": "uL1dlrnUXohO_B9", "proxy": false, "title": "<value>", "description": "Advanced incremental contingency", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://sweaty-executor.org", "qrCode": "http://impassioned-beast.name", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "1009.66", "lastClicked": "<value>", "leads": "3577.62", "sales": "6519.85", "saleAmount": "1325.85", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+          application/json: {"id": "<id>", "domain": "lighthearted-kilogram.name", "key": "<key>", "url": "https://impartial-dump.com", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "https://staid-garment.org", "password": "uL1dlrnUXohO_B9", "proxy": false, "title": "<value>", "description": "Advanced incremental contingency", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "webhookIds": ["<value>"], "comments": "<value>", "shortLink": "http://sweaty-executor.org", "qrCode": "http://impassioned-beast.name", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "1009.66", "lastClicked": "<value>", "leads": "3577.62", "sales": "6519.85", "saleAmount": "1325.85", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -442,7 +442,7 @@ examples:
           externalId: "123456"
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "ringed-blow.name", "key": "<key>", "url": "https://monumental-spaghetti.name", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "https://joyous-relative.info", "password": "H9v5zJBmg5IWAUj", "proxy": false, "title": "<value>", "description": "Seamless exuding focus group", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://mundane-bee.biz", "qrCode": "http://fuzzy-fishbone.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8930.92", "lastClicked": "<value>", "leads": "2433.54", "sales": "21.08", "saleAmount": "7802.62", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+          application/json: {"id": "<id>", "domain": "ringed-blow.name", "key": "<key>", "url": "https://monumental-spaghetti.name", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "https://joyous-relative.info", "password": "H9v5zJBmg5IWAUj", "proxy": false, "title": "<value>", "description": "Seamless exuding focus group", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "webhookIds": ["<value>", "<value>"], "comments": "<value>", "shortLink": "http://mundane-bee.biz", "qrCode": "http://fuzzy-fishbone.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8930.92", "lastClicked": "<value>", "leads": "2433.54", "sales": "21.08", "saleAmount": "7802.62", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -496,7 +496,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "tidy-amazon.name", "key": "<key>", "url": "http://grand-pupa.org", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": false, "expiresAt": "<value>", "expiredUrl": "https://limited-hutch.org", "password": "vPKDk8CkuAMJjbG", "proxy": true, "title": "<value>", "description": "Assimilated encompassing pricing structure", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": false, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "http://boiling-latitude.info", "qrCode": "http://exciting-curry.info", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "3529.33", "lastClicked": "<value>", "leads": "6476.71", "sales": "8246.79", "saleAmount": "4518.6", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+          application/json: {"id": "<id>", "domain": "tidy-amazon.name", "key": "<key>", "url": "http://grand-pupa.org", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": false, "expiresAt": "<value>", "expiredUrl": "https://limited-hutch.org", "password": "vPKDk8CkuAMJjbG", "proxy": true, "title": "<value>", "description": "Assimilated encompassing pricing structure", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<value>", "publicStats": false, "tagId": "<value>", "tags": [], "webhookIds": ["<value>", "<value>", "<value>"], "comments": "<value>", "shortLink": "http://boiling-latitude.info", "qrCode": "http://exciting-curry.info", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "3529.33", "lastClicked": "<value>", "leads": "6476.71", "sales": "8246.79", "saleAmount": "4518.6", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -597,7 +597,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "monthly-hometown.info", "key": "<key>", "url": "https://honored-equality.info", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "http://smart-toenail.com", "password": "ZDcrQrPcHBWicBf", "proxy": false, "title": "<value>", "description": "Synergized 3rd generation local area network", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "comments": "<value>", "shortLink": "https://anguished-wiseguy.org", "qrCode": "https://well-documented-snowman.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8112.06", "lastClicked": "<value>", "leads": "3096.04", "sales": "8082.68", "saleAmount": "4842.28", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
+          application/json: {"id": "<id>", "domain": "monthly-hometown.info", "key": "<key>", "url": "https://honored-equality.info", "trackConversion": false, "externalId": "<value>", "identifier": "<value>", "archived": true, "expiresAt": "<value>", "expiredUrl": "http://smart-toenail.com", "password": "ZDcrQrPcHBWicBf", "proxy": false, "title": "<value>", "description": "Synergized 3rd generation local area network", "image": "https://loremflickr.com/640/480", "video": "<value>", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<value>", "publicStats": true, "tagId": "<value>", "tags": [], "webhookIds": ["<value>", "<value>"], "comments": "<value>", "shortLink": "https://anguished-wiseguy.org", "qrCode": "https://well-documented-snowman.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<value>", "workspaceId": "<value>", "clicks": "8112.06", "lastClicked": "<value>", "leads": "3096.04", "sales": "8082.68", "saleAmount": "4842.28", "createdAt": "<value>", "updatedAt": "<value>", "projectId": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -886,10 +886,10 @@ examples:
   createDomain:
     speakeasy-default-create-domain:
       requestBody:
-        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
+        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "201":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "createdAt": "<value>", "updatedAt": "<value>"}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -940,10 +940,10 @@ examples:
         path:
           slug: "acme.com"
       requestBody:
-        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
+        application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "200":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "createdAt": "<value>", "updatedAt": "<value>"}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":

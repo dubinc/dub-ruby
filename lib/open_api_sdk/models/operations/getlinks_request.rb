@@ -31,7 +31,7 @@ module OpenApiSDK
       field :tag_names, T.nilable(::Object), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': true } }
       # The user ID to filter the links by.
       field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'userId', 'style': 'form', 'explode': true } }
-      # Whether to include tags in the response. Defaults to `false` if not provided.
+      # DEPRECATED. Filter for links that have at least one tag assigned to them.
       field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
 
