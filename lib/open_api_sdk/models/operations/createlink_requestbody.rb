@@ -47,7 +47,9 @@ module OpenApiSDK
       field :prefix, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prefix') } }
       # Whether the short link uses Custom Social Media Cards feature.
       field :proxy, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
-      # Whether the short link's stats are publicly accessible.
+      # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :public_stats, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
       # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
       field :ref, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
