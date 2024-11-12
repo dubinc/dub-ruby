@@ -49,8 +49,10 @@ module OpenApiSDK
       field :root, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
       # The start date and time when to retrieve analytics from.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
-      # The tag ID to retrieve analytics for.
+      # Deprecated. Use `tagIds` instead. The tag ID to retrieve analytics for.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
+      # The tag IDs to retrieve analytics for.
+      field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
       # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
       # The trigger to retrieve analytics for. If undefined, return both QR and link clicks.
@@ -59,8 +61,8 @@ module OpenApiSDK
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, root: nil, start: nil, tag_id: nil, timezone: nil, trigger: nil, url: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, root: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -81,6 +83,7 @@ module OpenApiSDK
         @root = root
         @start = start
         @tag_id = tag_id
+        @tag_ids = tag_ids
         @timezone = timezone
         @trigger = trigger
         @url = url

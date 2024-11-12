@@ -106,11 +106,11 @@ end
 <details open>
 <summary>Available methods</summary>
 
-### [Analytics](docs/sdks/analytics/README.md)
+### [analytics](docs/sdks/analytics/README.md)
 
 * [retrieve](docs/sdks/analytics/README.md#retrieve) - Retrieve analytics for a link, a domain, or the authenticated workspace.
 
-### [Domains](docs/sdks/domains/README.md)
+### [domains](docs/sdks/domains/README.md)
 
 * [create](docs/sdks/domains/README.md#create) - Create a domain
 * [list](docs/sdks/domains/README.md#list) - Retrieve a list of domains
@@ -118,11 +118,11 @@ end
 * [delete](docs/sdks/domains/README.md#delete) - Delete a domain
 
 
-### [Events](docs/sdks/events/README.md)
+### [events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - Retrieve a list of events
 
-### [Links](docs/sdks/links/README.md)
+### [links](docs/sdks/links/README.md)
 
 * [create](docs/sdks/links/README.md#create) - Create a new link
 * [list](docs/sdks/links/README.md#list) - Retrieve a list of links
@@ -135,28 +135,28 @@ end
 * [delete_many](docs/sdks/links/README.md#delete_many) - Bulk delete links
 * [upsert](docs/sdks/links/README.md#upsert) - Upsert a link
 
-### [Metatags](docs/sdks/metatags/README.md)
+### [metatags](docs/sdks/metatags/README.md)
 
 * [get](docs/sdks/metatags/README.md#get) - Retrieve the metatags for a URL
 
-### [QRCodes](docs/sdks/qrcodes/README.md)
+### [qr_codes](docs/sdks/qrcodes/README.md)
 
 * [get](docs/sdks/qrcodes/README.md#get) - Retrieve a QR code
 
-### [Tags](docs/sdks/tags/README.md)
+### [tags](docs/sdks/tags/README.md)
 
 * [create](docs/sdks/tags/README.md#create) - Create a new tag
 * [list](docs/sdks/tags/README.md#list) - Retrieve a list of tags
 * [update](docs/sdks/tags/README.md#update) - Update a tag
 * [delete](docs/sdks/tags/README.md#delete) - Delete a tag
 
-### [Track](docs/sdks/track/README.md)
+### [track](docs/sdks/track/README.md)
 
 * [lead](docs/sdks/track/README.md#lead) - Track a lead
 * [sale](docs/sdks/track/README.md#sale) - Track a sale
 * [customer](docs/sdks/track/README.md#customer) - Track a customer
 
-### [Workspaces](docs/sdks/workspaces/README.md)
+### [workspaces](docs/sdks/workspaces/README.md)
 
 * [get](docs/sdks/workspaces/README.md#get) - Retrieve a workspace
 * [update](docs/sdks/workspaces/README.md#update) - Update a workspace
@@ -167,22 +167,38 @@ end
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.dub.co` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new(
+      server_url: "https://api.dub.co",
+    )
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+
+req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+    "clux0rgak00011...",
+  ],
+)
+    
+res = s.links.create(req)
+
+if ! res.link_schema.nil?
+  # handle response
+end
+
+```
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
