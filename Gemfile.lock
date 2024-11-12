@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.2.2.pre.alpha.30)
+    dub (0.2.2.pre.alpha.31)
       faraday
       faraday-multipart
       rack
@@ -26,7 +26,7 @@ GEM
     logger (1.6.1)
     minitest (5.22.2)
     multipart-post (2.4.1)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
     netrc (0.11.0)
     parallel (1.24.0)
@@ -84,7 +84,7 @@ GEM
       yard-sorbet
     thor (1.3.0)
     unicode-display_width (2.5.0)
-    uri (0.13.1)
+    uri (1.0.1)
     yard (0.9.34)
     yard-sorbet (0.8.1)
       sorbet-runtime (>= 0.5)
@@ -97,7 +97,7 @@ PLATFORMS
 DEPENDENCIES
   dub!
   minitest
-  rubocop
+  rubocop (~> 1.60.2)
   sorbet-runtime
   tapioca
 

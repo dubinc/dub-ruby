@@ -23,7 +23,7 @@ module OpenApiSDK
       field :show_archived, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'showArchived', 'style': 'form', 'explode': true } }
       # The field to sort the links by. The default is `createdAt`, and sort order is always descending.
       field :sort, T.nilable(::OpenApiSDK::Operations::Sort), { 'query_param': { 'field_name': 'sort', 'style': 'form', 'explode': true } }
-      # The tag ID to filter the links by. This field is deprecated – use `tagIds` instead.
+      # Deprecated. Use `tagIds` instead. The tag ID to filter the links by.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to filter the links by.
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
