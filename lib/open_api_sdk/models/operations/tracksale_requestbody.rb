@@ -13,27 +13,32 @@ module OpenApiSDK
 
       # The amount of the sale. Should be passed in cents.
       field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
-      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
-      field :customer_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
       # The payment processor via which the sale was made.
       field :payment_processor, ::OpenApiSDK::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::PaymentProcessor, false) } }
       # The currency of the sale. Accepts ISO 4217 currency codes.
       field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+      field :customer_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
       # The name of the sale event. It can be used to track different types of event for example 'Purchase', 'Upgrade', 'Payment', etc.
       field :event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
+      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
+      field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The invoice ID of the sale.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
       # Additional metadata to be stored with the sale event.
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(amount: ::Integer, customer_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(amount: nil, customer_id: nil, payment_processor: nil, currency: nil, event_name: nil, invoice_id: nil, metadata: nil)
+      sig { params(amount: ::Integer, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), customer_id: T.nilable(::String), event_name: T.nilable(::String), external_id: T.nilable(::String), invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(amount: nil, payment_processor: nil, currency: nil, customer_id: nil, event_name: nil, external_id: nil, invoice_id: nil, metadata: nil)
         @amount = amount
-        @customer_id = customer_id
         @payment_processor = payment_processor
         @currency = currency
+        @customer_id = customer_id
         @event_name = event_name
+        @external_id = external_id
         @invoice_id = invoice_id
         @metadata = metadata
       end

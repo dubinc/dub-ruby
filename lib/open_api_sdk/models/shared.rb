@@ -44,13 +44,13 @@ module OpenApiSDK
     autoload :ClickEventGeo, 'open_api_sdk/models/shared/clickevent_geo.rb'
     autoload :Link, 'open_api_sdk/models/shared/link.rb'
     autoload :ClickEvent, 'open_api_sdk/models/shared/clickevent.rb'
+    autoload :RegisteredDomain, 'open_api_sdk/models/shared/registereddomain.rb'
+    autoload :DomainSchema, 'open_api_sdk/models/shared/domainschema.rb'
     autoload :Plan, 'open_api_sdk/models/shared/plan.rb'
     autoload :Role, 'open_api_sdk/models/shared/role.rb'
     autoload :Users, 'open_api_sdk/models/shared/users.rb'
     autoload :Domains, 'open_api_sdk/models/shared/domains.rb'
     autoload :WorkspaceSchema, 'open_api_sdk/models/shared/workspaceschema.rb'
-    autoload :RegisteredDomain, 'open_api_sdk/models/shared/registereddomain.rb'
-    autoload :DomainSchema, 'open_api_sdk/models/shared/domainschema.rb'
     autoload :Security, 'open_api_sdk/models/shared/security.rb'
   end
 end
