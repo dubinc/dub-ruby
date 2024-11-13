@@ -16,15 +16,18 @@ module OpenApiSDK
 
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
 
+      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
+
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
 
-      sig { params(avatar: ::String, email: ::String, id: ::String, name: ::String).void }
-      def initialize(avatar: nil, email: nil, id: nil, name: nil)
+      sig { params(avatar: ::String, email: ::String, external_id: ::String, id: ::String, name: ::String).void }
+      def initialize(avatar: nil, email: nil, external_id: nil, id: nil, name: nil)
         @avatar = avatar
         @email = email
+        @external_id = external_id
         @id = id
         @name = name
       end

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 34bf2c8628db0d6fa3a73fc90d888f0c
+  docChecksum: 373f4c3f0a911b7ea9a64ea083111854
   docVersion: 0.0.1
   speakeasyVersion: 1.438.1
   generationVersion: 2.457.2
-  releaseVersion: 0.2.2-alpha.31
-  configChecksum: 1500c211f74e539a241d9486db2cebbf
+  releaseVersion: 0.2.2-alpha.32
+  configChecksum: 3ab49a46d6589a3fea2d260ff2c7afe6
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -36,6 +36,9 @@ generatedFiles:
   - docs/models/operations/bulkupdatelinksresponse.md
   - docs/models/operations/click.md
   - docs/models/operations/color.md
+  - docs/models/operations/createcustomerrequestbody.md
+  - docs/models/operations/createcustomerresponse.md
+  - docs/models/operations/createcustomerresponsebody.md
   - docs/models/operations/createdomainrequestbody.md
   - docs/models/operations/createdomainresponse.md
   - docs/models/operations/createlinkrequestbody.md
@@ -44,6 +47,9 @@ generatedFiles:
   - docs/models/operations/createtagresponse.md
   - docs/models/operations/customer.md
   - docs/models/operations/data.md
+  - docs/models/operations/deletecustomerrequest.md
+  - docs/models/operations/deletecustomerresponse.md
+  - docs/models/operations/deletecustomerresponsebody.md
   - docs/models/operations/deletedomainrequest.md
   - docs/models/operations/deletedomainresponse.md
   - docs/models/operations/deletedomainresponsebody.md
@@ -54,6 +60,10 @@ generatedFiles:
   - docs/models/operations/deletetagresponse.md
   - docs/models/operations/deletetagresponsebody.md
   - docs/models/operations/event.md
+  - docs/models/operations/getcustomerrequest.md
+  - docs/models/operations/getcustomerresponse.md
+  - docs/models/operations/getcustomerresponsebody.md
+  - docs/models/operations/getcustomersresponse.md
   - docs/models/operations/getlinkinforequest.md
   - docs/models/operations/getlinkinforesponse.md
   - docs/models/operations/getlinkscountrequest.md
@@ -81,6 +91,7 @@ generatedFiles:
   - docs/models/operations/queryparaminterval.md
   - docs/models/operations/queryparamtrigger.md
   - docs/models/operations/requestbody.md
+  - docs/models/operations/responsebody.md
   - docs/models/operations/retrieveanalyticsrequest.md
   - docs/models/operations/retrieveanalyticsresponse.md
   - docs/models/operations/sale.md
@@ -97,6 +108,10 @@ generatedFiles:
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/trigger.md
+  - docs/models/operations/updatecustomerrequest.md
+  - docs/models/operations/updatecustomerrequestbody.md
+  - docs/models/operations/updatecustomerresponse.md
+  - docs/models/operations/updatecustomerresponsebody.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainrequestbody.md
   - docs/models/operations/updatedomainresponse.md
@@ -160,6 +175,7 @@ generatedFiles:
   - docs/models/shared/users.md
   - docs/models/shared/workspaceschema.md
   - docs/sdks/analytics/README.md
+  - docs/sdks/customers/README.md
   - docs/sdks/domains/README.md
   - docs/sdks/dub/README.md
   - docs/sdks/events/README.md
@@ -172,6 +188,7 @@ generatedFiles:
   - dub.gemspec
   - lib/dub.rb
   - lib/open_api_sdk/analytics.rb
+  - lib/open_api_sdk/customers.rb
   - lib/open_api_sdk/domains.rb
   - lib/open_api_sdk/dub.rb
   - lib/open_api_sdk/events.rb
@@ -186,6 +203,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
   - lib/open_api_sdk/models/operations/click.rb
   - lib/open_api_sdk/models/operations/color.rb
+  - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
+  - lib/open_api_sdk/models/operations/createcustomer_response.rb
+  - lib/open_api_sdk/models/operations/createcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
   - lib/open_api_sdk/models/operations/createdomain_response.rb
   - lib/open_api_sdk/models/operations/createlink_requestbody.rb
@@ -194,6 +214,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createtag_response.rb
   - lib/open_api_sdk/models/operations/customer.rb
   - lib/open_api_sdk/models/operations/data.rb
+  - lib/open_api_sdk/models/operations/deletecustomer_request.rb
+  - lib/open_api_sdk/models/operations/deletecustomer_response.rb
+  - lib/open_api_sdk/models/operations/deletecustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/deletedomain_request.rb
   - lib/open_api_sdk/models/operations/deletedomain_response.rb
   - lib/open_api_sdk/models/operations/deletedomain_responsebody.rb
@@ -204,6 +227,10 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/deletetag_response.rb
   - lib/open_api_sdk/models/operations/deletetag_responsebody.rb
   - lib/open_api_sdk/models/operations/event.rb
+  - lib/open_api_sdk/models/operations/getcustomer_request.rb
+  - lib/open_api_sdk/models/operations/getcustomer_response.rb
+  - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/getcustomers_response.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
   - lib/open_api_sdk/models/operations/getlinks_request.rb
@@ -231,6 +258,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/queryparam_interval.rb
   - lib/open_api_sdk/models/operations/queryparam_trigger.rb
   - lib/open_api_sdk/models/operations/requestbody.rb
+  - lib/open_api_sdk/models/operations/responsebody.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
   - lib/open_api_sdk/models/operations/sale.rb
@@ -247,6 +275,10 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
   - lib/open_api_sdk/models/operations/trigger.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_request.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_response.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
@@ -713,7 +745,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<value>", "billingCycleStart": "900.65", "paymentFailedAt": "<value>", "stripeConnectId": "<value>", "usage": "5588.34", "usageLimit": "8441.99", "linksUsage": "5442.21", "linksLimit": "8306.36", "salesUsage": "5212.35", "salesLimit": "785.92", "domainsLimit": "9699.61", "tagsLimit": "8661.61", "usersLimit": "4580.49", "aiUsage": "7352.87", "aiLimit": "4508.24", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": true, "createdAt": "<value>", "users": [], "domains": [], "publishableKey": "<value>"}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<value>", "billingCycleStart": "900.65", "paymentFailedAt": "<value>", "stripeConnectId": "<value>", "usage": "5588.34", "usageLimit": "8441.99", "linksUsage": "5442.21", "linksLimit": "8306.36", "salesUsage": "5212.35", "salesLimit": "785.92", "domainsLimit": "9699.61", "tagsLimit": "8661.61", "usersLimit": "4580.49", "aiUsage": "7352.87", "aiLimit": "4508.24", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": true, "createdAt": "<value>", "users": [], "domains": [], "publishableKey": "<value>", "bankAccountName": "<value>", "partialAccountNumber": "<value>", "routingNumber": "<value>", "bankAccountVerified": false}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -739,7 +771,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<value>", "billingCycleStart": "245.55", "paymentFailedAt": "<value>", "stripeConnectId": "<value>", "usage": "5971.29", "usageLimit": "156.52", "linksUsage": "3446.2", "linksLimit": "7084.55", "salesUsage": "9914.64", "salesLimit": "2703.24", "domainsLimit": "6276.9", "tagsLimit": "6841.99", "usersLimit": "4888.52", "aiUsage": "4430.76", "aiLimit": "9840.08", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": false, "createdAt": "<value>", "users": [], "domains": [], "publishableKey": "<value>"}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<value>", "billingCycleStart": "245.55", "paymentFailedAt": "<value>", "stripeConnectId": "<value>", "usage": "5971.29", "usageLimit": "156.52", "linksUsage": "3446.2", "linksLimit": "7084.55", "salesUsage": "9914.64", "salesLimit": "2703.24", "domainsLimit": "6276.9", "tagsLimit": "6841.99", "usersLimit": "4888.52", "aiUsage": "4430.76", "aiLimit": "9840.08", "referralLinkId": "<value>", "conversionEnabled": true, "dotLinkClaimed": false, "createdAt": "<value>", "users": [], "domains": [], "publishableKey": "<value>", "bankAccountName": "<value>", "partialAccountNumber": "<value>", "routingNumber": "<value>", "bankAccountVerified": false}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -968,7 +1000,7 @@ examples:
         application/json: {"clickId": "<value>", "eventName": "Sign up", "customerId": "<value>"}
       responses:
         "200":
-          application/json: {"click": {"id": "<id>"}, "customer": {"id": "<id>", "name": "<value>", "email": "Katelin24@hotmail.com", "avatar": "https://loremflickr.com/640/480"}}
+          application/json: {"click": {"id": "<id>"}, "customer": {"name": "<value>", "email": "Katelin24@hotmail.com", "avatar": "https://loremflickr.com/640/480", "externalId": "<id>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -993,7 +1025,7 @@ examples:
         application/json: {"customerId": "<value>", "amount": 996500, "paymentProcessor": "shopify", "eventName": "Purchase"}
       responses:
         "200":
-          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Larry73@hotmail.com", "avatar": "https://loremflickr.com/640/480"}, "sale": {"amount": "8624.01", "currency": "Nakfa", "paymentProcessor": "<value>", "invoiceId": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}}
+          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Larry73@hotmail.com", "avatar": "https://loremflickr.com/640/480", "externalId": "<id>"}, "sale": {"amount": "8624.01", "currency": "Nakfa", "paymentProcessor": "<value>", "invoiceId": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1043,3 +1075,127 @@ examples:
       responses:
         "200":
           application/json: {"title": "Dub.co - Link Management for Modern Marketing Teams", "description": "Dub.co is the open-source link management infrastructure ...", "image": "https://assets.dub.co/thumbnail.jpg"}
+  getCustomers:
+    speakeasy-default-get-customers:
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}, {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}, {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}]
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createCustomer:
+    speakeasy-default-create-customer:
+      responses:
+        "201":
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  getCustomer:
+    speakeasy-default-get-customer:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updateCustomer:
+    speakeasy-default-update-customer:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  deleteCustomer:
+    speakeasy-default-delete-customer:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}

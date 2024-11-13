@@ -13,28 +13,33 @@ module OpenApiSDK
 
       # The ID of the click in th Dub. You can read this value from `dub_id` cookie.
       field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId') } }
-      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
-      field :customer_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
       # The name of the event to track.
       field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
       # Avatar of the customer in the client's app.
       field :customer_avatar, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
       # Email of the customer in the client's app.
       field :customer_email, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerEmail') } }
+      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+      field :customer_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
       # Name of the customer in the client's app.
       field :customer_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerName') } }
+      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
+      field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # Additional metadata to be stored with the lead event
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(click_id: ::String, customer_id: ::String, event_name: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(click_id: nil, customer_id: nil, event_name: nil, customer_avatar: nil, customer_email: nil, customer_name: nil, metadata: nil)
+      sig { params(click_id: ::String, event_name: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_id: T.nilable(::String), customer_name: T.nilable(::String), external_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(click_id: nil, event_name: nil, customer_avatar: nil, customer_email: nil, customer_id: nil, customer_name: nil, external_id: nil, metadata: nil)
         @click_id = click_id
-        @customer_id = customer_id
         @event_name = event_name
         @customer_avatar = customer_avatar
         @customer_email = customer_email
+        @customer_id = customer_id
         @customer_name = customer_name
+        @external_id = external_id
         @metadata = metadata
       end
     end

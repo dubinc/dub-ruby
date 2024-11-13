@@ -7,7 +7,7 @@
 
 * [lead](#lead) - Track a lead
 * [sale](#sale) - Track a sale
-* [customer](#customer) - Track a customer
+* [~~customer~~](#customer) - Track a customer :warning: **Deprecated**
 
 ## lead
 
@@ -30,7 +30,6 @@ s.config_security(
 req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
   click_id: "<id>",
   event_name: "Sign up",
-  customer_id: "<id>",
 )
     
 res = s.track.lead(req)
@@ -72,7 +71,6 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
-  customer_id: "<id>",
   amount: 996500,
   payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,
   event_name: "Purchase",
@@ -98,9 +96,11 @@ end
 
 
 
-## customer
+## ~~customer~~
 
 Track a customer for an authenticated workspace.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
