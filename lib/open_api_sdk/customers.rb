@@ -21,8 +21,8 @@ module OpenApiSDK
 
     sig { returns(::OpenApiSDK::Operations::GetCustomersResponse) }
     def list
-      # list - Get a list of customers
-      # Get a list of customers for the authenticated workspace.
+      # list - Retrieve a list of customers
+      # Retrieve a list of customers for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/customers"
@@ -182,8 +182,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::GetCustomerRequest)).returns(::OpenApiSDK::Operations::GetCustomerResponse) }
     def get(request)
-      # get - Get a customer
-      # Get a customer by ID for the authenticated workspace.
+      # get - Retrieve a customer
+      # Retrieve a customer by ID for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
