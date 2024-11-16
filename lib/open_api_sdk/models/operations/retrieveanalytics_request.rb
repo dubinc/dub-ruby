@@ -23,7 +23,7 @@ module OpenApiSDK
       field :device, T.nilable(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
       # The domain to filter analytics for.
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-      # The end date and time when to retrieve analytics from. If not provided, defaults to the current date.
+      # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. Takes precedence over `interval`.
       field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
       # The type of event to retrieve analytics for. Defaults to `clicks`.
       field :event, T.nilable(::OpenApiSDK::Operations::Event), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
@@ -31,7 +31,7 @@ module OpenApiSDK
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
       # The parameter to group the analytics data points by. Defaults to `count` if undefined. Note that `trigger` is deprecated (use `triggers` instead), but kept for backwards compatibility.
       field :group_by, T.nilable(::OpenApiSDK::Operations::GroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
-      # The interval to retrieve analytics for. Takes precedence over start and end. If undefined, defaults to 24h.
+      # The interval to retrieve analytics for. If undefined, defaults to 24h.
       field :interval, T.nilable(::OpenApiSDK::Operations::Interval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
       # The short link slug.
       field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
@@ -47,7 +47,7 @@ module OpenApiSDK
       field :referer_url, T.nilable(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
       # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
       field :root, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
-      # The start date and time when to retrieve analytics from.
+      # The start date and time when to retrieve analytics from. Takes precedence over `interval`.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
       # Deprecated. Use `tagIds` instead. The tag ID to retrieve analytics for.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
