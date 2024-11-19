@@ -51,6 +51,8 @@ module OpenApiSDK
       field :leads, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leads') } }
       # The password required to access the destination URL of the short link.
       field :password, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('password') } }
+      # The ID of the program the short link is associated with.
+      field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
       # The project ID of the short link. This field is deprecated – use `workspaceId` instead.
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -103,8 +105,8 @@ module OpenApiSDK
       field :workspace_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workspaceId') } }
 
 
-      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, identifier: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, password: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String).void }
-      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, id: nil, identifier: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, password: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil)
+      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, identifier: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, password: ::String, program_id: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String).void }
+      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, geo: nil, id: nil, identifier: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, password: nil, program_id: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil)
         @android = android
         @archived = archived
         @clicks = clicks
@@ -125,6 +127,7 @@ module OpenApiSDK
         @last_clicked = last_clicked
         @leads = leads
         @password = password
+        @program_id = program_id
         @project_id = project_id
         @proxy = proxy
         @public_stats = public_stats
