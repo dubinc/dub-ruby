@@ -23,7 +23,7 @@ module OpenApiSDK
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
       field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
-      # The URL to redirect to when the short link has expired.
+
       field :expired_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
 
       field :expires_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
