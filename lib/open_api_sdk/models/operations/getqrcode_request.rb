@@ -19,18 +19,20 @@ module OpenApiSDK
       field :fg_color, T.nilable(::String), { 'query_param': { 'field_name': 'fgColor', 'style': 'form', 'explode': true } }
       # Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.co.
       field :hide_logo, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'hideLogo', 'style': 'form', 'explode': true } }
-      # Whether to include a margin around the QR code. Defaults to `false` if not provided.
+      # DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.
       field :include_margin, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeMargin', 'style': 'form', 'explode': true } }
       # The level of error correction to use for the QR code. Defaults to `L` if not provided.
       field :level, T.nilable(::OpenApiSDK::Operations::Level), { 'query_param': { 'field_name': 'level', 'style': 'form', 'explode': true } }
       # The logo to include in the QR code. Can only be used with a paid plan on Dub.co.
       field :logo, T.nilable(::String), { 'query_param': { 'field_name': 'logo', 'style': 'form', 'explode': true } }
+      # The size of the margin around the QR code. Defaults to 2 if not provided.
+      field :margin, T.nilable(::Float), { 'query_param': { 'field_name': 'margin', 'style': 'form', 'explode': true } }
       # The size of the QR code in pixels. Defaults to `600` if not provided.
       field :size, T.nilable(::Float), { 'query_param': { 'field_name': 'size', 'style': 'form', 'explode': true } }
 
 
-      sig { params(url: ::String, bg_color: T.nilable(::String), fg_color: T.nilable(::String), hide_logo: T.nilable(T::Boolean), include_margin: T.nilable(T::Boolean), level: T.nilable(::OpenApiSDK::Operations::Level), logo: T.nilable(::String), size: T.nilable(::Float)).void }
-      def initialize(url: nil, bg_color: nil, fg_color: nil, hide_logo: nil, include_margin: nil, level: nil, logo: nil, size: nil)
+      sig { params(url: ::String, bg_color: T.nilable(::String), fg_color: T.nilable(::String), hide_logo: T.nilable(T::Boolean), include_margin: T.nilable(T::Boolean), level: T.nilable(::OpenApiSDK::Operations::Level), logo: T.nilable(::String), margin: T.nilable(::Float), size: T.nilable(::Float)).void }
+      def initialize(url: nil, bg_color: nil, fg_color: nil, hide_logo: nil, include_margin: nil, level: nil, logo: nil, margin: nil, size: nil)
         @url = url
         @bg_color = bg_color
         @fg_color = fg_color
@@ -38,6 +40,7 @@ module OpenApiSDK
         @include_margin = include_margin
         @level = level
         @logo = logo
+        @margin = margin
         @size = size
       end
     end
