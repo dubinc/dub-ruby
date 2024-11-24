@@ -45,6 +45,8 @@ module OpenApiSDK
       field :referer, T.nilable(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
       # The full referer URL to retrieve analytics for.
       field :referer_url, T.nilable(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
+      # The ISO 3166-2 region code to retrieve analytics for.
+      field :region, T.nilable(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
       # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
       field :root, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
       # The start date and time when to retrieve analytics from. Takes precedence over `interval`.
@@ -61,8 +63,8 @@ module OpenApiSDK
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, root: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -80,6 +82,7 @@ module OpenApiSDK
         @qr = qr
         @referer = referer
         @referer_url = referer_url
+        @region = region
         @root = root
         @start = start
         @tag_id = tag_id
