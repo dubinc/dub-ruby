@@ -32,13 +32,15 @@ module OpenApiSDK
 
       field :referer_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('refererUrl') } }
 
+      field :region, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('region') } }
+
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
       field :qr, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
 
 
-      sig { params(browser: ::String, city: ::String, continent: ::String, country: ::String, device: ::String, id: ::String, ip: ::String, os: ::String, referer: ::String, referer_url: ::String, url: ::String, qr: T.nilable(T::Boolean)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, id: nil, ip: nil, os: nil, referer: nil, referer_url: nil, url: nil, qr: nil)
+      sig { params(browser: ::String, city: ::String, continent: ::String, country: ::String, device: ::String, id: ::String, ip: ::String, os: ::String, referer: ::String, referer_url: ::String, region: ::String, url: ::String, qr: T.nilable(T::Boolean)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, id: nil, ip: nil, os: nil, referer: nil, referer_url: nil, region: nil, url: nil, qr: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -49,6 +51,7 @@ module OpenApiSDK
         @os = os
         @referer = referer
         @referer_url = referer_url
+        @region = region
         @url = url
         @qr = qr
       end

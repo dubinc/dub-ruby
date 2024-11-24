@@ -13,6 +13,7 @@ module OpenApiSDK
         COUNT = new('count')
         TIMESERIES = new('timeseries')
         CONTINENTS = new('continents')
+        REGIONS = new('regions')
         COUNTRIES = new('countries')
         CITIES = new('cities')
         DEVICES = new('devices')
