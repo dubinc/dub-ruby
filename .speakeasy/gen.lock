@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: be72cffee97b5924a429380aa231ccb8
+  docChecksum: eae1ba18bcf69b50e7b53142f6625750
   docVersion: 0.0.1
-  speakeasyVersion: 1.444.1
-  generationVersion: 2.461.4
-  releaseVersion: 0.2.2-alpha.39
-  configChecksum: 7e6cd7d336c7e3d30b6a1d1bc0f20373
+  speakeasyVersion: 1.448.0
+  generationVersion: 2.466.0
+  releaseVersion: 0.2.2-alpha.40
+  configChecksum: 18973e9636a0a08bf1ffdf9643bcdc83
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.3.1
+    core: 3.4.0
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -1199,3 +1199,4 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+generatedTests: {}
