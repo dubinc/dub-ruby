@@ -44,7 +44,6 @@ module OpenApiSDK
       )
       if r.status == 200
         res.res = r.env.response_body if Utils.match_content_type(content_type, 'image/png')
-      
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
@@ -91,6 +90,7 @@ module OpenApiSDK
           res.internal_server_error = out
         end
       end
+
       res
     end
   end

@@ -93,6 +93,7 @@ module OpenApiSDK
           res.internal_server_error = out
         end
       end
+
       res
     end
   end
