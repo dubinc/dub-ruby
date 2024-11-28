@@ -19,11 +19,14 @@ Dub.co API: Dub is link management infrastructure for companies to create market
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Server Selection](#server-selection)
+* [Development](#development)
+  * [Contributions](#contributions)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -125,6 +128,10 @@ end
 * [update](docs/sdks/domains/README.md#update) - Update a domain
 * [delete](docs/sdks/domains/README.md#delete) - Delete a domain
 
+
+### [embed_tokens](docs/sdks/embedtokens/README.md)
+
+* [create](docs/sdks/embedtokens/README.md#create) - Create a new embed token
 
 ### [events](docs/sdks/events/README.md)
 

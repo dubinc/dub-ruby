@@ -48,6 +48,7 @@ module OpenApiSDK
           res.object = out
         end
       end
+
       res
     end
   end
