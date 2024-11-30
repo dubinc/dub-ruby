@@ -12,13 +12,16 @@ module OpenApiSDK
       extend T::Sig
 
 
+      field :logo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
+
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
       field :slug, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
 
 
-      sig { params(name: T.nilable(::String), slug: T.nilable(::String)).void }
-      def initialize(name: nil, slug: nil)
+      sig { params(logo: T.nilable(::String), name: T.nilable(::String), slug: T.nilable(::String)).void }
+      def initialize(logo: nil, name: nil, slug: nil)
+        @logo = logo
         @name = name
         @slug = slug
       end

@@ -7,3 +7,4 @@
 | --------------------- | --------------------- | --------------------- | --------------------- |
 | `name`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `slug`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
+| `logo`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |

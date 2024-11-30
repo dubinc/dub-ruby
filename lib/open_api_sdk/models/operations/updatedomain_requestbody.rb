@@ -15,6 +15,8 @@ module OpenApiSDK
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
       # Redirect users to a specific URL when any link under this domain has expired.
       field :expired_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
+      # The logo of the domain.
+      field :logo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
       # Redirect users to a specific URL when a link under this domain doesn't exist.
       field :not_found_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
       # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
@@ -23,10 +25,11 @@ module OpenApiSDK
       field :slug, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
 
 
-      sig { params(archived: T.nilable(T::Boolean), expired_url: T.nilable(::String), not_found_url: T.nilable(::String), placeholder: T.nilable(::String), slug: T.nilable(::String)).void }
-      def initialize(archived: nil, expired_url: nil, not_found_url: nil, placeholder: nil, slug: nil)
+      sig { params(archived: T.nilable(T::Boolean), expired_url: T.nilable(::String), logo: T.nilable(::String), not_found_url: T.nilable(::String), placeholder: T.nilable(::String), slug: T.nilable(::String)).void }
+      def initialize(archived: nil, expired_url: nil, logo: nil, not_found_url: nil, placeholder: nil, slug: nil)
         @archived = archived
         @expired_url = expired_url
+        @logo = logo
         @not_found_url = not_found_url
         @placeholder = placeholder
         @slug = slug
