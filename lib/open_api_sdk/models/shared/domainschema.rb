@@ -19,6 +19,8 @@ module OpenApiSDK
       field :expired_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
       # The unique identifier of the domain.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The logo of the domain.
+      field :logo, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
       # The URL to redirect to when a link under this domain doesn't exist.
       field :not_found_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
       # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
@@ -35,12 +37,13 @@ module OpenApiSDK
       field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
 
 
-      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
-      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
+      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, logo: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
+      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, logo: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
         @archived = archived
         @created_at = created_at
         @expired_url = expired_url
         @id = id
+        @logo = logo
         @not_found_url = not_found_url
         @placeholder = placeholder
         @primary = primary

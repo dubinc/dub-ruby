@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 756dac9e9f7f9954fef9635bbe0c7ca8
+  docChecksum: ebeafbab98f36580b94fa4a78ab949c3
   docVersion: 0.0.1
   speakeasyVersion: 1.448.2
   generationVersion: 2.467.4
-  releaseVersion: 0.2.2-alpha.41
-  configChecksum: 8febf46035f281e35336d2fc3115c94f
+  releaseVersion: 0.2.2-alpha.42
+  configChecksum: 5b24d44af7b49afa27da712ff6d9da6b
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -929,7 +929,7 @@ examples:
         application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "201":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "logo": "<value>", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -983,7 +983,7 @@ examples:
         application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "200":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "logo": "<value>", "createdAt": "<value>", "updatedAt": "<value>", "registeredDomain": {"id": "<id>", "createdAt": "<value>", "expiresAt": "<value>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
