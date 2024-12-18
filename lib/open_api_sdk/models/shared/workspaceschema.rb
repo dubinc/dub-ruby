@@ -15,10 +15,6 @@ module OpenApiSDK
       field :ai_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiLimit') } }
       # The AI usage of the workspace.
       field :ai_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiUsage') } }
-      # [BETA – Dub Partners]: The name of the connected bank account.
-      field :bank_account_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bankAccountName') } }
-      # [BETA – Dub Partners]: Whether the bank account is verified.
-      field :bank_account_verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bankAccountVerified') } }
       # The date and time when the billing cycle starts for the workspace.
       field :billing_cycle_start, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('billingCycleStart') } }
       # Whether the workspace has conversion tracking enabled (d.to/conversions).
@@ -43,14 +39,12 @@ module OpenApiSDK
       field :logo, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
       # The name of the workspace.
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # [BETA – Dub Partners]: The partial account number of the bank account.
-      field :partial_account_number, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partialAccountNumber') } }
       # The date and time when the payment failed for the workspace.
       field :payment_failed_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentFailedAt') } }
+      # [BETA – Dub Partners]: The ID of the payment method for partner payouts.
+      field :payout_method_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutMethodId') } }
       # The plan of the workspace.
       field :plan, ::OpenApiSDK::Shared::Plan, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('plan'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Plan, false) } }
-      # [BETA – Dub Partners]: The routing number of the bank account.
-      field :routing_number, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('routingNumber') } }
       # The limit of tracked revenue in the current billing cycle (in cents).
       field :sales_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesLimit') } }
       # The dollar amount of tracked revenue in the current billing cycle (in cents).
@@ -75,12 +69,10 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(ai_limit: ::Float, ai_usage: ::Float, bank_account_name: ::String, bank_account_verified: T::Boolean, billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partial_account_number: ::String, payment_failed_at: ::String, plan: ::OpenApiSDK::Shared::Plan, routing_number: ::String, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(ai_limit: nil, ai_usage: nil, bank_account_name: nil, bank_account_verified: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partial_account_number: nil, payment_failed_at: nil, plan: nil, routing_number: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(ai_limit: ::Float, ai_usage: ::Float, billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, payment_failed_at: ::String, payout_method_id: ::String, plan: ::OpenApiSDK::Shared::Plan, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(ai_limit: nil, ai_usage: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, payment_failed_at: nil, payout_method_id: nil, plan: nil, sales_limit: nil, sales_usage: nil, slug: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @ai_limit = ai_limit
         @ai_usage = ai_usage
-        @bank_account_name = bank_account_name
-        @bank_account_verified = bank_account_verified
         @billing_cycle_start = billing_cycle_start
         @conversion_enabled = conversion_enabled
         @created_at = created_at
@@ -93,10 +85,9 @@ module OpenApiSDK
         @links_usage = links_usage
         @logo = logo
         @name = name
-        @partial_account_number = partial_account_number
         @payment_failed_at = payment_failed_at
+        @payout_method_id = payout_method_id
         @plan = plan
-        @routing_number = routing_number
         @sales_limit = sales_limit
         @sales_usage = sales_usage
         @slug = slug
