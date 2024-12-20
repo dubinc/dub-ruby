@@ -619,3 +619,13 @@ Based on:
 - [ruby v0.2.2-alpha.47] .
 ### Releases
 - [Ruby Gems v0.2.2-alpha.47] https://rubygems.org/gems/dub/versions/0.2.2-alpha.47 - .
+
+## 2024-12-20 00:26:43
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.456.1 (2.481.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.2.2-alpha.48] .
+### Releases
+- [Ruby Gems v0.2.2-alpha.48] https://rubygems.org/gems/dub/versions/0.2.2-alpha.48 - .

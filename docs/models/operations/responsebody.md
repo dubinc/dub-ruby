@@ -10,4 +10,5 @@
 | `name`                                                  | *::String*                                              | :heavy_check_mark:                                      | Name of the customer.                                   |
 | `email`                                                 | *T.nilable(::String)*                                   | :heavy_minus_sign:                                      | Email of the customer.                                  |
 | `avatar`                                                | *T.nilable(::String)*                                   | :heavy_minus_sign:                                      | Avatar URL of the customer.                             |
+| `country`                                               | *T.nilable(::String)*                                   | :heavy_minus_sign:                                      | Country of the customer.                                |
 | `created_at`                                            | *::String*                                              | :heavy_check_mark:                                      | The date the customer was created.                      |
