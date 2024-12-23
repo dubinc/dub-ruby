@@ -169,7 +169,6 @@ end
 
 * [lead](docs/sdks/track/README.md#lead) - Track a lead
 * [sale](docs/sdks/track/README.md#sale) - Track a sale
-* [~~customer~~](docs/sdks/track/README.md#customer) - Track a customer :warning: **Deprecated**
 
 ### [workspaces](docs/sdks/workspaces/README.md)
 

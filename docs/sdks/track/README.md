@@ -7,7 +7,6 @@
 
 * [lead](#lead) - Track a lead
 * [sale](#sale) - Track a sale
-* [~~customer~~](#customer) - Track a customer :warning: **Deprecated**
 
 ## lead
 
@@ -93,48 +92,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::TrackSaleResponse)](../../models/operations/tracksaleresponse.md)**
-
-
-
-## ~~customer~~
-
-Track a customer for an authenticated workspace.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-
-req = ::OpenApiSDK::Operations::TrackCustomerRequestBody.new(
-  customer_id: "<id>",
-)
-    
-res = s.track.customer(req)
-
-if ! res.object.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::OpenApiSDK::Operations::TrackCustomerRequestBody](../../models/operations/trackcustomerrequestbody.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::TrackCustomerResponse)](../../models/operations/trackcustomerresponse.md)**
 
