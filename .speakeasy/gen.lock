@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 91f8a271509d1f385478a60c83339f25
+  docChecksum: 8242eb9b26c7e6790d67cbbd98b96b1b
   docVersion: 0.0.1
-  speakeasyVersion: 1.456.1
-  generationVersion: 2.481.0
-  releaseVersion: 0.2.2-alpha.47
-  configChecksum: 838c8fcc3fb0ce95c9cb76e268acb261
+  speakeasyVersion: 1.459.2
+  generationVersion: 2.483.1
+  releaseVersion: 0.2.2-alpha.48
+  configChecksum: 4f1db4ea760a806230a2d0f991bcbc4a
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -36,6 +36,7 @@ generatedFiles:
   - docs/models/operations/bulkupdatelinksresponse.md
   - docs/models/operations/click.md
   - docs/models/operations/color.md
+  - docs/models/operations/createcustomerlink.md
   - docs/models/operations/createcustomerrequestbody.md
   - docs/models/operations/createcustomerresponse.md
   - docs/models/operations/createcustomerresponsebody.md
@@ -63,6 +64,7 @@ generatedFiles:
   - docs/models/operations/deletetagresponse.md
   - docs/models/operations/deletetagresponsebody.md
   - docs/models/operations/event.md
+  - docs/models/operations/getcustomerlink.md
   - docs/models/operations/getcustomerrequest.md
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
@@ -84,6 +86,7 @@ generatedFiles:
   - docs/models/operations/groupby.md
   - docs/models/operations/interval.md
   - docs/models/operations/level.md
+  - docs/models/operations/link.md
   - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
   - docs/models/operations/listeventsrequest.md
@@ -100,9 +103,6 @@ generatedFiles:
   - docs/models/operations/sale.md
   - docs/models/operations/sort.md
   - docs/models/operations/sortby.md
-  - docs/models/operations/trackcustomerrequestbody.md
-  - docs/models/operations/trackcustomerresponse.md
-  - docs/models/operations/trackcustomerresponsebody.md
   - docs/models/operations/trackleadrequestbody.md
   - docs/models/operations/trackleadresponse.md
   - docs/models/operations/trackleadresponsebody.md
@@ -111,6 +111,7 @@ generatedFiles:
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/trigger.md
+  - docs/models/operations/updatecustomerlink.md
   - docs/models/operations/updatecustomerrequest.md
   - docs/models/operations/updatecustomerrequestbody.md
   - docs/models/operations/updatecustomerresponse.md
@@ -208,6 +209,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
   - lib/open_api_sdk/models/operations/click.rb
   - lib/open_api_sdk/models/operations/color.rb
+  - lib/open_api_sdk/models/operations/createcustomer_link.rb
   - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
   - lib/open_api_sdk/models/operations/createcustomer_response.rb
   - lib/open_api_sdk/models/operations/createcustomer_responsebody.rb
@@ -235,6 +237,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/deletetag_response.rb
   - lib/open_api_sdk/models/operations/deletetag_responsebody.rb
   - lib/open_api_sdk/models/operations/event.rb
+  - lib/open_api_sdk/models/operations/getcustomer_link.rb
   - lib/open_api_sdk/models/operations/getcustomer_request.rb
   - lib/open_api_sdk/models/operations/getcustomer_response.rb
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
@@ -256,6 +259,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/groupby.rb
   - lib/open_api_sdk/models/operations/interval.rb
   - lib/open_api_sdk/models/operations/level.rb
+  - lib/open_api_sdk/models/operations/link.rb
   - lib/open_api_sdk/models/operations/listdomains_request.rb
   - lib/open_api_sdk/models/operations/listdomains_response.rb
   - lib/open_api_sdk/models/operations/listevents_request.rb
@@ -272,9 +276,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/sale.rb
   - lib/open_api_sdk/models/operations/sort.rb
   - lib/open_api_sdk/models/operations/sortby.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_requestbody.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_response.rb
-  - lib/open_api_sdk/models/operations/trackcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
   - lib/open_api_sdk/models/operations/tracklead_response.rb
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
@@ -283,6 +284,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
   - lib/open_api_sdk/models/operations/trigger.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_link.rb
   - lib/open_api_sdk/models/operations/updatecustomer_request.rb
   - lib/open_api_sdk/models/operations/updatecustomer_requestbody.rb
   - lib/open_api_sdk/models/operations/updatecustomer_response.rb
