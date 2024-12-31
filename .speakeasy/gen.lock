@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 8242eb9b26c7e6790d67cbbd98b96b1b
+  docChecksum: b6c3f376c48f7905069b63adb30d9d19
   docVersion: 0.0.1
-  speakeasyVersion: 1.459.2
-  generationVersion: 2.483.1
-  releaseVersion: 0.2.2-alpha.48
-  configChecksum: 4f1db4ea760a806230a2d0f991bcbc4a
+  speakeasyVersion: 1.460.3
+  generationVersion: 2.484.0
+  releaseVersion: 0.2.2-alpha.49
+  configChecksum: f929ae2a5c86837f3cd32c8d89cee377
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -36,10 +36,14 @@ generatedFiles:
   - docs/models/operations/bulkupdatelinksresponse.md
   - docs/models/operations/click.md
   - docs/models/operations/color.md
+  - docs/models/operations/createcustomerdiscount.md
+  - docs/models/operations/createcustomerinterval.md
   - docs/models/operations/createcustomerlink.md
+  - docs/models/operations/createcustomerpartner.md
   - docs/models/operations/createcustomerrequestbody.md
   - docs/models/operations/createcustomerresponse.md
   - docs/models/operations/createcustomerresponsebody.md
+  - docs/models/operations/createcustomertype.md
   - docs/models/operations/createdomainrequestbody.md
   - docs/models/operations/createdomainresponse.md
   - docs/models/operations/createembedtokenrequestbody.md
@@ -63,12 +67,18 @@ generatedFiles:
   - docs/models/operations/deletetagrequest.md
   - docs/models/operations/deletetagresponse.md
   - docs/models/operations/deletetagresponsebody.md
+  - docs/models/operations/discount.md
   - docs/models/operations/event.md
+  - docs/models/operations/getcustomerdiscount.md
+  - docs/models/operations/getcustomerinterval.md
   - docs/models/operations/getcustomerlink.md
+  - docs/models/operations/getcustomerpartner.md
   - docs/models/operations/getcustomerrequest.md
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
+  - docs/models/operations/getcustomersinterval.md
   - docs/models/operations/getcustomersresponse.md
+  - docs/models/operations/getcustomertype.md
   - docs/models/operations/getlinkinforequest.md
   - docs/models/operations/getlinkinforesponse.md
   - docs/models/operations/getlinkscountrequest.md
@@ -92,6 +102,7 @@ generatedFiles:
   - docs/models/operations/listeventsrequest.md
   - docs/models/operations/listeventsresponse.md
   - docs/models/operations/order.md
+  - docs/models/operations/partner.md
   - docs/models/operations/paymentprocessor.md
   - docs/models/operations/queryparamevent.md
   - docs/models/operations/queryparaminterval.md
@@ -111,11 +122,16 @@ generatedFiles:
   - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/trigger.md
+  - docs/models/operations/type.md
+  - docs/models/operations/updatecustomerdiscount.md
+  - docs/models/operations/updatecustomerinterval.md
   - docs/models/operations/updatecustomerlink.md
+  - docs/models/operations/updatecustomerpartner.md
   - docs/models/operations/updatecustomerrequest.md
   - docs/models/operations/updatecustomerrequestbody.md
   - docs/models/operations/updatecustomerresponse.md
   - docs/models/operations/updatecustomerresponsebody.md
+  - docs/models/operations/updatecustomertype.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainrequestbody.md
   - docs/models/operations/updatedomainresponse.md
@@ -209,10 +225,14 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
   - lib/open_api_sdk/models/operations/click.rb
   - lib/open_api_sdk/models/operations/color.rb
+  - lib/open_api_sdk/models/operations/createcustomer_discount.rb
+  - lib/open_api_sdk/models/operations/createcustomer_interval.rb
   - lib/open_api_sdk/models/operations/createcustomer_link.rb
+  - lib/open_api_sdk/models/operations/createcustomer_partner.rb
   - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
   - lib/open_api_sdk/models/operations/createcustomer_response.rb
   - lib/open_api_sdk/models/operations/createcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/createcustomer_type.rb
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
   - lib/open_api_sdk/models/operations/createdomain_response.rb
   - lib/open_api_sdk/models/operations/createembedtoken_requestbody.rb
@@ -236,11 +256,17 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/deletetag_request.rb
   - lib/open_api_sdk/models/operations/deletetag_response.rb
   - lib/open_api_sdk/models/operations/deletetag_responsebody.rb
+  - lib/open_api_sdk/models/operations/discount.rb
   - lib/open_api_sdk/models/operations/event.rb
+  - lib/open_api_sdk/models/operations/getcustomer_discount.rb
+  - lib/open_api_sdk/models/operations/getcustomer_interval.rb
   - lib/open_api_sdk/models/operations/getcustomer_link.rb
+  - lib/open_api_sdk/models/operations/getcustomer_partner.rb
   - lib/open_api_sdk/models/operations/getcustomer_request.rb
   - lib/open_api_sdk/models/operations/getcustomer_response.rb
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/getcustomer_type.rb
+  - lib/open_api_sdk/models/operations/getcustomers_interval.rb
   - lib/open_api_sdk/models/operations/getcustomers_response.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
@@ -265,6 +291,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/listevents_request.rb
   - lib/open_api_sdk/models/operations/listevents_response.rb
   - lib/open_api_sdk/models/operations/order.rb
+  - lib/open_api_sdk/models/operations/partner.rb
   - lib/open_api_sdk/models/operations/paymentprocessor.rb
   - lib/open_api_sdk/models/operations/queryparam_event.rb
   - lib/open_api_sdk/models/operations/queryparam_interval.rb
@@ -284,11 +311,16 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/tracksale_response.rb
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
   - lib/open_api_sdk/models/operations/trigger.rb
+  - lib/open_api_sdk/models/operations/type.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_discount.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_interval.rb
   - lib/open_api_sdk/models/operations/updatecustomer_link.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_partner.rb
   - lib/open_api_sdk/models/operations/updatecustomer_request.rb
   - lib/open_api_sdk/models/operations/updatecustomer_requestbody.rb
   - lib/open_api_sdk/models/operations/updatecustomer_response.rb
   - lib/open_api_sdk/models/operations/updatecustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_type.rb
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
   - lib/open_api_sdk/models/operations/updatedomain_response.rb
