@@ -75,6 +75,7 @@ module OpenApiSDK
     autoload :Sale, 'open_api_sdk/models/operations/sale.rb'
     autoload :TrackSaleResponseBody, 'open_api_sdk/models/operations/tracksale_responsebody.rb'
     autoload :TrackSaleResponse, 'open_api_sdk/models/operations/tracksale_response.rb'
+    autoload :GetCustomersRequest, 'open_api_sdk/models/operations/getcustomers_request.rb'
     autoload :Link, 'open_api_sdk/models/operations/link.rb'
     autoload :Partner, 'open_api_sdk/models/operations/partner.rb'
     autoload :Type, 'open_api_sdk/models/operations/type.rb'

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.2.2.pre.alpha.49)
+    dub (0.2.2.pre.alpha.50)
       faraday
       faraday-multipart
       rack
@@ -102,4 +102,4 @@ DEPENDENCIES
   tapioca
 
 BUNDLED WITH
-   2.2.33
+   2.5.23
