@@ -19,19 +19,21 @@ module OpenApiSDK
     end
 
 
-    sig { returns(::OpenApiSDK::Operations::GetCustomersResponse) }
-    def list
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetCustomersRequest)).returns(::OpenApiSDK::Operations::GetCustomersResponse) }
+    def list(request)
       # list - Retrieve a list of customers
       # Retrieve a list of customers for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/customers"
       headers = {}
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetCustomersRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -195,11 +197,13 @@ module OpenApiSDK
         request
       )
       headers = {}
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetCustomerRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
@@ -279,11 +283,13 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request_body, :json)
       headers['content-type'] = req_content_type
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::UpdateCustomerRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.patch(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
         if form
           req.body = Utils.encode_form(form)

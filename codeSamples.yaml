@@ -14,7 +14,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getCustomers"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n    \nres = s.customers.list()\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::GetCustomersRequest.new()\n    \nres = s.customers.list(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers"]["post"]
     update:
       "x-codeSamples":
@@ -38,7 +38,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateCustomer"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n    \nres = s.customers.update(id=\"<id>\", request_body=::OpenApiSDK::Operations::UpdateCustomerRequestBody.new())\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::UpdateCustomerRequest.new(\n  id: \"<id>\",\n)\n    \nres = s.customers.update(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains"]["get"]
     update:
       "x-codeSamples":
