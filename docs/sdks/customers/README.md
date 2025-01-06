@@ -28,14 +28,22 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::GetCustomersRequest.new()
     
-res = s.customers.list()
+res = s.customers.list(req)
 
 if ! res.response_bodies.nil?
   # handle response
 end
 
 ```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [::OpenApiSDK::Operations::GetCustomersRequest](../../models/operations/getcustomersrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
@@ -144,8 +152,12 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::UpdateCustomerRequest.new(
+  id: "<id>",
+)
     
-res = s.customers.update(id="<id>", request_body=::OpenApiSDK::Operations::UpdateCustomerRequestBody.new())
+res = s.customers.update(req)
 
 if ! res.object.nil?
   # handle response
@@ -155,10 +167,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                   | *::String*                                                                                                             | :heavy_check_mark:                                                                                                     | The unique identifier of the customer in Dub.                                                                          |
-| `request_body`                                                                                                         | [T.nilable(::OpenApiSDK::Operations::UpdateCustomerRequestBody)](../../models/operations/updatecustomerrequestbody.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [::OpenApiSDK::Operations::UpdateCustomerRequest](../../models/operations/updatecustomerrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
