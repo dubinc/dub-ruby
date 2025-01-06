@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: b6c3f376c48f7905069b63adb30d9d19
+  docChecksum: e904bd8a77ea57b3ba18586e860e5b93
   docVersion: 0.0.1
-  speakeasyVersion: 1.460.3
-  generationVersion: 2.484.0
-  releaseVersion: 0.2.2-alpha.49
-  configChecksum: f929ae2a5c86837f3cd32c8d89cee377
+  speakeasyVersion: 1.462.2
+  generationVersion: 2.486.1
+  releaseVersion: 0.2.2-alpha.50
+  configChecksum: 8ca20f60de494acb27c03e685fdff35e
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.4.5
-    deprecations: 2.81.1
+    core: 3.5.0
+    deprecations: 2.81.2
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
@@ -77,6 +77,7 @@ generatedFiles:
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
   - docs/models/operations/getcustomersinterval.md
+  - docs/models/operations/getcustomersrequest.md
   - docs/models/operations/getcustomersresponse.md
   - docs/models/operations/getcustomertype.md
   - docs/models/operations/getlinkinforequest.md
@@ -267,6 +268,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/getcustomer_type.rb
   - lib/open_api_sdk/models/operations/getcustomers_interval.rb
+  - lib/open_api_sdk/models/operations/getcustomers_request.rb
   - lib/open_api_sdk/models/operations/getcustomers_response.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
@@ -1168,6 +1170,7 @@ examples:
       parameters:
         path:
           id: "<id>"
+        query: {}
       responses:
         "200":
           application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}
@@ -1194,6 +1197,7 @@ examples:
       parameters:
         path:
           id: "<id>"
+        query: {}
       responses:
         "200":
           application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "<value>"}

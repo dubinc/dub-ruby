@@ -13,11 +13,14 @@ module OpenApiSDK
 
       # The unique identifier of the customer in Dub.
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+      # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
+      field :include_expanded_fields, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String).void }
-      def initialize(id: nil)
+      sig { params(id: ::String, include_expanded_fields: T.nilable(T::Boolean)).void }
+      def initialize(id: nil, include_expanded_fields: nil)
         @id = id
+        @include_expanded_fields = include_expanded_fields
       end
     end
   end
