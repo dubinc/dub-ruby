@@ -301,7 +301,7 @@ req = [
     
 res = s.links.create_many(req)
 
-if ! res.link_schemas.nil?
+if ! res.anies.nil?
   # handle response
 end
 

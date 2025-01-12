@@ -53,7 +53,7 @@ module OpenApiSDK
       field :sales_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesUsage') } }
       # The slug of the workspace.
       field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # [BETA – Dub Conversions]: The Stripe Connect ID of the workspace.
+      # The Stripe Connect ID of the workspace.
       field :stripe_connect_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeConnectId') } }
       # The Stripe ID of the workspace.
       field :stripe_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeId') } }

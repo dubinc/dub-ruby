@@ -547,8 +547,8 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::OpenApiSDK::Shared::LinkSchema])
-          res.link_schemas = out
+          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::Object])
+          res.anies = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')

@@ -25,14 +25,16 @@ module OpenApiSDK
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
       # The unique name of the tags assigned to the short link (case insensitive).
       field :tag_names, T.nilable(::Object), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': true } }
+      # The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant.
+      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
       # The user ID to filter the links by.
       field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'userId', 'style': 'form', 'explode': true } }
       # DEPRECATED. Filter for links that have at least one tag assigned to them.
       field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
-      def initialize(domain: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, user_id: nil, with_tags: nil)
+      sig { params(domain: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
+      def initialize(domain: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
         @domain = domain
         @group_by = group_by
         @search = search
@@ -40,6 +42,7 @@ module OpenApiSDK
         @tag_id = tag_id
         @tag_ids = tag_ids
         @tag_names = tag_names
+        @tenant_id = tenant_id
         @user_id = user_id
         @with_tags = with_tags
       end
