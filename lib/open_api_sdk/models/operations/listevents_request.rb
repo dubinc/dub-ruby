@@ -37,7 +37,7 @@ module OpenApiSDK
       field :limit, T.nilable(::Float), { 'query_param': { 'field_name': 'limit', 'style': 'form', 'explode': true } }
       # The unique ID of the short link on Dub.
       field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
-
+      # DEPRECATED. Use `sortOrder` instead.
       field :order, T.nilable(::OpenApiSDK::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
       # The OS to retrieve analytics for.
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
@@ -53,8 +53,10 @@ module OpenApiSDK
       field :region, T.nilable(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
       # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
       field :root, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
-
-      field :sort_by, T.nilable(::OpenApiSDK::Operations::SortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+      # The field to sort the events by. The default is `timestamp`.
+      field :sort_by, T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+      # The sort order. The default is `desc`.
+      field :sort_order, T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
       # The start date and time when to retrieve analytics from. Takes precedence over `interval`.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
       # Deprecated. Use `tagIds` instead. The tag ID to retrieve analytics for.
@@ -69,8 +71,8 @@ module OpenApiSDK
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::SortBy), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, sort_by: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -93,6 +95,7 @@ module OpenApiSDK
         @region = region
         @root = root
         @sort_by = sort_by
+        @sort_order = sort_order
         @start = start
         @tag_id = tag_id
         @tag_ids = tag_ids

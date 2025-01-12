@@ -98,7 +98,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "bulkCreateLinks"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = [\n  ::OpenApiSDK::Operations::RequestBody.new(\n    url: \"https://google.com\",\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n  ),\n]\n    \nres = s.links.create_many(req)\n\nif ! res.link_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = [\n  ::OpenApiSDK::Operations::RequestBody.new(\n    url: \"https://google.com\",\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n  ),\n]\n    \nres = s.links.create_many(req)\n\nif ! res.anies.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/count"]["get"]
     update:
       "x-codeSamples":
