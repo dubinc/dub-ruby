@@ -15,7 +15,7 @@ module OpenApiSDK
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
       # The Android destination URL for the short link for Android device targeting.
       field :android, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
-      # Whether the short link is archived.
+      # Whether the short link is archived. Defaults to `false` if not provided.
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
       # The comments for the short link.
       field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
@@ -45,15 +45,15 @@ module OpenApiSDK
       field :prefix, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prefix') } }
       # The ID of the program the short link is associated with.
       field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # Whether the short link uses Custom Social Media Cards feature.
+      # Whether the short link uses Custom Social Media Cards feature. Defaults to `false` if not provided.
       field :proxy, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
-      # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible.
+      # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :public_stats, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
       # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
       field :ref, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
-      # Whether the short link uses link cloaking.
+      # Whether the short link uses link cloaking. Defaults to `false` if not provided.
       field :rewrite, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
       # The unique ID of the tag assigned to the short link. This field is deprecated – use `tagIds` instead.
       # 
@@ -67,7 +67,7 @@ module OpenApiSDK
       field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
       # The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
-      # Whether to track conversions for the short link.
+      # Whether to track conversions for the short link. Defaults to `false` if not provided.
       field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
       # The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
       field :utm_campaign, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_campaign') } }
