@@ -67,14 +67,25 @@ s.config_security(
   )
 )
 
+
+req = ::OpenApiSDK::Operations::GetTagsRequest.new(
+  page: 1.0,
+  page_size: 50.0,
+)
     
-res = s.tags.list()
+res = s.tags.list(req)
 
 if ! res.tag_schemas.nil?
   # handle response
 end
 
 ```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [::OpenApiSDK::Operations::GetTagsRequest](../../models/operations/gettagsrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 

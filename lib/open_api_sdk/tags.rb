@@ -105,19 +105,21 @@ module OpenApiSDK
     end
 
 
-    sig { returns(::OpenApiSDK::Operations::GetTagsResponse) }
-    def list
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::GetTagsRequest)).returns(::OpenApiSDK::Operations::GetTagsResponse) }
+    def list(request)
       # list - Retrieve a list of tags
       # Retrieve a list of tags for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"
       headers = {}
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::GetTagsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
+        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 
