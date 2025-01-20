@@ -101,7 +101,9 @@ module OpenApiSDK
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateCustomerRequestBody)).returns(::OpenApiSDK::Operations::CreateCustomerResponse) }
     def create(request)
       # create - Create a customer
-      # Create a customer for the authenticated workspace.
+      # [Deprecated]: Customer creation can only be done via tracking a lead event. Use the /track/lead endpoint instead.
+      # 
+      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/customers"

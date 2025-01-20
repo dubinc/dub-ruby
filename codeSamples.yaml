@@ -15,12 +15,6 @@ actions:
         - "lang": "ruby"
           "label": "getCustomers"
           "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::GetCustomersRequest.new()\n    \nres = s.customers.list(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
-  - target: $["paths"]["/customers"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "createCustomer"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateCustomerRequestBody.new(\n  external_id: \"<id>\",\n)\n    \nres = s.customers.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers/{id}"]["delete"]
     update:
       "x-codeSamples":
