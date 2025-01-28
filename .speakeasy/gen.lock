@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 46f65792e2db963b01085754a661b72a
+  docChecksum: adaa2bd5ce5c9f12fb83c88e3ea2c2e0
   docVersion: 0.0.1
-  speakeasyVersion: 1.470.1
-  generationVersion: 2.493.34
-  releaseVersion: 0.2.2-alpha.56
-  configChecksum: 19c5446e0ab0788ada52ca8c3b8229d1
+  speakeasyVersion: 1.476.2
+  generationVersion: 2.495.1
+  releaseVersion: 0.2.2-alpha.57
+  configChecksum: 4b084241f224f90d8192f4124d14dce3
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -35,6 +35,7 @@ generatedFiles:
   - docs/models/operations/bulkupdatelinksresponse.md
   - docs/models/operations/click.md
   - docs/models/operations/color.md
+  - docs/models/operations/country.md
   - docs/models/operations/createcustomerdiscount.md
   - docs/models/operations/createcustomerinterval.md
   - docs/models/operations/createcustomerlink.md
@@ -50,6 +51,13 @@ generatedFiles:
   - docs/models/operations/createembedtokenresponsebody.md
   - docs/models/operations/createlinkrequestbody.md
   - docs/models/operations/createlinkresponse.md
+  - docs/models/operations/createpartnerdiscount.md
+  - docs/models/operations/createpartnerinterval.md
+  - docs/models/operations/createpartnerlink.md
+  - docs/models/operations/createpartnerrequestbody.md
+  - docs/models/operations/createpartnerresponse.md
+  - docs/models/operations/createpartnerresponsebody.md
+  - docs/models/operations/createpartnertype.md
   - docs/models/operations/createtagrequestbody.md
   - docs/models/operations/createtagresponse.md
   - docs/models/operations/customer.md
@@ -120,6 +128,7 @@ generatedFiles:
   - docs/models/operations/sort.md
   - docs/models/operations/sortby.md
   - docs/models/operations/sortorder.md
+  - docs/models/operations/status.md
   - docs/models/operations/trackleadrequestbody.md
   - docs/models/operations/trackleadresponse.md
   - docs/models/operations/trackleadresponsebody.md
@@ -208,6 +217,7 @@ generatedFiles:
   - docs/sdks/events/README.md
   - docs/sdks/links/README.md
   - docs/sdks/metatags/README.md
+  - docs/sdks/partners/README.md
   - docs/sdks/qrcodes/README.md
   - docs/sdks/tags/README.md
   - docs/sdks/track/README.md
@@ -231,6 +241,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
   - lib/open_api_sdk/models/operations/click.rb
   - lib/open_api_sdk/models/operations/color.rb
+  - lib/open_api_sdk/models/operations/country.rb
   - lib/open_api_sdk/models/operations/createcustomer_discount.rb
   - lib/open_api_sdk/models/operations/createcustomer_interval.rb
   - lib/open_api_sdk/models/operations/createcustomer_link.rb
@@ -246,6 +257,13 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createembedtoken_responsebody.rb
   - lib/open_api_sdk/models/operations/createlink_requestbody.rb
   - lib/open_api_sdk/models/operations/createlink_response.rb
+  - lib/open_api_sdk/models/operations/createpartner_discount.rb
+  - lib/open_api_sdk/models/operations/createpartner_interval.rb
+  - lib/open_api_sdk/models/operations/createpartner_link.rb
+  - lib/open_api_sdk/models/operations/createpartner_requestbody.rb
+  - lib/open_api_sdk/models/operations/createpartner_response.rb
+  - lib/open_api_sdk/models/operations/createpartner_responsebody.rb
+  - lib/open_api_sdk/models/operations/createpartner_type.rb
   - lib/open_api_sdk/models/operations/createtag_requestbody.rb
   - lib/open_api_sdk/models/operations/createtag_response.rb
   - lib/open_api_sdk/models/operations/customer.rb
@@ -316,6 +334,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/sort.rb
   - lib/open_api_sdk/models/operations/sortby.rb
   - lib/open_api_sdk/models/operations/sortorder.rb
+  - lib/open_api_sdk/models/operations/status.rb
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
   - lib/open_api_sdk/models/operations/tracklead_response.rb
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
@@ -397,6 +416,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/unprocessableentity_error.rb
   - lib/open_api_sdk/models/shared/users.rb
   - lib/open_api_sdk/models/shared/workspaceschema.rb
+  - lib/open_api_sdk/partners.rb
   - lib/open_api_sdk/qr_codes.rb
   - lib/open_api_sdk/sdkconfiguration.rb
   - lib/open_api_sdk/tags.rb
@@ -1260,5 +1280,28 @@ examples:
       responses:
         "200":
           application/json: {"title": "Dub.co - Link Management for Modern Marketing Teams", "description": "Dub.co is the open-source link management infrastructure ...", "image": "https://assets.dub.co/thumbnail.jpg"}
+  createPartner:
+    speakeasy-default-create-partner:
+      responses:
+        "201":
+          application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "bio": "<value>", "stripeConnectId": "<id>", "payoutsEnabled": false, "createdAt": "1730216871840", "updatedAt": "1738020328182", "status": "pending", "link": {"id": "<id>", "shortLink": "https://agile-defendant.biz/", "domain": "better-fedora.biz", "key": "<key>", "url": "https://calculating-pearl.info/", "clicks": 365.21, "leads": 6216.36, "sales": 6502.37, "saleAmount": 2006.64}, "commissionAmount": 155.52, "earnings": 5235.23}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.0
 generatedTests: {}
