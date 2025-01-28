@@ -129,6 +129,12 @@ actions:
         - "lang": "ruby"
           "label": "getMetatags"
           "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::GetMetatagsRequest.new(\n  url: \"https://dub.co\",\n)\n    \nres = s.metatags.get(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "createPartner"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  program_id: \"<id>\",\n  name: \"<value>\",\n  email: \"Loyal79@yahoo.com\",\n  username: \"Aaliyah_Borer\",\n)\n    \nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/qr"]["get"]
     update:
       "x-codeSamples":
