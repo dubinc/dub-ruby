@@ -25,10 +25,12 @@ module OpenApiSDK
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Avatar image for the partner – if not provided, a default avatar will be used.
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
+      # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
+      field :link_props, T.nilable(::OpenApiSDK::Operations::LinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
 
 
-      sig { params(email: ::String, name: ::String, program_id: ::String, username: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String)).void }
-      def initialize(email: nil, name: nil, program_id: nil, username: nil, country: nil, description: nil, image: nil)
+      sig { params(email: ::String, name: ::String, program_id: ::String, username: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps)).void }
+      def initialize(email: nil, name: nil, program_id: nil, username: nil, country: nil, description: nil, image: nil, link_props: nil)
         @email = email
         @name = name
         @program_id = program_id
@@ -36,6 +38,7 @@ module OpenApiSDK
         @country = country
         @description = description
         @image = image
+        @link_props = link_props
       end
     end
   end

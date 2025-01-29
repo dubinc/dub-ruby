@@ -118,6 +118,7 @@ module OpenApiSDK
     autoload :DeleteCustomerResponseBody, 'open_api_sdk/models/operations/deletecustomer_responsebody.rb'
     autoload :DeleteCustomerResponse, 'open_api_sdk/models/operations/deletecustomer_response.rb'
     autoload :Country, 'open_api_sdk/models/operations/country.rb'
+    autoload :LinkProps, 'open_api_sdk/models/operations/linkprops.rb'
     autoload :CreatePartnerRequestBody, 'open_api_sdk/models/operations/createpartner_requestbody.rb'
     autoload :Status, 'open_api_sdk/models/operations/status.rb'
     autoload :CreatePartnerLink, 'open_api_sdk/models/operations/createpartner_link.rb'

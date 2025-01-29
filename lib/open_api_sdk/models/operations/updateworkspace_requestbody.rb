@@ -12,6 +12,8 @@ module OpenApiSDK
       extend T::Sig
 
 
+      field :allowed_hostnames, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames') } }
+
       field :conversion_enabled, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
 
       field :logo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
@@ -21,8 +23,9 @@ module OpenApiSDK
       field :slug, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
 
 
-      sig { params(conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::String), name: T.nilable(::String), slug: T.nilable(::String)).void }
-      def initialize(conversion_enabled: nil, logo: nil, name: nil, slug: nil)
+      sig { params(allowed_hostnames: T.nilable(T::Array[::String]), conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::String), name: T.nilable(::String), slug: T.nilable(::String)).void }
+      def initialize(allowed_hostnames: nil, conversion_enabled: nil, logo: nil, name: nil, slug: nil)
+        @allowed_hostnames = allowed_hostnames
         @conversion_enabled = conversion_enabled
         @logo = logo
         @name = name
