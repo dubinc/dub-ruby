@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: adaa2bd5ce5c9f12fb83c88e3ea2c2e0
+  docChecksum: 84dee82a0645f42cc2cc52337e45fbfb
   docVersion: 0.0.1
-  speakeasyVersion: 1.476.2
-  generationVersion: 2.495.1
-  releaseVersion: 0.2.2-alpha.57
-  configChecksum: 4b084241f224f90d8192f4124d14dce3
+  speakeasyVersion: 1.477.0
+  generationVersion: 2.497.0
+  releaseVersion: 0.2.2-alpha.58
+  configChecksum: cdcf090c7d699c5ee81a4ae42eeb164b
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -108,6 +108,7 @@ generatedFiles:
   - docs/models/operations/interval.md
   - docs/models/operations/level.md
   - docs/models/operations/link.md
+  - docs/models/operations/linkprops.md
   - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
   - docs/models/operations/listeventsrequest.md
@@ -314,6 +315,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/interval.rb
   - lib/open_api_sdk/models/operations/level.rb
   - lib/open_api_sdk/models/operations/link.rb
+  - lib/open_api_sdk/models/operations/linkprops.rb
   - lib/open_api_sdk/models/operations/listdomains_request.rb
   - lib/open_api_sdk/models/operations/listdomains_response.rb
   - lib/open_api_sdk/models/operations/listevents_request.rb
@@ -1178,7 +1180,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<id>", "billingCycleStart": 5588.34, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 5442.21, "usageLimit": 5212.35, "linksUsage": 9699.61, "linksLimit": 4580.49, "salesUsage": 4508.24, "salesLimit": 2627.95, "domainsLimit": 2134.57, "tagsLimit": 9371.46, "usersLimit": 4381.42, "aiUsage": 8013.73, "aiLimit": 788.88, "conversionEnabled": true, "dotLinkClaimed": true, "partnersEnabled": true, "createdAt": "1723223056781", "users": [{"role": "owner"}, {"role": "member"}, {"role": "member"}], "domains": [{"slug": "acme.com", "primary": true, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<id>", "billingCycleStart": 5588.34, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 5442.21, "usageLimit": 5212.35, "linksUsage": 9699.61, "linksLimit": 4580.49, "salesUsage": 4508.24, "salesLimit": 2627.95, "domainsLimit": 2134.57, "tagsLimit": 9371.46, "usersLimit": 4381.42, "aiUsage": 8013.73, "aiLimit": 788.88, "conversionEnabled": true, "dotLinkClaimed": true, "partnersEnabled": true, "createdAt": "1723223056781", "users": [{"role": "owner"}, {"role": "member"}, {"role": "member"}], "domains": [{"slug": "acme.com", "primary": true, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1204,7 +1206,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<id>", "billingCycleStart": 5971.29, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 3446.2, "usageLimit": 9914.64, "linksUsage": 6276.9, "linksLimit": 4888.52, "salesUsage": 9840.08, "salesLimit": 540.62, "domainsLimit": 8965.01, "tagsLimit": 4468.63, "usersLimit": 3115.07, "aiUsage": 2494.4, "aiLimit": 1395.79, "conversionEnabled": false, "dotLinkClaimed": false, "partnersEnabled": true, "createdAt": "1720441680204", "users": [{"role": "member"}, {"role": "owner"}, {"role": "owner"}], "domains": [{"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<id>", "billingCycleStart": 5971.29, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 3446.2, "usageLimit": 9914.64, "linksUsage": 6276.9, "linksLimit": 4888.52, "salesUsage": 9840.08, "salesLimit": 540.62, "domainsLimit": 8965.01, "tagsLimit": 4468.63, "usersLimit": 3115.07, "aiUsage": 2494.4, "aiLimit": 1395.79, "conversionEnabled": false, "dotLinkClaimed": false, "partnersEnabled": true, "createdAt": "1720441680204", "users": [{"role": "member"}, {"role": "owner"}, {"role": "owner"}], "domains": [{"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1282,6 +1284,8 @@ examples:
           application/json: {"title": "Dub.co - Link Management for Modern Marketing Teams", "description": "Dub.co is the open-source link management infrastructure ...", "image": "https://assets.dub.co/thumbnail.jpg"}
   createPartner:
     speakeasy-default-create-partner:
+      requestBody:
+        application/json: {"programId": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "username": "Aaliyah_Borer", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}
       responses:
         "201":
           application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "bio": "<value>", "stripeConnectId": "<id>", "payoutsEnabled": false, "createdAt": "1730216871840", "updatedAt": "1738020328182", "status": "pending", "link": {"id": "<id>", "shortLink": "https://agile-defendant.biz/", "domain": "better-fedora.biz", "key": "<key>", "url": "https://calculating-pearl.info/", "clicks": 365.21, "leads": 6216.36, "sales": 6502.37, "saleAmount": 2006.64}, "commissionAmount": 155.52, "earnings": 5235.23}

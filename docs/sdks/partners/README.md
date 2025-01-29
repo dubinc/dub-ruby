@@ -30,6 +30,12 @@ req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
   name: "<value>",
   email: "Loyal79@yahoo.com",
   username: "Aaliyah_Borer",
+  link_props: ::OpenApiSDK::Operations::LinkProps.new(
+    external_id: "123456",
+    tag_ids: [
+      "clux0rgak00011...",
+    ],
+  ),
 )
     
 res = s.partners.create(req)
