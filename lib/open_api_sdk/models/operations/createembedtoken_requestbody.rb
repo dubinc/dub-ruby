@@ -12,12 +12,18 @@ module OpenApiSDK
       extend T::Sig
 
 
-      field :link_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId') } }
+      field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
+
+      field :partner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
+
+      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
 
 
-      sig { params(link_id: ::String).void }
-      def initialize(link_id: nil)
-        @link_id = link_id
+      sig { params(program_id: ::String, partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
+      def initialize(program_id: nil, partner_id: nil, tenant_id: nil)
+        @program_id = program_id
+        @partner_id = partner_id
+        @tenant_id = tenant_id
       end
     end
   end
