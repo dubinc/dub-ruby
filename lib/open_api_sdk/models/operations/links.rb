@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreatePartnerLink < ::OpenApiSDK::Utils::FieldAugmented
+    class Links < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # The number of clicks on the short link.

@@ -170,7 +170,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createEmbedToken"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateEmbedTokenRequestBody.new(\n  link_id: \"<id>\",\n)\n    \nres = s.embed_tokens.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateEmbedTokenRequestBody.new(\n  program_id: \"<id>\",\n)\n    \nres = s.embed_tokens.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/track/lead"]["post"]
     update:
       "x-codeSamples":

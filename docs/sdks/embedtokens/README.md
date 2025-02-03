@@ -26,7 +26,7 @@ s.config_security(
 
 
 req = ::OpenApiSDK::Operations::CreateEmbedTokenRequestBody.new(
-  link_id: "<id>",
+  program_id: "<id>",
 )
     
 res = s.embed_tokens.create(req)

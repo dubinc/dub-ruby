@@ -121,7 +121,7 @@ module OpenApiSDK
     autoload :LinkProps, 'open_api_sdk/models/operations/linkprops.rb'
     autoload :CreatePartnerRequestBody, 'open_api_sdk/models/operations/createpartner_requestbody.rb'
     autoload :Status, 'open_api_sdk/models/operations/status.rb'
-    autoload :CreatePartnerLink, 'open_api_sdk/models/operations/createpartner_link.rb'
+    autoload :Links, 'open_api_sdk/models/operations/links.rb'
     autoload :CreatePartnerType, 'open_api_sdk/models/operations/createpartner_type.rb'
     autoload :CreatePartnerInterval, 'open_api_sdk/models/operations/createpartner_interval.rb'
     autoload :CreatePartnerDiscount, 'open_api_sdk/models/operations/createpartner_discount.rb'

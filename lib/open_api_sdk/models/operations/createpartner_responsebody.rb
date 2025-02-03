@@ -14,6 +14,8 @@ module OpenApiSDK
 
       field :bio, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bio') } }
 
+      field :clicks, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
+
       field :commission_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('commissionAmount') } }
 
       field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
@@ -28,11 +30,17 @@ module OpenApiSDK
 
       field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
 
-      field :link, ::OpenApiSDK::Operations::CreatePartnerLink, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
+      field :leads, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leads') } }
+
+      field :links, T::Array[::OpenApiSDK::Operations::Links], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('links') } }
 
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
       field :payouts_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabled') } }
+
+      field :sales, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales') } }
+
+      field :sales_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesAmount') } }
 
       field :status, ::OpenApiSDK::Operations::Status, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Status, false) } }
 
@@ -45,9 +53,10 @@ module OpenApiSDK
       field :discount, T.nilable(::OpenApiSDK::Operations::CreatePartnerDiscount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
 
 
-      sig { params(bio: ::String, commission_amount: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, link: ::OpenApiSDK::Operations::CreatePartnerLink, name: ::String, payouts_enabled: T::Boolean, status: ::OpenApiSDK::Operations::Status, stripe_connect_id: ::String, updated_at: ::String, coupon_id: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::CreatePartnerDiscount)).void }
-      def initialize(bio: nil, commission_amount: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, link: nil, name: nil, payouts_enabled: nil, status: nil, stripe_connect_id: nil, updated_at: nil, coupon_id: nil, discount: nil)
+      sig { params(bio: ::String, clicks: ::Float, commission_amount: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, payouts_enabled: T::Boolean, sales: ::Float, sales_amount: ::Float, status: ::OpenApiSDK::Operations::Status, stripe_connect_id: ::String, updated_at: ::String, coupon_id: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::CreatePartnerDiscount)).void }
+      def initialize(bio: nil, clicks: nil, commission_amount: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, payouts_enabled: nil, sales: nil, sales_amount: nil, status: nil, stripe_connect_id: nil, updated_at: nil, coupon_id: nil, discount: nil)
         @bio = bio
+        @clicks = clicks
         @commission_amount = commission_amount
         @country = country
         @created_at = created_at
@@ -55,9 +64,12 @@ module OpenApiSDK
         @email = email
         @id = id
         @image = image
-        @link = link
+        @leads = leads
+        @links = links
         @name = name
         @payouts_enabled = payouts_enabled
+        @sales = sales
+        @sales_amount = sales_amount
         @status = status
         @stripe_connect_id = stripe_connect_id
         @updated_at = updated_at

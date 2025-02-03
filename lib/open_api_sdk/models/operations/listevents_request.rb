@@ -43,6 +43,10 @@ module OpenApiSDK
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
 
       field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+      # The ID of the partner to retrieve analytics for.
+      field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+      # The ID of the program to retrieve analytics for.
+      field :program_id, T.nilable(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
       # Deprecated. Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
       field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
       # The referer to retrieve analytics for.
@@ -63,6 +67,8 @@ module OpenApiSDK
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to retrieve analytics for.
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
+      # The ID of the tenant that created the link inside your system.
+      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
       # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
       # The trigger to retrieve analytics for. If undefined, return both QR and link clicks.
@@ -81,8 +87,8 @@ module OpenApiSDK
       field :utm_term, T.nilable(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, partner_id: nil, program_id: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -99,6 +105,8 @@ module OpenApiSDK
         @order = order
         @os = os
         @page = page
+        @partner_id = partner_id
+        @program_id = program_id
         @qr = qr
         @referer = referer
         @referer_url = referer_url
@@ -109,6 +117,7 @@ module OpenApiSDK
         @start = start
         @tag_id = tag_id
         @tag_ids = tag_ids
+        @tenant_id = tenant_id
         @timezone = timezone
         @trigger = trigger
         @url = url
