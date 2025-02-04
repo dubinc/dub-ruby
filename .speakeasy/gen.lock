@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 35e4c58336f3289dc7d36cd16ac407d9
+  docChecksum: 3221eb44e26e0b7b6262f2e3cf1c786a
   docVersion: 0.0.1
-  speakeasyVersion: 1.481.1
-  generationVersion: 2.500.5
-  releaseVersion: 0.2.2-alpha.59
-  configChecksum: 07f8c5e6cf1fe76e341758cb8b0ba8aa
+  speakeasyVersion: 1.483.0
+  generationVersion: 2.502.0
+  releaseVersion: 0.2.2-alpha.60
+  configChecksum: 8bca03315bcd90a5ae26d298bc60493f
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -53,6 +53,9 @@ generatedFiles:
   - docs/models/operations/createlinkresponse.md
   - docs/models/operations/createpartnerdiscount.md
   - docs/models/operations/createpartnerinterval.md
+  - docs/models/operations/createpartnerlinklinkprops.md
+  - docs/models/operations/createpartnerlinkrequestbody.md
+  - docs/models/operations/createpartnerlinkresponse.md
   - docs/models/operations/createpartnerrequestbody.md
   - docs/models/operations/createpartnerresponse.md
   - docs/models/operations/createpartnerresponsebody.md
@@ -264,6 +267,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createpartner_response.rb
   - lib/open_api_sdk/models/operations/createpartner_responsebody.rb
   - lib/open_api_sdk/models/operations/createpartner_type.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_linkprops.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_response.rb
   - lib/open_api_sdk/models/operations/createtag_requestbody.rb
   - lib/open_api_sdk/models/operations/createtag_response.rb
   - lib/open_api_sdk/models/operations/customer.rb
@@ -1289,6 +1295,31 @@ examples:
       responses:
         "201":
           application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "bio": "<value>", "stripeConnectId": "<id>", "payoutsEnabled": false, "createdAt": "1730216871840", "updatedAt": "1738020328182", "status": "pending", "links": [{"id": "<id>", "domain": "probable-heating.com", "key": "<key>", "shortLink": "https://standard-utilization.com/", "url": "https://brisk-seafood.net/", "clicks": 5862.2, "leads": 7524.38, "sales": 9574.09, "saleAmount": 3570.21}], "commissionAmount": 155.52, "earnings": 5235.23, "clicks": 2596.29, "leads": 177.59, "sales": 2303.13, "salesAmount": 2113.37}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createPartnerLink:
+    speakeasy-default-create-partner-link:
+      requestBody:
+        application/json: {"programId": "<id>", "url": "https://necessary-brief.name", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}
+      responses:
+        "201":
+          application/json: {"id": "<id>", "domain": "inferior-louse.org", "key": "<key>", "url": "https://lighthearted-subexpression.net", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1754305632811", "expiredUrl": "https://acceptable-solution.com", "password": "CRFmmigZdFo7_Sd", "proxy": true, "title": "<value>", "description": "merrily stay ouch starch glittering repeat", "image": "https://picsum.photos/seed/qQVGzy2/555/2692", "video": "https://picsum.videos/seed/tYFhXY/1788/3108", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tagId": "<id>", "tags": [{"id": "<id>", "name": "<value>", "color": "purple"}], "webhookIds": ["<value>"], "comments": "per blissfully maintainer moist lest unless", "shortLink": "https://equatorial-mouser.biz", "qrCode": "https://wry-baritone.net/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 2531.62, "lastClicked": "<value>", "leads": 189.59, "sales": 4658.39, "saleAmount": 9705.38, "createdAt": "1719659714941", "updatedAt": "1738625113730", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
