@@ -6,6 +6,7 @@
 | Field                   | Type                    | Required                | Description             |
 | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
 | `id`                    | *::String*              | :heavy_check_mark:      | N/A                     |
+| `timestamp`             | *::String*              | :heavy_check_mark:      | N/A                     |
 | `url`                   | *::String*              | :heavy_check_mark:      | N/A                     |
 | `country`               | *::String*              | :heavy_check_mark:      | N/A                     |
 | `city`                  | *::String*              | :heavy_check_mark:      | N/A                     |
