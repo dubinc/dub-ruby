@@ -158,6 +158,7 @@ end
 
 * [create](docs/sdks/partners/README.md#create) - Create a new partner
 * [create_link](docs/sdks/partners/README.md#create_link) - Create a link for a partner
+* [upsert_link](docs/sdks/partners/README.md#upsert_link) - Upsert a link for a partner
 
 ### [qr_codes](docs/sdks/qrcodes/README.md)
 

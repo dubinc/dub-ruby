@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreatePartnerLinkResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class UpsertPartnerLinkResponse < ::OpenApiSDK::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -27,7 +27,7 @@ module OpenApiSDK
       field :internal_server_error, T.nilable(::OpenApiSDK::Shared::InternalServerError)
       # This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
       field :invite_expired, T.nilable(::OpenApiSDK::Shared::InviteExpired)
-      # The created partner link
+      # The upserted partner link
       field :link_schema, T.nilable(::OpenApiSDK::Shared::LinkSchema)
       # The server cannot find the requested resource.
       field :not_found, T.nilable(::OpenApiSDK::Shared::NotFound)
