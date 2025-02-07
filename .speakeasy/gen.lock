@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 74d0358382bb4e56092e3d6743506d52
+  docChecksum: a7b1bff0696d0e354d1e5a6b91b8ae7f
   docVersion: 0.0.1
-  speakeasyVersion: 1.484.1
-  generationVersion: 2.503.2
-  releaseVersion: 0.2.2-alpha.61
-  configChecksum: e3646bb66df4284ef4e195c57cb6778d
+  speakeasyVersion: 1.487.0
+  generationVersion: 2.506.0
+  releaseVersion: 0.2.2-alpha.62
+  configChecksum: 9121977e32728c1d037c1adadbef2dfa
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -166,6 +166,9 @@ generatedFiles:
   - docs/models/operations/updateworkspaceresponse.md
   - docs/models/operations/upsertlinkrequestbody.md
   - docs/models/operations/upsertlinkresponse.md
+  - docs/models/operations/upsertpartnerlinklinkprops.md
+  - docs/models/operations/upsertpartnerlinkrequestbody.md
+  - docs/models/operations/upsertpartnerlinkresponse.md
   - docs/models/shared/badrequest.md
   - docs/models/shared/click.md
   - docs/models/shared/clickevent.md
@@ -376,6 +379,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/updateworkspace_response.rb
   - lib/open_api_sdk/models/operations/upsertlink_requestbody.rb
   - lib/open_api_sdk/models/operations/upsertlink_response.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_linkprops.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_response.rb
   - lib/open_api_sdk/models/shared.rb
   - lib/open_api_sdk/models/shared/badrequest.rb
   - lib/open_api_sdk/models/shared/click.rb
@@ -1320,6 +1326,31 @@ examples:
       responses:
         "201":
           application/json: {"id": "<id>", "domain": "inferior-louse.org", "key": "<key>", "url": "https://lighthearted-subexpression.net", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1754305632811", "expiredUrl": "https://acceptable-solution.com", "password": "CRFmmigZdFo7_Sd", "proxy": true, "title": "<value>", "description": "merrily stay ouch starch glittering repeat", "image": "https://picsum.photos/seed/qQVGzy2/555/2692", "video": "https://picsum.videos/seed/tYFhXY/1788/3108", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tagId": "<id>", "tags": [{"id": "<id>", "name": "<value>", "color": "purple"}], "webhookIds": ["<value>"], "comments": "per blissfully maintainer moist lest unless", "shortLink": "https://equatorial-mouser.biz", "qrCode": "https://wry-baritone.net/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 2531.62, "lastClicked": "<value>", "leads": 189.59, "sales": 4658.39, "saleAmount": 9705.38, "createdAt": "1719659714941", "updatedAt": "1738625113730", "projectId": "<id>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  upsertPartnerLink:
+    speakeasy-default-upsert-partner-link:
+      requestBody:
+        application/json: {"programId": "<id>", "url": "https://unsteady-lobster.com/", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "domain": "snoopy-exasperation.name", "key": "<key>", "url": "https://defenseless-suitcase.org/", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1758310011121", "expiredUrl": "https://serene-pants.com", "password": "Fj89Olng6LL82os", "proxy": false, "title": "<value>", "description": "flashy petticoat than discontinue blink remand", "image": "https://picsum.photos/seed/v1k3M4GxN/2021/480", "video": "https://picsum.videos/seed/LiWqM7t/1298/1639", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tagId": "<id>", "tags": [{"id": "<id>", "name": "<value>", "color": "green"}], "webhookIds": ["<value>", "<value>"], "comments": "doubtfully brr up behind above slake maroon upside-down repeatedly source while obstruct oof questionably familiar hidden into", "shortLink": "https://waterlogged-valentine.name", "qrCode": "https://quintessential-bowler.net", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 5717.16, "lastClicked": "<value>", "leads": 6527.5, "sales": 7465.08, "saleAmount": 8176.49, "createdAt": "1722447375210", "updatedAt": "1738812840712", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
