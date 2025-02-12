@@ -13,6 +13,8 @@ module OpenApiSDK
 
       # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
+      # The folder ID to filter the links by.
+      field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
       # The page number for pagination.
       field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
       # The number of items per page.
@@ -41,9 +43,10 @@ module OpenApiSDK
       field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), sort_by: T.nilable(::OpenApiSDK::Operations::SortBy), sort_order: T.nilable(::OpenApiSDK::Operations::SortOrder), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
-      def initialize(domain: nil, page: nil, page_size: nil, search: nil, show_archived: nil, sort: nil, sort_by: nil, sort_order: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
+      sig { params(domain: T.nilable(::String), folder_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), sort: T.nilable(::OpenApiSDK::Operations::Sort), sort_by: T.nilable(::OpenApiSDK::Operations::SortBy), sort_order: T.nilable(::OpenApiSDK::Operations::SortOrder), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
+      def initialize(domain: nil, folder_id: nil, page: nil, page_size: nil, search: nil, show_archived: nil, sort: nil, sort_by: nil, sort_order: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
         @domain = domain
+        @folder_id = folder_id
         @page = page
         @page_size = page_size
         @search = search

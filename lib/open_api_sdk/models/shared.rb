@@ -44,6 +44,8 @@ module OpenApiSDK
     autoload :ClickEventGeo, 'open_api_sdk/models/shared/clickevent_geo.rb'
     autoload :Link, 'open_api_sdk/models/shared/link.rb'
     autoload :ClickEvent, 'open_api_sdk/models/shared/clickevent.rb'
+    autoload :AccessLevel, 'open_api_sdk/models/shared/accesslevel.rb'
+    autoload :FolderSchema, 'open_api_sdk/models/shared/folderschema.rb'
     autoload :RegisteredDomain, 'open_api_sdk/models/shared/registereddomain.rb'
     autoload :DomainSchema, 'open_api_sdk/models/shared/domainschema.rb'
     autoload :Plan, 'open_api_sdk/models/shared/plan.rb'

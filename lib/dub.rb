@@ -11,6 +11,7 @@ module OpenApiSDK
   autoload :Analytics, 'open_api_sdk/analytics'
   autoload :Events, 'open_api_sdk/events'
   autoload :Tags, 'open_api_sdk/tags'
+  autoload :Folders, 'open_api_sdk/folders'
   autoload :Domains, 'open_api_sdk/domains'
   autoload :Track, 'open_api_sdk/track'
   autoload :Customers, 'open_api_sdk/customers'

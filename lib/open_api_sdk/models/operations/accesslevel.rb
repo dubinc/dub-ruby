@@ -7,11 +7,11 @@
 module OpenApiSDK
   module Operations
   
-
-    class CreatePartnerType < T::Enum
+    # AccessLevel - The access level of the folder within the workspace.
+    class AccessLevel < T::Enum
       enums do
-        PERCENTAGE = new('percentage')
-        FLAT = new('flat')
+        READ = new('read')
+        WRITE = new('write')
       end
     end
   end
