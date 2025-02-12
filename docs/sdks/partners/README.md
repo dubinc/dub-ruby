@@ -8,6 +8,7 @@
 * [create](#create) - Create a new partner
 * [create_link](#create_link) - Create a link for a partner
 * [upsert_link](#upsert_link) - Upsert a link for a partner
+* [analytics](#analytics) - Retrieve analytics for a partner
 
 ## create
 
@@ -80,7 +81,6 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
   program_id: "<id>",
-  url: "https://necessary-brief.name",
   link_props: ::OpenApiSDK::Operations::CreatePartnerLinkLinkProps.new(
     external_id: "123456",
     tag_ids: [
@@ -129,7 +129,6 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
   program_id: "<id>",
-  url: "https://unsteady-lobster.com/",
   link_props: ::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps.new(
     external_id: "123456",
     tag_ids: [
@@ -155,4 +154,47 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkResponse)](../../models/operations/upsertpartnerlinkresponse.md)**
+
+
+
+## analytics
+
+Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+
+s = ::OpenApiSDK::Dub.new
+s.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: "DUB_API_KEY",
+  )
+)
+
+
+req = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(
+  timezone: "America/New_York",
+  program_id: "<id>",
+)
+    
+res = s.partners.analytics(req)
+
+if ! res.one_of.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest](../../models/operations/retrievepartneranalyticsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsResponse)](../../models/operations/retrievepartneranalyticsresponse.md)**
 

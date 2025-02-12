@@ -14,8 +14,10 @@ module OpenApiSDK
         SEVEND = new('7d')
         THIRTYD = new('30d')
         NINETYD = new('90d')
-        YTD = new('ytd')
         ONEY = new('1y')
+        MTD = new('mtd')
+        QTD = new('qtd')
+        YTD = new('ytd')
         ALL = new('all')
         ALL_UNFILTERED = new('all_unfiltered')
       end

@@ -7,11 +7,11 @@
 module OpenApiSDK
   module Operations
   
-
-    class CreatePartnerInterval < T::Enum
+    # UpdateFolderAccessLevel - The access level of the folder within the workspace.
+    class UpdateFolderAccessLevel < T::Enum
       enums do
-        MONTH = new('month')
-        YEAR = new('year')
+        READ = new('read')
+        WRITE = new('write')
       end
     end
   end

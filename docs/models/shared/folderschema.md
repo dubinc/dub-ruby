@@ -1,0 +1,13 @@
+# FolderSchema
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `id`                                                                    | *::String*                                                              | :heavy_check_mark:                                                      | The unique ID of the folder.                                            |
+| `name`                                                                  | *::String*                                                              | :heavy_check_mark:                                                      | The name of the folder.                                                 |
+| `access_level`                                                          | [::OpenApiSDK::Shared::AccessLevel](../../models/shared/accesslevel.md) | :heavy_check_mark:                                                      | The access level of the folder within the workspace.                    |
+| `link_count`                                                            | *::Float*                                                               | :heavy_check_mark:                                                      | The number of links in the folder.                                      |
+| `created_at`                                                            | *::String*                                                              | :heavy_check_mark:                                                      | The date the folder was created.                                        |
+| `updated_at`                                                            | *::String*                                                              | :heavy_check_mark:                                                      | The date the folder was updated.                                        |

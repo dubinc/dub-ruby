@@ -13,6 +13,8 @@ module OpenApiSDK
 
       # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.
       field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
+      # The folder ID to filter the links by.
+      field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
       # The field to group the links by.
       field :group_by, T.nilable(::Object), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
       # The search term to filter the links by. The search term will be matched against the short link slug and the destination url.
@@ -33,9 +35,10 @@ module OpenApiSDK
       field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
 
-      sig { params(domain: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
-      def initialize(domain: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
+      sig { params(domain: T.nilable(::String), folder_id: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
+      def initialize(domain: nil, folder_id: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
         @domain = domain
+        @folder_id = folder_id
         @group_by = group_by
         @search = search
         @show_archived = show_archived
