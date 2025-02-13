@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 24e29770dbf567bc2b877159fa7eab18
+  docChecksum: 800c2d1e9d6794eaf14a0b0c2f0ca711
   docVersion: 0.0.1
-  speakeasyVersion: 1.488.0
-  generationVersion: 2.506.0
-  releaseVersion: 0.2.2-alpha.63
-  configChecksum: 5196f81956a8984761a28d2d69a91ff3
+  speakeasyVersion: 1.490.0
+  generationVersion: 2.512.0
+  releaseVersion: 0.2.2-alpha.64
+  configChecksum: e14ae35d3a1f00a4c5d0159cf36fbffe
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -16,7 +16,7 @@ features:
     deprecations: 2.81.2
     examples: 2.81.5
     flattening: 2.81.1
-    globalSecurity: 2.81.7
+    globalSecurity: 2.81.8
     globalServerURLs: 2.82.3
     includes: 2.81.1
     nameOverrides: 2.81.2
@@ -1332,7 +1332,7 @@ examples:
         application/json: {"programId": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "username": "Aaliyah_Borer", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}
       responses:
         "201":
-          application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "createdAt": "1730216871840", "status": "pending", "programId": "<id>", "tenantId": "<id>", "links": [{"id": "<id>", "domain": "probable-heating.com", "key": "<key>", "shortLink": "https://standard-utilization.com/", "url": "https://brisk-seafood.net/", "clicks": 5862.2, "leads": 7524.38, "sales": 9574.09, "saleAmount": 3570.21}], "clicks": 2596.29, "leads": 177.59, "sales": 2303.13, "saleAmount": 4865.89, "earnings": 5235.23}
+          application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "payoutsEnabled": true, "createdAt": "1730216871840", "status": "pending", "programId": "<id>", "tenantId": "<id>", "links": [{"id": "<id>", "domain": "probable-heating.com", "key": "<key>", "shortLink": "https://standard-utilization.com/", "url": "https://brisk-seafood.net/", "clicks": 5862.2, "leads": 7524.38, "sales": 9574.09, "saleAmount": 3570.21}], "clicks": 2596.29, "leads": 177.59, "sales": 2303.13, "saleAmount": 4865.89, "earnings": 5235.23}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
