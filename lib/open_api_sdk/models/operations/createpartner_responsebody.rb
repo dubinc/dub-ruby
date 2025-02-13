@@ -32,6 +32,8 @@ module OpenApiSDK
 
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
+      field :payouts_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabled') } }
+
       field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
 
       field :sale_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
@@ -45,8 +47,8 @@ module OpenApiSDK
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
 
-      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, description: T.nilable(::String)).void }
-      def initialize(clicks: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, program_id: nil, sale_amount: nil, sales: nil, status: nil, tenant_id: nil, description: nil)
+      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, payouts_enabled: T::Boolean, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, description: T.nilable(::String)).void }
+      def initialize(clicks: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, payouts_enabled: nil, program_id: nil, sale_amount: nil, sales: nil, status: nil, tenant_id: nil, description: nil)
         @clicks = clicks
         @country = country
         @created_at = created_at
@@ -57,6 +59,7 @@ module OpenApiSDK
         @leads = leads
         @links = links
         @name = name
+        @payouts_enabled = payouts_enabled
         @program_id = program_id
         @sale_amount = sale_amount
         @sales = sales
