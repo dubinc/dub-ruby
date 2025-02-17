@@ -31,6 +31,8 @@ module OpenApiSDK
       field :dot_link_claimed, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dotLinkClaimed') } }
       # The folders limit of the workspace.
       field :folders_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersLimit') } }
+      # The folders usage of the workspace.
+      field :folders_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersUsage') } }
       # The unique ID of the workspace.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
       # The invite code of the workspace.
@@ -75,8 +77,8 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(ai_limit: ::Float, ai_usage: ::Float, allowed_hostnames: T::Array[::String], billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, folders_limit: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partners_enabled: T::Boolean, payment_failed_at: ::String, plan: ::OpenApiSDK::Shared::Plan, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, store: T::Hash[Symbol, ::Object], stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(ai_limit: nil, ai_usage: nil, allowed_hostnames: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, folders_limit: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partners_enabled: nil, payment_failed_at: nil, plan: nil, sales_limit: nil, sales_usage: nil, slug: nil, store: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(ai_limit: ::Float, ai_usage: ::Float, allowed_hostnames: T::Array[::String], billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, folders_limit: ::Float, folders_usage: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partners_enabled: T::Boolean, payment_failed_at: ::String, plan: ::OpenApiSDK::Shared::Plan, sales_limit: ::Float, sales_usage: ::Float, slug: ::String, store: T::Hash[Symbol, ::Object], stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(ai_limit: nil, ai_usage: nil, allowed_hostnames: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, folders_limit: nil, folders_usage: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partners_enabled: nil, payment_failed_at: nil, plan: nil, sales_limit: nil, sales_usage: nil, slug: nil, store: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @ai_limit = ai_limit
         @ai_usage = ai_usage
         @allowed_hostnames = allowed_hostnames
@@ -87,6 +89,7 @@ module OpenApiSDK
         @domains_limit = domains_limit
         @dot_link_claimed = dot_link_claimed
         @folders_limit = folders_limit
+        @folders_usage = folders_usage
         @id = id
         @invite_code = invite_code
         @links_limit = links_limit
