@@ -27,12 +27,14 @@ module OpenApiSDK
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The invoice ID of the sale.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
+      # The name of the lead event that occurred before the sale.
+      field :lead_event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
       # Additional metadata to be stored with the sale event.
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(amount: ::Integer, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), customer_id: T.nilable(::String), event_name: T.nilable(::String), external_id: T.nilable(::String), invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(amount: nil, payment_processor: nil, currency: nil, customer_id: nil, event_name: nil, external_id: nil, invoice_id: nil, metadata: nil)
+      sig { params(amount: ::Integer, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), customer_id: T.nilable(::String), event_name: T.nilable(::String), external_id: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(amount: nil, payment_processor: nil, currency: nil, customer_id: nil, event_name: nil, external_id: nil, invoice_id: nil, lead_event_name: nil, metadata: nil)
         @amount = amount
         @payment_processor = payment_processor
         @currency = currency
@@ -40,6 +42,7 @@ module OpenApiSDK
         @event_name = event_name
         @external_id = external_id
         @invoice_id = invoice_id
+        @lead_event_name = lead_event_name
         @metadata = metadata
       end
     end
