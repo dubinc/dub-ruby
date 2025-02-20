@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 27a110fd093a3c1f50fb10b9b3565413
+  docChecksum: e3442b7d8a069ceffe7996dbc51acd18
   docVersion: 0.0.1
-  speakeasyVersion: 1.493.2
-  generationVersion: 2.512.4
-  releaseVersion: 0.2.2-alpha.66
-  configChecksum: 2df3872d4facbdc25659b5275beaaddb
+  speakeasyVersion: 1.497.0
+  generationVersion: 2.517.3
+  releaseVersion: 0.2.2-alpha.67
+  configChecksum: 88f6124c803acc07d0b9c85516119fee
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -1069,7 +1069,7 @@ examples:
   trackSale:
     speakeasy-default-track-sale:
       requestBody:
-        application/json: {"amount": 996500, "paymentProcessor": "paddle", "eventName": "Purchase"}
+        application/json: {"amount": 996500, "paymentProcessor": "paddle", "eventName": "Purchase", "leadEventName": "Cloned template 1481267"}
       responses:
         "200":
           application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Muhammad0@hotmail.com", "avatar": "https://loremflickr.com/2579/465?lock=3083028689214487", "externalId": "<id>"}, "sale": {"amount": 8968.61, "currency": "Saudi Riyal", "paymentProcessor": "<value>", "invoiceId": "<id>", "metadata": {"key": "<value>", "key1": "<value>"}}}

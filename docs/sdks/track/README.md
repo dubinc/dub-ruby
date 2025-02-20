@@ -73,6 +73,7 @@ req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   amount: 996500,
   payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,
   event_name: "Purchase",
+  lead_event_name: "Cloned template 1481267",
 )
     
 res = s.track.sale(req)
