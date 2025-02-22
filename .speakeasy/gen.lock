@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 5c0491cfcee25b41f205f3c48b5c0c8a
+  docChecksum: 0eaecf8bf6bf099e2c77a089ca253cd6
   docVersion: 0.0.1
-  speakeasyVersion: 1.498.1
-  generationVersion: 2.518.1
-  releaseVersion: 0.2.2-alpha.68
-  configChecksum: 691ad62c2d6dab3c37c263839e0d2c7a
+  speakeasyVersion: 1.501.0
+  generationVersion: 2.522.1
+  releaseVersion: 0.2.2-alpha.69
+  configChecksum: 18e4ecfa741ddbcb3f2822deb5efc714
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
