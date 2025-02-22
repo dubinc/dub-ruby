@@ -13,8 +13,12 @@ module OpenApiSDK
 
       # Name of the domain.
       field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
+      # apple-app-site-association configuration file (for deep link support on iOS).
+      field :apple_app_site_association, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
       # Whether to archive this domain. `false` will unarchive a previously archived domain.
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
+      # assetLinks.json configuration file (for deep link support on Android).
+      field :asset_links, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
       # Redirect users to a specific URL when any link under this domain has expired.
       field :expired_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
       # The logo of the domain.
@@ -25,10 +29,12 @@ module OpenApiSDK
       field :placeholder, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
 
 
-      sig { params(slug: ::String, archived: T.nilable(T::Boolean), expired_url: T.nilable(::String), logo: T.nilable(::String), not_found_url: T.nilable(::String), placeholder: T.nilable(::String)).void }
-      def initialize(slug: nil, archived: nil, expired_url: nil, logo: nil, not_found_url: nil, placeholder: nil)
+      sig { params(slug: ::String, apple_app_site_association: T.nilable(::String), archived: T.nilable(T::Boolean), asset_links: T.nilable(::String), expired_url: T.nilable(::String), logo: T.nilable(::String), not_found_url: T.nilable(::String), placeholder: T.nilable(::String)).void }
+      def initialize(slug: nil, apple_app_site_association: nil, archived: nil, asset_links: nil, expired_url: nil, logo: nil, not_found_url: nil, placeholder: nil)
         @slug = slug
+        @apple_app_site_association = apple_app_site_association
         @archived = archived
+        @asset_links = asset_links
         @expired_url = expired_url
         @logo = logo
         @not_found_url = not_found_url
