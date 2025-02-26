@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class RateLimitExceededError < ::OpenApiSDK::Utils::FieldAugmented
+    class RateLimitExceededError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

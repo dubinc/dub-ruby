@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateTagRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateTagRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the tag to update.

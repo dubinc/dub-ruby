@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetTagsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetTagsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # IDs of tags to filter by.

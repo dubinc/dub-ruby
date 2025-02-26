@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Error < ::OpenApiSDK::Utils::FieldAugmented
+    class Error < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

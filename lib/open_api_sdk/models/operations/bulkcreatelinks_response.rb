@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class BulkCreateLinksResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkCreateLinksResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

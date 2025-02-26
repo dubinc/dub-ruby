@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # A sale was tracked.
-    class TrackSaleResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackSaleResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

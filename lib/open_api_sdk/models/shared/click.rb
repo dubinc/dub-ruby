@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Click < ::OpenApiSDK::Utils::FieldAugmented
+    class Click < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

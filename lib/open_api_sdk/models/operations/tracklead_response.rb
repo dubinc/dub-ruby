@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class TrackLeadResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackLeadResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

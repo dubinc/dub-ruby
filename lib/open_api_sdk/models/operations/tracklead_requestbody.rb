@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class TrackLeadRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackLeadRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the click in Dub. You can read this value from `dub_id` cookie.

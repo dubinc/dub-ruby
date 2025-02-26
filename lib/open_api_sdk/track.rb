@@ -51,52 +51,52 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::TrackLeadResponseBody)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Operations::TrackLeadResponseBody)
           res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::BadRequest)
           res.bad_request = out
         end
       elsif r.status == 401
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Unauthorized)
           res.unauthorized = out
         end
       elsif r.status == 403
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Forbidden)
           res.forbidden = out
         end
       elsif r.status == 404
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::NotFound)
           res.not_found = out
         end
       elsif r.status == 409
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Conflict)
           res.conflict = out
         end
       elsif r.status == 410
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InviteExpired)
           res.invite_expired = out
         end
       elsif r.status == 422
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::UnprocessableEntity)
           res.unprocessable_entity = out
         end
       elsif r.status == 429
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::RateLimitExceeded)
           res.rate_limit_exceeded = out
         end
       elsif r.status == 500
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InternalServerError)
           res.internal_server_error = out
         end
       end
@@ -137,52 +137,52 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Operations::TrackSaleResponseBody)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Operations::TrackSaleResponseBody)
           res.object = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::BadRequest)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::BadRequest)
           res.bad_request = out
         end
       elsif r.status == 401
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Unauthorized)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Unauthorized)
           res.unauthorized = out
         end
       elsif r.status == 403
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Forbidden)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Forbidden)
           res.forbidden = out
         end
       elsif r.status == 404
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::NotFound)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::NotFound)
           res.not_found = out
         end
       elsif r.status == 409
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::Conflict)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Conflict)
           res.conflict = out
         end
       elsif r.status == 410
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InviteExpired)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InviteExpired)
           res.invite_expired = out
         end
       elsif r.status == 422
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::UnprocessableEntity)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::UnprocessableEntity)
           res.unprocessable_entity = out
         end
       elsif r.status == 429
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::RateLimitExceeded)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::RateLimitExceeded)
           res.rate_limit_exceeded = out
         end
       elsif r.status == 500
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::OpenApiSDK::Shared::InternalServerError)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InternalServerError)
           res.internal_server_error = out
         end
       end

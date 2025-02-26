@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateCustomerRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateCustomerRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier for the customer in the client's app.

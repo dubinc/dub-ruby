@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpsertLinkRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpsertLinkRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The destination URL of the short link.

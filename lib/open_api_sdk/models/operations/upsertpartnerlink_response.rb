@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpsertPartnerLinkResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class UpsertPartnerLinkResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

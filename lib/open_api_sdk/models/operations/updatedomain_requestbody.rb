@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateDomainRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateDomainRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # apple-app-site-association configuration file (for deep link support on iOS).

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListEventsResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class ListEventsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

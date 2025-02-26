@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class NotFoundError < ::OpenApiSDK::Utils::FieldAugmented
+    class NotFoundError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class WorkspaceSchema < ::OpenApiSDK::Utils::FieldAugmented
+    class WorkspaceSchema < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The AI limit of the workspace.

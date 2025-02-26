@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateFolderRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateFolderRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the folder to update.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
     # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
-    class LinkGeoTargeting < ::OpenApiSDK::Utils::FieldAugmented
+    class LinkGeoTargeting < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

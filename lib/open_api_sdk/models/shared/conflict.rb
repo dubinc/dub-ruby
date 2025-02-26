@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
     # This response is sent when a request conflicts with the current state of the server.
-    class Conflict < ::OpenApiSDK::Utils::FieldAugmented
+    class Conflict < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

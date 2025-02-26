@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateLinkRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateLinkRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The destination URL of the short link.

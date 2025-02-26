@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class ClickEvent < ::OpenApiSDK::Utils::FieldAugmented
+    class ClickEvent < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Deprecated. Use `click.browser` instead.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class TrackSaleResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackSaleResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

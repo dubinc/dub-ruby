@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Link < ::OpenApiSDK::Utils::FieldAugmented
+    class Link < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The Android destination URL for the short link for Android device targeting.

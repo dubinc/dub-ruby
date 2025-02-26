@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class Data < ::OpenApiSDK::Utils::FieldAugmented
+    class Data < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The Android destination URL for the short link for Android device targeting.

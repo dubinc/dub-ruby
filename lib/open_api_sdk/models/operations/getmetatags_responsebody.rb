@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The retrieved metatags
-    class GetMetatagsResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class GetMetatagsResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The meta description tag for the URL.

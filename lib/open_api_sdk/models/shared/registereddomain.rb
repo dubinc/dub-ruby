@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
     # The registered domain record.
-    class RegisteredDomain < ::OpenApiSDK::Utils::FieldAugmented
+    class RegisteredDomain < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date the domain was created.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetCustomerPartner < ::OpenApiSDK::Utils::FieldAugmented
+    class GetCustomerPartner < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

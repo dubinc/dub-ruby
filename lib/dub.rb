@@ -22,7 +22,6 @@ module OpenApiSDK
   autoload :Metatags, 'open_api_sdk/metatags'
 end
 
-require_relative 'open_api_sdk/utils/t'
 require_relative 'open_api_sdk/utils/utils'
-require_relative 'open_api_sdk/utils/metadata_fields'
+require_relative 'crystalline'
 require_relative 'open_api_sdk/sdkconfiguration'

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteDomainRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteDomainRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The domain name.

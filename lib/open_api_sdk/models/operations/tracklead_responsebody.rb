@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # A lead was tracked.
-    class TrackLeadResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackLeadResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class Sale < ::OpenApiSDK::Utils::FieldAugmented
+    class Sale < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

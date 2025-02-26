@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class InternalServerErrorError < ::OpenApiSDK::Utils::FieldAugmented
+    class InternalServerErrorError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

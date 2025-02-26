@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateWorkspaceResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateWorkspaceResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

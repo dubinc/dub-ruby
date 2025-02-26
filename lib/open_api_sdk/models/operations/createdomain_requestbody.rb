@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateDomainRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateDomainRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Name of the domain.

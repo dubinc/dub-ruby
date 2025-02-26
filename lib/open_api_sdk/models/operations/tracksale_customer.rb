@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class TrackSaleCustomer < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackSaleCustomer < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The customer was deleted.
-    class DeleteCustomerResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteCustomerResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).

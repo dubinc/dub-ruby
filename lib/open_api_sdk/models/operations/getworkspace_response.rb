@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetWorkspaceResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class GetWorkspaceResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetLinksRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetLinksRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.

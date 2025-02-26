@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class UnauthorizedError < ::OpenApiSDK::Utils::FieldAugmented
+    class UnauthorizedError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

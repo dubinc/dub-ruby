@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateCustomerRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateCustomerRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Avatar URL of the customer in the client's app.

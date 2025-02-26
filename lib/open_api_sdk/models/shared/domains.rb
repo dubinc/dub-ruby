@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Domains < ::OpenApiSDK::Utils::FieldAugmented
+    class Domains < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the domain is the primary domain for the workspace.
