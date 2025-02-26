@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Security < ::OpenApiSDK::Utils::FieldAugmented
+    class Security < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

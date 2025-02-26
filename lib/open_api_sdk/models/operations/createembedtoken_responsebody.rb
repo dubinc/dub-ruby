@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The created public embed token.
-    class CreateEmbedTokenResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateEmbedTokenResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

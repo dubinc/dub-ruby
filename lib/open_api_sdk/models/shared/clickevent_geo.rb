@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
     # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. Learn more: https://d.to/geo
-    class ClickEventGeo < ::OpenApiSDK::Utils::FieldAugmented
+    class ClickEventGeo < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

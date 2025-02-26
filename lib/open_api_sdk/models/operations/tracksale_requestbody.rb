@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class TrackSaleRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class TrackSaleRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The amount of the sale. Should be passed in cents.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class BulkDeleteLinksRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkDeleteLinksRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Comma-separated list of link IDs to delete. Maximum of 100 IDs. Non-existing IDs will be ignored.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateTagRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateTagRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, pink, brown.

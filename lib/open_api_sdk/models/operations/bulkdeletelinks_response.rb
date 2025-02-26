@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class BulkDeleteLinksResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkDeleteLinksResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

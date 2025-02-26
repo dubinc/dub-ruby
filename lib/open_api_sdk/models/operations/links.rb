@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class Links < ::OpenApiSDK::Utils::FieldAugmented
+    class Links < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The number of clicks on the short link.

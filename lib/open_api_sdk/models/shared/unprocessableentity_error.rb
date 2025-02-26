@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class UnprocessableEntityError < ::OpenApiSDK::Utils::FieldAugmented
+    class UnprocessableEntityError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

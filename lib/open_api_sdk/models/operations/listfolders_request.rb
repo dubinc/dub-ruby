@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListFoldersRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class ListFoldersRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The search term to filter the folders by.

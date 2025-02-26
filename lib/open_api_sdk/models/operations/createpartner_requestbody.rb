@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreatePartnerRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreatePartnerRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email for the partner in your system. Partners will be able to claim their profile by signing up to Dub Partners with this email.

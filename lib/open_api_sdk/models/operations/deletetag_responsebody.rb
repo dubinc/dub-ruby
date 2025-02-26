@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The deleted tag ID.
-    class DeleteTagResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteTagResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the deleted tag.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The customer was created.
-    class CreateCustomerResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateCustomerResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date the customer was created.

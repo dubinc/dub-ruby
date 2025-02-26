@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrieveAnalyticsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class RetrieveAnalyticsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The browser to retrieve analytics for.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The domain was deleted.
-    class DeleteDomainResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteDomainResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The domain name.

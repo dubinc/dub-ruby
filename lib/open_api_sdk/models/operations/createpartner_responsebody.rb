@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The created partner
-    class CreatePartnerResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreatePartnerResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 
@@ -44,11 +44,13 @@ module OpenApiSDK
 
       field :tenant_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
 
+      field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applicationId') } }
+
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
 
-      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, payouts_enabled: T::Boolean, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, description: T.nilable(::String)).void }
-      def initialize(clicks: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, payouts_enabled: nil, program_id: nil, sale_amount: nil, sales: nil, status: nil, tenant_id: nil, description: nil)
+      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, payouts_enabled: T::Boolean, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, application_id: T.nilable(::String), description: T.nilable(::String)).void }
+      def initialize(clicks: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, payouts_enabled: nil, program_id: nil, sale_amount: nil, sales: nil, status: nil, tenant_id: nil, application_id: nil, description: nil)
         @clicks = clicks
         @country = country
         @created_at = created_at
@@ -65,6 +67,7 @@ module OpenApiSDK
         @sales = sales
         @status = status
         @tenant_id = tenant_id
+        @application_id = application_id
         @description = description
       end
     end

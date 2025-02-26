@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteFolderResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteFolderResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

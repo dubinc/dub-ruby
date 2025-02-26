@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class Partner < ::OpenApiSDK::Utils::FieldAugmented
+    class Partner < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteTagResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteTagResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

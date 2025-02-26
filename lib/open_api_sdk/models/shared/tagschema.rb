@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class TagSchema < ::OpenApiSDK::Utils::FieldAugmented
+    class TagSchema < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The color of the tag.

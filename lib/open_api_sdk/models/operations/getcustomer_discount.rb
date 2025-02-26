@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetCustomerDiscount < ::OpenApiSDK::Utils::FieldAugmented
+    class GetCustomerDiscount < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

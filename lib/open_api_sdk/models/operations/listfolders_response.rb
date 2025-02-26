@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListFoldersResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class ListFoldersResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

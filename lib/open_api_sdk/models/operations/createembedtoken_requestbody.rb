@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateEmbedTokenRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateEmbedTokenRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

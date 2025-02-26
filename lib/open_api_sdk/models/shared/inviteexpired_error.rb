@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class InviteExpiredError < ::OpenApiSDK::Utils::FieldAugmented
+    class InviteExpiredError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

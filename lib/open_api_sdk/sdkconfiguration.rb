@@ -15,7 +15,7 @@ module OpenApiSDK
   ].freeze
   # Contains the list of servers available to the SDK
 
-  class SDKConfiguration < ::OpenApiSDK::Utils::FieldAugmented
+  class SDKConfiguration < ::Crystalline::FieldAugmented
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
@@ -38,9 +38,9 @@ module OpenApiSDK
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.2.2-alpha.69'
-      @gen_version = '2.522.1'
-      @user_agent = 'speakeasy-sdk/ruby 0.2.2-alpha.69 2.522.1 0.0.1 dub'
+      @sdk_version = '0.2.2-alpha.70'
+      @gen_version = '2.529.2'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.2-alpha.70 2.529.2 0.0.1 dub'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

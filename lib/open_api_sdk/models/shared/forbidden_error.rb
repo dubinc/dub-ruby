@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class ForbiddenError < ::OpenApiSDK::Utils::FieldAugmented
+    class ForbiddenError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

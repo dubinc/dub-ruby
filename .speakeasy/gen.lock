@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 0eaecf8bf6bf099e2c77a089ca253cd6
+  docChecksum: 4ed7bf1fc90b54224f530facc9c37231
   docVersion: 0.0.1
-  speakeasyVersion: 1.501.0
-  generationVersion: 2.522.1
-  releaseVersion: 0.2.2-alpha.69
-  configChecksum: 18e4ecfa741ddbcb3f2822deb5efc714
+  speakeasyVersion: 1.504.1
+  generationVersion: 2.529.2
+  releaseVersion: 0.2.2-alpha.70
+  configChecksum: 6b800f61b5176ced188e6dd37c881fa5
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -246,6 +246,10 @@ generatedFiles:
   - docs/sdks/track/README.md
   - docs/sdks/workspaces/README.md
   - dub.gemspec
+  - lib/crystalline.rb
+  - lib/crystalline/metadata_fields.rb
+  - lib/crystalline/t.rb
+  - lib/crystalline/utils.rb
   - lib/dub.rb
   - lib/open_api_sdk/analytics.rb
   - lib/open_api_sdk/customers.rb
@@ -467,8 +471,6 @@ generatedFiles:
   - lib/open_api_sdk/sdkconfiguration.rb
   - lib/open_api_sdk/tags.rb
   - lib/open_api_sdk/track.rb
-  - lib/open_api_sdk/utils/metadata_fields.rb
-  - lib/open_api_sdk/utils/t.rb
   - lib/open_api_sdk/utils/utils.rb
   - lib/open_api_sdk/workspaces.rb
   - sorbet/config

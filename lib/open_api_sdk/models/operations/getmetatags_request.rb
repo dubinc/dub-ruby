@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetMetatagsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetMetatagsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The URL to retrieve metatags for.

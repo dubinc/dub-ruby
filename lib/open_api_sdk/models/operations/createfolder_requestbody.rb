@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateFolderRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateFolderRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The name of the folder.

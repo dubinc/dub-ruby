@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetQRCodeResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class GetQRCodeResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

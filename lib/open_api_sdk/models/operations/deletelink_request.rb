@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteLinkRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteLinkRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.

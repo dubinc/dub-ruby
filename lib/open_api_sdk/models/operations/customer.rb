@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class Customer < ::OpenApiSDK::Utils::FieldAugmented
+    class Customer < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

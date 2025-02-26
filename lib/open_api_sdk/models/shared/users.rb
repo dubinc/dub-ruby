@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class Users < ::OpenApiSDK::Utils::FieldAugmented
+    class Users < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The role of the authenticated user in the workspace.

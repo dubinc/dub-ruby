@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteFolderRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteFolderRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the folder to delete.

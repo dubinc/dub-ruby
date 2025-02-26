@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetCustomersRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetCustomersRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A case-sensitive filter on the list based on the customer's `email` field. The value must be a string.

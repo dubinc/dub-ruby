@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListDomainsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class ListDomainsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether to include archived domains in the response. Defaults to `false` if not provided.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateWorkspaceRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateWorkspaceRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID or slug of the workspace to update.

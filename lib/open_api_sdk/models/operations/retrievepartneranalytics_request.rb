@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrievePartnerAnalyticsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class RetrievePartnerAnalyticsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the program to retrieve analytics for.

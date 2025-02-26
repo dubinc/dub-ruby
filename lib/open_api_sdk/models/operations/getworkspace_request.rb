@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetWorkspaceRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetWorkspaceRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID or slug of the workspace.

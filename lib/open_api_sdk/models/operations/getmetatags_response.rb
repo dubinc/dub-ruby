@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetMetatagsResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class GetMetatagsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

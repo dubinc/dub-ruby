@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetLinkInfoRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetLinkInfoRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

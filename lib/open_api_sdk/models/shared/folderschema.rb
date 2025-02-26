@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class FolderSchema < ::OpenApiSDK::Utils::FieldAugmented
+    class FolderSchema < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The access level of the folder within the workspace.

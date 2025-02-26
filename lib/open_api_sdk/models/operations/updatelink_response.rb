@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateLinkResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateLinkResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

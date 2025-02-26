@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateFolderRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateFolderRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The access level of the folder within the workspace.

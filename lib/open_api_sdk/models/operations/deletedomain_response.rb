@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteDomainResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteDomainResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateLinkResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateLinkResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

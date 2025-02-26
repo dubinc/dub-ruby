@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class ConflictError < ::OpenApiSDK::Utils::FieldAugmented
+    class ConflictError < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # A short code indicating the error code returned.

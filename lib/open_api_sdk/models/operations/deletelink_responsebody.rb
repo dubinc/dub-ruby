@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The deleted link ID.
-    class DeleteLinkResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteLinkResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the link.

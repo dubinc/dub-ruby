@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateCustomerLink < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateCustomerLink < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).

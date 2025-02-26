@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetQRCodeRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class GetQRCodeRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The URL to generate a QR code for.

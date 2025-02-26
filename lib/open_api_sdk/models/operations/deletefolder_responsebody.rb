@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The deleted folder ID.
-    class DeleteFolderResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteFolderResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the deleted folder.

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateWorkspaceRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateWorkspaceRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

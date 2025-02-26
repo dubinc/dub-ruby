@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreatePartnerResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class CreatePartnerResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Shared
   
 
-    class DomainSchema < ::OpenApiSDK::Utils::FieldAugmented
+    class DomainSchema < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the domain is archived.

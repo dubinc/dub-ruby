@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateLinkRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateLinkRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The Android destination URL for the short link for Android device targeting.

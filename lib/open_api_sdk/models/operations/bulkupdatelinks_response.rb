@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class BulkUpdateLinksResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkUpdateLinksResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class CreateEmbedTokenResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class CreateEmbedTokenResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

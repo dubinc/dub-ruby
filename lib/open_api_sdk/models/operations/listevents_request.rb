@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class ListEventsRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class ListEventsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The browser to retrieve analytics for.

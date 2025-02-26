@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class RetrieveAnalyticsResponse < ::OpenApiSDK::Utils::FieldAugmented
+    class RetrieveAnalyticsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

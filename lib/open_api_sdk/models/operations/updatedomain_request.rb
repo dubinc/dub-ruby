@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateDomainRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateDomainRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The domain name.

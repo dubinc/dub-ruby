@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdateLinkRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class UpdateLinkRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.

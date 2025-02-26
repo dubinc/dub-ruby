@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class DeleteTagRequest < ::OpenApiSDK::Utils::FieldAugmented
+    class DeleteTagRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The ID of the tag to delete.

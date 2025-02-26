@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
     # The deleted links count.
-    class BulkDeleteLinksResponseBody < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkDeleteLinksResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The number of links deleted.

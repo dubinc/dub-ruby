@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class BulkUpdateLinksRequestBody < ::OpenApiSDK::Utils::FieldAugmented
+    class BulkUpdateLinksRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
 
