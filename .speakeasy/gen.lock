@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 4ed7bf1fc90b54224f530facc9c37231
+  docChecksum: db8c112e1f254ff516b8ce26ffe28dd4
   docVersion: 0.0.1
-  speakeasyVersion: 1.504.1
-  generationVersion: 2.529.2
-  releaseVersion: 0.2.2-alpha.70
-  configChecksum: 6b800f61b5176ced188e6dd37c881fa5
+  speakeasyVersion: 1.505.1
+  generationVersion: 2.531.0
+  releaseVersion: 0.2.2-alpha.71
+  configChecksum: caaf8aa4367afb51da3efe908e408d56
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -121,6 +121,7 @@ generatedFiles:
   - docs/models/operations/listeventsresponse.md
   - docs/models/operations/listfoldersrequest.md
   - docs/models/operations/listfoldersresponse.md
+  - docs/models/operations/mode.md
   - docs/models/operations/order.md
   - docs/models/operations/partner.md
   - docs/models/operations/paymentprocessor.md
@@ -355,6 +356,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/listevents_response.rb
   - lib/open_api_sdk/models/operations/listfolders_request.rb
   - lib/open_api_sdk/models/operations/listfolders_response.rb
+  - lib/open_api_sdk/models/operations/mode.rb
   - lib/open_api_sdk/models/operations/order.rb
   - lib/open_api_sdk/models/operations/partner.rb
   - lib/open_api_sdk/models/operations/paymentprocessor.rb

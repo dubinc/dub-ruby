@@ -25,7 +25,7 @@ module OpenApiSDK
       field :event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
       # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-      # The invoice ID of the sale.
+      # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
       # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event, which is the default behavior).
       field :lead_event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }

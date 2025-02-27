@@ -31,10 +31,12 @@ module OpenApiSDK
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # Additional metadata to be stored with the lead event
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+      # The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub.
+      field :mode, T.nilable(::OpenApiSDK::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Mode, true) } }
 
 
-      sig { params(click_id: ::String, event_name: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_id: T.nilable(::String), customer_name: T.nilable(::String), event_quantity: T.nilable(::Float), external_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(click_id: nil, event_name: nil, customer_avatar: nil, customer_email: nil, customer_id: nil, customer_name: nil, event_quantity: nil, external_id: nil, metadata: nil)
+      sig { params(click_id: ::String, event_name: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_id: T.nilable(::String), customer_name: T.nilable(::String), event_quantity: T.nilable(::Float), external_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object]), mode: T.nilable(::OpenApiSDK::Operations::Mode)).void }
+      def initialize(click_id: nil, event_name: nil, customer_avatar: nil, customer_email: nil, customer_id: nil, customer_name: nil, event_quantity: nil, external_id: nil, metadata: nil, mode: nil)
         @click_id = click_id
         @event_name = event_name
         @customer_avatar = customer_avatar
@@ -44,6 +46,7 @@ module OpenApiSDK
         @event_quantity = event_quantity
         @external_id = external_id
         @metadata = metadata
+        @mode = mode
       end
     end
   end
