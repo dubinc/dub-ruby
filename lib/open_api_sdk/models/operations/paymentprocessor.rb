@@ -12,7 +12,9 @@ module OpenApiSDK
       enums do
         STRIPE = new('stripe')
         SHOPIFY = new('shopify')
+        POLAR = new('polar')
         PADDLE = new('paddle')
+        CUSTOM = new('custom')
       end
     end
   end

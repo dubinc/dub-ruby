@@ -71,7 +71,7 @@ s.config_security(
 
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   amount: 996500,
-  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::PADDLE,
+  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,
   event_name: "Purchase",
   lead_event_name: "Cloned template 1481267",
 )

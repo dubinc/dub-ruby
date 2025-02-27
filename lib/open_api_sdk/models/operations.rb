@@ -82,6 +82,7 @@ module OpenApiSDK
     autoload :DeleteDomainRequest, 'open_api_sdk/models/operations/deletedomain_request.rb'
     autoload :DeleteDomainResponseBody, 'open_api_sdk/models/operations/deletedomain_responsebody.rb'
     autoload :DeleteDomainResponse, 'open_api_sdk/models/operations/deletedomain_response.rb'
+    autoload :Mode, 'open_api_sdk/models/operations/mode.rb'
     autoload :TrackLeadRequestBody, 'open_api_sdk/models/operations/tracklead_requestbody.rb'
     autoload :Click, 'open_api_sdk/models/operations/click.rb'
     autoload :Customer, 'open_api_sdk/models/operations/customer.rb'
