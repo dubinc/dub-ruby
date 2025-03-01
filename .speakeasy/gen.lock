@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: db8c112e1f254ff516b8ce26ffe28dd4
+  docChecksum: 41e78ddd52d7d4173557ba931d2272dc
   docVersion: 0.0.1
-  speakeasyVersion: 1.505.1
-  generationVersion: 2.531.0
-  releaseVersion: 0.2.2-alpha.71
-  configChecksum: caaf8aa4367afb51da3efe908e408d56
+  speakeasyVersion: 1.508.0
+  generationVersion: 2.536.0
+  releaseVersion: 0.2.2-alpha.72
+  configChecksum: 98d4f891f928d7b9648b1a99413f2476
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -1430,6 +1430,10 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
   listFolders:
     speakeasy-default-list-folders:
+      parameters:
+        query:
+          page: 1
+          pageSize: 50
       responses:
         "200":
           application/json: [{"id": "<id>", "name": "<value>", "accessLevel": "write", "linkCount": 6783.17, "createdAt": "1713388175774", "updatedAt": "1739253472019"}, {"id": "<id>", "name": "<value>", "accessLevel": "read", "linkCount": 6355.32, "createdAt": "1727947722137", "updatedAt": "1739235143393"}, {"id": "<id>", "name": "<value>", "accessLevel": "write", "linkCount": 861.4, "createdAt": "1709944391778", "updatedAt": "1739293063749"}]

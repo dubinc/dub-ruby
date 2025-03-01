@@ -68,7 +68,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listFolders"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::ListFoldersRequest.new()\n    \nres = s.folders.list(req)\n\nif ! res.folder_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::ListFoldersRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n    \nres = s.folders.list(req)\n\nif ! res.folder_schemas.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders"]["post"]
     update:
       "x-codeSamples":

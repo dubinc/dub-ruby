@@ -70,7 +70,10 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::ListFoldersRequest.new()
+req = ::OpenApiSDK::Operations::ListFoldersRequest.new(
+  page: 1.0,
+  page_size: 50.0,
+)
     
 res = s.folders.list(req)
 
