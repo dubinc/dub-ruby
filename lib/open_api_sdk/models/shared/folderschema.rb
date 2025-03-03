@@ -21,17 +21,20 @@ module OpenApiSDK
       field :link_count, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkCount') } }
       # The name of the folder.
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+
+      field :type, ::OpenApiSDK::Shared::Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Type, false) } }
       # The date the folder was updated.
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
 
 
-      sig { params(access_level: ::OpenApiSDK::Shared::AccessLevel, created_at: ::String, id: ::String, link_count: ::Float, name: ::String, updated_at: ::String).void }
-      def initialize(access_level: nil, created_at: nil, id: nil, link_count: nil, name: nil, updated_at: nil)
+      sig { params(access_level: ::OpenApiSDK::Shared::AccessLevel, created_at: ::String, id: ::String, link_count: ::Float, name: ::String, type: ::OpenApiSDK::Shared::Type, updated_at: ::String).void }
+      def initialize(access_level: nil, created_at: nil, id: nil, link_count: nil, name: nil, type: nil, updated_at: nil)
         @access_level = access_level
         @created_at = created_at
         @id = id
         @link_count = link_count
         @name = name
+        @type = type
         @updated_at = updated_at
       end
     end
