@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 41e78ddd52d7d4173557ba931d2272dc
+  docChecksum: c0e6d3d254be054e34459f415be9c6fb
   docVersion: 0.0.1
-  speakeasyVersion: 1.508.0
+  speakeasyVersion: 1.508.1
   generationVersion: 2.536.0
-  releaseVersion: 0.2.2-alpha.72
-  configChecksum: 98d4f891f928d7b9648b1a99413f2476
+  releaseVersion: 0.2.2-alpha.73
+  configChecksum: 2a49efd1c1478868f7a23517f1a5938e
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -224,6 +224,7 @@ generatedFiles:
   - docs/models/shared/role.md
   - docs/models/shared/security.md
   - docs/models/shared/tagschema.md
+  - docs/models/shared/type.md
   - docs/models/shared/unauthorized.md
   - docs/models/shared/unauthorizedcode.md
   - docs/models/shared/unauthorizederror.md
@@ -460,6 +461,7 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/role.rb
   - lib/open_api_sdk/models/shared/security.rb
   - lib/open_api_sdk/models/shared/tagschema.rb
+  - lib/open_api_sdk/models/shared/type.rb
   - lib/open_api_sdk/models/shared/unauthorized.rb
   - lib/open_api_sdk/models/shared/unauthorized_code.rb
   - lib/open_api_sdk/models/shared/unauthorized_error.rb
@@ -1228,7 +1230,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<id>", "billingCycleStart": 5588.34, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 5442.21, "usageLimit": 5212.35, "linksUsage": 9699.61, "linksLimit": 4580.49, "salesUsage": 4508.24, "salesLimit": 2627.95, "domainsLimit": 2134.57, "tagsLimit": 9371.46, "foldersUsage": 7003.47, "foldersLimit": 7003.47, "usersLimit": 4381.42, "aiUsage": 8013.73, "aiLimit": 788.88, "conversionEnabled": true, "dotLinkClaimed": true, "partnersEnabled": true, "createdAt": "1723223056781", "users": [{"role": "owner"}, {"role": "member"}, {"role": "member"}], "domains": [{"slug": "acme.com", "primary": true, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business extra", "stripeId": "<id>", "billingCycleStart": 5588.34, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 7003.47, "usage": 5442.21, "usageLimit": 5212.35, "linksUsage": 9699.61, "linksLimit": 4580.49, "salesUsage": 4508.24, "salesLimit": 2627.95, "domainsLimit": 2134.57, "tagsLimit": 9371.46, "foldersUsage": 7003.47, "foldersLimit": 7003.47, "usersLimit": 4381.42, "aiUsage": 8013.73, "aiLimit": 788.88, "conversionEnabled": true, "dotLinkClaimed": true, "partnersEnabled": true, "createdAt": "1723223056781", "users": [{"role": "owner"}, {"role": "member"}, {"role": "member"}], "domains": [{"slug": "acme.com", "primary": true, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1254,7 +1256,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<id>", "billingCycleStart": 5971.29, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "usage": 3446.2, "usageLimit": 9914.64, "linksUsage": 6276.9, "linksLimit": 4888.52, "salesUsage": 9840.08, "salesLimit": 540.62, "domainsLimit": 8965.01, "tagsLimit": 4468.63, "foldersUsage": 8574.78, "foldersLimit": 8574.78, "usersLimit": 3115.07, "aiUsage": 2494.4, "aiLimit": 1395.79, "conversionEnabled": false, "dotLinkClaimed": false, "partnersEnabled": true, "createdAt": "1720441680204", "users": [{"role": "member"}, {"role": "owner"}, {"role": "owner"}], "domains": [{"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "enterprise", "stripeId": "<id>", "billingCycleStart": 5971.29, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 8574.78, "usage": 3446.2, "usageLimit": 9914.64, "linksUsage": 6276.9, "linksLimit": 4888.52, "salesUsage": 9840.08, "salesLimit": 540.62, "domainsLimit": 8965.01, "tagsLimit": 4468.63, "foldersUsage": 8574.78, "foldersLimit": 8574.78, "usersLimit": 3115.07, "aiUsage": 2494.4, "aiLimit": 1395.79, "conversionEnabled": false, "dotLinkClaimed": false, "partnersEnabled": true, "createdAt": "1720441680204", "users": [{"role": "member"}, {"role": "owner"}, {"role": "owner"}], "domains": [{"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": false, "verified": true}, {"slug": "acme.com", "primary": true, "verified": true}], "store": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1409,7 +1411,7 @@ examples:
     speakeasy-default-create-folder:
       responses:
         "201":
-          application/json: {"id": "<id>", "name": "<value>", "accessLevel": "read", "linkCount": 6384.24, "createdAt": "1720948972255", "updatedAt": "1739245233715"}
+          application/json: {"id": "<id>", "name": "<value>", "type": "default", "accessLevel": "read", "linkCount": 6384.24, "createdAt": "1720948972255", "updatedAt": "1739245233715"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1436,7 +1438,7 @@ examples:
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "accessLevel": "write", "linkCount": 6783.17, "createdAt": "1713388175774", "updatedAt": "1739253472019"}, {"id": "<id>", "name": "<value>", "accessLevel": "read", "linkCount": 6355.32, "createdAt": "1727947722137", "updatedAt": "1739235143393"}, {"id": "<id>", "name": "<value>", "accessLevel": "write", "linkCount": 861.4, "createdAt": "1709944391778", "updatedAt": "1739293063749"}]
+          application/json: [{"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "write", "linkCount": 6783.17, "createdAt": "1713388175774", "updatedAt": "1739253472019"}, {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "read", "linkCount": 6355.32, "createdAt": "1727947722137", "updatedAt": "1739235143393"}, {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "write", "linkCount": 861.4, "createdAt": "1709944391778", "updatedAt": "1739293063749"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1462,7 +1464,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "accessLevel": "write", "linkCount": 5971.29, "createdAt": "1718651958435", "updatedAt": "1739319286220"}
+          application/json: {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "write", "linkCount": 5971.29, "createdAt": "1718651958435", "updatedAt": "1739319286220"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
