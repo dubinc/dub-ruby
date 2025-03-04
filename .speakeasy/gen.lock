@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: c0e6d3d254be054e34459f415be9c6fb
+  docChecksum: 67941bfbb5e02cd5bc33d054673647ac
   docVersion: 0.0.1
-  speakeasyVersion: 1.508.1
-  generationVersion: 2.536.0
-  releaseVersion: 0.2.2-alpha.73
-  configChecksum: 2a49efd1c1478868f7a23517f1a5938e
+  speakeasyVersion: 1.509.0
+  generationVersion: 2.539.0
+  releaseVersion: 0.2.2-alpha.74
+  configChecksum: 4a8358d13fdd80aa0ae2a000cab4e38a
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -171,6 +171,10 @@ generatedFiles:
   - docs/models/operations/updatelinkrequest.md
   - docs/models/operations/updatelinkrequestbody.md
   - docs/models/operations/updatelinkresponse.md
+  - docs/models/operations/updatepartnersalerequestbody.md
+  - docs/models/operations/updatepartnersaleresponse.md
+  - docs/models/operations/updatepartnersaleresponsebody.md
+  - docs/models/operations/updatepartnersalestatus.md
   - docs/models/operations/updatetagcolor.md
   - docs/models/operations/updatetagrequest.md
   - docs/models/operations/updatetagrequestbody.md
@@ -407,6 +411,10 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/updatelink_request.rb
   - lib/open_api_sdk/models/operations/updatelink_requestbody.rb
   - lib/open_api_sdk/models/operations/updatelink_response.rb
+  - lib/open_api_sdk/models/operations/updatepartnersale_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatepartnersale_response.rb
+  - lib/open_api_sdk/models/operations/updatepartnersale_responsebody.rb
+  - lib/open_api_sdk/models/operations/updatepartnersale_status.rb
   - lib/open_api_sdk/models/operations/updatetag_color.rb
   - lib/open_api_sdk/models/operations/updatetag_request.rb
   - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
@@ -1518,6 +1526,29 @@ examples:
       responses:
         "200":
           application/json: "<value>"
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  updatePartnerSale:
+    speakeasy-default-update-partner-sale:
+      responses:
+        "200":
+          application/json: {"id": "<id>", "amount": 1560.34, "earnings": 2256.73, "currency": "Cayman Islands Dollar", "status": "pending", "createdAt": "1729448587751", "updatedAt": "1740967258678"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
