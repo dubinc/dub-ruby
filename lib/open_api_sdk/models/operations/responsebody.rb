@@ -30,10 +30,10 @@ module OpenApiSDK
 
       field :link, T.nilable(::OpenApiSDK::Operations::Link), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
 
-      field :partner, T.nilable(::OpenApiSDK::Operations::Partner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
+      field :partner, T.nilable(::OpenApiSDK::Operations::GetCustomersPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
 
 
-      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::Discount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::Link), partner: T.nilable(::OpenApiSDK::Operations::Partner)).void }
+      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::Discount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::Link), partner: T.nilable(::OpenApiSDK::Operations::GetCustomersPartner)).void }
       def initialize(created_at: nil, external_id: nil, id: nil, name: nil, avatar: nil, country: nil, discount: nil, email: nil, link: nil, partner: nil)
         @created_at = created_at
         @external_id = external_id

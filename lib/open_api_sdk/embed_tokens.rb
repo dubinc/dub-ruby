@@ -19,13 +19,13 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateEmbedTokenRequestBody)).returns(::OpenApiSDK::Operations::CreateEmbedTokenResponse) }
-    def create(request)
-      # create - Create a new embed token
-      # Create a new embed token for the referral link.
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody)).returns(::OpenApiSDK::Operations::CreateReferralsEmbedTokenResponse) }
+    def referrals(request)
+      # referrals - Create a new referrals embed token
+      # Create a new referrals embed token for the given partner/tenant.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/tokens/embed"
+      url = "#{base_url}/tokens/embed/referrals"
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
@@ -47,12 +47,12 @@ module OpenApiSDK
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::OpenApiSDK::Operations::CreateEmbedTokenResponse.new(
+      res = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Operations::CreateEmbedTokenResponseBody)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Operations::CreateReferralsEmbedTokenResponseBody)
           res.object = out
         end
       elsif r.status == 400

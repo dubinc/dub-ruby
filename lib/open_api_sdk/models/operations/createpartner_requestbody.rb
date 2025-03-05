@@ -17,8 +17,6 @@ module OpenApiSDK
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
       # The ID of the program to create a partner for.
       field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # A unique username for the partner in your system. This will be used to create a short link for the partner using your program's default domain.
-      field :username, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
       # Country where the partner is based.
       field :country, T.nilable(::OpenApiSDK::Operations::Country), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Country, true) } }
       # A brief description of the partner and their background.
@@ -29,19 +27,21 @@ module OpenApiSDK
       field :link_props, T.nilable(::OpenApiSDK::Operations::LinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
       # The ID of the partner in your system.
       field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+      # A unique username for the partner in your system (max 100 characters). This will be used to create a short link for the partner using your program's default domain. If not provided, Dub will try to generate a username from the partner's name or email.
+      field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
 
 
-      sig { params(email: ::String, name: ::String, program_id: ::String, username: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps), tenant_id: T.nilable(::String)).void }
-      def initialize(email: nil, name: nil, program_id: nil, username: nil, country: nil, description: nil, image: nil, link_props: nil, tenant_id: nil)
+      sig { params(email: ::String, name: ::String, program_id: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps), tenant_id: T.nilable(::String), username: T.nilable(::String)).void }
+      def initialize(email: nil, name: nil, program_id: nil, country: nil, description: nil, image: nil, link_props: nil, tenant_id: nil, username: nil)
         @email = email
         @name = name
         @program_id = program_id
-        @username = username
         @country = country
         @description = description
         @image = image
         @link_props = link_props
         @tenant_id = tenant_id
+        @username = username
       end
     end
   end

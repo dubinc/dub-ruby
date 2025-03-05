@@ -5,11 +5,11 @@
 
 ### Available Operations
 
-* [create](#create) - Create a new embed token
+* [referrals](#referrals) - Create a new referrals embed token
 
-## create
+## referrals
 
-Create a new embed token for the referral link.
+Create a new referrals embed token for the given partner/tenant.
 
 ### Example Usage
 
@@ -25,11 +25,21 @@ s.config_security(
 )
 
 
-req = ::OpenApiSDK::Operations::CreateEmbedTokenRequestBody.new(
+req = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(
   program_id: "<id>",
+  partner: ::OpenApiSDK::Operations::Partner.new(
+    name: "<value>",
+    email: "Florencio98@hotmail.com",
+    link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(
+      external_id: "123456",
+      tag_ids: [
+        "clux0rgak00011...",
+      ],
+    ),
+  ),
 )
     
-res = s.embed_tokens.create(req)
+res = s.embed_tokens.referrals(req)
 
 if ! res.object.nil?
   # handle response
@@ -39,11 +49,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [::OpenApiSDK::Operations::CreateEmbedTokenRequestBody](../../models/operations/createembedtokenrequestbody.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody](../../models/operations/createreferralsembedtokenrequestbody.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CreateEmbedTokenResponse)](../../models/operations/createembedtokenresponse.md)**
+**[T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenResponse)](../../models/operations/createreferralsembedtokenresponse.md)**
 

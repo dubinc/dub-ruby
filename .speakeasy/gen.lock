@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 67941bfbb5e02cd5bc33d054673647ac
+  docChecksum: 7d12cd211b08ee0e5d9a48c3e7a01812
   docVersion: 0.0.1
-  speakeasyVersion: 1.509.0
-  generationVersion: 2.539.0
-  releaseVersion: 0.2.2-alpha.74
-  configChecksum: 4a8358d13fdd80aa0ae2a000cab4e38a
+  speakeasyVersion: 1.509.1
+  generationVersion: 2.539.1
+  releaseVersion: 0.2.2-alpha.75
+  configChecksum: 404fa88f9d65791ad2fb135dc7d34aab
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -47,9 +47,6 @@ generatedFiles:
   - docs/models/operations/createcustomertype.md
   - docs/models/operations/createdomainrequestbody.md
   - docs/models/operations/createdomainresponse.md
-  - docs/models/operations/createembedtokenrequestbody.md
-  - docs/models/operations/createembedtokenresponse.md
-  - docs/models/operations/createembedtokenresponsebody.md
   - docs/models/operations/createfolderrequestbody.md
   - docs/models/operations/createfolderresponse.md
   - docs/models/operations/createlinkrequestbody.md
@@ -60,6 +57,11 @@ generatedFiles:
   - docs/models/operations/createpartnerrequestbody.md
   - docs/models/operations/createpartnerresponse.md
   - docs/models/operations/createpartnerresponsebody.md
+  - docs/models/operations/createreferralsembedtokencountry.md
+  - docs/models/operations/createreferralsembedtokenlinkprops.md
+  - docs/models/operations/createreferralsembedtokenrequestbody.md
+  - docs/models/operations/createreferralsembedtokenresponse.md
+  - docs/models/operations/createreferralsembedtokenresponsebody.md
   - docs/models/operations/createtagrequestbody.md
   - docs/models/operations/createtagresponse.md
   - docs/models/operations/customer.md
@@ -89,6 +91,7 @@ generatedFiles:
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
   - docs/models/operations/getcustomersinterval.md
+  - docs/models/operations/getcustomerspartner.md
   - docs/models/operations/getcustomersrequest.md
   - docs/models/operations/getcustomersresponse.md
   - docs/models/operations/getcustomertype.md
@@ -287,9 +290,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createcustomer_type.rb
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
   - lib/open_api_sdk/models/operations/createdomain_response.rb
-  - lib/open_api_sdk/models/operations/createembedtoken_requestbody.rb
-  - lib/open_api_sdk/models/operations/createembedtoken_response.rb
-  - lib/open_api_sdk/models/operations/createembedtoken_responsebody.rb
   - lib/open_api_sdk/models/operations/createfolder_requestbody.rb
   - lib/open_api_sdk/models/operations/createfolder_response.rb
   - lib/open_api_sdk/models/operations/createlink_requestbody.rb
@@ -300,6 +300,11 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/createpartnerlink_linkprops.rb
   - lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rb
   - lib/open_api_sdk/models/operations/createpartnerlink_response.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_country.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_linkprops.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_requestbody.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_response.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_responsebody.rb
   - lib/open_api_sdk/models/operations/createtag_requestbody.rb
   - lib/open_api_sdk/models/operations/createtag_response.rb
   - lib/open_api_sdk/models/operations/customer.rb
@@ -330,6 +335,7 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/getcustomer_type.rb
   - lib/open_api_sdk/models/operations/getcustomers_interval.rb
+  - lib/open_api_sdk/models/operations/getcustomers_partner.rb
   - lib/open_api_sdk/models/operations/getcustomers_request.rb
   - lib/open_api_sdk/models/operations/getcustomers_response.rb
   - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
@@ -1549,6 +1555,31 @@ examples:
       responses:
         "200":
           application/json: {"id": "<id>", "amount": 1560.34, "earnings": 2256.73, "currency": "Cayman Islands Dollar", "status": "pending", "createdAt": "1729448587751", "updatedAt": "1740967258678"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  createReferralsEmbedToken:
+    speakeasy-default-create-referrals-embed-token:
+      requestBody:
+        application/json: {"programId": "<id>", "partner": {"name": "<value>", "email": "Florencio98@hotmail.com", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}}
+      responses:
+        "201":
+          application/json: {"publicToken": "<value>", "expires": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
