@@ -158,7 +158,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createPartner"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  program_id: \"<id>\",\n  name: \"<value>\",\n  email: \"Loyal79@yahoo.com\",\n  username: \"Aaliyah_Borer\",\n  link_props: ::OpenApiSDK::Operations::LinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n  ),\n)\n    \nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  program_id: \"<id>\",\n  name: \"<value>\",\n  email: \"Loyal79@yahoo.com\",\n  link_props: ::OpenApiSDK::Operations::LinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n  ),\n)\n    \nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/analytics"]["get"]
     update:
       "x-codeSamples":
@@ -213,12 +213,12 @@ actions:
         - "lang": "ruby"
           "label": "updateTag"
           "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n    \nres = s.tags.update(id=\"<id>\", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())\n\nif ! res.tag_schema.nil?\n  # handle response\nend"
-  - target: $["paths"]["/tokens/embed"]["post"]
+  - target: $["paths"]["/tokens/embed/referrals"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
-          "label": "createEmbedToken"
-          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateEmbedTokenRequestBody.new(\n  program_id: \"<id>\",\n)\n    \nres = s.embed_tokens.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "label": "createReferralsEmbedToken"
+          "source": "require 'dub'\n\n\ns = ::OpenApiSDK::Dub.new\ns.config_security(\n  ::OpenApiSDK::Shared::Security.new(\n    token: \"DUB_API_KEY\",\n  )\n)\n\n\nreq = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(\n  program_id: \"<id>\",\n  partner: ::OpenApiSDK::Operations::Partner.new(\n    name: \"<value>\",\n    email: \"Florencio98@hotmail.com\",\n    link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(\n      external_id: \"123456\",\n      tag_ids: [\n        \"clux0rgak00011...\",\n      ],\n    ),\n  ),\n)\n    \nres = s.embed_tokens.referrals(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/track/lead"]["post"]
     update:
       "x-codeSamples":

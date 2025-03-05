@@ -19,7 +19,6 @@ module OpenApiSDK
         QTD = new('qtd')
         YTD = new('ytd')
         ALL = new('all')
-        ALL_UNFILTERED = new('all_unfiltered')
       end
     end
   end

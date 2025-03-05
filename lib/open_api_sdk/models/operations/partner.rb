@@ -11,22 +11,34 @@ module OpenApiSDK
     class Partner < ::Crystalline::FieldAugmented
       extend T::Sig
 
-
+      # Email for the partner in your system. Partners will be able to claim their profile by signing up to Dub Partners with this email.
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-
+      # Full legal name of the partner.
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
+      # Country where the partner is based.
+      field :country, T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenCountry), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::CreateReferralsEmbedTokenCountry, true) } }
+      # A brief description of the partner and their background.
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+      # Avatar image for the partner – if not provided, a default avatar will be used.
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
+      # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
+      field :link_props, T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
+      # The ID of the partner in your system.
+      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+      # A unique username for the partner in your system (max 100 characters). This will be used to create a short link for the partner using your program's default domain. If not provided, Dub will try to generate a username from the partner's name or email.
+      field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
 
 
-      sig { params(email: ::String, id: ::String, name: ::String, image: T.nilable(::String)).void }
-      def initialize(email: nil, id: nil, name: nil, image: nil)
+      sig { params(email: ::String, name: ::String, country: T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenCountry), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps), tenant_id: T.nilable(::String), username: T.nilable(::String)).void }
+      def initialize(email: nil, name: nil, country: nil, description: nil, image: nil, link_props: nil, tenant_id: nil, username: nil)
         @email = email
-        @id = id
         @name = name
+        @country = country
+        @description = description
         @image = image
+        @link_props = link_props
+        @tenant_id = tenant_id
+        @username = username
       end
     end
   end
