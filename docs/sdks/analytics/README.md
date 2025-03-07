@@ -16,14 +16,11 @@ Retrieve analytics for a link, a domain, or the authenticated workspace. The res
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
   timezone: "America/New_York",
@@ -34,7 +31,7 @@ req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
   referer: "google.com",
   referer_url: "https://dub.co/blog",
 )
-    
+
 res = s.analytics.retrieve(req)
 
 if ! res.one_of.nil?

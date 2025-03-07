@@ -19,17 +19,14 @@ Create a new tag for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateTagRequestBody.new()
-    
+
 res = s.tags.create(req)
 
 if ! res.tag_schema.nil?
@@ -59,20 +56,17 @@ Retrieve a list of tags for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetTagsRequest.new(
   page: 1.0,
   page_size: 50.0,
 )
-    
+
 res = s.tags.list(req)
 
 if ! res.tag_schemas.nil?
@@ -102,15 +96,12 @@ Update a tag in the workspace.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.tags.update(id="<id>", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())
 
 if ! res.tag_schema.nil?
@@ -141,15 +132,12 @@ Delete a tag from the workspace. All existing links will still work, but they wi
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.tags.delete(id="<id>")
 
 if ! res.object.nil?

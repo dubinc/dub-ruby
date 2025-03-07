@@ -16,19 +16,16 @@ Retrieve the metatags for a URL.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetMetatagsRequest.new(
   url: "https://dub.co",
 )
-    
+
 res = s.metatags.get(req)
 
 if ! res.object.nil?

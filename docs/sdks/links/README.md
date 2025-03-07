@@ -25,14 +25,11 @@ Create a new link for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   url: "https://google.com",
@@ -41,7 +38,7 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.create(req)
 
 if ! res.link_schema.nil?
@@ -71,20 +68,17 @@ Retrieve a paginated list of links for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetLinksRequest.new(
   page: 1.0,
   page_size: 50.0,
 )
-    
+
 res = s.links.list(req)
 
 if ! res.link_schemas.nil?
@@ -114,17 +108,14 @@ Retrieve the number of links for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetLinksCountRequest.new()
-    
+
 res = s.links.count(req)
 
 if ! res.number.nil?
@@ -154,20 +145,17 @@ Retrieve the info for a link.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetLinkInfoRequest.new(
   link_id: "clux0rgak00011...",
   external_id: "123456",
 )
-    
+
 res = s.links.get(req)
 
 if ! res.link_schema.nil?
@@ -197,15 +185,12 @@ Update a link for the authenticated workspace. If there's no change, returns it 
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.links.update(link_id="<id>", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
   url: "https://google.com",
   external_id: "123456",
@@ -242,15 +227,12 @@ Delete a link for the authenticated workspace.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.links.delete(link_id="<id>")
 
 if ! res.object.nil?
@@ -280,14 +262,11 @@ Bulk create up to 100 links for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = [
   ::OpenApiSDK::Operations::RequestBody.new(
@@ -298,7 +277,7 @@ req = [
     ],
   ),
 ]
-    
+
 res = s.links.create_many(req)
 
 if ! res.anies.nil?
@@ -328,14 +307,11 @@ Bulk update up to 100 links with the same data for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
   data: ::OpenApiSDK::Operations::Data.new(
@@ -345,7 +321,7 @@ req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
     ],
   ),
 )
-    
+
 res = s.links.update_many(req)
 
 if ! res.link_schemas.nil?
@@ -375,14 +351,11 @@ Bulk delete up to 100 links for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(
   link_ids: [
@@ -390,7 +363,7 @@ req = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(
     "clux0rgak00022...",
   ],
 )
-    
+
 res = s.links.delete_many(req)
 
 if ! res.object.nil?
@@ -420,14 +393,11 @@ Upsert a link for the authenticated workspace by its URL. If a link with the sam
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   url: "https://google.com",
@@ -436,7 +406,7 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.upsert(req)
 
 if ! res.link_schema.nil?

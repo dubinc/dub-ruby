@@ -2,14 +2,11 @@
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   url: "https://google.com",
@@ -18,7 +15,7 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.create(req)
 
 if ! res.link_schema.nil?
@@ -30,14 +27,11 @@ end
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   url: "https://google.com",
@@ -46,7 +40,7 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.upsert(req)
 
 if ! res.link_schema.nil?

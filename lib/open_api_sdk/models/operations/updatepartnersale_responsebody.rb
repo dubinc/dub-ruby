@@ -26,9 +26,11 @@ module OpenApiSDK
 
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
 
+      field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
-      sig { params(amount: ::Float, created_at: ::String, currency: ::String, earnings: ::Float, id: ::String, status: ::OpenApiSDK::Operations::UpdatePartnerSaleStatus, updated_at: ::String).void }
-      def initialize(amount: nil, created_at: nil, currency: nil, earnings: nil, id: nil, status: nil, updated_at: nil)
+
+      sig { params(amount: ::Float, created_at: ::String, currency: ::String, earnings: ::Float, id: ::String, status: ::OpenApiSDK::Operations::UpdatePartnerSaleStatus, updated_at: ::String, invoice_id: T.nilable(::String)).void }
+      def initialize(amount: nil, created_at: nil, currency: nil, earnings: nil, id: nil, status: nil, updated_at: nil, invoice_id: nil)
         @amount = amount
         @created_at = created_at
         @currency = currency
@@ -36,6 +38,7 @@ module OpenApiSDK
         @id = id
         @status = status
         @updated_at = updated_at
+        @invoice_id = invoice_id
       end
     end
   end

@@ -19,14 +19,11 @@ Create a domain for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
   slug: "acme.com",
@@ -35,7 +32,7 @@ req = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
   archived: false,
   placeholder: "https://dub.co/help/article/what-is-dub",
 )
-    
+
 res = s.domains.create(req)
 
 if ! res.domain_schema.nil?
@@ -65,20 +62,17 @@ Retrieve a list of domains associated with the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::ListDomainsRequest.new(
   page: 1.0,
   page_size: 50.0,
 )
-    
+
 res = s.domains.list(req)
 
 if ! res.domain_schemas.nil?
@@ -108,15 +102,12 @@ Update a domain for the authenticated workspace.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.domains.update(slug="acme.com", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
   slug: "acme.com",
   expired_url: "https://acme.com/expired",
@@ -153,15 +144,12 @@ Delete a domain from a workspace. It cannot be undone. This will also delete all
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.domains.delete(slug="acme.com")
 
 if ! res.object.nil?

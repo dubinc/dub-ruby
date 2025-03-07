@@ -22,6 +22,7 @@ Dub.co API: Dub is link management infrastructure for companies to create market
 <!-- $toc-max-depth=2 -->
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Server Selection](#server-selection)
 * [Development](#development)
@@ -47,14 +48,11 @@ gem install dub
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   url: "https://google.com",
@@ -63,7 +61,7 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.create(req)
 
 if ! res.link_schema.nil?
@@ -77,14 +75,11 @@ end
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   url: "https://google.com",
@@ -93,7 +88,7 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.upsert(req)
 
 if ! res.link_schema.nil?
@@ -102,6 +97,44 @@ end
 
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name    | Type | Scheme      |
+| ------- | ---- | ----------- |
+| `token` | http | HTTP Bearer |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```ruby
+require 'dub'
+
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
+
+req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+  url: "https://google.com",
+  external_id: "123456",
+  tag_ids: [
+    "clux0rgak00011...",
+  ],
+)
+
+res = s.links.create(req)
+
+if ! res.link_schema.nil?
+  # handle response
+end
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -202,16 +235,12 @@ The default server can be overridden globally by passing a URL to the `server_ur
 ```ruby
 require 'dub'
 
-
 s = ::OpenApiSDK::Dub.new(
       server_url: "https://api.dub.co",
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
     )
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
 
 req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   url: "https://google.com",
@@ -220,7 +249,7 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
     "clux0rgak00011...",
   ],
 )
-    
+
 res = s.links.create(req)
 
 if ! res.link_schema.nil?
