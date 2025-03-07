@@ -19,19 +19,16 @@ Create a new folder for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateFolderRequestBody.new(
   name: "<value>",
 )
-    
+
 res = s.folders.create(req)
 
 if ! res.folder_schema.nil?
@@ -61,20 +58,17 @@ Retrieve a list of folders for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::ListFoldersRequest.new(
   page: 1.0,
   page_size: 50.0,
 )
-    
+
 res = s.folders.list(req)
 
 if ! res.folder_schemas.nil?
@@ -104,15 +98,12 @@ Update a folder in the workspace.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.folders.update(id="<id>", request_body=::OpenApiSDK::Operations::UpdateFolderRequestBody.new())
 
 if ! res.folder_schema.nil?
@@ -143,15 +134,12 @@ Delete a folder from the workspace. All existing links will still work, but they
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.folders.delete(id="<id>")
 
 if ! res.object.nil?

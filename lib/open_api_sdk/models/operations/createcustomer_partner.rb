@@ -16,17 +16,17 @@ module OpenApiSDK
 
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
+      field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
+
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
-      field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
 
-
-      sig { params(email: ::String, id: ::String, name: ::String, image: T.nilable(::String)).void }
-      def initialize(email: nil, id: nil, name: nil, image: nil)
+      sig { params(email: ::String, id: ::String, image: ::String, name: ::String).void }
+      def initialize(email: nil, id: nil, image: nil, name: nil)
         @email = email
         @id = id
-        @name = name
         @image = image
+        @name = name
       end
     end
   end

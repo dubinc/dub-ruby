@@ -16,14 +16,11 @@ Create a new referrals embed token for the given partner/tenant.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(
   program_id: "<id>",
@@ -38,7 +35,7 @@ req = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(
     ),
   ),
 )
-    
+
 res = s.embed_tokens.referrals(req)
 
 if ! res.object.nil?

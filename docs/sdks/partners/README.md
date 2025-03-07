@@ -20,14 +20,11 @@ Create a new partner for a program. If partner exists, automatically enrolls the
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
   program_id: "<id>",
@@ -40,7 +37,7 @@ req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
     ],
   ),
 )
-    
+
 res = s.partners.create(req)
 
 if ! res.object.nil?
@@ -70,14 +67,11 @@ Create a new link for a partner that is enrolled in your program.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
   program_id: "<id>",
@@ -88,7 +82,7 @@ req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
     ],
   ),
 )
-    
+
 res = s.partners.create_link(req)
 
 if ! res.link_schema.nil?
@@ -118,14 +112,11 @@ Upsert a link for a partner that is enrolled in your program. If a link with the
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
   program_id: "<id>",
@@ -136,7 +127,7 @@ req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
     ],
   ),
 )
-    
+
 res = s.partners.upsert_link(req)
 
 if ! res.link_schema.nil?
@@ -166,20 +157,17 @@ Retrieve analytics for a partner within a program. The response type vary based 
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(
   timezone: "America/New_York",
   program_id: "<id>",
 )
-    
+
 res = s.partners.analytics(req)
 
 if ! res.one_of.nil?
@@ -209,21 +197,17 @@ Update an existing sale amount. This is useful for handling refunds (partial or 
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpdatePartnerSaleRequestBody.new(
   program_id: "<id>",
   invoice_id: "<id>",
-  amount: 1560.34,
 )
-    
+
 res = s.partners.update_sale(req)
 
 if ! res.object.nil?

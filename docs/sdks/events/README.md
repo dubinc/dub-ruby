@@ -16,14 +16,11 @@ Retrieve a paginated list of events for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::ListEventsRequest.new(
   timezone: "America/New_York",
@@ -34,7 +31,7 @@ req = ::OpenApiSDK::Operations::ListEventsRequest.new(
   referer: "google.com",
   referer_url: "https://dub.co/blog",
 )
-    
+
 res = s.events.list(req)
 
 if ! res.click_events.nil?

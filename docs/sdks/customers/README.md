@@ -20,17 +20,14 @@ Retrieve a list of customers for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetCustomersRequest.new()
-    
+
 res = s.customers.list(req)
 
 if ! res.response_bodies.nil?
@@ -62,19 +59,16 @@ end
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::CreateCustomerRequestBody.new(
   external_id: "<id>",
 )
-    
+
 res = s.customers.create(req)
 
 if ! res.object.nil?
@@ -104,19 +98,16 @@ Retrieve a customer by ID for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetCustomerRequest.new(
   id: "<id>",
 )
-    
+
 res = s.customers.get(req)
 
 if ! res.object.nil?
@@ -146,19 +137,16 @@ Update a customer for the authenticated workspace.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::UpdateCustomerRequest.new(
   id: "<id>",
 )
-    
+
 res = s.customers.update(req)
 
 if ! res.object.nil?
@@ -188,15 +176,12 @@ Delete a customer from a workspace.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.customers.delete(id="<id>")
 
 if ! res.object.nil?

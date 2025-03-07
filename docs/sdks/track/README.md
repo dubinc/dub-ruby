@@ -17,20 +17,17 @@ Track a lead for a short link.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
   click_id: "<id>",
   event_name: "Sign up",
 )
-    
+
 res = s.track.lead(req)
 
 if ! res.object.nil?
@@ -60,14 +57,11 @@ Track a sale for a short link.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   amount: 996500,
@@ -75,7 +69,7 @@ req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   event_name: "Purchase",
   lead_event_name: "Cloned template 1481267",
 )
-    
+
 res = s.track.sale(req)
 
 if ! res.object.nil?

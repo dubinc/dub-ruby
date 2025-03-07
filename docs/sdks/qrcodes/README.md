@@ -16,19 +16,16 @@ Retrieve a QR code for a link.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetQRCodeRequest.new(
   url: "https://normal-making.name",
 )
-    
+
 res = s.qr_codes.get(req)
 
 if ! res.res.nil?

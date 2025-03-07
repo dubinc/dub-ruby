@@ -17,19 +17,16 @@ Retrieve a workspace for the authenticated user.
 ```ruby
 require 'dub'
 
-
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
 req = ::OpenApiSDK::Operations::GetWorkspaceRequest.new(
   id_or_slug: "<value>",
 )
-    
+
 res = s.workspaces.get(req)
 
 if ! res.workspace_schema.nil?
@@ -59,15 +56,12 @@ Update a workspace by ID or slug.
 ```ruby
 require 'dub'
 
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
 
-s = ::OpenApiSDK::Dub.new
-s.config_security(
-  ::OpenApiSDK::Shared::Security.new(
-    token: "DUB_API_KEY",
-  )
-)
-
-    
 res = s.workspaces.update(id_or_slug="<value>", request_body=::OpenApiSDK::Operations::UpdateWorkspaceRequestBody.new())
 
 if ! res.workspace_schema.nil?

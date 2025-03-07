@@ -11,19 +11,22 @@ module OpenApiSDK
     class UpdatePartnerSaleRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The new amount for the sale.
-      field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
 
       field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
       field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
+      # The new absolute amount for the sale.
+      field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+      # Modify the current sale amount: use positive values to increase the amount, negative values to decrease it.
+      field :modify_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modifyAmount') } }
 
 
-      sig { params(amount: ::Float, invoice_id: ::String, program_id: ::String).void }
-      def initialize(amount: nil, invoice_id: nil, program_id: nil)
-        @amount = amount
+      sig { params(invoice_id: ::String, program_id: ::String, amount: T.nilable(::Float), modify_amount: T.nilable(::Float)).void }
+      def initialize(invoice_id: nil, program_id: nil, amount: nil, modify_amount: nil)
         @invoice_id = invoice_id
         @program_id = program_id
+        @amount = amount
+        @modify_amount = modify_amount
       end
     end
   end
