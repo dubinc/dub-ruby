@@ -18,24 +18,24 @@ module OpenApiSDK
 
       field :coupon_test_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponTestId') } }
 
-      field :duration, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('duration') } }
-
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
-      field :interval, ::OpenApiSDK::Operations::UpdateCustomerInterval, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('interval'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::UpdateCustomerInterval, false) } }
+      field :max_duration, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('maxDuration') } }
 
       field :type, ::OpenApiSDK::Operations::UpdateCustomerType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::UpdateCustomerType, false) } }
 
+      field :partners_count, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersCount') } }
 
-      sig { params(amount: ::Float, coupon_id: ::String, coupon_test_id: ::String, duration: ::Float, id: ::String, interval: ::OpenApiSDK::Operations::UpdateCustomerInterval, type: ::OpenApiSDK::Operations::UpdateCustomerType).void }
-      def initialize(amount: nil, coupon_id: nil, coupon_test_id: nil, duration: nil, id: nil, interval: nil, type: nil)
+
+      sig { params(amount: ::Float, coupon_id: ::String, coupon_test_id: ::String, id: ::String, max_duration: ::Float, type: ::OpenApiSDK::Operations::UpdateCustomerType, partners_count: T.nilable(::Float)).void }
+      def initialize(amount: nil, coupon_id: nil, coupon_test_id: nil, id: nil, max_duration: nil, type: nil, partners_count: nil)
         @amount = amount
         @coupon_id = coupon_id
         @coupon_test_id = coupon_test_id
-        @duration = duration
         @id = id
-        @interval = interval
+        @max_duration = max_duration
         @type = type
+        @partners_count = partners_count
       end
     end
   end
