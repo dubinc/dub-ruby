@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 2ce50b8b514248f8824b7ba29f83b819
+  docChecksum: 7aad15da8319febd3db27eda4154f3f4
   docVersion: 0.0.1
-  speakeasyVersion: 1.513.2
-  generationVersion: 2.545.2
-  releaseVersion: 0.2.2-alpha.76
-  configChecksum: 724cda658f823b26bbbb1ec8e6dc6e98
+  speakeasyVersion: 1.513.4
+  generationVersion: 2.545.4
+  releaseVersion: 0.2.2-alpha.77
+  configChecksum: 300f748e64ba4f3406b8608820a994e8
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -38,7 +38,6 @@ generatedFiles:
   - docs/models/operations/color.md
   - docs/models/operations/country.md
   - docs/models/operations/createcustomerdiscount.md
-  - docs/models/operations/createcustomerinterval.md
   - docs/models/operations/createcustomerlink.md
   - docs/models/operations/createcustomerpartner.md
   - docs/models/operations/createcustomerrequestbody.md
@@ -84,13 +83,11 @@ generatedFiles:
   - docs/models/operations/discount.md
   - docs/models/operations/event.md
   - docs/models/operations/getcustomerdiscount.md
-  - docs/models/operations/getcustomerinterval.md
   - docs/models/operations/getcustomerlink.md
   - docs/models/operations/getcustomerpartner.md
   - docs/models/operations/getcustomerrequest.md
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
-  - docs/models/operations/getcustomersinterval.md
   - docs/models/operations/getcustomerspartner.md
   - docs/models/operations/getcustomersrequest.md
   - docs/models/operations/getcustomersresponse.md
@@ -156,7 +153,6 @@ generatedFiles:
   - docs/models/operations/trigger.md
   - docs/models/operations/type.md
   - docs/models/operations/updatecustomerdiscount.md
-  - docs/models/operations/updatecustomerinterval.md
   - docs/models/operations/updatecustomerlink.md
   - docs/models/operations/updatecustomerpartner.md
   - docs/models/operations/updatecustomerrequest.md
@@ -281,7 +277,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/color.rb
   - lib/open_api_sdk/models/operations/country.rb
   - lib/open_api_sdk/models/operations/createcustomer_discount.rb
-  - lib/open_api_sdk/models/operations/createcustomer_interval.rb
   - lib/open_api_sdk/models/operations/createcustomer_link.rb
   - lib/open_api_sdk/models/operations/createcustomer_partner.rb
   - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
@@ -327,14 +322,12 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/discount.rb
   - lib/open_api_sdk/models/operations/event.rb
   - lib/open_api_sdk/models/operations/getcustomer_discount.rb
-  - lib/open_api_sdk/models/operations/getcustomer_interval.rb
   - lib/open_api_sdk/models/operations/getcustomer_link.rb
   - lib/open_api_sdk/models/operations/getcustomer_partner.rb
   - lib/open_api_sdk/models/operations/getcustomer_request.rb
   - lib/open_api_sdk/models/operations/getcustomer_response.rb
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/getcustomer_type.rb
-  - lib/open_api_sdk/models/operations/getcustomers_interval.rb
   - lib/open_api_sdk/models/operations/getcustomers_partner.rb
   - lib/open_api_sdk/models/operations/getcustomers_request.rb
   - lib/open_api_sdk/models/operations/getcustomers_response.rb
@@ -399,7 +392,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/trigger.rb
   - lib/open_api_sdk/models/operations/type.rb
   - lib/open_api_sdk/models/operations/updatecustomer_discount.rb
-  - lib/open_api_sdk/models/operations/updatecustomer_interval.rb
   - lib/open_api_sdk/models/operations/updatecustomer_link.rb
   - lib/open_api_sdk/models/operations/updatecustomer_partner.rb
   - lib/open_api_sdk/models/operations/updatecustomer_request.rb
