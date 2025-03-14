@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module OpenApiSDK
   extend T::Sig
@@ -32,7 +34,9 @@ module OpenApiSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
