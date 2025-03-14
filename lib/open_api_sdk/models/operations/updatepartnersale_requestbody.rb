@@ -17,15 +17,18 @@ module OpenApiSDK
       field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
       # The new absolute amount for the sale.
       field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+      # The currency of the sale amount to update. Accepts ISO 4217 currency codes.
+      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
       # Modify the current sale amount: use positive values to increase the amount, negative values to decrease it.
       field :modify_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modifyAmount') } }
 
 
-      sig { params(invoice_id: ::String, program_id: ::String, amount: T.nilable(::Float), modify_amount: T.nilable(::Float)).void }
-      def initialize(invoice_id: nil, program_id: nil, amount: nil, modify_amount: nil)
+      sig { params(invoice_id: ::String, program_id: ::String, amount: T.nilable(::Float), currency: T.nilable(::String), modify_amount: T.nilable(::Float)).void }
+      def initialize(invoice_id: nil, program_id: nil, amount: nil, currency: nil, modify_amount: nil)
         @invoice_id = invoice_id
         @program_id = program_id
         @amount = amount
+        @currency = currency
         @modify_amount = modify_amount
       end
     end

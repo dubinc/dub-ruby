@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 2ce50b8b514248f8824b7ba29f83b819
+  docChecksum: 99b9c05088d4bfcafc430de989468e85
   docVersion: 0.0.1
-  speakeasyVersion: 1.513.2
-  generationVersion: 2.545.2
-  releaseVersion: 0.2.2-alpha.76
-  configChecksum: 724cda658f823b26bbbb1ec8e6dc6e98
+  speakeasyVersion: 1.517.3
+  generationVersion: 2.548.6
+  releaseVersion: 0.2.2-alpha.77
+  configChecksum: 300f748e64ba4f3406b8608820a994e8
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -38,7 +38,6 @@ generatedFiles:
   - docs/models/operations/color.md
   - docs/models/operations/country.md
   - docs/models/operations/createcustomerdiscount.md
-  - docs/models/operations/createcustomerinterval.md
   - docs/models/operations/createcustomerlink.md
   - docs/models/operations/createcustomerpartner.md
   - docs/models/operations/createcustomerrequestbody.md
@@ -84,13 +83,11 @@ generatedFiles:
   - docs/models/operations/discount.md
   - docs/models/operations/event.md
   - docs/models/operations/getcustomerdiscount.md
-  - docs/models/operations/getcustomerinterval.md
   - docs/models/operations/getcustomerlink.md
   - docs/models/operations/getcustomerpartner.md
   - docs/models/operations/getcustomerrequest.md
   - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
-  - docs/models/operations/getcustomersinterval.md
   - docs/models/operations/getcustomerspartner.md
   - docs/models/operations/getcustomersrequest.md
   - docs/models/operations/getcustomersresponse.md
@@ -156,7 +153,6 @@ generatedFiles:
   - docs/models/operations/trigger.md
   - docs/models/operations/type.md
   - docs/models/operations/updatecustomerdiscount.md
-  - docs/models/operations/updatecustomerinterval.md
   - docs/models/operations/updatecustomerlink.md
   - docs/models/operations/updatecustomerpartner.md
   - docs/models/operations/updatecustomerrequest.md
@@ -281,7 +277,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/color.rb
   - lib/open_api_sdk/models/operations/country.rb
   - lib/open_api_sdk/models/operations/createcustomer_discount.rb
-  - lib/open_api_sdk/models/operations/createcustomer_interval.rb
   - lib/open_api_sdk/models/operations/createcustomer_link.rb
   - lib/open_api_sdk/models/operations/createcustomer_partner.rb
   - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
@@ -327,14 +322,12 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/discount.rb
   - lib/open_api_sdk/models/operations/event.rb
   - lib/open_api_sdk/models/operations/getcustomer_discount.rb
-  - lib/open_api_sdk/models/operations/getcustomer_interval.rb
   - lib/open_api_sdk/models/operations/getcustomer_link.rb
   - lib/open_api_sdk/models/operations/getcustomer_partner.rb
   - lib/open_api_sdk/models/operations/getcustomer_request.rb
   - lib/open_api_sdk/models/operations/getcustomer_response.rb
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
   - lib/open_api_sdk/models/operations/getcustomer_type.rb
-  - lib/open_api_sdk/models/operations/getcustomers_interval.rb
   - lib/open_api_sdk/models/operations/getcustomers_partner.rb
   - lib/open_api_sdk/models/operations/getcustomers_request.rb
   - lib/open_api_sdk/models/operations/getcustomers_response.rb
@@ -399,7 +392,6 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/trigger.rb
   - lib/open_api_sdk/models/operations/type.rb
   - lib/open_api_sdk/models/operations/updatecustomer_discount.rb
-  - lib/open_api_sdk/models/operations/updatecustomer_interval.rb
   - lib/open_api_sdk/models/operations/updatecustomer_link.rb
   - lib/open_api_sdk/models/operations/updatecustomer_partner.rb
   - lib/open_api_sdk/models/operations/updatecustomer_request.rb
@@ -489,6 +481,7 @@ generatedFiles:
   - lib/open_api_sdk/sdkconfiguration.rb
   - lib/open_api_sdk/tags.rb
   - lib/open_api_sdk/track.rb
+  - lib/open_api_sdk/utils/retries.rb
   - lib/open_api_sdk/utils/utils.rb
   - lib/open_api_sdk/workspaces.rb
   - sorbet/config
@@ -501,6 +494,7 @@ generatedFiles:
   - sorbet/rbi/gems/erubi@1.12.0.rbi
   - sorbet/rbi/gems/faraday-multipart@1.0.4.rbi
   - sorbet/rbi/gems/faraday-net_http@3.0.2.rbi
+  - sorbet/rbi/gems/faraday-retry@2.2.1.rbi
   - sorbet/rbi/gems/faraday@2.7.11.rbi
   - sorbet/rbi/gems/json@2.6.3.rbi
   - sorbet/rbi/gems/language_server-protocol@3.17.0.3.rbi
@@ -1352,7 +1346,7 @@ examples:
         application/json: {"programId": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "username": "Aaliyah_Borer", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."]}}
       responses:
         "201":
-          application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "payoutsEnabled": true, "createdAt": "1730216871840", "status": "pending", "programId": "<id>", "tenantId": "<id>", "links": [{"id": "<id>", "domain": "probable-heating.com", "key": "<key>", "shortLink": "https://standard-utilization.com/", "url": "https://brisk-seafood.net/", "clicks": 5862.2, "leads": 7524.38, "sales": 9574.09, "saleAmount": 3570.21}], "clicks": 2596.29, "leads": 177.59, "sales": 2303.13, "saleAmount": 4865.89, "earnings": 5235.23}
+          application/json: {"id": "<id>", "name": "<value>", "email": "Loyal79@yahoo.com", "image": "https://loremflickr.com/1/679?lock=7139282333236917", "country": "Slovenia", "payoutsEnabledAt": "<value>", "createdAt": "1730216871840", "status": "pending", "programId": "<id>", "tenantId": "<id>", "links": [{"id": "<id>", "domain": "probable-heating.com", "key": "<key>", "shortLink": "https://standard-utilization.com/", "url": "https://brisk-seafood.net/", "clicks": 5862.2, "leads": 7524.38, "sales": 9574.09, "saleAmount": 3570.21}], "clicks": 2596.29, "leads": 177.59, "sales": 2303.13, "saleAmount": 4865.89, "earnings": 5235.23}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
