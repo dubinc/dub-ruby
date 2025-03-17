@@ -11,8 +11,12 @@ module OpenApiSDK
     class DomainSchema < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # apple-app-site-association configuration file (for deep link support on iOS).
+      field :apple_app_site_association, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
       # Whether the domain is archived.
       field :archived, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
+      # assetLinks.json configuration file (for deep link support on Android).
+      field :asset_links, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
       # The date the domain was created.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
       # The URL to redirect to when a link under this domain has expired.
@@ -37,9 +41,11 @@ module OpenApiSDK
       field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
 
 
-      sig { params(archived: T::Boolean, created_at: ::String, expired_url: ::String, id: ::String, logo: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
-      def initialize(archived: nil, created_at: nil, expired_url: nil, id: nil, logo: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
+      sig { params(apple_app_site_association: ::String, archived: T::Boolean, asset_links: ::String, created_at: ::String, expired_url: ::String, id: ::String, logo: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
+      def initialize(apple_app_site_association: nil, archived: nil, asset_links: nil, created_at: nil, expired_url: nil, id: nil, logo: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
+        @apple_app_site_association = apple_app_site_association
         @archived = archived
+        @asset_links = asset_links
         @created_at = created_at
         @expired_url = expired_url
         @id = id
