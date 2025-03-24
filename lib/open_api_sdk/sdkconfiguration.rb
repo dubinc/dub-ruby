@@ -7,6 +7,7 @@ require 'faraday'
 require 'faraday/multipart'
 require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
 module OpenApiSDK
@@ -21,7 +22,9 @@ module OpenApiSDK
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
+    field :hooks, ::OpenApiSDK::SDKHooks::Hooks
     field :retry_config, T.nilable(::OpenApiSDK::Utils::RetryConfig)
+    field :timeout, T.nilable(Float)
     field :security_source, T.nilable(T.proc.returns(T.nilable(::OpenApiSDK::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
@@ -34,17 +37,21 @@ module OpenApiSDK
     sig do
       params(
         client: T.nilable(Faraday::Connection),
+        hooks: ::OpenApiSDK::SDKHooks::Hooks,
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
+        timeout_ms: T.nilable(Integer),
         security: T.nilable(::OpenApiSDK::Shared::Security),
         security_source: T.nilable(T.proc.returns(::OpenApiSDK::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
     end
-    def initialize(client, retry_config, security, security_source, server_url, server_idx)
+    def initialize(client, hooks, retry_config, timeout_ms, security, security_source, server_url, server_idx)
       @client = client
+      @hooks = hooks
       @retry_config = retry_config
       @server_url = server_url
+      @timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       if !security_source.nil?
@@ -54,9 +61,9 @@ module OpenApiSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.2.2-alpha.78'
-      @gen_version = '2.548.6'
-      @user_agent = 'speakeasy-sdk/ruby 0.2.2-alpha.78 2.548.6 0.0.1 dub'
+      @sdk_version = '0.2.2-alpha.79'
+      @gen_version = '2.559.0'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.2-alpha.79 2.559.0 0.0.1 dub'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

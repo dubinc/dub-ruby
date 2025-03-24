@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: f9c868fde86e1bf634ba88e63a1565a6
+  docChecksum: 7639ed3d06740603fe32ff293f224f3d
   docVersion: 0.0.1
-  speakeasyVersion: 1.517.3
-  generationVersion: 2.548.6
-  releaseVersion: 0.2.2-alpha.78
-  configChecksum: 7a1c584a315fd45706bcba4555172581
+  speakeasyVersion: 1.523.0
+  generationVersion: 2.559.0
+  releaseVersion: 0.2.2-alpha.79
+  configChecksum: 759501016da0ef9cff8d0db84aaf72c9
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.5.4
+    core: 3.6.0
     deprecations: 2.81.2
     examples: 2.81.5
     flattening: 2.81.1
@@ -478,6 +478,8 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/workspaceschema.rb
   - lib/open_api_sdk/partners.rb
   - lib/open_api_sdk/qr_codes.rb
+  - lib/open_api_sdk/sdk_hooks/hooks.rb
+  - lib/open_api_sdk/sdk_hooks/types.rb
   - lib/open_api_sdk/sdkconfiguration.rb
   - lib/open_api_sdk/tags.rb
   - lib/open_api_sdk/track.rb

@@ -16,6 +16,7 @@ module OpenApiSDK
         REFUNDED = new('refunded')
         DUPLICATE = new('duplicate')
         FRAUD = new('fraud')
+        CANCELED = new('canceled')
       end
     end
   end

@@ -16,6 +16,7 @@ module OpenApiSDK
         BUSINESS_PLUS = new('business plus')
         BUSINESS_EXTRA = new('business extra')
         BUSINESS_MAX = new('business max')
+        ADVANCED = new('advanced')
         ENTERPRISE = new('enterprise')
       end
     end
