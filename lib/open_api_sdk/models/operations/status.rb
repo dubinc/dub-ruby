@@ -10,11 +10,12 @@ module OpenApiSDK
 
     class Status < T::Enum
       enums do
-        INVITED = new('invited')
+        PENDING = new('pending')
         APPROVED = new('approved')
         REJECTED = new('rejected')
+        INVITED = new('invited')
         DECLINED = new('declined')
-        PENDING = new('pending')
+        BANNED = new('banned')
       end
     end
   end

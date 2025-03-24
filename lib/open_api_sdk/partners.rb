@@ -7,6 +7,7 @@ require 'faraday'
 require 'faraday/multipart'
 require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
 module OpenApiSDK
@@ -21,8 +22,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerRequestBody)).returns(::OpenApiSDK::Operations::CreatePartnerResponse) }
-    def create(request)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreatePartnerResponse) }
+    def create(request, timeout_ms = nil)
       # create - Create a new partner
       # Create a new partner for a program. If partner exists, automatically enrolls them.
       url, params = @sdk_configuration.get_server_details
@@ -31,21 +32,71 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(data)
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
-      r = connection.post(url) do |req|
-        req.headers = headers
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'createPartner',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.post(url) do |req|
+          req.body = body
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
         else
-          req.body = data
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
         end
       end
 
@@ -110,8 +161,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkRequestBody)).returns(::OpenApiSDK::Operations::CreatePartnerLinkResponse) }
-    def create_link(request)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreatePartnerLinkResponse) }
+    def create_link(request, timeout_ms = nil)
       # create_link - Create a link for a partner
       # Create a new link for a partner that is enrolled in your program.
       url, params = @sdk_configuration.get_server_details
@@ -120,21 +171,71 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(data)
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
-      r = connection.post(url) do |req|
-        req.headers = headers
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'createPartnerLink',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.post(url) do |req|
+          req.body = body
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
         else
-          req.body = data
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
         end
       end
 
@@ -199,8 +300,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody)).returns(::OpenApiSDK::Operations::UpsertPartnerLinkResponse) }
-    def upsert_link(request)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::UpsertPartnerLinkResponse) }
+    def upsert_link(request, timeout_ms = nil)
       # upsert_link - Upsert a link for a partner
       # Upsert a link for a partner that is enrolled in your program. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
       url, params = @sdk_configuration.get_server_details
@@ -209,21 +310,71 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(data)
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
-      r = connection.put(url) do |req|
-        req.headers = headers
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'upsertPartnerLink',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.put(url) do |req|
+          req.body = body
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
         else
-          req.body = data
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
         end
       end
 
@@ -288,8 +439,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest)).returns(::OpenApiSDK::Operations::RetrievePartnerAnalyticsResponse) }
-    def analytics(request)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::RetrievePartnerAnalyticsResponse) }
+    def analytics(request, timeout_ms = nil)
       # analytics - Retrieve analytics for a partner
       # Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
       url, params = @sdk_configuration.get_server_details
@@ -300,13 +451,61 @@ module OpenApiSDK
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
-      r = connection.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'retrievePartnerAnalytics',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.get(url) do |req|
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        else
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
@@ -370,8 +569,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdatePartnerSaleRequestBody)).returns(::OpenApiSDK::Operations::UpdatePartnerSaleResponse) }
-    def update_sale(request)
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::UpdatePartnerSaleRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::UpdatePartnerSaleResponse) }
+    def update_sale(request, timeout_ms = nil)
       # update_sale - Update a sale for a partner.
       # Update an existing sale amount. This is useful for handling refunds (partial or full) or fraudulent sales.
       url, params = @sdk_configuration.get_server_details
@@ -380,21 +579,71 @@ module OpenApiSDK
       headers = {}
       req_content_type, data, form = Utils.serialize_request_body(request, :request, :json)
       headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(data)
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client
 
-      r = connection.patch(url) do |req|
-        req.headers = headers
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'updatePartnerSale',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.patch(url) do |req|
+          req.body = body
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
         else
-          req.body = data
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
         end
       end
 
