@@ -11,12 +11,15 @@ module OpenApiSDK
     class Users < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # The ID of the default folder for the user in the workspace.
+      field :default_folder_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('defaultFolderId') } }
       # The role of the authenticated user in the workspace.
       field :role, ::OpenApiSDK::Shared::Role, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('role'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Role, false) } }
 
 
-      sig { params(role: ::OpenApiSDK::Shared::Role).void }
-      def initialize(role: nil)
+      sig { params(default_folder_id: ::String, role: ::OpenApiSDK::Shared::Role).void }
+      def initialize(default_folder_id: nil, role: nil)
+        @default_folder_id = default_folder_id
         @role = role
       end
     end
