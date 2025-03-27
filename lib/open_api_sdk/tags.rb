@@ -52,7 +52,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'createTag',
         security_source: @sdk_configuration.security_source
       )
@@ -182,7 +182,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getTags',
         security_source: @sdk_configuration.security_source
       )
@@ -326,7 +326,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'updateTag',
         security_source: @sdk_configuration.security_source
       )
@@ -460,7 +460,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'deleteTag',
         security_source: @sdk_configuration.security_source
       )
