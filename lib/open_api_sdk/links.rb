@@ -52,7 +52,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'createLink',
         security_source: @sdk_configuration.security_source
       )
@@ -182,7 +182,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getLinks',
         security_source: @sdk_configuration.security_source
       )
@@ -312,7 +312,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getLinksCount',
         security_source: @sdk_configuration.security_source
       )
@@ -442,7 +442,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getLinkInfo',
         security_source: @sdk_configuration.security_source
       )
@@ -586,7 +586,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'updateLink',
         security_source: @sdk_configuration.security_source
       )
@@ -720,7 +720,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'deleteLink',
         security_source: @sdk_configuration.security_source
       )
@@ -858,7 +858,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'bulkCreateLinks',
         security_source: @sdk_configuration.security_source
       )
@@ -997,7 +997,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'bulkUpdateLinks',
         security_source: @sdk_configuration.security_source
       )
@@ -1127,7 +1127,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'bulkDeleteLinks',
         security_source: @sdk_configuration.security_source
       )
@@ -1266,7 +1266,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'upsertLink',
         security_source: @sdk_configuration.security_source
       )

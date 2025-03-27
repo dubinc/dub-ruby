@@ -52,7 +52,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'trackLead',
         security_source: @sdk_configuration.security_source
       )
@@ -191,7 +191,7 @@ module OpenApiSDK
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'trackSale',
         security_source: @sdk_configuration.security_source
       )
