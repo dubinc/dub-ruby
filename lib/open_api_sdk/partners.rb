@@ -300,6 +300,136 @@ module OpenApiSDK
     end
 
 
+    sig { params(request: T.nilable(::OpenApiSDK::Operations::RetrieveLinksRequest), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::RetrieveLinksResponse) }
+    def retrieve_links(request, timeout_ms = nil)
+      # retrieve_links - Retrieve a partner's links.
+      # Retrieve a partner's links by their partner ID or tenant ID.
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/partners/links"
+      headers = {}
+      query_params = Utils.get_query_params(::OpenApiSDK::Operations::RetrieveLinksRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
+      connection = @sdk_configuration.client
+
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: nil,
+        operation_id: 'retrieveLinks',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.get(url) do |req|
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        else
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::OpenApiSDK::Operations::RetrieveLinksResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::OpenApiSDK::Operations::RetrieveLinksResponseBody])
+          res.response_bodies = out
+        end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::BadRequest)
+          res.bad_request = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Unauthorized)
+          res.unauthorized = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Forbidden)
+          res.forbidden = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::NotFound)
+          res.not_found = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::Conflict)
+          res.conflict = out
+        end
+      elsif r.status == 410
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InviteExpired)
+          res.invite_expired = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::UnprocessableEntity)
+          res.unprocessable_entity = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::RateLimitExceeded)
+          res.rate_limit_exceeded = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::OpenApiSDK::Shared::InternalServerError)
+          res.internal_server_error = out
+        end
+      end
+
+      res
+    end
+
+
     sig { params(request: T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::UpsertPartnerLinkResponse) }
     def upsert_link(request, timeout_ms = nil)
       # upsert_link - Upsert a link for a partner

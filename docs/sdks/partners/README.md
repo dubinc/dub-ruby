@@ -7,6 +7,7 @@
 
 * [create](#create) - Create a new partner
 * [create_link](#create_link) - Create a link for a partner
+* [retrieve_links](#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](#upsert_link) - Upsert a link for a partner
 * [analytics](#analytics) - Retrieve analytics for a partner
 * [update_sale](#update_sale) - Update a sale for a partner.
@@ -100,6 +101,45 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkResponse)](../../models/operations/createpartnerlinkresponse.md)**
+
+
+
+## retrieve_links
+
+Retrieve a partner's links by their partner ID or tenant ID.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
+
+req = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(
+  program_id: "<id>",
+)
+
+res = s.partners.retrieve_links(req)
+
+if ! res.response_bodies.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::OpenApiSDK::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::RetrieveLinksResponse)](../../models/operations/retrievelinksresponse.md)**
 
 
 

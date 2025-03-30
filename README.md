@@ -198,6 +198,7 @@ end
 
 * [create](docs/sdks/partners/README.md#create) - Create a new partner
 * [create_link](docs/sdks/partners/README.md#create_link) - Create a link for a partner
+* [retrieve_links](docs/sdks/partners/README.md#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](docs/sdks/partners/README.md#upsert_link) - Upsert a link for a partner
 * [analytics](docs/sdks/partners/README.md#analytics) - Retrieve analytics for a partner
 * [update_sale](docs/sdks/partners/README.md#update_sale) - Update a sale for a partner.
