@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 9db2f1f9a0f7dcfb020e939d2e1d1329
+  docChecksum: 12254a1ce8d2ea89fb717ed2af2fd5d1
   docVersion: 0.0.1
   speakeasyVersion: 1.526.0
   generationVersion: 2.563.0
-  releaseVersion: 0.2.2-alpha.82
-  configChecksum: 7b6fc0fef3b5fd82a7676815e58b2eeb
+  releaseVersion: 0.2.2-alpha.83
+  configChecksum: 17662678597a5ad91d0cf6093f0da3dc
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -135,6 +135,9 @@ generatedFiles:
   - docs/models/operations/responsebody.md
   - docs/models/operations/retrieveanalyticsrequest.md
   - docs/models/operations/retrieveanalyticsresponse.md
+  - docs/models/operations/retrievelinksrequest.md
+  - docs/models/operations/retrievelinksresponse.md
+  - docs/models/operations/retrievelinksresponsebody.md
   - docs/models/operations/retrievepartneranalyticsqueryparaminterval.md
   - docs/models/operations/retrievepartneranalyticsrequest.md
   - docs/models/operations/retrievepartneranalyticsresponse.md
@@ -374,6 +377,9 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/responsebody.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
   - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
+  - lib/open_api_sdk/models/operations/retrievelinks_request.rb
+  - lib/open_api_sdk/models/operations/retrievelinks_response.rb
+  - lib/open_api_sdk/models/operations/retrievelinks_responsebody.rb
   - lib/open_api_sdk/models/operations/retrievepartneranalytics_queryparam_interval.rb
   - lib/open_api_sdk/models/operations/retrievepartneranalytics_request.rb
   - lib/open_api_sdk/models/operations/retrievepartneranalytics_response.rb
@@ -1576,6 +1582,32 @@ examples:
       responses:
         "201":
           application/json: {"publicToken": "<value>", "expires": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  retrieveLinks:
+    speakeasy-default-retrieve-links:
+      parameters:
+        query:
+          programId: "<id>"
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "domain": "deafening-jury.net", "key": "<key>", "shortLink": "https://negligible-presume.net/", "url": "https://smart-fax.org", "clicks": 1061.35, "leads": 7996.85, "sales": 26.29, "saleAmount": 7191.27}, {"id": "<id>", "domain": "outgoing-ad.com", "key": "<key>", "shortLink": "https://everlasting-provision.biz/", "url": "https://short-term-making.net", "clicks": 2791.33, "leads": 822.61, "sales": 393.75, "saleAmount": 1045.5}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":

@@ -165,6 +165,12 @@ actions:
         - "lang": "ruby"
           "label": "retrievePartnerAnalytics"
           "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: \"America/New_York\",\n  program_id: \"<id>\",\n)\n\nres = s.partners.analytics(req)\n\nif ! res.one_of.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/links"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "retrieveLinks"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(\n  program_id: \"<id>\",\n)\n\nres = s.partners.retrieve_links(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["post"]
     update:
       "x-codeSamples":
