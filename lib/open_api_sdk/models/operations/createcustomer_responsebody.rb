@@ -32,9 +32,11 @@ module OpenApiSDK
 
       field :partner, T.nilable(::OpenApiSDK::Operations::CreateCustomerPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
 
+      field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
 
-      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::CreateCustomerDiscount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::CreateCustomerLink), partner: T.nilable(::OpenApiSDK::Operations::CreateCustomerPartner)).void }
-      def initialize(created_at: nil, external_id: nil, id: nil, name: nil, avatar: nil, country: nil, discount: nil, email: nil, link: nil, partner: nil)
+
+      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::CreateCustomerDiscount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::CreateCustomerLink), partner: T.nilable(::OpenApiSDK::Operations::CreateCustomerPartner), program_id: T.nilable(::String)).void }
+      def initialize(created_at: nil, external_id: nil, id: nil, name: nil, avatar: nil, country: nil, discount: nil, email: nil, link: nil, partner: nil, program_id: nil)
         @created_at = created_at
         @external_id = external_id
         @id = id
@@ -45,6 +47,7 @@ module OpenApiSDK
         @email = email
         @link = link
         @partner = partner
+        @program_id = program_id
       end
     end
   end

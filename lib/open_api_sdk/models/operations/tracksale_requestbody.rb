@@ -11,36 +11,31 @@ module OpenApiSDK
     class TrackSaleRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The amount of the sale. Should be passed in cents.
+      # The amount of the sale in cents.
       field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+      # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
+      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The payment processor via which the sale was made.
       field :payment_processor, ::OpenApiSDK::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::PaymentProcessor, false) } }
       # The currency of the sale. Accepts ISO 4217 currency codes.
       field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
-      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :customer_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerId') } }
-      # The name of the sale event. It can be used to track different types of event for example 'Purchase', 'Upgrade', 'Payment', etc.
+      # The name of the sale event.
       field :event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
-      # This is the unique identifier for the customer in the client's app. This is used to track the customer's journey.
-      field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
       # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event, which is the default behavior).
       field :lead_event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
-      # Additional metadata to be stored with the sale event.
+      # Additional metadata to be stored with the sale event. Max 10,000 characters.
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(amount: ::Integer, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), customer_id: T.nilable(::String), event_name: T.nilable(::String), external_id: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(amount: nil, payment_processor: nil, currency: nil, customer_id: nil, event_name: nil, external_id: nil, invoice_id: nil, lead_event_name: nil, metadata: nil)
+      sig { params(amount: ::Integer, external_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(amount: nil, external_id: nil, payment_processor: nil, currency: nil, event_name: nil, invoice_id: nil, lead_event_name: nil, metadata: nil)
         @amount = amount
+        @external_id = external_id
         @payment_processor = payment_processor
         @currency = currency
-        @customer_id = customer_id
         @event_name = event_name
-        @external_id = external_id
         @invoice_id = invoice_id
         @lead_event_name = lead_event_name
         @metadata = metadata

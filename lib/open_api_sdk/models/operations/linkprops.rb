@@ -49,6 +49,12 @@ module OpenApiSDK
       field :tag_names, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
       # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
       field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+      # The date and time when the tests were or will be completed.
+      field :test_completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
+      # The date and time when the tests started.
+      field :test_started_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
+      # An array of A/B test URLs and the percentage of traffic to send to each URL.
+      field :test_variants, T.nilable(T::Array[::OpenApiSDK::Operations::CreatePartnerTestVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
       # The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
@@ -65,8 +71,8 @@ module OpenApiSDK
       field :video, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
 
 
-      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), folder_id: T.nilable(::String), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), proxy: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), title: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String)).void }
-      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, image: nil, ios: nil, password: nil, prefix: nil, proxy: nil, ref: nil, rewrite: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, title: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil)
+      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), folder_id: T.nilable(::String), image: T.nilable(::String), ios: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), proxy: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), test_completed_at: T.nilable(::String), test_started_at: T.nilable(::String), test_variants: T.nilable(T::Array[::OpenApiSDK::Operations::CreatePartnerTestVariants]), title: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String)).void }
+      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, image: nil, ios: nil, password: nil, prefix: nil, proxy: nil, ref: nil, rewrite: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, test_variants: nil, title: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil)
         @android = android
         @archived = archived
         @comments = comments
@@ -86,6 +92,9 @@ module OpenApiSDK
         @tag_ids = tag_ids
         @tag_names = tag_names
         @tenant_id = tenant_id
+        @test_completed_at = test_completed_at
+        @test_started_at = test_started_at
+        @test_variants = test_variants
         @title = title
         @utm_campaign = utm_campaign
         @utm_content = utm_content

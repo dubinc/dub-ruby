@@ -19,6 +19,8 @@ module OpenApiSDK
       field :continent, T.nilable(::OpenApiSDK::Shared::ContinentCode), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
       # The country to retrieve analytics for.
       field :country, T.nilable(::OpenApiSDK::Shared::CountryCode), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
+      # The ID of the customer to retrieve analytics for.
+      field :customer_id, T.nilable(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
       # The device to retrieve analytics for.
       field :device, T.nilable(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
       # The domain to filter analytics for.
@@ -81,12 +83,13 @@ module OpenApiSDK
       field :utm_term, T.nilable(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), folder_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, folder_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, partner_id: nil, program_id: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), customer_id: T.nilable(::String), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::Event), external_id: T.nilable(::String), folder_id: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::GroupBy), interval: T.nilable(::OpenApiSDK::Operations::Interval), key: T.nilable(::String), link_id: T.nilable(::String), os: T.nilable(::String), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::Trigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, customer_id: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, folder_id: nil, group_by: nil, interval: nil, key: nil, link_id: nil, os: nil, partner_id: nil, program_id: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
         @browser = browser
         @city = city
         @continent = continent
         @country = country
+        @customer_id = customer_id
         @device = device
         @domain = domain
         @end_ = end_

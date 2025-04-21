@@ -36,6 +36,16 @@ req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
     tag_ids: [
       "clux0rgak00011...",
     ],
+    test_variants: [
+      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(
+        url: "https://example.com/variant-1",
+        percentage: 50.0,
+      ),
+      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(
+        url: "https://example.com/variant-2",
+        percentage: 50.0,
+      ),
+    ],
   ),
 )
 
@@ -80,6 +90,16 @@ req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
     external_id: "123456",
     tag_ids: [
       "clux0rgak00011...",
+    ],
+    test_variants: [
+      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(
+        url: "https://example.com/variant-1",
+        percentage: 50.0,
+      ),
+      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(
+        url: "https://example.com/variant-2",
+        percentage: 50.0,
+      ),
     ],
   ),
 )
@@ -164,6 +184,16 @@ req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
     external_id: "123456",
     tag_ids: [
       "clux0rgak00011...",
+    ],
+    test_variants: [
+      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(
+        url: "https://example.com/variant-1",
+        percentage: 50.0,
+      ),
+      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(
+        url: "https://example.com/variant-2",
+        percentage: 50.0,
+      ),
     ],
   ),
 )
