@@ -10,8 +10,9 @@ module OpenApiSDK
 
     class Type < T::Enum
       enums do
-        PERCENTAGE = new('percentage')
-        FLAT = new('flat')
+        CLICK = new('click')
+        LEAD = new('lead')
+        SALE = new('sale')
       end
     end
   end

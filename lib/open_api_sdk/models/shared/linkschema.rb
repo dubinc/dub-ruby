@@ -21,7 +21,7 @@ module OpenApiSDK
       field :comments, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
       # The date and time when the short link was created.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # The description of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The description of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Whether to allow search engines to index the short link.
       field :do_index, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
@@ -39,7 +39,7 @@ module OpenApiSDK
       field :geo, ::OpenApiSDK::Shared::Geo, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
       # The unique ID of the short link.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The image of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The image of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
       field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
       # The iOS destination URL for the short link for iOS device targeting.
       field :ios, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
@@ -81,7 +81,7 @@ module OpenApiSDK
       field :tags, T::Array[::OpenApiSDK::Shared::TagSchema], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
       field :tenant_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-      # The title of the short link generated via `api.dub.co/metatags`. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The title of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
       field :title, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # Whether to track conversions for the short link.
       field :track_conversion, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
@@ -107,10 +107,16 @@ module OpenApiSDK
       field :webhook_ids, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
       # The workspace ID of the short link.
       field :workspace_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workspaceId') } }
+      # The date and time when the tests were or will be completed.
+      field :test_completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
+      # The date and time when the tests started.
+      field :test_started_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
+      # An array of A/B test URLs and the percentage of traffic to send to each URL.
+      field :test_variants, T.nilable(T::Array[::OpenApiSDK::Shared::TestVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
 
 
-      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, folder_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, partner_id: ::String, password: ::String, program_id: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], tenant_id: ::String, title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String).void }
-      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, partner_id: nil, password: nil, program_id: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, tenant_id: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil)
+      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, folder_id: ::String, geo: ::OpenApiSDK::Shared::Geo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, partner_id: ::String, password: ::String, program_id: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], tenant_id: ::String, title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String, test_completed_at: T.nilable(::String), test_started_at: T.nilable(::String), test_variants: T.nilable(T::Array[::OpenApiSDK::Shared::TestVariants])).void }
+      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, partner_id: nil, password: nil, program_id: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, tenant_id: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil, test_completed_at: nil, test_started_at: nil, test_variants: nil)
         @android = android
         @archived = archived
         @clicks = clicks
@@ -157,6 +163,9 @@ module OpenApiSDK
         @video = video
         @webhook_ids = webhook_ids
         @workspace_id = workspace_id
+        @test_completed_at = test_completed_at
+        @test_started_at = test_started_at
+        @test_variants = test_variants
       end
     end
   end

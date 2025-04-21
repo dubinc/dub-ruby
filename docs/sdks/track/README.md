@@ -26,6 +26,7 @@ s = ::OpenApiSDK::Dub.new(
 req = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(
   click_id: "<id>",
   event_name: "Sign up",
+  external_id: "<id>",
 )
 
 res = s.track.lead(req)
@@ -64,9 +65,10 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
+  external_id: "<id>",
   amount: 996_500,
   payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,
-  event_name: "Purchase",
+  event_name: "Payment",
   lead_event_name: "Cloned template 1481267",
 )
 

@@ -37,6 +37,16 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   tag_ids: [
     "clux0rgak00011...",
   ],
+  test_variants: [
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
+  ],
 )
 
 res = s.links.create(req)
@@ -197,6 +207,16 @@ res = s.links.update(link_id="<id>", request_body=::OpenApiSDK::Operations::Upda
   tag_ids: [
     "clux0rgak00011...",
   ],
+  test_variants: [
+    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
+  ],
 ))
 
 if ! res.link_schema.nil?
@@ -275,6 +295,16 @@ req = [
     tag_ids: [
       "clux0rgak00011...",
     ],
+    test_variants: [
+      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(
+        url: "https://example.com/variant-1",
+        percentage: 50.0,
+      ),
+      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(
+        url: "https://example.com/variant-2",
+        percentage: 50.0,
+      ),
+    ],
   ),
 ]
 
@@ -318,6 +348,16 @@ req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
     url: "https://google.com",
     tag_ids: [
       "clux0rgak00011...",
+    ],
+    test_variants: [
+      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(
+        url: "https://example.com/variant-1",
+        percentage: 50.0,
+      ),
+      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(
+        url: "https://example.com/variant-2",
+        percentage: 50.0,
+      ),
     ],
   ),
 )
@@ -404,6 +444,16 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   external_id: "123456",
   tag_ids: [
     "clux0rgak00011...",
+  ],
+  test_variants: [
+    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
   ],
 )
 

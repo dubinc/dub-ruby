@@ -32,6 +32,16 @@ req = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(
       tag_ids: [
         "clux0rgak00011...",
       ],
+      test_variants: [
+        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(
+          url: "https://example.com/variant-1",
+          percentage: 50.0,
+        ),
+        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(
+          url: "https://example.com/variant-2",
+          percentage: 50.0,
+        ),
+      ],
     ),
   ),
 )

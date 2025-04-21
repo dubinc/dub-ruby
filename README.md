@@ -24,6 +24,7 @@ Dub.co API: Dub is link management infrastructure for companies to create market
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
 * [Development](#development)
   * [Contributions](#contributions)
@@ -60,6 +61,16 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   tag_ids: [
     "clux0rgak00011...",
   ],
+  test_variants: [
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
+  ],
 )
 
 res = s.links.create(req)
@@ -86,6 +97,16 @@ req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
   external_id: "123456",
   tag_ids: [
     "clux0rgak00011...",
+  ],
+  test_variants: [
+    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
   ],
 )
 
@@ -124,6 +145,16 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   external_id: "123456",
   tag_ids: [
     "clux0rgak00011...",
+  ],
+  test_variants: [
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
   ],
 )
 
@@ -190,10 +221,6 @@ end
 * [delete_many](docs/sdks/links/README.md#delete_many) - Bulk delete links
 * [upsert](docs/sdks/links/README.md#upsert) - Upsert a link
 
-### [metatags](docs/sdks/metatags/README.md)
-
-* [get](docs/sdks/metatags/README.md#get) - Retrieve the metatags for a URL
-
 ### [partners](docs/sdks/partners/README.md)
 
 * [create](docs/sdks/partners/README.md#create) - Create a new partner
@@ -227,6 +254,105 @@ end
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error.
+
+By default an API error will raise a `Errors::APIError`, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `message`     | *string*                                 | The error message     |
+| `status_code`  | *int*                                   | The HTTP status code  |
+| `raw_response` | *Faraday::Response*                     | The raw HTTP response |
+| `body`        | *string*                                 | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `create` method throws the following exceptions:
+
+| Error Type                          | Status Code | Content Type     |
+| ----------------------------------- | ----------- | ---------------- |
+| Models::Errors::BadRequest          | 400         | application/json |
+| Models::Errors::Unauthorized        | 401         | application/json |
+| Models::Errors::Forbidden           | 403         | application/json |
+| Models::Errors::NotFound            | 404         | application/json |
+| Models::Errors::Conflict            | 409         | application/json |
+| Models::Errors::InviteExpired       | 410         | application/json |
+| Models::Errors::UnprocessableEntity | 422         | application/json |
+| Models::Errors::RateLimitExceeded   | 429         | application/json |
+| Models::Errors::InternalServerError | 500         | application/json |
+| Errors::APIError                    | 4XX, 5XX    | \*/\*            |
+
+### Example
+
+```ruby
+require 'dub'
+
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
+
+begin
+    req = Models::Operations::CreateLinkRequestBody.new(
+      url: "https://google.com",
+      external_id: "123456",
+      tag_ids: [
+        "clux0rgak00011...",
+      ],
+      test_variants: [
+        Models::Operations::TestVariants.new(
+          url: "https://example.com/variant-1",
+          percentage: 50.0,
+        ),
+        Models::Operations::TestVariants.new(
+          url: "https://example.com/variant-2",
+          percentage: 50.0,
+        ),
+      ],
+    )
+
+    res = s.links.create(req)
+
+    if ! res.link_schema.nil?
+      # handle response
+    end
+rescue Models::Errors::BadRequest => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::Unauthorized => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::Forbidden => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::NotFound => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::Conflict => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::InviteExpired => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::UnprocessableEntity => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::RateLimitExceeded => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::InternalServerError => e
+  # handle $e->$container data
+  throw $e;
+rescue Errors::APIError => e
+  # handle default exception
+  raise e
+end
+
+```
+<!-- End Error Handling [errors] -->
+
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
@@ -248,6 +374,16 @@ req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
   external_id: "123456",
   tag_ids: [
     "clux0rgak00011...",
+  ],
+  test_variants: [
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-1",
+      percentage: 50.0,
+    ),
+    ::OpenApiSDK::Operations::TestVariants.new(
+      url: "https://example.com/variant-2",
+      percentage: 50.0,
+    ),
   ],
 )
 
