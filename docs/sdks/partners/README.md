@@ -145,7 +145,7 @@ req = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(
 
 res = s.partners.retrieve_links(req)
 
-if ! res.response_bodies.nil?
+if ! res.links.nil?
   # handle response
 end
 

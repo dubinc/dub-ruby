@@ -27,20 +27,20 @@ module OpenApiSDK
       field :internal_server_error, T.nilable(::OpenApiSDK::Shared::InternalServerError)
       # This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
       field :invite_expired, T.nilable(::OpenApiSDK::Shared::InviteExpired)
+      # The retrieved partner links.
+      field :links, T.nilable(T::Array[::OpenApiSDK::Operations::Link])
       # The server cannot find the requested resource.
       field :not_found, T.nilable(::OpenApiSDK::Shared::NotFound)
       # The user has sent too many requests in a given amount of time ("rate limiting")
       field :rate_limit_exceeded, T.nilable(::OpenApiSDK::Shared::RateLimitExceeded)
-      # The retrieved partner links.
-      field :response_bodies, T.nilable(T::Array[::OpenApiSDK::Operations::RetrieveLinksResponseBody])
       # Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
       field :unauthorized, T.nilable(::OpenApiSDK::Shared::Unauthorized)
       # The request was well-formed but was unable to be followed due to semantic errors.
       field :unprocessable_entity, T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), response_bodies: T.nilable(T::Array[::OpenApiSDK::Operations::RetrieveLinksResponseBody]), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, bad_request: nil, conflict: nil, forbidden: nil, internal_server_error: nil, invite_expired: nil, not_found: nil, rate_limit_exceeded: nil, response_bodies: nil, unauthorized: nil, unprocessable_entity: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), links: T.nilable(T::Array[::OpenApiSDK::Operations::Link]), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, bad_request: nil, conflict: nil, forbidden: nil, internal_server_error: nil, invite_expired: nil, links: nil, not_found: nil, rate_limit_exceeded: nil, unauthorized: nil, unprocessable_entity: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
@@ -49,9 +49,9 @@ module OpenApiSDK
         @forbidden = forbidden
         @internal_server_error = internal_server_error
         @invite_expired = invite_expired
+        @links = links
         @not_found = not_found
         @rate_limit_exceeded = rate_limit_exceeded
-        @response_bodies = response_bodies
         @unauthorized = unauthorized
         @unprocessable_entity = unprocessable_entity
       end

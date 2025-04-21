@@ -13,6 +13,8 @@ module OpenApiSDK
 
       # The Android destination URL for the short link for Android device targeting.
       field :android, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
+
+      field :archived, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
       # The number of clicks on the short link.
       field :clicks, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
       # The comments for the short link.
@@ -21,6 +23,8 @@ module OpenApiSDK
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
       # The description of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+
+      field :do_index, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
       # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
       field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
 
@@ -55,8 +59,14 @@ module OpenApiSDK
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :project_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('projectId') } }
+
+      field :proxy, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
+
+      field :public_stats, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
       # The full URL of the QR code for the short link (e.g. `https://api.dub.co/qr?url=https://dub.sh/try`).
       field :qr_code, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qrCode') } }
+
+      field :rewrite, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
       # The total dollar amount of sales the short links has generated (in cents).
       field :sale_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
       # The number of sales the short links has generated.
@@ -77,6 +87,8 @@ module OpenApiSDK
       field :test_started_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
       # The title of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
       field :title, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
+
+      field :track_conversion, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
 
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
 
@@ -99,29 +111,19 @@ module OpenApiSDK
       field :webhook_ids, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
       # The workspace ID of the short link.
       field :workspace_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workspaceId') } }
-
-      field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
-
-      field :do_index, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
-
-      field :proxy, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
-
-      field :public_stats, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
-
-      field :rewrite, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
       # An array of A/B test URLs and the percentage of traffic to send to each URL.
       field :test_variants, T.nilable(T::Array[::OpenApiSDK::Shared::ClickEventTestVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
 
-      field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
 
-
-      sig { params(android: ::String, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, folder_id: ::String, geo: ::OpenApiSDK::Shared::ClickEventGeo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, partner_id: ::String, password: ::String, program_id: ::String, project_id: ::String, qr_code: ::String, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], tenant_id: ::String, test_completed_at: ::String, test_started_at: ::String, title: ::String, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String, archived: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), test_variants: T.nilable(T::Array[::OpenApiSDK::Shared::ClickEventTestVariants]), track_conversion: T.nilable(T::Boolean)).void }
-      def initialize(android: nil, clicks: nil, comments: nil, created_at: nil, description: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, partner_id: nil, password: nil, program_id: nil, project_id: nil, qr_code: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, title: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil, archived: nil, do_index: nil, proxy: nil, public_stats: nil, rewrite: nil, test_variants: nil, track_conversion: nil)
+      sig { params(android: ::String, archived: T::Boolean, clicks: ::Float, comments: ::String, created_at: ::String, description: ::String, do_index: T::Boolean, domain: ::String, expired_url: ::String, expires_at: ::String, external_id: ::String, folder_id: ::String, geo: ::OpenApiSDK::Shared::ClickEventGeo, id: ::String, image: ::String, ios: ::String, key: ::String, last_clicked: ::String, leads: ::Float, partner_id: ::String, password: ::String, program_id: ::String, project_id: ::String, proxy: T::Boolean, public_stats: T::Boolean, qr_code: ::String, rewrite: T::Boolean, sale_amount: ::Float, sales: ::Float, short_link: ::String, tag_id: ::String, tags: T::Array[::OpenApiSDK::Shared::TagSchema], tenant_id: ::String, test_completed_at: ::String, test_started_at: ::String, title: ::String, track_conversion: T::Boolean, updated_at: ::String, url: ::String, user_id: ::String, utm_campaign: ::String, utm_content: ::String, utm_medium: ::String, utm_source: ::String, utm_term: ::String, video: ::String, webhook_ids: T::Array[::String], workspace_id: ::String, test_variants: T.nilable(T::Array[::OpenApiSDK::Shared::ClickEventTestVariants])).void }
+      def initialize(android: nil, archived: nil, clicks: nil, comments: nil, created_at: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, id: nil, image: nil, ios: nil, key: nil, last_clicked: nil, leads: nil, partner_id: nil, password: nil, program_id: nil, project_id: nil, proxy: nil, public_stats: nil, qr_code: nil, rewrite: nil, sale_amount: nil, sales: nil, short_link: nil, tag_id: nil, tags: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, title: nil, track_conversion: nil, updated_at: nil, url: nil, user_id: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil, workspace_id: nil, test_variants: nil)
         @android = android
+        @archived = archived
         @clicks = clicks
         @comments = comments
         @created_at = created_at
         @description = description
+        @do_index = do_index
         @domain = domain
         @expired_url = expired_url
         @expires_at = expires_at
@@ -138,7 +140,10 @@ module OpenApiSDK
         @password = password
         @program_id = program_id
         @project_id = project_id
+        @proxy = proxy
+        @public_stats = public_stats
         @qr_code = qr_code
+        @rewrite = rewrite
         @sale_amount = sale_amount
         @sales = sales
         @short_link = short_link
@@ -148,6 +153,7 @@ module OpenApiSDK
         @test_completed_at = test_completed_at
         @test_started_at = test_started_at
         @title = title
+        @track_conversion = track_conversion
         @updated_at = updated_at
         @url = url
         @user_id = user_id
@@ -159,13 +165,7 @@ module OpenApiSDK
         @video = video
         @webhook_ids = webhook_ids
         @workspace_id = workspace_id
-        @archived = archived
-        @do_index = do_index
-        @proxy = proxy
-        @public_stats = public_stats
-        @rewrite = rewrite
         @test_variants = test_variants
-        @track_conversion = track_conversion
       end
     end
   end

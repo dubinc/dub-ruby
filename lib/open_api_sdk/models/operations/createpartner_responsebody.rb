@@ -28,7 +28,7 @@ module OpenApiSDK
 
       field :leads, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leads') } }
 
-      field :links, T::Array[::OpenApiSDK::Operations::Links], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('links') } }
+      field :links, T::Array[::OpenApiSDK::Operations::CreatePartnerLink], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('links') } }
 
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
@@ -49,7 +49,7 @@ module OpenApiSDK
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
 
-      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::Links], name: ::String, payouts_enabled_at: ::String, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, application_id: T.nilable(::String), description: T.nilable(::String)).void }
+      sig { params(clicks: ::Float, country: ::String, created_at: ::String, earnings: ::Float, email: ::String, id: ::String, image: ::String, leads: ::Float, links: T::Array[::OpenApiSDK::Operations::CreatePartnerLink], name: ::String, payouts_enabled_at: ::String, program_id: ::String, sale_amount: ::Float, sales: ::Float, status: ::OpenApiSDK::Operations::Status, tenant_id: ::String, application_id: T.nilable(::String), description: T.nilable(::String)).void }
       def initialize(clicks: nil, country: nil, created_at: nil, earnings: nil, email: nil, id: nil, image: nil, leads: nil, links: nil, name: nil, payouts_enabled_at: nil, program_id: nil, sale_amount: nil, sales: nil, status: nil, tenant_id: nil, application_id: nil, description: nil)
         @clicks = clicks
         @country = country

@@ -164,7 +164,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(\n  program_id: \"<id>\",\n)\n\nres = s.partners.retrieve_links(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(\n  program_id: \"<id>\",\n)\n\nres = s.partners.retrieve_links(req)\n\nif ! res.links.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["post"]
     update:
       "x-codeSamples":
@@ -230,7 +230,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "trackSale"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  external_id: \"<id>\",\n  amount: 996_500,\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,\n  event_name: \"Payment\",\n  lead_event_name: \"Cloned template 1481267\",\n)\n\nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  external_id: \"<id>\",\n  amount: 996_500,\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,\n  event_name: \"Invoice paid\",\n  lead_event_name: \"Cloned template 1481267\",\n)\n\nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
     update:
       "x-codeSamples":
