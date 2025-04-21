@@ -28,6 +28,8 @@ module OpenApiSDK
 
       field :os, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('os') } }
 
+      field :qr, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
+
       field :referer, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referer') } }
 
       field :referer_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('refererUrl') } }
@@ -38,11 +40,9 @@ module OpenApiSDK
 
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
-      field :qr, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
 
-
-      sig { params(browser: ::String, city: ::String, continent: ::String, country: ::String, device: ::String, id: ::String, ip: ::String, os: ::String, referer: ::String, referer_url: ::String, region: ::String, timestamp: ::String, url: ::String, qr: T.nilable(T::Boolean)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, id: nil, ip: nil, os: nil, referer: nil, referer_url: nil, region: nil, timestamp: nil, url: nil, qr: nil)
+      sig { params(browser: ::String, city: ::String, continent: ::String, country: ::String, device: ::String, id: ::String, ip: ::String, os: ::String, qr: T::Boolean, referer: ::String, referer_url: ::String, region: ::String, timestamp: ::String, url: ::String).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, device: nil, id: nil, ip: nil, os: nil, qr: nil, referer: nil, referer_url: nil, region: nil, timestamp: nil, url: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -51,12 +51,12 @@ module OpenApiSDK
         @id = id
         @ip = ip
         @os = os
+        @qr = qr
         @referer = referer
         @referer_url = referer_url
         @region = region
         @timestamp = timestamp
         @url = url
-        @qr = qr
       end
     end
   end

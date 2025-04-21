@@ -65,16 +65,16 @@ module OpenApiSDK
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :qr, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr') } }
+
+      field :timestamp, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp') } }
       # Deprecated. Use `click.url` instead.
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
-      field :timestamp, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp') } }
 
-
-      sig { params(browser: ::String, city: ::String, click: ::OpenApiSDK::Shared::Click, click_id: ::String, continent: ::String, country: ::String, device: ::String, domain: ::String, event: ::OpenApiSDK::Shared::Event, ip: ::String, key: ::String, link: ::OpenApiSDK::Shared::Link, link_id: ::String, os: ::String, qr: ::Float, url: ::String, timestamp: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, click: nil, click_id: nil, continent: nil, country: nil, device: nil, domain: nil, event: nil, ip: nil, key: nil, link: nil, link_id: nil, os: nil, qr: nil, url: nil, timestamp: nil)
+      sig { params(browser: ::String, city: ::String, click: ::OpenApiSDK::Shared::Click, click_id: ::String, continent: ::String, country: ::String, device: ::String, domain: ::String, event: ::OpenApiSDK::Shared::Event, ip: ::String, key: ::String, link: ::OpenApiSDK::Shared::Link, link_id: ::String, os: ::String, qr: ::Float, timestamp: ::String, url: ::String).void }
+      def initialize(browser: nil, city: nil, click: nil, click_id: nil, continent: nil, country: nil, device: nil, domain: nil, event: nil, ip: nil, key: nil, link: nil, link_id: nil, os: nil, qr: nil, timestamp: nil, url: nil)
         @browser = browser
         @city = city
         @click = click
@@ -90,8 +90,8 @@ module OpenApiSDK
         @link_id = link_id
         @os = os
         @qr = qr
-        @url = url
         @timestamp = timestamp
+        @url = url
       end
     end
   end
