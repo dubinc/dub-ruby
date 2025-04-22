@@ -13,7 +13,7 @@ module OpenApiSDK
 
       # The ID of the program to retrieve analytics for.
       field :program_id, ::String, { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
-      # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. Takes precedence over `interval`.
+      # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
       field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
       # The parameter to group the analytics data points by. Defaults to `count` if undefined.
       field :group_by, T.nilable(::OpenApiSDK::Operations::QueryParamGroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
@@ -21,7 +21,7 @@ module OpenApiSDK
       field :interval, T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
       # The ID of the partner to retrieve analytics for.
       field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-      # The start date and time when to retrieve analytics from. Takes precedence over `interval`.
+      # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
       # The ID of the tenant that created the link inside your system.
       field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
