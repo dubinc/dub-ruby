@@ -11,11 +11,12 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.2.2-alpha.89
+  version: 0.2.2-alpha.91
   additionalDependencies:
     development: {}
     runtime: {}
