@@ -11,19 +11,28 @@ module OpenApiSDK
     class GetCustomersRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # A case-sensitive filter on the list based on the customer's `email` field. The value must be a string.
+      # A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.
       field :email, T.nilable(::String), { 'query_param': { 'field_name': 'email', 'style': 'form', 'explode': true } }
-      # A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string.
+      # A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
       # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
       field :include_expanded_fields, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
+      # The page number for pagination.
+      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+      # The number of items per page.
+      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
+      # A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.
+      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
 
 
-      sig { params(email: T.nilable(::String), external_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean)).void }
-      def initialize(email: nil, external_id: nil, include_expanded_fields: nil)
+      sig { params(email: T.nilable(::String), external_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String)).void }
+      def initialize(email: nil, external_id: nil, include_expanded_fields: nil, page: nil, page_size: nil, search: nil)
         @email = email
         @external_id = external_id
         @include_expanded_fields = include_expanded_fields
+        @page = page
+        @page_size = page_size
+        @search = search
       end
     end
   end

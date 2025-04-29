@@ -26,7 +26,10 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = ::OpenApiSDK::Operations::GetCustomersRequest.new()
+req = ::OpenApiSDK::Operations::GetCustomersRequest.new(
+  page: 1.0,
+  page_size: 50.0,
+)
 
 res = s.customers.list(req)
 
