@@ -17,13 +17,13 @@ module OpenApiSDK
       field :bg_color, T.nilable(::String), { 'query_param': { 'field_name': 'bgColor', 'style': 'form', 'explode': true } }
       # The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.
       field :fg_color, T.nilable(::String), { 'query_param': { 'field_name': 'fgColor', 'style': 'form', 'explode': true } }
-      # Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.co.
+      # Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.
       field :hide_logo, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'hideLogo', 'style': 'form', 'explode': true } }
       # DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.
       field :include_margin, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeMargin', 'style': 'form', 'explode': true } }
       # The level of error correction to use for the QR code. Defaults to `L` if not provided.
       field :level, T.nilable(::OpenApiSDK::Operations::Level), { 'query_param': { 'field_name': 'level', 'style': 'form', 'explode': true } }
-      # The logo to include in the QR code. Can only be used with a paid plan on Dub.co.
+      # The logo to include in the QR code. Can only be used with a paid plan on Dub.
       field :logo, T.nilable(::String), { 'query_param': { 'field_name': 'logo', 'style': 'form', 'explode': true } }
       # The size of the margin around the QR code. Defaults to 2 if not provided.
       field :margin, T.nilable(::Float), { 'query_param': { 'field_name': 'margin', 'style': 'form', 'explode': true } }
