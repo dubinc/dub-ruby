@@ -24,8 +24,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreatePartnerResponse) }
     def create(request, timeout_ms = nil)
-      # create - Create a new partner
-      # Create a new partner for a program. If partner exists, automatically enrolls them.
+      # create - Create a partner
+      # Create a partner for a program. If partner exists, automatically enrolls them.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners"
@@ -164,7 +164,7 @@ module OpenApiSDK
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreatePartnerLinkResponse) }
     def create_link(request, timeout_ms = nil)
       # create_link - Create a link for a partner
-      # Create a new link for a partner that is enrolled in your program.
+      # Create a link for a partner that is enrolled in your program.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/links"

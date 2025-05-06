@@ -33,7 +33,7 @@ module OpenApiSDK
       field :folder_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
       # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
       field :geo, T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
-      # The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
       # The iOS destination URL for the short link for iOS device targeting.
       field :ios, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }

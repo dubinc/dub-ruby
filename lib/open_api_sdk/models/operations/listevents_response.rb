@@ -17,10 +17,10 @@ module OpenApiSDK
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
+      # A list of events
+      field :anies, T.nilable(T::Array[::Object])
       # The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
       field :bad_request, T.nilable(::OpenApiSDK::Shared::BadRequest)
-      # A list of events
-      field :click_events, T.nilable(T::Array[::OpenApiSDK::Shared::ClickEvent])
       # This response is sent when a request conflicts with the current state of the server.
       field :conflict, T.nilable(::OpenApiSDK::Shared::Conflict)
       # The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
@@ -39,13 +39,13 @@ module OpenApiSDK
       field :unprocessable_entity, T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), click_events: T.nilable(T::Array[::OpenApiSDK::Shared::ClickEvent]), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, bad_request: nil, click_events: nil, conflict: nil, forbidden: nil, internal_server_error: nil, invite_expired: nil, not_found: nil, rate_limit_exceeded: nil, unauthorized: nil, unprocessable_entity: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, anies: T.nilable(T::Array[::Object]), bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, anies: nil, bad_request: nil, conflict: nil, forbidden: nil, internal_server_error: nil, invite_expired: nil, not_found: nil, rate_limit_exceeded: nil, unauthorized: nil, unprocessable_entity: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
+        @anies = anies
         @bad_request = bad_request
-        @click_events = click_events
         @conflict = conflict
         @forbidden = forbidden
         @internal_server_error = internal_server_error

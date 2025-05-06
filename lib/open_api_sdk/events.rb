@@ -98,8 +98,8 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::OpenApiSDK::Shared::ClickEvent])
-          res.click_events = out
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::Object])
+          res.anies = out
         end
       elsif r.status == 400
         if Utils.match_content_type(content_type, 'application/json')
