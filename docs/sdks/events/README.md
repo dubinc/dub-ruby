@@ -34,7 +34,7 @@ req = ::OpenApiSDK::Operations::ListEventsRequest.new(
 
 res = s.events.list(req)
 
-if ! res.click_events.nil?
+if ! res.anies.nil?
   # handle response
 end
 

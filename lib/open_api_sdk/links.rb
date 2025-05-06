@@ -24,8 +24,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreateLinkResponse) }
     def create(request, timeout_ms = nil)
-      # create - Create a new link
-      # Create a new link for the authenticated workspace.
+      # create - Create a link
+      # Create a link for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"

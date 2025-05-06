@@ -24,8 +24,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreateTagResponse) }
     def create(request, timeout_ms = nil)
-      # create - Create a new tag
-      # Create a new tag for the authenticated workspace.
+      # create - Create a tag
+      # Create a tag for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"

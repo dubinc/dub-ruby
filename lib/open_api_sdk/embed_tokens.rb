@@ -24,8 +24,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody), timeout_ms: T.nilable(Integer)).returns(::OpenApiSDK::Operations::CreateReferralsEmbedTokenResponse) }
     def referrals(request, timeout_ms = nil)
-      # referrals - Create a new referrals embed token
-      # Create a new referrals embed token for the given partner/tenant.
+      # referrals - Create a referrals embed token
+      # Create a referrals embed token for the given partner/tenant.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tokens/embed/referrals"
