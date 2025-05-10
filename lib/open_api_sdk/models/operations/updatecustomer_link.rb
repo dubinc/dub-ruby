@@ -21,15 +21,18 @@ module OpenApiSDK
       field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
       # The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
       field :short_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shortLink') } }
+      # The destination URL of the short link.
+      field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
 
-      sig { params(domain: ::String, id: ::String, key: ::String, program_id: ::String, short_link: ::String).void }
-      def initialize(domain: nil, id: nil, key: nil, program_id: nil, short_link: nil)
+      sig { params(domain: ::String, id: ::String, key: ::String, program_id: ::String, short_link: ::String, url: ::String).void }
+      def initialize(domain: nil, id: nil, key: nil, program_id: nil, short_link: nil, url: nil)
         @domain = domain
         @id = id
         @key = key
         @program_id = program_id
         @short_link = short_link
+        @url = url
       end
     end
   end
