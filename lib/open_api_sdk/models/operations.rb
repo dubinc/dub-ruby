@@ -99,6 +99,8 @@ module OpenApiSDK
     autoload :Sale, 'open_api_sdk/models/operations/sale.rb'
     autoload :TrackSaleResponseBody, 'open_api_sdk/models/operations/tracksale_responsebody.rb'
     autoload :TrackSaleResponse, 'open_api_sdk/models/operations/tracksale_response.rb'
+    autoload :GetCustomersQueryParamSortBy, 'open_api_sdk/models/operations/getcustomers_queryparam_sortby.rb'
+    autoload :GetCustomersQueryParamSortOrder, 'open_api_sdk/models/operations/getcustomers_queryparam_sortorder.rb'
     autoload :GetCustomersRequest, 'open_api_sdk/models/operations/getcustomers_request.rb'
     autoload :GetCustomersLink, 'open_api_sdk/models/operations/getcustomers_link.rb'
     autoload :GetCustomersPartner, 'open_api_sdk/models/operations/getcustomers_partner.rb'

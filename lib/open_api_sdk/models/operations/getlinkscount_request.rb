@@ -24,9 +24,9 @@ module OpenApiSDK
       # Deprecated. Use `tagIds` instead. The tag ID to filter the links by.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to filter the links by.
-      field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
+      field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': false } }
       # The unique name of the tags assigned to the short link (case insensitive).
-      field :tag_names, T.nilable(::Object), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': true } }
+      field :tag_names, T.nilable(::Object), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': false } }
       # The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant.
       field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
       # The user ID to filter the links by.

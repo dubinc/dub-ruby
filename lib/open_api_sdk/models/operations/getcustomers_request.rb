@@ -11,28 +11,40 @@ module OpenApiSDK
     class GetCustomersRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # A filter on the list based on the customer's `country` field.
+      field :country, T.nilable(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
       # A case-sensitive filter on the list based on the customer's `email` field. The value must be a string. Takes precedence over `externalId`.
       field :email, T.nilable(::String), { 'query_param': { 'field_name': 'email', 'style': 'form', 'explode': true } }
       # A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
       # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
       field :include_expanded_fields, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
+      # A filter on the list based on the customer's `linkId` field (the referral link ID).
+      field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
       # The page number for pagination.
       field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
       # The number of items per page.
       field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
       # A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.
       field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+      # The field to sort the customers by. The default is `createdAt`.
+      field :sort_by, T.nilable(::OpenApiSDK::Operations::GetCustomersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+      # The sort order. The default is `desc`.
+      field :sort_order, T.nilable(::OpenApiSDK::Operations::GetCustomersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
 
 
-      sig { params(email: T.nilable(::String), external_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String)).void }
-      def initialize(email: nil, external_id: nil, include_expanded_fields: nil, page: nil, page_size: nil, search: nil)
+      sig { params(country: T.nilable(::String), email: T.nilable(::String), external_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), link_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String), sort_by: T.nilable(::OpenApiSDK::Operations::GetCustomersQueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::GetCustomersQueryParamSortOrder)).void }
+      def initialize(country: nil, email: nil, external_id: nil, include_expanded_fields: nil, link_id: nil, page: nil, page_size: nil, search: nil, sort_by: nil, sort_order: nil)
+        @country = country
         @email = email
         @external_id = external_id
         @include_expanded_fields = include_expanded_fields
+        @link_id = link_id
         @page = page
         @page_size = page_size
         @search = search
+        @sort_by = sort_by
+        @sort_order = sort_order
       end
     end
   end
