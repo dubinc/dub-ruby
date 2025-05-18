@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Operations
   
-
+    # Status - The status of the partner's enrollment in the program.
     class Status < T::Enum
       enums do
         PENDING = new('pending')
