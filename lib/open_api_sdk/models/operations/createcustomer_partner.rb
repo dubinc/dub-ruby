@@ -11,13 +11,13 @@ module OpenApiSDK
     class CreateCustomerPartner < ::Crystalline::FieldAugmented
       extend T::Sig
 
-
+      # The partner's email address. Should be a unique value across Dub.
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-
+      # The partner's unique ID on Dub.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-
+      # The partner's avatar image.
       field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
-
+      # The partner's full legal name.
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
 
 
