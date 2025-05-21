@@ -7,12 +7,11 @@
 module OpenApiSDK
   module Operations
   
-    # Type
-    class Type < T::Enum
+    # ListCommissionsQueryParamSortOrder - The sort order for the list of commissions.
+    class ListCommissionsQueryParamSortOrder < T::Enum
       enums do
-        CLICK = new('click')
-        LEAD = new('lead')
-        SALE = new('sale')
+        ASC = new('asc')
+        DESC = new('desc')
       end
     end
   end

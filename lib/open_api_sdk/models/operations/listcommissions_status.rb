@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class UpdatePartnerSaleStatus < T::Enum
+    class ListCommissionsStatus < T::Enum
       enums do
         PENDING = new('pending')
         PROCESSED = new('processed')
