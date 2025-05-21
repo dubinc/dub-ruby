@@ -177,6 +177,11 @@ end
 
 * [retrieve](docs/sdks/analytics/README.md#retrieve) - Retrieve analytics for a link, a domain, or the authenticated workspace.
 
+### [commissions](docs/sdks/commissions/README.md)
+
+* [list](docs/sdks/commissions/README.md#list) - Get commissions for a program.
+* [update](docs/sdks/commissions/README.md#update) - Update a commission.
+
 ### [customers](docs/sdks/customers/README.md)
 
 * [list](docs/sdks/customers/README.md#list) - Retrieve a list of customers
@@ -228,7 +233,6 @@ end
 * [retrieve_links](docs/sdks/partners/README.md#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](docs/sdks/partners/README.md#upsert_link) - Upsert a link for a partner
 * [analytics](docs/sdks/partners/README.md#analytics) - Retrieve analytics for a partner
-* [update_sale](docs/sdks/partners/README.md#update_sale) - Update a sale for a partner.
 
 ### [qr_codes](docs/sdks/qrcodes/README.md)
 

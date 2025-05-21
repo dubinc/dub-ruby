@@ -16,7 +16,7 @@ module OpenApiSDK
   class Dub
     extend T::Sig
 
-    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :workspaces, :embed_tokens, :qr_codes
+    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :commissions, :workspaces, :embed_tokens, :qr_codes
 
     sig do
       params(
@@ -90,6 +90,7 @@ module OpenApiSDK
       @track = Track.new(@sdk_configuration)
       @customers = Customers.new(@sdk_configuration)
       @partners = Partners.new(@sdk_configuration)
+      @commissions = Commissions.new(@sdk_configuration)
       @workspaces = Workspaces.new(@sdk_configuration)
       @embed_tokens = EmbedTokens.new(@sdk_configuration)
       @qr_codes = QRCodes.new(@sdk_configuration)

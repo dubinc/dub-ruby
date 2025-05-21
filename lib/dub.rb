@@ -16,6 +16,7 @@ module OpenApiSDK
   autoload :Track, 'open_api_sdk/track'
   autoload :Customers, 'open_api_sdk/customers'
   autoload :Partners, 'open_api_sdk/partners'
+  autoload :Commissions, 'open_api_sdk/commissions'
   autoload :Workspaces, 'open_api_sdk/workspaces'
   autoload :EmbedTokens, 'open_api_sdk/embed_tokens'
   autoload :QRCodes, 'open_api_sdk/qr_codes'

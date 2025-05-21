@@ -7,15 +7,13 @@
 module OpenApiSDK
   module Operations
   
-    # Status - The status of the partner's enrollment in the program.
+    # Status - Useful for marking a commission as refunded, duplicate, canceled, or fraudulent. Takes precedence over `amount` and `modifyAmount`. When a commission is marked as refunded, duplicate, canceled, or fraudulent, it will be omitted from the payout, and the payout amount will be recalculated accordingly. Paid commissions cannot be updated.
     class Status < T::Enum
       enums do
-        PENDING = new('pending')
-        APPROVED = new('approved')
-        REJECTED = new('rejected')
-        INVITED = new('invited')
-        DECLINED = new('declined')
-        BANNED = new('banned')
+        REFUNDED = new('refunded')
+        DUPLICATE = new('duplicate')
+        CANCELED = new('canceled')
+        FRAUD = new('fraud')
       end
     end
   end

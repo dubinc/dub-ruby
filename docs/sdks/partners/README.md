@@ -10,7 +10,6 @@
 * [retrieve_links](#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](#upsert_link) - Upsert a link for a partner
 * [analytics](#analytics) - Retrieve analytics for a partner
-* [update_sale](#update_sale) - Update a sale for a partner.
 
 ## create
 
@@ -255,44 +254,4 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsResponse)](../../models/operations/retrievepartneranalyticsresponse.md)**
-
-
-
-## update_sale
-
-Update an existing sale amount. This is useful for handling refunds (partial or full) or fraudulent sales.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
-      ),
-    )
-
-req = ::OpenApiSDK::Operations::UpdatePartnerSaleRequestBody.new(
-  program_id: "<id>",
-  invoice_id: "<id>",
-)
-
-res = s.partners.update_sale(req)
-
-if ! res.object.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::OpenApiSDK::Operations::UpdatePartnerSaleRequestBody](../../models/operations/updatepartnersalerequestbody.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::UpdatePartnerSaleResponse)](../../models/operations/updatepartnersaleresponse.md)**
 
