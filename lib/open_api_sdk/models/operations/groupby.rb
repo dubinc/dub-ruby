@@ -23,6 +23,7 @@ module OpenApiSDK
         TRIGGERS = new('triggers')
         REFERERS = new('referers')
         REFERER_URLS = new('referer_urls')
+        TOP_PARTNERS = new('top_partners')
         TOP_LINKS = new('top_links')
         TOP_URLS = new('top_urls')
         UTM_SOURCES = new('utm_sources')
