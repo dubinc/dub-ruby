@@ -294,24 +294,24 @@ require 'dub'
 
 s = ::OpenApiSDK::Dub.new(
       security: Models::Shared::Security.new(
-        token: "DUB_API_KEY",
+        token: 'DUB_API_KEY',
       ),
     )
 
 begin
     req = Models::Operations::CreateLinkRequestBody.new(
-      url: "https://google.com",
-      external_id: "123456",
+      url: 'https://google.com',
+      external_id: '123456',
       tag_ids: [
-        "clux0rgak00011...",
+        'clux0rgak00011...',
       ],
       test_variants: [
         Models::Operations::TestVariants.new(
-          url: "https://example.com/variant-1",
+          url: 'https://example.com/variant-1',
           percentage: 50.0,
         ),
         Models::Operations::TestVariants.new(
-          url: "https://example.com/variant-2",
+          url: 'https://example.com/variant-2',
           percentage: 50.0,
         ),
       ],
