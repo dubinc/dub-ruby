@@ -17,7 +17,9 @@ module OpenApiSDK
       field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
       # The date when the partner was created on Dub.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # The total earnings/commissions accrued by the partner's links.
+      # DEPRECATED: The total earnings/commissions accrued by the partner's links.
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :earnings, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings') } }
       # The partner's email address. Should be a unique value across Dub.
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
