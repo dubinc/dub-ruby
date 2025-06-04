@@ -11,49 +11,22 @@ module OpenApiSDK
     class ResponseBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The date the customer was created.
-      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # Unique identifier for the customer in the client's app.
-      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-      # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # Name of the customer.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # Avatar URL of the customer.
-      field :avatar, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
-      # Country of the customer.
-      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
-
-      field :discount, T.nilable(::OpenApiSDK::Operations::Discount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
-      # Email of the customer.
-      field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-
-      field :link, T.nilable(::OpenApiSDK::Operations::GetCustomersLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
-
-      field :partner, T.nilable(::OpenApiSDK::Operations::GetCustomersPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
-
-      field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # Total amount of sales for the customer.
-      field :sale_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
-      # Total number of sales for the customer.
-      field :sales, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales') } }
+      # Whether the domain is available.
+      field :available, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('available') } }
+      # The domain name.
+      field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
+      # Whether the domain is a premium domain.
+      field :premium, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('premium') } }
+      # The price description.
+      field :price, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('price') } }
 
 
-      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::Discount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::GetCustomersLink), partner: T.nilable(::OpenApiSDK::Operations::GetCustomersPartner), program_id: T.nilable(::String), sale_amount: T.nilable(::Float), sales: T.nilable(::Float)).void }
-      def initialize(created_at: nil, external_id: nil, id: nil, name: nil, avatar: nil, country: nil, discount: nil, email: nil, link: nil, partner: nil, program_id: nil, sale_amount: nil, sales: nil)
-        @created_at = created_at
-        @external_id = external_id
-        @id = id
-        @name = name
-        @avatar = avatar
-        @country = country
-        @discount = discount
-        @email = email
-        @link = link
-        @partner = partner
-        @program_id = program_id
-        @sale_amount = sale_amount
-        @sales = sales
+      sig { params(available: T::Boolean, domain: ::String, premium: T::Boolean, price: ::String).void }
+      def initialize(available: nil, domain: nil, premium: nil, price: nil)
+        @available = available
+        @domain = domain
+        @premium = premium
+        @price = price
       end
     end
   end

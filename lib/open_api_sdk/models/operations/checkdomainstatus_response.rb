@@ -8,7 +8,7 @@ module OpenApiSDK
   module Operations
   
 
-    class GetCustomersResponse < ::Crystalline::FieldAugmented
+    class CheckDomainStatusResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -31,15 +31,15 @@ module OpenApiSDK
       field :not_found, T.nilable(::OpenApiSDK::Shared::NotFound)
       # The user has sent too many requests in a given amount of time ("rate limiting")
       field :rate_limit_exceeded, T.nilable(::OpenApiSDK::Shared::RateLimitExceeded)
-      # The list of customers.
-      field :response_bodies, T.nilable(T::Array[::OpenApiSDK::Operations::GetCustomersResponseBody])
+      # The domain status was retrieved.
+      field :response_bodies, T.nilable(T::Array[::OpenApiSDK::Operations::ResponseBody])
       # Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
       field :unauthorized, T.nilable(::OpenApiSDK::Shared::Unauthorized)
       # The request was well-formed but was unable to be followed due to semantic errors.
       field :unprocessable_entity, T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), response_bodies: T.nilable(T::Array[::OpenApiSDK::Operations::GetCustomersResponseBody]), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, bad_request: T.nilable(::OpenApiSDK::Shared::BadRequest), conflict: T.nilable(::OpenApiSDK::Shared::Conflict), forbidden: T.nilable(::OpenApiSDK::Shared::Forbidden), internal_server_error: T.nilable(::OpenApiSDK::Shared::InternalServerError), invite_expired: T.nilable(::OpenApiSDK::Shared::InviteExpired), not_found: T.nilable(::OpenApiSDK::Shared::NotFound), rate_limit_exceeded: T.nilable(::OpenApiSDK::Shared::RateLimitExceeded), response_bodies: T.nilable(T::Array[::OpenApiSDK::Operations::ResponseBody]), unauthorized: T.nilable(::OpenApiSDK::Shared::Unauthorized), unprocessable_entity: T.nilable(::OpenApiSDK::Shared::UnprocessableEntity)).void }
       def initialize(content_type: nil, raw_response: nil, status_code: nil, bad_request: nil, conflict: nil, forbidden: nil, internal_server_error: nil, invite_expired: nil, not_found: nil, rate_limit_exceeded: nil, response_bodies: nil, unauthorized: nil, unprocessable_entity: nil)
         @content_type = content_type
         @raw_response = raw_response

@@ -98,7 +98,7 @@ module OpenApiSDK
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::OpenApiSDK::Operations::ResponseBody])
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::OpenApiSDK::Operations::GetCustomersResponseBody])
           res.response_bodies = out
         end
       elsif r.status == 400
