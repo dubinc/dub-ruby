@@ -196,6 +196,8 @@ end
 * [list](docs/sdks/domains/README.md#list) - Retrieve a list of domains
 * [update](docs/sdks/domains/README.md#update) - Update a domain
 * [delete](docs/sdks/domains/README.md#delete) - Delete a domain
+* [register](docs/sdks/domains/README.md#register) - Register a domain
+* [check_status](docs/sdks/domains/README.md#check_status) - Check the availability of one or more domains
 
 
 ### [embed_tokens](docs/sdks/embedtokens/README.md)
