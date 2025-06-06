@@ -19,7 +19,7 @@ module OpenApiSDK
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
       # The comments for the short link.
       field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
-      # The custom link preview description (og:description). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      # The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
       field :do_index, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
@@ -35,7 +35,7 @@ module OpenApiSDK
       field :folder_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
       # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
       field :geo, T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
-      # The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      # The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
       field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
       # The iOS destination URL for the short link for iOS device targeting.
       field :ios, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
@@ -49,7 +49,7 @@ module OpenApiSDK
       field :prefix, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prefix') } }
       # The ID of the program the short link is associated with.
       field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # Whether the short link uses Custom Social Media Cards feature. Defaults to `false` if not provided.
+      # Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
       field :proxy, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
       # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.
       # 
@@ -75,7 +75,7 @@ module OpenApiSDK
       field :test_started_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
       # An array of A/B test URLs and the percentage of traffic to send to each URL.
       field :test_variants, T.nilable(T::Array[::OpenApiSDK::Operations::UpsertLinkTestVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
-      # The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      # The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # Whether to track conversions for the short link. Defaults to `false` if not provided.
       field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
@@ -89,7 +89,7 @@ module OpenApiSDK
       field :utm_source, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }
       # The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
       field :utm_term, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
-      # The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      # The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
       field :video, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
       # An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
       field :webhook_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
