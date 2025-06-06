@@ -21,7 +21,7 @@ module OpenApiSDK
       field :comments, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
       # The date and time when the short link was created.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # The description of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The description of the short link. Will be used for Custom Link Previews if `proxy` is true.
       field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
       # Whether to allow search engines to index the short link.
       field :do_index, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
@@ -39,7 +39,7 @@ module OpenApiSDK
       field :geo, ::OpenApiSDK::Shared::Geo, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
       # The unique ID of the short link.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The image of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The image of the short link. Will be used for Custom Link Previews if `proxy` is true.
       field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
       # The iOS destination URL for the short link for iOS device targeting.
       field :ios, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
@@ -59,7 +59,7 @@ module OpenApiSDK
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :project_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('projectId') } }
-      # Whether the short link uses Custom Social Media Cards feature.
+      # Whether the short link uses Custom Link Previews feature.
       field :proxy, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
       # Whether the short link's stats are publicly accessible.
       field :public_stats, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
@@ -81,7 +81,7 @@ module OpenApiSDK
       field :tags, T::Array[::OpenApiSDK::Shared::TagSchema], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
       # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
       field :tenant_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-      # The title of the short link. Will be used for Custom Social Media Cards if `proxy` is true.
+      # The title of the short link. Will be used for Custom Link Previews if `proxy` is true.
       field :title, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
       # Whether to track conversions for the short link.
       field :track_conversion, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
@@ -101,7 +101,7 @@ module OpenApiSDK
       field :utm_source, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }
       # The UTM term of the short link.
       field :utm_term, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
-      # The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og
+      # The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
       field :video, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
       # The IDs of the webhooks that the short link is associated with.
       field :webhook_ids, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
