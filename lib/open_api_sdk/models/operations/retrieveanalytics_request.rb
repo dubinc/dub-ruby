@@ -29,7 +29,7 @@ module OpenApiSDK
       field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
       # The type of event to retrieve analytics for. Defaults to `clicks`.
       field :event, T.nilable(::OpenApiSDK::Operations::Event), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
-      # This is the ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
+      # The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
       field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
       # The folder ID to retrieve analytics for. If not provided, return analytics for unsorted links.
       field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
@@ -37,9 +37,9 @@ module OpenApiSDK
       field :group_by, T.nilable(::OpenApiSDK::Operations::GroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
       # The interval to retrieve analytics for. If undefined, defaults to 24h.
       field :interval, T.nilable(::OpenApiSDK::Operations::Interval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
-      # The short link slug.
+      # The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.
       field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
-      # The unique ID of the short link on Dub.
+      # The unique ID of the short link on Dub to retrieve analytics for.
       field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
       # The OS to retrieve analytics for.
       field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
