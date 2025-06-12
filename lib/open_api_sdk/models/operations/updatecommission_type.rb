@@ -13,6 +13,7 @@ module OpenApiSDK
         CLICK = new('click')
         LEAD = new('lead')
         SALE = new('sale')
+        CUSTOM = new('custom')
       end
     end
   end
