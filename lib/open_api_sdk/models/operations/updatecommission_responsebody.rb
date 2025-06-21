@@ -26,13 +26,15 @@ module OpenApiSDK
 
       field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
 
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
       field :type, T.nilable(::OpenApiSDK::Operations::UpdateCommissionType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::UpdateCommissionType, true) } }
 
 
-      sig { params(amount: ::Float, created_at: ::String, currency: ::String, earnings: ::Float, id: ::String, status: ::OpenApiSDK::Operations::UpdateCommissionStatus, updated_at: ::String, invoice_id: T.nilable(::String), type: T.nilable(::OpenApiSDK::Operations::UpdateCommissionType)).void }
-      def initialize(amount: nil, created_at: nil, currency: nil, earnings: nil, id: nil, status: nil, updated_at: nil, invoice_id: nil, type: nil)
+      sig { params(amount: ::Float, created_at: ::String, currency: ::String, earnings: ::Float, id: ::String, status: ::OpenApiSDK::Operations::UpdateCommissionStatus, updated_at: ::String, description: T.nilable(::String), invoice_id: T.nilable(::String), type: T.nilable(::OpenApiSDK::Operations::UpdateCommissionType)).void }
+      def initialize(amount: nil, created_at: nil, currency: nil, earnings: nil, id: nil, status: nil, updated_at: nil, description: nil, invoice_id: nil, type: nil)
         @amount = amount
         @created_at = created_at
         @currency = currency
@@ -40,6 +42,7 @@ module OpenApiSDK
         @id = id
         @status = status
         @updated_at = updated_at
+        @description = description
         @invoice_id = invoice_id
         @type = type
       end
