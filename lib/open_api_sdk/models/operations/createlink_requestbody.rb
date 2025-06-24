@@ -41,6 +41,8 @@ module OpenApiSDK
       field :ios, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
       # The short link slug. If not provided, a random 7-character slug will be generated.
       field :key, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }
+      # The length of the short link slug. Defaults to 7 if not provided. When used with `prefix`, the total length of the key will be `prefix.length + keyLength`.
+      field :key_length, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('keyLength') } }
       # The ID of the partner the short link is associated with.
       field :partner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
       # The password required to access the destination URL of the short link.
@@ -95,8 +97,8 @@ module OpenApiSDK
       field :webhook_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
 
 
-      sig { params(url: ::String, android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), domain: T.nilable(::String), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), folder_id: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), key: T.nilable(::String), partner_id: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), program_id: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), test_completed_at: T.nilable(::String), test_started_at: T.nilable(::String), test_variants: T.nilable(T::Array[::OpenApiSDK::Operations::TestVariants]), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String])).void }
-      def initialize(url: nil, android: nil, archived: nil, comments: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, image: nil, ios: nil, key: nil, partner_id: nil, password: nil, prefix: nil, program_id: nil, proxy: nil, public_stats: nil, ref: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, test_variants: nil, title: nil, track_conversion: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil)
+      sig { params(url: ::String, android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), domain: T.nilable(::String), expired_url: T.nilable(::String), expires_at: T.nilable(::String), external_id: T.nilable(::String), folder_id: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), key: T.nilable(::String), key_length: T.nilable(::Float), partner_id: T.nilable(::String), password: T.nilable(::String), prefix: T.nilable(::String), program_id: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), test_completed_at: T.nilable(::String), test_started_at: T.nilable(::String), test_variants: T.nilable(T::Array[::OpenApiSDK::Operations::TestVariants]), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String])).void }
+      def initialize(url: nil, android: nil, archived: nil, comments: nil, description: nil, do_index: nil, domain: nil, expired_url: nil, expires_at: nil, external_id: nil, folder_id: nil, geo: nil, image: nil, ios: nil, key: nil, key_length: nil, partner_id: nil, password: nil, prefix: nil, program_id: nil, proxy: nil, public_stats: nil, ref: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, test_variants: nil, title: nil, track_conversion: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil)
         @url = url
         @android = android
         @archived = archived
@@ -112,6 +114,7 @@ module OpenApiSDK
         @image = image
         @ios = ios
         @key = key
+        @key_length = key_length
         @partner_id = partner_id
         @password = password
         @prefix = prefix
