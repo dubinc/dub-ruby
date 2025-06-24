@@ -11,8 +11,6 @@ module OpenApiSDK
     class RetrievePartnerAnalyticsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The ID of the program to retrieve analytics for.
-      field :program_id, ::String, { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
       # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
       field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
       # The parameter to group the analytics data points by. Defaults to `count` if undefined.
@@ -29,9 +27,8 @@ module OpenApiSDK
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
 
 
-      sig { params(program_id: ::String, end_: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::QueryParamGroupBy), interval: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), partner_id: T.nilable(::String), start: T.nilable(::String), tenant_id: T.nilable(::String), timezone: T.nilable(::String)).void }
-      def initialize(program_id: nil, end_: nil, group_by: nil, interval: nil, partner_id: nil, start: nil, tenant_id: nil, timezone: nil)
-        @program_id = program_id
+      sig { params(end_: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::QueryParamGroupBy), interval: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), partner_id: T.nilable(::String), start: T.nilable(::String), tenant_id: T.nilable(::String), timezone: T.nilable(::String)).void }
+      def initialize(end_: nil, group_by: nil, interval: nil, partner_id: nil, start: nil, tenant_id: nil, timezone: nil)
         @end_ = end_
         @group_by = group_by
         @interval = interval

@@ -27,7 +27,6 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
-  program_id: "<id>",
   name: "<value>",
   email: "Loyal79@yahoo.com",
   link_props: ::OpenApiSDK::Operations::LinkProps.new(
@@ -84,7 +83,6 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
-  program_id: "<id>",
   link_props: ::OpenApiSDK::Operations::CreatePartnerLinkLinkProps.new(
     external_id: "123456",
     tag_ids: [
@@ -178,7 +176,6 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
-  program_id: "<id>",
   link_props: ::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps.new(
     external_id: "123456",
     tag_ids: [
@@ -234,7 +231,6 @@ s = ::OpenApiSDK::Dub.new(
 
 req = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(
   timezone: "America/New_York",
-  program_id: "<id>",
 )
 
 res = s.partners.analytics(req)

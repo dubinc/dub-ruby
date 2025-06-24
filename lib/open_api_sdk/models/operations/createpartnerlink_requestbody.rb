@@ -11,8 +11,6 @@ module OpenApiSDK
     class CreatePartnerLinkRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The ID of the program that the partner is enrolled in.
-      field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
       # The comments for the short link.
       field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
       # The short link slug. If not provided, a random 7-character slug will be generated.
@@ -27,9 +25,8 @@ module OpenApiSDK
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
 
 
-      sig { params(program_id: ::String, comments: T.nilable(::String), key: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkLinkProps), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(program_id: nil, comments: nil, key: nil, link_props: nil, partner_id: nil, tenant_id: nil, url: nil)
-        @program_id = program_id
+      sig { params(comments: T.nilable(::String), key: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkLinkProps), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), url: T.nilable(::String)).void }
+      def initialize(comments: nil, key: nil, link_props: nil, partner_id: nil, tenant_id: nil, url: nil)
         @comments = comments
         @key = key
         @link_props = link_props
