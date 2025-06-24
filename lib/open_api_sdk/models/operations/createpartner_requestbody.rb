@@ -15,8 +15,6 @@ module OpenApiSDK
       field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
       # Full legal name of the partner.
       field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # The ID of the program to create a partner for.
-      field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
       # Country where the partner is based.
       field :country, T.nilable(::OpenApiSDK::Operations::Country), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Country, true) } }
       # A brief description of the partner and their background.
@@ -31,11 +29,10 @@ module OpenApiSDK
       field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
 
 
-      sig { params(email: ::String, name: ::String, program_id: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps), tenant_id: T.nilable(::String), username: T.nilable(::String)).void }
-      def initialize(email: nil, name: nil, program_id: nil, country: nil, description: nil, image: nil, link_props: nil, tenant_id: nil, username: nil)
+      sig { params(email: ::String, name: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps), tenant_id: T.nilable(::String), username: T.nilable(::String)).void }
+      def initialize(email: nil, name: nil, country: nil, description: nil, image: nil, link_props: nil, tenant_id: nil, username: nil)
         @email = email
         @name = name
-        @program_id = program_id
         @country = country
         @description = description
         @image = image
