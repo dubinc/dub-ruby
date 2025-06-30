@@ -17,7 +17,7 @@ module OpenApiSDK
       field :city, T.nilable(::String), { 'query_param': { 'field_name': 'city', 'style': 'form', 'explode': true } }
       # The continent to retrieve analytics for.
       field :continent, T.nilable(::OpenApiSDK::Shared::ContinentCode), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
-      # The country to retrieve analytics for.
+      # The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code. Learn more: https://d.to/geo
       field :country, T.nilable(::OpenApiSDK::Shared::CountryCode), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
       # The ID of the customer to retrieve analytics for.
       field :customer_id, T.nilable(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
