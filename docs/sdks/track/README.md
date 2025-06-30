@@ -67,8 +67,8 @@ s = ::OpenApiSDK::Dub.new(
 req = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(
   external_id: "<id>",
   amount: 996_500,
-  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,
   event_name: "Invoice paid",
+  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,
   lead_event_name: "Cloned template 1481267",
 )
 
