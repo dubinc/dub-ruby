@@ -27,7 +27,6 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
-  name: "<value>",
   email: "Loyal79@yahoo.com",
   link_props: ::OpenApiSDK::Operations::LinkProps.new(
     external_id: "123456",
@@ -136,9 +135,7 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(
-  program_id: "<id>",
-)
+req = ::OpenApiSDK::Operations::RetrieveLinksRequest.new()
 
 res = s.partners.retrieve_links(req)
 

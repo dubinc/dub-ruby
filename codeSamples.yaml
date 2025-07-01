@@ -176,7 +176,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createPartner"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  name: \"<value>\",\n  email: \"Loyal79@yahoo.com\",\n  link_props: ::OpenApiSDK::Operations::LinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  email: \"Loyal79@yahoo.com\",\n  link_props: ::OpenApiSDK::Operations::LinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/analytics"]["get"]
     update:
       "x-codeSamples":
@@ -188,7 +188,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new(\n  program_id: \"<id>\",\n)\n\nres = s.partners.retrieve_links(req)\n\nif ! res.links.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new()\n\nres = s.partners.retrieve_links(req)\n\nif ! res.links.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["post"]
     update:
       "x-codeSamples":
@@ -236,7 +236,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createReferralsEmbedToken"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(\n  partner: ::OpenApiSDK::Operations::Partner.new(\n    name: \"<value>\",\n    email: \"Florencio98@hotmail.com\",\n    link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(\n      external_id: \"123456\",\n      tag_ids: [\n        \"clux0rgak00011...\",\n      ],\n      test_variants: [\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-1\",\n          percentage: 50.0,\n        ),\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-2\",\n          percentage: 50.0,\n        ),\n      ],\n    ),\n  ),\n)\n\nres = s.embed_tokens.referrals(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(\n  partner: ::OpenApiSDK::Operations::Partner.new(\n    email: \"Florencio98@hotmail.com\",\n    link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(\n      external_id: \"123456\",\n      tag_ids: [\n        \"clux0rgak00011...\",\n      ],\n      test_variants: [\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-1\",\n          percentage: 50.0,\n        ),\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-2\",\n          percentage: 50.0,\n        ),\n      ],\n    ),\n  ),\n)\n\nres = s.embed_tokens.referrals(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/track/lead"]["post"]
     update:
       "x-codeSamples":
@@ -248,7 +248,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "trackSale"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  external_id: \"<id>\",\n  amount: 996_500,\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,\n  event_name: \"Invoice paid\",\n  lead_event_name: \"Cloned template 1481267\",\n)\n\nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  external_id: \"<id>\",\n  amount: 996_500,\n  event_name: \"Invoice paid\",\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,\n  lead_event_name: \"Cloned template 1481267\",\n)\n\nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
     update:
       "x-codeSamples":

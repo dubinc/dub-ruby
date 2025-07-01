@@ -24,7 +24,6 @@ s = ::OpenApiSDK::Dub.new(
 
 req = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(
   partner: ::OpenApiSDK::Operations::Partner.new(
-    name: "<value>",
     email: "Florencio98@hotmail.com",
     link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(
       external_id: "123456",

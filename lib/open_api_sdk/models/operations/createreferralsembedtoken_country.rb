@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Operations
   
-    # CreateReferralsEmbedTokenCountry - Country where the partner is based.
+    # CreateReferralsEmbedTokenCountry - The partner's country of residence. Must be passed as a 2-letter ISO 3166-1 country code. Learn more: https://d.to/geo
     class CreateReferralsEmbedTokenCountry < T::Enum
       enums do
         AF = new('AF')

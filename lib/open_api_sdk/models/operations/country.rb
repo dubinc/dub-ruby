@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Operations
   
-    # Country - Country where the partner is based.
+    # Country - The partner's country of residence. Must be passed as a 2-letter ISO 3166-1 country code. Learn more: https://d.to/geo
     class Country < T::Enum
       enums do
         AF = new('AF')
