@@ -49,6 +49,8 @@ module OpenApiSDK
       field :partners_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersEnabled') } }
       # The date and time when the payment failed for the workspace.
       field :payment_failed_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentFailedAt') } }
+      # The processing fee (in decimals) for partner payouts. For card payments, an additional 0.03 is added to the fee. Learn more: https://d.to/payouts
+      field :payout_fee, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutFee') } }
       # The max dollar amount of partner payouts that can be processed within a billing cycle (in cents).
       field :payouts_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsLimit') } }
       # The dollar amount of partner payouts processed in the current billing cycle (in cents).
@@ -79,8 +81,8 @@ module OpenApiSDK
       field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
 
 
-      sig { params(ai_limit: ::Float, ai_usage: ::Float, allowed_hostnames: T::Array[::String], billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, folders_limit: ::Float, folders_usage: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partners_enabled: T::Boolean, payment_failed_at: ::String, payouts_limit: ::Float, payouts_usage: ::Float, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, store: T::Hash[Symbol, ::Object], stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(ai_limit: nil, ai_usage: nil, allowed_hostnames: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, folders_limit: nil, folders_usage: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partners_enabled: nil, payment_failed_at: nil, payouts_limit: nil, payouts_usage: nil, plan: nil, slug: nil, store: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, total_links: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
+      sig { params(ai_limit: ::Float, ai_usage: ::Float, allowed_hostnames: T::Array[::String], billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, folders_limit: ::Float, folders_usage: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partners_enabled: T::Boolean, payment_failed_at: ::String, payout_fee: ::Float, payouts_limit: ::Float, payouts_usage: ::Float, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, store: T::Hash[Symbol, ::Object], stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
+      def initialize(ai_limit: nil, ai_usage: nil, allowed_hostnames: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, folders_limit: nil, folders_usage: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partners_enabled: nil, payment_failed_at: nil, payout_fee: nil, payouts_limit: nil, payouts_usage: nil, plan: nil, slug: nil, store: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, total_links: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
         @ai_limit = ai_limit
         @ai_usage = ai_usage
         @allowed_hostnames = allowed_hostnames
@@ -100,6 +102,7 @@ module OpenApiSDK
         @name = name
         @partners_enabled = partners_enabled
         @payment_failed_at = payment_failed_at
+        @payout_fee = payout_fee
         @payouts_limit = payouts_limit
         @payouts_usage = payouts_usage
         @plan = plan

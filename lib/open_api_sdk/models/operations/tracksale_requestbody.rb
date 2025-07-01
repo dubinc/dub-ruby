@@ -11,21 +11,21 @@ module OpenApiSDK
     class TrackSaleRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The amount of the sale in cents.
+      # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1437` JPY). Learn more: https://d.to/currency
       field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
       # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
       field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The payment processor via which the sale was made.
       field :payment_processor, ::OpenApiSDK::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::PaymentProcessor, false) } }
-      # The currency of the sale. Accepts ISO 4217 currency codes.
+      # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
       field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
-      # The name of the sale event.
+      # The name of the sale event. Recommended format: `Invoice paid` or `Subscription created`.
       field :event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
       # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
       field :invoice_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
-      # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event, which is the default behavior).
+      # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event for a link-customer combination, which is the default behavior).
       field :lead_event_name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
-      # Additional metadata to be stored with the sale event. Max 10,000 characters.
+      # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
