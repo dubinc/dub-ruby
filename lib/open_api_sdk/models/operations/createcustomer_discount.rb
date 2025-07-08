@@ -18,6 +18,8 @@ module OpenApiSDK
 
       field :coupon_test_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponTestId') } }
 
+      field :default, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('default') } }
+
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
       field :max_duration, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('maxDuration') } }
@@ -29,11 +31,12 @@ module OpenApiSDK
       field :partners_count, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersCount') } }
 
 
-      sig { params(amount: ::Float, coupon_id: ::String, coupon_test_id: ::String, id: ::String, max_duration: ::Float, type: ::OpenApiSDK::Operations::CreateCustomerType, description: T.nilable(::String), partners_count: T.nilable(::Float)).void }
-      def initialize(amount: nil, coupon_id: nil, coupon_test_id: nil, id: nil, max_duration: nil, type: nil, description: nil, partners_count: nil)
+      sig { params(amount: ::Float, coupon_id: ::String, coupon_test_id: ::String, default: T::Boolean, id: ::String, max_duration: ::Float, type: ::OpenApiSDK::Operations::CreateCustomerType, description: T.nilable(::String), partners_count: T.nilable(::Float)).void }
+      def initialize(amount: nil, coupon_id: nil, coupon_test_id: nil, default: nil, id: nil, max_duration: nil, type: nil, description: nil, partners_count: nil)
         @amount = amount
         @coupon_id = coupon_id
         @coupon_test_id = coupon_test_id
+        @default = default
         @id = id
         @max_duration = max_duration
         @type = type
