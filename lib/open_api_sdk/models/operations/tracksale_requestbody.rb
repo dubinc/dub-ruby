@@ -14,7 +14,7 @@ module OpenApiSDK
       # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1437` JPY). Learn more: https://d.to/currency
       field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
       # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
-      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
+      field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId') } }
       # The payment processor via which the sale was made.
       field :payment_processor, ::OpenApiSDK::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::PaymentProcessor, false) } }
       # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
@@ -29,10 +29,10 @@ module OpenApiSDK
       field :metadata, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
 
-      sig { params(amount: ::Integer, external_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(amount: nil, external_id: nil, payment_processor: nil, currency: nil, event_name: nil, invoice_id: nil, lead_event_name: nil, metadata: nil)
+      sig { params(amount: ::Integer, customer_external_id: ::String, payment_processor: ::OpenApiSDK::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(amount: nil, customer_external_id: nil, payment_processor: nil, currency: nil, event_name: nil, invoice_id: nil, lead_event_name: nil, metadata: nil)
         @amount = amount
-        @external_id = external_id
+        @customer_external_id = customer_external_id
         @payment_processor = payment_processor
         @currency = currency
         @event_name = event_name
