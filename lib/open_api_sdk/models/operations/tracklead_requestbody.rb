@@ -13,10 +13,10 @@ module OpenApiSDK
 
       # The unique ID of the click that the lead conversion event is attributed to. You can read this value from `dub_id` cookie.
       field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId') } }
+      # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
+      field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId') } }
       # The name of the lead event to track. Can also be used as a unique identifier to associate a given lead event for a customer for a subsequent sale event (via the `leadEventName` prop in `/track/sale`).
       field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
-      # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
-      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
       # The avatar URL of the customer.
       field :customer_avatar, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
       # The email address of the customer.
@@ -31,11 +31,11 @@ module OpenApiSDK
       field :mode, T.nilable(::OpenApiSDK::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Mode, true) } }
 
 
-      sig { params(click_id: ::String, event_name: ::String, external_id: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_name: T.nilable(::String), event_quantity: T.nilable(::Float), metadata: T.nilable(T::Hash[Symbol, ::Object]), mode: T.nilable(::OpenApiSDK::Operations::Mode)).void }
-      def initialize(click_id: nil, event_name: nil, external_id: nil, customer_avatar: nil, customer_email: nil, customer_name: nil, event_quantity: nil, metadata: nil, mode: nil)
+      sig { params(click_id: ::String, customer_external_id: ::String, event_name: ::String, customer_avatar: T.nilable(::String), customer_email: T.nilable(::String), customer_name: T.nilable(::String), event_quantity: T.nilable(::Float), metadata: T.nilable(T::Hash[Symbol, ::Object]), mode: T.nilable(::OpenApiSDK::Operations::Mode)).void }
+      def initialize(click_id: nil, customer_external_id: nil, event_name: nil, customer_avatar: nil, customer_email: nil, customer_name: nil, event_quantity: nil, metadata: nil, mode: nil)
         @click_id = click_id
+        @customer_external_id = customer_external_id
         @event_name = event_name
-        @external_id = external_id
         @customer_avatar = customer_avatar
         @customer_email = customer_email
         @customer_name = customer_name

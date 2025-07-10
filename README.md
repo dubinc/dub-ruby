@@ -294,6 +294,7 @@ When custom error responses are specified for an operation, the SDK may also thr
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
       security: Models::Shared::Security.new(
         token: 'DUB_API_KEY',
@@ -319,9 +320,9 @@ begin
       ],
     )
 
-    res = s.links.create(req)
+    res = s.links.create(request: req)
 
-    if ! res.link_schema.nil?
+    unless res.nil?
       # handle response
     end
 rescue Models::Errors::BadRequest => e
