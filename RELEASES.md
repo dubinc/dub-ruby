@@ -1229,3 +1229,13 @@ Based on:
 - [ruby v0.2.2-alpha.133] .
 ### Releases
 - [Ruby Gems v0.2.2-alpha.133] https://rubygems.org/gems/dub/versions/0.2.2-alpha.133 - .
+
+## 2025-07-14 20:44:48
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.526.0 (2.563.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.3.0] .
+### Releases
+- [Ruby Gems v0.3.0] https://rubygems.org/gems/dub/versions/0.3.0 - .

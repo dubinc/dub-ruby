@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.2.2.pre.alpha.133)
+    dub (0.3.0)
       faraday
       faraday-multipart
       faraday-retry (~> 2.2.1)
@@ -14,20 +14,20 @@ GEM
   specs:
     ast (2.4.2)
     erubi (1.13.0)
-    faraday (2.13.2)
+    faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-multipart (1.1.1)
+    faraday-multipart (1.1.0)
       multipart-post (~> 2.0)
-    faraday-net_http (3.4.1)
+    faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
     faraday-retry (2.2.1)
       faraday (~> 2.0)
     json (2.8.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
-    logger (1.7.0)
+    logger (1.6.6)
     minitest (5.25.2)
     minitest-focus (1.4.0)
       minitest (>= 4, < 6)
@@ -41,9 +41,9 @@ GEM
       racc
     prism (0.27.0)
     racc (1.8.1)
-    rack (3.1.16)
+    rack (3.1.11)
     rainbow (3.1.1)
-    rake (13.3.0)
+    rake (13.2.1)
     rbi (0.1.12)
       prism (>= 0.18.0, < 0.28)
       sorbet-runtime (>= 0.5.9204)
