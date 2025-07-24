@@ -12,6 +12,8 @@ module OpenApiSDK
       enums do
         QR = new('qr')
         LINK = new('link')
+        PAGEVIEW = new('pageview')
+        DEEPLINK = new('deeplink')
       end
     end
   end
