@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [create](#create) - Create a partner
+* [list](#list) - List all partners
 * [create_link](#create_link) - Create a link for a partner
 * [retrieve_links](#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](#upsert_link) - Upsert a link for a partner
@@ -63,6 +64,53 @@ end
 ### Response
 
 **[T.nilable(::OpenApiSDK::Operations::CreatePartnerResponse)](../../models/operations/createpartnerresponse.md)**
+
+
+
+## list
+
+List all partners for a partner program.
+
+### Example Usage
+
+```ruby
+require 'dub'
+
+s = ::OpenApiSDK::Dub.new(
+      security: ::OpenApiSDK::Shared::Security.new(
+        token: "DUB_API_KEY",
+      ),
+    )
+
+req = ::OpenApiSDK::Operations::ListPartnersRequest.new(
+  status: ::OpenApiSDK::Operations::ListPartnersQueryParamStatus::APPROVED,
+  country: "US",
+  sort_by: ::OpenApiSDK::Operations::ListPartnersQueryParamSortBy::SALE_AMOUNT,
+  sort_order: ::OpenApiSDK::Operations::ListPartnersQueryParamSortOrder::DESC,
+  tenant_id: "1K0NM7HCN944PEMZ3CQPH43H8",
+  include_expanded_fields: true,
+  search: "john",
+  page: 1.0,
+  page_size: 50.0,
+)
+
+res = s.partners.list(req)
+
+if ! res.response_bodies.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [::OpenApiSDK::Operations::ListPartnersRequest](../../models/operations/listpartnersrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[T.nilable(::OpenApiSDK::Operations::ListPartnersResponse)](../../models/operations/listpartnersresponse.md)**
 
 
 
