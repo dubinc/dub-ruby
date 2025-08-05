@@ -51,8 +51,10 @@ module OpenApiSDK
       field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
       # The ID of the program to retrieve analytics for.
       field :program_id, T.nilable(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
-      # Deprecated. Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
+      # Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
       field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
+      # Search the events by a custom metadata value. Only available for lead and sale events.
+      field :query, T.nilable(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
       # The referer to retrieve analytics for.
       field :referer, T.nilable(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
       # The full referer URL to retrieve analytics for.
@@ -69,7 +71,7 @@ module OpenApiSDK
       field :sort_order, T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
       # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
-      # Deprecated. Use `tagIds` instead. The tag ID to retrieve analytics for.
+      # Deprecated: Use `tagIds` instead. The tag ID to retrieve analytics for.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to retrieve analytics for.
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
@@ -77,7 +79,7 @@ module OpenApiSDK
       field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
       # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
-      # The trigger to retrieve analytics for. If undefined, return both QR and link clicks.
+      # The trigger to retrieve analytics for. If undefined, returns all trigger types.
       field :trigger, T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
       # The URL to retrieve analytics for.
       field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
@@ -93,8 +95,8 @@ module OpenApiSDK
       field :utm_term, T.nilable(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
 
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), customer_id: T.nilable(::String), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), folder_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(::OpenApiSDK::Operations::QueryParamSaleType), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, customer_id: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, folder_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, partner_id: nil, program_id: nil, qr: nil, referer: nil, referer_url: nil, region: nil, root: nil, sale_type: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
+      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), customer_id: T.nilable(::String), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), folder_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), query: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(::OpenApiSDK::Operations::QueryParamSaleType), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
+      def initialize(browser: nil, city: nil, continent: nil, country: nil, customer_id: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, folder_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, partner_id: nil, program_id: nil, qr: nil, query: nil, referer: nil, referer_url: nil, region: nil, root: nil, sale_type: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
         @browser = browser
         @city = city
         @continent = continent
@@ -116,6 +118,7 @@ module OpenApiSDK
         @partner_id = partner_id
         @program_id = program_id
         @qr = qr
+        @query = query
         @referer = referer
         @referer_url = referer_url
         @region = region

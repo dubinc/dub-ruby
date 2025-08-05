@@ -21,7 +21,7 @@ module OpenApiSDK
       field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
       # Whether to include archived links in the response. Defaults to `false` if not provided.
       field :show_archived, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'showArchived', 'style': 'form', 'explode': true } }
-      # Deprecated. Use `tagIds` instead. The tag ID to filter the links by.
+      # Deprecated: Use `tagIds` instead. The tag ID to filter the links by.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to filter the links by.
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': false } }

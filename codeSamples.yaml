@@ -8,7 +8,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveAnalytics"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n)\n\nres = s.analytics.retrieve(req)\n\nif ! res.one_of.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n  query: \"metadata['key']:'value'\",\n)\n\nres = s.analytics.retrieve(req)\n\nif ! res.one_of.nil?\n  # handle response\nend"
   - target: $["paths"]["/commissions"]["get"]
     update:
       "x-codeSamples":
@@ -86,7 +86,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listEvents"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListEventsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n)\n\nres = s.events.list(req)\n\nif ! res.anies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListEventsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n  query: \"metadata['key']:'value'\",\n)\n\nres = s.events.list(req)\n\nif ! res.anies.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders"]["get"]
     update:
       "x-codeSamples":

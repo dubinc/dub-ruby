@@ -30,6 +30,7 @@ req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
   os: "Windows",
   referer: "google.com",
   referer_url: "https://dub.co/blog",
+  query: "metadata['key']:'value'",
 )
 
 res = s.analytics.retrieve(req)
