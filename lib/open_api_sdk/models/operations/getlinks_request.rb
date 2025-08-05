@@ -29,7 +29,7 @@ module OpenApiSDK
       field :sort_by, T.nilable(::OpenApiSDK::Operations::SortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
       # The sort order. The default is `desc`.
       field :sort_order, T.nilable(::OpenApiSDK::Operations::SortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-      # Deprecated. Use `tagIds` instead. The tag ID to filter the links by.
+      # Deprecated: Use `tagIds` instead. The tag ID to filter the links by.
       field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
       # The tag IDs to filter the links by.
       field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': false } }

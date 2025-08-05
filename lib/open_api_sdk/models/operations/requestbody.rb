@@ -61,7 +61,7 @@ module OpenApiSDK
       field :ref, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
       # Whether the short link uses link cloaking. Defaults to `false` if not provided.
       field :rewrite, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
-      # The unique ID of the tag assigned to the short link. This field is deprecated – use `tagIds` instead.
+      # Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :tag_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId') } }

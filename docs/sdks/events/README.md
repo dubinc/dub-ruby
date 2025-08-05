@@ -30,6 +30,7 @@ req = ::OpenApiSDK::Operations::ListEventsRequest.new(
   os: "Windows",
   referer: "google.com",
   referer_url: "https://dub.co/blog",
+  query: "metadata['key']:'value'",
 )
 
 res = s.events.list(req)
