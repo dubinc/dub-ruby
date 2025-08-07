@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.7.0)
+    dub (0.9.0)
       faraday
       faraday-multipart
       faraday-retry (~> 2.2.1)
