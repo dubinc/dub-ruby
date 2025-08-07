@@ -11,19 +11,25 @@ module OpenApiSDK
     class RegisteredDomain < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # The date the domain auto-renew is disabled.
+      field :auto_renewal_disabled_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('autoRenewalDisabledAt') } }
       # The date the domain was created.
       field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
       # The date the domain expires.
       field :expires_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
       # The ID of the registered domain record.
       field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+      # The fee to renew the domain.
+      field :renewal_fee, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('renewalFee') } }
 
 
-      sig { params(created_at: ::String, expires_at: ::String, id: ::String).void }
-      def initialize(created_at: nil, expires_at: nil, id: nil)
+      sig { params(auto_renewal_disabled_at: ::String, created_at: ::String, expires_at: ::String, id: ::String, renewal_fee: ::Float).void }
+      def initialize(auto_renewal_disabled_at: nil, created_at: nil, expires_at: nil, id: nil, renewal_fee: nil)
+        @auto_renewal_disabled_at = auto_renewal_disabled_at
         @created_at = created_at
         @expires_at = expires_at
         @id = id
+        @renewal_fee = renewal_fee
       end
     end
   end
