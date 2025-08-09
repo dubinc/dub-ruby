@@ -19,6 +19,8 @@ module OpenApiSDK
       field :interval, T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
       # The ID of the partner to retrieve analytics for.
       field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+      # Search the events by a custom metadata value. Only available for lead and sale events.
+      field :query, T.nilable(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
       # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
       field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
       # The ID of the tenant that created the link inside your system.
@@ -27,12 +29,13 @@ module OpenApiSDK
       field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
 
 
-      sig { params(end_: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::QueryParamGroupBy), interval: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), partner_id: T.nilable(::String), start: T.nilable(::String), tenant_id: T.nilable(::String), timezone: T.nilable(::String)).void }
-      def initialize(end_: nil, group_by: nil, interval: nil, partner_id: nil, start: nil, tenant_id: nil, timezone: nil)
+      sig { params(end_: T.nilable(::String), group_by: T.nilable(::OpenApiSDK::Operations::QueryParamGroupBy), interval: T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsQueryParamInterval), partner_id: T.nilable(::String), query: T.nilable(::String), start: T.nilable(::String), tenant_id: T.nilable(::String), timezone: T.nilable(::String)).void }
+      def initialize(end_: nil, group_by: nil, interval: nil, partner_id: nil, query: nil, start: nil, tenant_id: nil, timezone: nil)
         @end_ = end_
         @group_by = group_by
         @interval = interval
         @partner_id = partner_id
+        @query = query
         @start = start
         @tenant_id = tenant_id
         @timezone = timezone

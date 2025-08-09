@@ -276,6 +276,7 @@ s = ::OpenApiSDK::Dub.new(
 
 req = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(
   timezone: "America/New_York",
+  query: "metadata['key']:'value'",
 )
 
 res = s.partners.analytics(req)
