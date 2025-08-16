@@ -16,22 +16,22 @@ Create a folder for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="createFolder" method="post" path="/folders" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateFolderRequestBody.new(
-  name: "<value>",
-)
+req = 
 
-res = s.folders.create(req)
+res = s.folders.create(request: req)
 
-if ! res.folder_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -39,15 +39,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::OpenApiSDK::Operations::CreateFolderRequestBody](../../models/operations/createfolderrequestbody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::CreateFolderRequestBody](../../models/operations/createfolderrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CreateFolderResponse)](../../models/operations/createfolderresponse.md)**
+**[T.nilable(Models::Shared::FolderSchema)](../../models/operations/folderschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## list
 
@@ -55,23 +68,22 @@ Retrieve a list of folders for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="listFolders" method="get" path="/folders" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::ListFoldersRequest.new(
-  page: 1.0,
-  page_size: 50.0,
-)
+req = Models::Operations::ListFoldersRequest.new()
 
-res = s.folders.list(req)
+res = s.folders.list(request: req)
 
-if ! res.folder_schemas.nil?
+unless res.nil?
   # handle response
 end
 
@@ -79,15 +91,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::OpenApiSDK::Operations::ListFoldersRequest](../../models/operations/listfoldersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::ListFoldersRequest](../../models/operations/listfoldersrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListFoldersResponse)](../../models/operations/listfoldersresponse.md)**
+**[T.nilable(T::Array[Models::Shared::FolderSchema])](../../models/operations/.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## update
 
@@ -95,18 +120,20 @@ Update a folder in the workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="updateFolder" method="patch" path="/folders/{id}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.folders.update(id="<id>", request_body=::OpenApiSDK::Operations::UpdateFolderRequestBody.new())
+res = s.folders.update(id: '<id>')
 
-if ! res.folder_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -114,16 +141,29 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                               | *::String*                                                                                                         | :heavy_check_mark:                                                                                                 | The ID of the folder to update.                                                                                    |
-| `request_body`                                                                                                     | [T.nilable(::OpenApiSDK::Operations::UpdateFolderRequestBody)](../../models/operations/updatefolderrequestbody.md) | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                         | *::String*                                                                                                   | :heavy_check_mark:                                                                                           | The ID of the folder to update.                                                                              |
+| `request_body`                                                                                               | [T.nilable(Models::Operations::UpdateFolderRequestBody)](../../models/operations/updatefolderrequestbody.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::UpdateFolderResponse)](../../models/operations/updatefolderresponse.md)**
+**[T.nilable(Models::Shared::FolderSchema)](../../models/operations/folderschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## delete
 
@@ -131,18 +171,20 @@ Delete a folder from the workspace. All existing links will still work, but they
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="deleteFolder" method="delete" path="/folders/{id}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.folders.delete(id="<id>")
+res = s.folders.delete(id: '<id>')
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -156,5 +198,19 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::DeleteFolderResponse)](../../models/operations/deletefolderresponse.md)**
+**[T.nilable(Models::Operations::DeleteFolderResponseBody)](../../models/operations/deletefolderresponsebody.md)**
 
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |

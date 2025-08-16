@@ -5,58 +5,80 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListCommissionsResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListCommissionsResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
+        # The commission's unique ID on Dub.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
 
-      field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+        field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
 
-      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
+        field :earnings, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings'), required: true } }
 
-      field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+        field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
 
-      field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        field :status, Models::Operations::ListCommissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListCommissionsStatus, false) } }
 
-      field :earnings, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings') } }
-      # The commission's unique ID on Dub.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+        field :quantity, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('quantity'), required: true } }
 
-      field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
+        field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
 
-      field :partner, ::OpenApiSDK::Operations::ListCommissionsPartner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
+        field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
 
-      field :quantity, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('quantity') } }
+        field :partner, Models::Operations::ListCommissionsPartner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner'), required: true } }
 
-      field :status, ::OpenApiSDK::Operations::ListCommissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::ListCommissionsStatus, false) } }
+        field :type, Crystalline::Nilable.new(Models::Operations::ListCommissionsType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Operations::ListCommissionsType, true) } }
 
-      field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
+        field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
 
-      field :customer, T.nilable(::OpenApiSDK::Operations::ListCommissionsCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+        # The user who created the manual commission.
+        field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('userId') } }
 
-      field :type, T.nilable(::OpenApiSDK::Operations::ListCommissionsType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::ListCommissionsType, true) } }
-      # The user who created the manual commission.
-      field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('userId') } }
+        field :customer, Crystalline::Nilable.new(Models::Operations::ListCommissionsCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
+        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Operations::ListCommissionsStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Operations::ListCommissionsPartner, type: T.nilable(Models::Operations::ListCommissionsType), invoice_id: T.nilable(::String), description: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Operations::ListCommissionsCustomer)).void }
+        def initialize(id:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, type: nil, invoice_id: nil, description: nil, user_id: nil, customer: nil)
+          @id = id
+          @amount = amount
+          @earnings = earnings
+          @currency = currency
+          @status = status
+          @quantity = quantity
+          @created_at = created_at
+          @updated_at = updated_at
+          @partner = partner
+          @type = type
+          @invoice_id = invoice_id
+          @description = description
+          @user_id = user_id
+          @customer = customer
+        end
 
-      sig { params(amount: ::Float, created_at: ::String, currency: ::String, description: ::String, earnings: ::Float, id: ::String, invoice_id: ::String, partner: ::OpenApiSDK::Operations::ListCommissionsPartner, quantity: ::Float, status: ::OpenApiSDK::Operations::ListCommissionsStatus, updated_at: ::String, customer: T.nilable(::OpenApiSDK::Operations::ListCommissionsCustomer), type: T.nilable(::OpenApiSDK::Operations::ListCommissionsType), user_id: T.nilable(::String)).void }
-      def initialize(amount: nil, created_at: nil, currency: nil, description: nil, earnings: nil, id: nil, invoice_id: nil, partner: nil, quantity: nil, status: nil, updated_at: nil, customer: nil, type: nil, user_id: nil)
-        @amount = amount
-        @created_at = created_at
-        @currency = currency
-        @description = description
-        @earnings = earnings
-        @id = id
-        @invoice_id = invoice_id
-        @partner = partner
-        @quantity = quantity
-        @status = status
-        @updated_at = updated_at
-        @customer = customer
-        @type = type
-        @user_id = user_id
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @amount == other.amount
+          return false unless @earnings == other.earnings
+          return false unless @currency == other.currency
+          return false unless @status == other.status
+          return false unless @quantity == other.quantity
+          return false unless @created_at == other.created_at
+          return false unless @updated_at == other.updated_at
+          return false unless @partner == other.partner
+          return false unless @type == other.type
+          return false unless @invoice_id == other.invoice_id
+          return false unless @description == other.description
+          return false unless @user_id == other.user_id
+          return false unless @customer == other.customer
+          true
+        end
       end
     end
   end

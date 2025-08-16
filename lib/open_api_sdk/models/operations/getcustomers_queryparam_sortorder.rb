@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # GetCustomersQueryParamSortOrder - The sort order. The default is `desc`.
-    class GetCustomersQueryParamSortOrder < T::Enum
-      enums do
-        ASC = new('asc')
-        DESC = new('desc')
+  module Models
+    module Operations
+    
+      # GetCustomersQueryParamSortOrder - The sort order. The default is `desc`.
+      class GetCustomersQueryParamSortOrder < T::Enum
+
+
+        enums do
+          ASC = new('asc')
+          DESC = new('desc')
+        end
       end
     end
   end

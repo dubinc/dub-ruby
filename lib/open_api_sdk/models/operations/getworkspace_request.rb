@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetWorkspaceRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class GetWorkspaceRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The ID or slug of the workspace.
-      field :id_or_slug, ::String, { 'path_param': { 'field_name': 'idOrSlug', 'style': 'simple', 'explode': false } }
+        # The ID or slug of the workspace.
+        field :id_or_slug, ::String, { 'path_param': { 'field_name': 'idOrSlug', 'style': 'simple', 'explode': false } }
 
+        sig { params(id_or_slug: ::String).void }
+        def initialize(id_or_slug:)
+          @id_or_slug = id_or_slug
+        end
 
-      sig { params(id_or_slug: ::String).void }
-      def initialize(id_or_slug: nil)
-        @id_or_slug = id_or_slug
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id_or_slug == other.id_or_slug
+          true
+        end
       end
     end
   end

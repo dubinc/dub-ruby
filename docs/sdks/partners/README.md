@@ -18,38 +18,40 @@ Create a partner for a program. If partner exists, automatically enrolls them.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="createPartner" method="post" path="/partners" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(
-  email: "Loyal79@yahoo.com",
-  link_props: ::OpenApiSDK::Operations::LinkProps.new(
-    external_id: "123456",
+req = Models::Operations::CreatePartnerRequestBody.new(
+  email: 'Summer50@yahoo.com',
+  link_props: Models::Operations::LinkProps.new(
+    external_id: '123456',
     tag_ids: [
-      "clux0rgak00011...",
+      'clux0rgak00011...',
     ],
     test_variants: [
-      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(
-        url: "https://example.com/variant-1",
+      Models::Operations::CreatePartnerTestVariants.new(
+        url: 'https://example.com/variant-1',
         percentage: 50.0,
       ),
-      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(
-        url: "https://example.com/variant-2",
+      Models::Operations::CreatePartnerTestVariants.new(
+        url: 'https://example.com/variant-2',
         percentage: 50.0,
       ),
     ],
   ),
 )
 
-res = s.partners.create(req)
+res = s.partners.create(request: req)
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -57,15 +59,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::OpenApiSDK::Operations::CreatePartnerRequestBody](../../models/operations/createpartnerrequestbody.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::CreatePartnerRequestBody](../../models/operations/createpartnerrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CreatePartnerResponse)](../../models/operations/createpartnerresponse.md)**
+**[T.nilable(Models::Operations::CreatePartnerResponseBody)](../../models/operations/createpartnerresponsebody.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## list
 
@@ -73,30 +88,29 @@ List all partners for a partner program.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="listPartners" method="get" path="/partners" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::ListPartnersRequest.new(
-  status: ::OpenApiSDK::Operations::ListPartnersQueryParamStatus::APPROVED,
-  country: "US",
-  sort_by: ::OpenApiSDK::Operations::ListPartnersQueryParamSortBy::SALE_AMOUNT,
-  sort_order: ::OpenApiSDK::Operations::ListPartnersQueryParamSortOrder::DESC,
-  tenant_id: "1K0NM7HCN944PEMZ3CQPH43H8",
-  include_expanded_fields: true,
-  search: "john",
-  page: 1.0,
+req = Models::Operations::ListPartnersRequest.new(
+  status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,
+  country: 'US',
+  tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
+  include_expanded_fields: false,
+  search: 'john',
   page_size: 50.0,
 )
 
-res = s.partners.list(req)
+res = s.partners.list(request: req)
 
-if ! res.response_bodies.nil?
+unless res.nil?
   # handle response
 end
 
@@ -104,15 +118,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::OpenApiSDK::Operations::ListPartnersRequest](../../models/operations/listpartnersrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::ListPartnersRequest](../../models/operations/listpartnersrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListPartnersResponse)](../../models/operations/listpartnersresponse.md)**
+**[T.nilable(T::Array[Models::Operations::ListPartnersResponseBody])](../../models/operations/.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## create_link
 
@@ -120,37 +147,39 @@ Create a link for a partner that is enrolled in your program.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="createPartnerLink" method="post" path="/partners/links" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(
-  link_props: ::OpenApiSDK::Operations::CreatePartnerLinkLinkProps.new(
-    external_id: "123456",
+req = Models::Operations::CreatePartnerLinkRequestBody.new(
+  link_props: Models::Operations::CreatePartnerLinkLinkProps.new(
+    external_id: '123456',
     tag_ids: [
-      "clux0rgak00011...",
+      'clux0rgak00011...',
     ],
     test_variants: [
-      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(
-        url: "https://example.com/variant-1",
+      Models::Operations::CreatePartnerLinkTestVariants.new(
+        url: 'https://example.com/variant-1',
         percentage: 50.0,
       ),
-      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(
-        url: "https://example.com/variant-2",
+      Models::Operations::CreatePartnerLinkTestVariants.new(
+        url: 'https://example.com/variant-2',
         percentage: 50.0,
       ),
     ],
   ),
 )
 
-res = s.partners.create_link(req)
+res = s.partners.create_link(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -158,15 +187,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::OpenApiSDK::Operations::CreatePartnerLinkRequestBody](../../models/operations/createpartnerlinkrequestbody.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::CreatePartnerLinkRequestBody](../../models/operations/createpartnerlinkrequestbody.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CreatePartnerLinkResponse)](../../models/operations/createpartnerlinkresponse.md)**
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## retrieve_links
 
@@ -174,20 +216,22 @@ Retrieve a partner's links by their partner ID or tenant ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="retrieveLinks" method="get" path="/partners/links" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::RetrieveLinksRequest.new()
+req = Models::Operations::RetrieveLinksRequest.new()
 
-res = s.partners.retrieve_links(req)
+res = s.partners.retrieve_links(request: req)
 
-if ! res.links.nil?
+unless res.nil?
   # handle response
 end
 
@@ -195,15 +239,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::RetrieveLinksResponse)](../../models/operations/retrievelinksresponse.md)**
+**[T.nilable(T::Array[Models::Operations::Link])](../../models/operations/.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## upsert_link
 
@@ -211,37 +268,94 @@ Upsert a link for a partner that is enrolled in your program. If a link with the
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="upsertPartnerLink" method="put" path="/partners/links/upsert" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(
-  link_props: ::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps.new(
-    external_id: "123456",
+req = Models::Operations::UpsertPartnerLinkRequestBody.new(
+  link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(
+    external_id: '123456',
     tag_ids: [
-      "clux0rgak00011...",
+      'clux0rgak00011...',
     ],
     test_variants: [
-      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(
-        url: "https://example.com/variant-1",
+      Models::Operations::UpsertPartnerLinkTestVariants.new(
+        url: 'https://example.com/variant-1',
         percentage: 50.0,
       ),
-      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(
-        url: "https://example.com/variant-2",
+      Models::Operations::UpsertPartnerLinkTestVariants.new(
+        url: 'https://example.com/variant-2',
         percentage: 50.0,
       ),
     ],
   ),
 )
 
-res = s.partners.upsert_link(req)
+res = s.partners.upsert_link(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::UpsertPartnerLinkRequestBody](../../models/operations/upsertpartnerlinkrequestbody.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## analytics
+
+Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="retrievePartnerAnalytics" method="get" path="/partners/analytics" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::RetrievePartnerAnalyticsRequest.new(
+  timezone: 'America/New_York',
+  query: 'metadata[\'key\']:\'value\'',
+)
+
+res = s.partners.analytics(request: req)
+
+unless res.nil?
   # handle response
 end
 
@@ -251,48 +365,23 @@ end
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody](../../models/operations/upsertpartnerlinkrequestbody.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| `request`                                                                                                         | [Models::Operations::RetrievePartnerAnalyticsRequest](../../models/operations/retrievepartneranalyticsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkResponse)](../../models/operations/upsertpartnerlinkresponse.md)**
+**[T.nilable(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks]))](../../models/operations/retrievepartneranalyticsresponsebody.md)**
 
+### Errors
 
-
-## analytics
-
-Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
-      ),
-    )
-
-req = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(
-  timezone: "America/New_York",
-)
-
-res = s.partners.analytics(req)
-
-if ! res.one_of.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest](../../models/operations/retrievepartneranalyticsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::RetrievePartnerAnalyticsResponse)](../../models/operations/retrievepartneranalyticsresponse.md)**
-
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |

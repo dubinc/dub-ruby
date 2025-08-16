@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The customer was deleted.
-    class DeleteCustomerResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The customer was deleted.
+      class DeleteCustomerResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+        # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
 
+        sig { params(id: ::String).void }
+        def initialize(id:)
+          @id = id
+        end
 
-      sig { params(id: ::String).void }
-      def initialize(id: nil)
-        @id = id
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          true
+        end
       end
     end
   end

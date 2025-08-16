@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateCustomerRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateCustomerRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
-      field :include_expanded_fields, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
+        # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
+        field :include_expanded_fields, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateCustomerRequestBody), { 'request': { 'media_type': 'application/json' } }
+        field :request_body, Crystalline::Nilable.new(Models::Operations::UpdateCustomerRequestBody), { 'request': { 'media_type': 'application/json' } }
 
+        sig { params(id: ::String, include_expanded_fields: T.nilable(T::Boolean), request_body: T.nilable(Models::Operations::UpdateCustomerRequestBody)).void }
+        def initialize(id:, include_expanded_fields: nil, request_body: nil)
+          @id = id
+          @include_expanded_fields = include_expanded_fields
+          @request_body = request_body
+        end
 
-      sig { params(id: ::String, include_expanded_fields: T.nilable(T::Boolean), request_body: T.nilable(::OpenApiSDK::Operations::UpdateCustomerRequestBody)).void }
-      def initialize(id: nil, include_expanded_fields: nil, request_body: nil)
-        @id = id
-        @include_expanded_fields = include_expanded_fields
-        @request_body = request_body
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @include_expanded_fields == other.include_expanded_fields
+          return false unless @request_body == other.request_body
+          true
+        end
       end
     end
   end

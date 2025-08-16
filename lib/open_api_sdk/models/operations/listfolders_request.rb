@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListFoldersRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListFoldersRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The page number for pagination.
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of items per page.
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
-      # The search term to filter the folders by.
-      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The search term to filter the folders by.
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # The number of items per page.
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
+        sig { params(search: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, page: 1.0, page_size: 50.0)
+          @search = search
+          @page = page
+          @page_size = page_size
+        end
 
-      sig { params(page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String)).void }
-      def initialize(page: nil, page_size: nil, search: nil)
-        @page = page
-        @page_size = page_size
-        @search = search
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @search == other.search
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

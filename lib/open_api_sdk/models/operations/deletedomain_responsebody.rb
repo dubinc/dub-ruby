@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The domain was deleted.
-    class DeleteDomainResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The domain was deleted.
+      class DeleteDomainResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain name.
-      field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
+        # The domain name.
+        field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug'), required: true } }
 
+        sig { params(slug: ::String).void }
+        def initialize(slug:)
+          @slug = slug
+        end
 
-      sig { params(slug: ::String).void }
-      def initialize(slug: nil)
-        @slug = slug
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @slug == other.slug
+          true
+        end
       end
     end
   end

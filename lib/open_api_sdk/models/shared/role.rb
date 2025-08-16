@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # Role - The role of the authenticated user in the workspace.
-    class Role < T::Enum
-      enums do
-        OWNER = new('owner')
-        MEMBER = new('member')
+  module Models
+    module Shared
+    
+      # Role - The role of the authenticated user in the workspace.
+      class Role < T::Enum
+
+
+        enums do
+          OWNER = new('owner')
+          MEMBER = new('member')
+        end
       end
     end
   end

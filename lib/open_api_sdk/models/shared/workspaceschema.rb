@@ -5,118 +5,160 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class WorkspaceSchema < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class WorkspaceSchema
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The AI limit of the workspace.
-      field :ai_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiLimit') } }
-      # The AI usage of the workspace.
-      field :ai_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiUsage') } }
-      # Specifies hostnames permitted for client-side click tracking.
-      field :allowed_hostnames, T::Array[::String], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames') } }
-      # The date and time when the billing cycle starts for the workspace.
-      field :billing_cycle_start, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('billingCycleStart') } }
-      # Whether the workspace has conversion tracking enabled automatically for new links (d.to/conversions).
-      field :conversion_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
-      # The date and time when the workspace was created.
-      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # The domains of the workspace.
-      field :domains, T::Array[::OpenApiSDK::Shared::Domains], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domains') } }
-      # The domains limit of the workspace.
-      field :domains_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domainsLimit') } }
-      # Whether the workspace has claimed a free .link domain. (dub.link/free)
-      field :dot_link_claimed, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dotLinkClaimed') } }
-      # The folders limit of the workspace.
-      field :folders_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersLimit') } }
-      # The folders usage of the workspace.
-      field :folders_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersUsage') } }
-      # The unique ID of the workspace.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The invite code of the workspace.
-      field :invite_code, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('inviteCode') } }
-      # The links limit of the workspace.
-      field :links_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linksLimit') } }
-      # The links usage of the workspace.
-      field :links_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linksUsage') } }
-      # The logo of the workspace.
-      field :logo, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
-      # The name of the workspace.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # Whether the workspace has Dub Partners enabled.
-      field :partners_enabled, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersEnabled') } }
-      # The date and time when the payment failed for the workspace.
-      field :payment_failed_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentFailedAt') } }
-      # The processing fee (in decimals) for partner payouts. For card payments, an additional 0.03 is added to the fee. Learn more: https://d.to/payouts
-      field :payout_fee, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutFee') } }
-      # The max dollar amount of partner payouts that can be processed within a billing cycle (in cents).
-      field :payouts_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsLimit') } }
-      # The dollar amount of partner payouts processed in the current billing cycle (in cents).
-      field :payouts_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsUsage') } }
-      # The plan of the workspace.
-      field :plan, ::OpenApiSDK::Shared::Plan, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('plan'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Plan, false) } }
-      # The slug of the workspace.
-      field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # The miscellaneous key-value store of the workspace.
-      field :store, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('store') } }
-      # The Stripe Connect ID of the workspace.
-      field :stripe_connect_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeConnectId') } }
-      # The Stripe ID of the workspace.
-      field :stripe_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeId') } }
-      # The tags limit of the workspace.
-      field :tags_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagsLimit') } }
-      # The total number of links in the workspace.
-      field :total_links, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('totalLinks') } }
-      # The usage of the workspace.
-      field :usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usage') } }
-      # The usage limit of the workspace.
-      field :usage_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usageLimit') } }
-      # The role of the authenticated user in the workspace.
-      field :users, T::Array[::OpenApiSDK::Shared::Users], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users') } }
-      # The users limit of the workspace.
-      field :users_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usersLimit') } }
-      # The feature flags of the workspace, indicating which features are enabled.
-      field :flags, T.nilable(T::Hash[Symbol, T::Boolean]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
+        # The unique ID of the workspace.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The name of the workspace.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The slug of the workspace.
+        field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug'), required: true } }
+        # The plan of the workspace.
+        field :plan, Models::Shared::Plan, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('plan'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Plan, false) } }
+        # The date and time when the billing cycle starts for the workspace.
+        field :billing_cycle_start, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('billingCycleStart'), required: true } }
+        # The total number of links in the workspace.
+        field :total_links, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('totalLinks'), required: true } }
+        # The usage of the workspace.
+        field :usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usage'), required: true } }
+        # The usage limit of the workspace.
+        field :usage_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usageLimit'), required: true } }
+        # The links usage of the workspace.
+        field :links_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linksUsage'), required: true } }
+        # The links limit of the workspace.
+        field :links_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linksLimit'), required: true } }
+        # The dollar amount of partner payouts processed in the current billing cycle (in cents).
+        field :payouts_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsUsage'), required: true } }
+        # The max dollar amount of partner payouts that can be processed within a billing cycle (in cents).
+        field :payouts_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsLimit'), required: true } }
+        # The processing fee (in decimals) for partner payouts. For card payments, an additional 0.03 is added to the fee. Learn more: https://d.to/payouts
+        field :payout_fee, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutFee'), required: true } }
+        # The domains limit of the workspace.
+        field :domains_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domainsLimit'), required: true } }
+        # The tags limit of the workspace.
+        field :tags_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagsLimit'), required: true } }
+        # The folders usage of the workspace.
+        field :folders_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersUsage'), required: true } }
+        # The folders limit of the workspace.
+        field :folders_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('foldersLimit'), required: true } }
+        # The groups limit of the workspace.
+        field :groups_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupsLimit'), required: true } }
+        # The users limit of the workspace.
+        field :users_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('usersLimit'), required: true } }
+        # The AI usage of the workspace.
+        field :ai_usage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiUsage'), required: true } }
+        # The AI limit of the workspace.
+        field :ai_limit, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('aiLimit'), required: true } }
+        # Whether the workspace has conversion tracking enabled automatically for new links (d.to/conversions).
+        field :conversion_enabled, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled'), required: true } }
+        # Whether the workspace has claimed a free .link domain. (dub.link/free)
+        field :dot_link_claimed, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dotLinkClaimed'), required: true } }
+        # The date and time when the workspace was created.
+        field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
+        # The role of the authenticated user in the workspace.
+        field :users, Crystalline::Array.new(Models::Shared::Users), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('users'), required: true } }
+        # The domains of the workspace.
+        field :domains, Crystalline::Array.new(Models::Shared::Domains), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domains'), required: true } }
+        # The invite code of the workspace.
+        field :invite_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('inviteCode'), required: true } }
+        # The Stripe ID of the workspace.
+        field :stripe_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeId'), required: true } }
+        # The date and time when the payment failed for the workspace.
+        field :payment_failed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentFailedAt'), required: true } }
+        # The Stripe Connect ID of the workspace.
+        field :stripe_connect_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeConnectId'), required: true } }
+        # The feature flags of the workspace, indicating which features are enabled.
+        field :flags, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, Crystalline::Boolean.new)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flags') } }
+        # The miscellaneous key-value store of the workspace.
+        field :store, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('store'), required: true } }
+        # Specifies hostnames permitted for client-side click tracking.
+        field :allowed_hostnames, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames'), required: true } }
+        # The logo of the workspace.
+        field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
 
+        sig { params(id: ::String, name: ::String, slug: ::String, plan: Models::Shared::Plan, billing_cycle_start: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, links_usage: ::Float, links_limit: ::Float, payouts_usage: ::Float, payouts_limit: ::Float, payout_fee: ::Float, domains_limit: ::Float, tags_limit: ::Float, folders_usage: ::Float, folders_limit: ::Float, groups_limit: ::Float, users_limit: ::Float, ai_usage: ::Float, ai_limit: ::Float, conversion_enabled: T::Boolean, dot_link_claimed: T::Boolean, created_at: ::String, users: T::Array[Models::Shared::Users], domains: T::Array[Models::Shared::Domains], invite_code: T.nilable(::String), stripe_id: T.nilable(::String), payment_failed_at: T.nilable(::String), stripe_connect_id: T.nilable(::String), flags: T.nilable(T::Hash[Symbol, T::Boolean]), store: T.nilable(T::Hash[Symbol, ::Object]), allowed_hostnames: T.nilable(T::Array[::String]), logo: T.nilable(::String)).void }
+        def initialize(id:, name:, slug:, plan:, billing_cycle_start:, total_links:, usage:, usage_limit:, links_usage:, links_limit:, payouts_usage:, payouts_limit:, payout_fee:, domains_limit:, tags_limit:, folders_usage:, folders_limit:, groups_limit:, users_limit:, ai_usage:, ai_limit:, conversion_enabled:, dot_link_claimed:, created_at:, users:, domains:, invite_code: nil, stripe_id: nil, payment_failed_at: nil, stripe_connect_id: nil, flags: nil, store: nil, allowed_hostnames: nil, logo: nil)
+          @id = id
+          @name = name
+          @slug = slug
+          @plan = plan
+          @billing_cycle_start = billing_cycle_start
+          @total_links = total_links
+          @usage = usage
+          @usage_limit = usage_limit
+          @links_usage = links_usage
+          @links_limit = links_limit
+          @payouts_usage = payouts_usage
+          @payouts_limit = payouts_limit
+          @payout_fee = payout_fee
+          @domains_limit = domains_limit
+          @tags_limit = tags_limit
+          @folders_usage = folders_usage
+          @folders_limit = folders_limit
+          @groups_limit = groups_limit
+          @users_limit = users_limit
+          @ai_usage = ai_usage
+          @ai_limit = ai_limit
+          @conversion_enabled = conversion_enabled
+          @dot_link_claimed = dot_link_claimed
+          @created_at = created_at
+          @users = users
+          @domains = domains
+          @invite_code = invite_code
+          @stripe_id = stripe_id
+          @payment_failed_at = payment_failed_at
+          @stripe_connect_id = stripe_connect_id
+          @flags = flags
+          @store = store
+          @allowed_hostnames = allowed_hostnames
+          @logo = logo
+        end
 
-      sig { params(ai_limit: ::Float, ai_usage: ::Float, allowed_hostnames: T::Array[::String], billing_cycle_start: ::Float, conversion_enabled: T::Boolean, created_at: ::String, domains: T::Array[::OpenApiSDK::Shared::Domains], domains_limit: ::Float, dot_link_claimed: T::Boolean, folders_limit: ::Float, folders_usage: ::Float, id: ::String, invite_code: ::String, links_limit: ::Float, links_usage: ::Float, logo: ::String, name: ::String, partners_enabled: T::Boolean, payment_failed_at: ::String, payout_fee: ::Float, payouts_limit: ::Float, payouts_usage: ::Float, plan: ::OpenApiSDK::Shared::Plan, slug: ::String, store: T::Hash[Symbol, ::Object], stripe_connect_id: ::String, stripe_id: ::String, tags_limit: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, users: T::Array[::OpenApiSDK::Shared::Users], users_limit: ::Float, flags: T.nilable(T::Hash[Symbol, T::Boolean])).void }
-      def initialize(ai_limit: nil, ai_usage: nil, allowed_hostnames: nil, billing_cycle_start: nil, conversion_enabled: nil, created_at: nil, domains: nil, domains_limit: nil, dot_link_claimed: nil, folders_limit: nil, folders_usage: nil, id: nil, invite_code: nil, links_limit: nil, links_usage: nil, logo: nil, name: nil, partners_enabled: nil, payment_failed_at: nil, payout_fee: nil, payouts_limit: nil, payouts_usage: nil, plan: nil, slug: nil, store: nil, stripe_connect_id: nil, stripe_id: nil, tags_limit: nil, total_links: nil, usage: nil, usage_limit: nil, users: nil, users_limit: nil, flags: nil)
-        @ai_limit = ai_limit
-        @ai_usage = ai_usage
-        @allowed_hostnames = allowed_hostnames
-        @billing_cycle_start = billing_cycle_start
-        @conversion_enabled = conversion_enabled
-        @created_at = created_at
-        @domains = domains
-        @domains_limit = domains_limit
-        @dot_link_claimed = dot_link_claimed
-        @folders_limit = folders_limit
-        @folders_usage = folders_usage
-        @id = id
-        @invite_code = invite_code
-        @links_limit = links_limit
-        @links_usage = links_usage
-        @logo = logo
-        @name = name
-        @partners_enabled = partners_enabled
-        @payment_failed_at = payment_failed_at
-        @payout_fee = payout_fee
-        @payouts_limit = payouts_limit
-        @payouts_usage = payouts_usage
-        @plan = plan
-        @slug = slug
-        @store = store
-        @stripe_connect_id = stripe_connect_id
-        @stripe_id = stripe_id
-        @tags_limit = tags_limit
-        @total_links = total_links
-        @usage = usage
-        @usage_limit = usage_limit
-        @users = users
-        @users_limit = users_limit
-        @flags = flags
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @slug == other.slug
+          return false unless @plan == other.plan
+          return false unless @billing_cycle_start == other.billing_cycle_start
+          return false unless @total_links == other.total_links
+          return false unless @usage == other.usage
+          return false unless @usage_limit == other.usage_limit
+          return false unless @links_usage == other.links_usage
+          return false unless @links_limit == other.links_limit
+          return false unless @payouts_usage == other.payouts_usage
+          return false unless @payouts_limit == other.payouts_limit
+          return false unless @payout_fee == other.payout_fee
+          return false unless @domains_limit == other.domains_limit
+          return false unless @tags_limit == other.tags_limit
+          return false unless @folders_usage == other.folders_usage
+          return false unless @folders_limit == other.folders_limit
+          return false unless @groups_limit == other.groups_limit
+          return false unless @users_limit == other.users_limit
+          return false unless @ai_usage == other.ai_usage
+          return false unless @ai_limit == other.ai_limit
+          return false unless @conversion_enabled == other.conversion_enabled
+          return false unless @dot_link_claimed == other.dot_link_claimed
+          return false unless @created_at == other.created_at
+          return false unless @users == other.users
+          return false unless @domains == other.domains
+          return false unless @invite_code == other.invite_code
+          return false unless @stripe_id == other.stripe_id
+          return false unless @payment_failed_at == other.payment_failed_at
+          return false unless @stripe_connect_id == other.stripe_connect_id
+          return false unless @flags == other.flags
+          return false unless @store == other.store
+          return false unless @allowed_hostnames == other.allowed_hostnames
+          return false unless @logo == other.logo
+          true
+        end
       end
     end
   end

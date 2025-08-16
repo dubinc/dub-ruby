@@ -5,31 +5,44 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateWorkspaceRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :allowed_hostnames, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames') } }
-
-      field :conversion_enabled, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
-
-      field :logo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-      field :slug, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
+      class UpdateWorkspaceRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(allowed_hostnames: T.nilable(T::Array[::String]), conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::String), name: T.nilable(::String), slug: T.nilable(::String)).void }
-      def initialize(allowed_hostnames: nil, conversion_enabled: nil, logo: nil, name: nil, slug: nil)
-        @allowed_hostnames = allowed_hostnames
-        @conversion_enabled = conversion_enabled
-        @logo = logo
-        @name = name
-        @slug = slug
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+
+        field :slug, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
+
+        field :conversion_enabled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
+
+        field :allowed_hostnames, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames') } }
+
+        field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
+
+        sig { params(name: T.nilable(::String), slug: T.nilable(::String), conversion_enabled: T.nilable(T::Boolean), allowed_hostnames: T.nilable(T::Array[::String]), logo: T.nilable(::String)).void }
+        def initialize(name: nil, slug: nil, conversion_enabled: nil, allowed_hostnames: nil, logo: nil)
+          @name = name
+          @slug = slug
+          @conversion_enabled = conversion_enabled
+          @allowed_hostnames = allowed_hostnames
+          @logo = logo
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @name == other.name
+          return false unless @slug == other.slug
+          return false unless @conversion_enabled == other.conversion_enabled
+          return false unless @allowed_hostnames == other.allowed_hostnames
+          return false unless @logo == other.logo
+          true
+        end
       end
     end
   end

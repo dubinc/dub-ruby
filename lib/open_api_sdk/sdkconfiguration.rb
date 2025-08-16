@@ -16,23 +16,51 @@ module OpenApiSDK
   SERVERS = [
     'https://api.dub.co', # 1 - Production API
   ].freeze
+  SERVERS = T.let(SERVERS, T::Array[String])
   # Contains the list of servers available to the SDK
 
-  class SDKConfiguration < ::Crystalline::FieldAugmented
+  class SDKConfiguration
     extend T::Sig
 
-    field :client, T.nilable(Faraday::Connection)
-    field :hooks, ::OpenApiSDK::SDKHooks::Hooks
-    field :retry_config, T.nilable(::OpenApiSDK::Utils::RetryConfig)
-    field :timeout, T.nilable(Float)
-    field :security_source, T.nilable(T.proc.returns(T.nilable(::OpenApiSDK::Shared::Security)))
-    field :server_url, T.nilable(String)
-    field :server_idx, T.nilable(Integer)
-    field :language, String
-    field :openapi_doc_version, String
-    field :sdk_version, String
-    field :gen_version, String
-    field :user_agent, String
+    sig { returns(T.nilable(Faraday::Connection)) }
+    attr_accessor :client
+
+    sig { returns(::OpenApiSDK::SDKHooks::Hooks) }
+    attr_accessor :hooks
+
+    sig { returns(T.nilable(::OpenApiSDK::Utils::RetryConfig)) }
+    attr_accessor :retry_config
+
+    sig { returns(T.nilable(Float)) }
+    attr_accessor :timeout
+
+    
+    sig { returns(T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))) }
+    attr_accessor :security_source
+
+    
+    sig { returns(T.nilable(String)) }
+    attr_accessor :server_url
+
+    
+    sig { returns(T.nilable(Integer)) }
+    attr_accessor :server_idx
+
+    
+    sig { returns(String) }
+    attr_accessor :language
+
+    sig { returns(String) }
+    attr_accessor :openapi_doc_version
+
+    sig { returns(String) }
+    attr_accessor :sdk_version
+
+    sig { returns(String) }
+    attr_accessor :gen_version
+
+    sig { returns(String) }
+    attr_accessor :user_agent
 
     sig do
       params(
@@ -40,8 +68,8 @@ module OpenApiSDK
         hooks: ::OpenApiSDK::SDKHooks::Hooks,
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        security: T.nilable(::OpenApiSDK::Shared::Security),
-        security_source: T.nilable(T.proc.returns(::OpenApiSDK::Shared::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
@@ -61,15 +89,16 @@ module OpenApiSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.9.0'
-      @gen_version = '2.563.0'
-      @user_agent = 'speakeasy-sdk/ruby 0.9.0 2.563.0 0.0.1 dub'
+      @sdk_version = '0.10.0'
+      @gen_version = '2.684.0'
+      @user_agent = 'speakeasy-sdk/ruby 0.10.0 2.684.0 0.0.1 dub'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
-      [SERVERS[@server_idx], {}]
+      @server_idx = T.must(@server_idx)
+      [T.must(SERVERS[@server_idx]), {}]
     end
   end
 end

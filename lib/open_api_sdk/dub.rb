@@ -23,8 +23,8 @@ module OpenApiSDK
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        security: T.nilable(::OpenApiSDK::Shared::Security),
-        security_source: T.nilable(T.proc.returns(::OpenApiSDK::Shared::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_idx: T.nilable(Integer),
         server_url: T.nilable(String),
         url_params: T.nilable(T::Hash[Symbol, String])
@@ -35,8 +35,8 @@ module OpenApiSDK
       # @param [T.nilable(Faraday::Connection)] client The faraday HTTP client to use for all operations
       # @param [T.nilable(::OpenApiSDK::Utils::RetryConfig)] retry_config The retry configuration to use for all operations
       # @param [T.nilable(Integer)] timeout_ms Request timeout in milliseconds for all operations
-      # @param [T.nilable(::OpenApiSDK::Shared::Security)] security: The security details required for authentication
-      # @param [T.proc.returns(T.nilable(::OpenApiSDK::Shared::Security))] security_source: A function that returns security details required for authentication
+      # @param [T.nilable(Models::Shared::Security)] security: The security details required for authentication
+      # @param [T.proc.returns(T.nilable(Models::Shared::Security))] security_source: A function that returns security details required for authentication
       # @param [T.nilable(::Integer)] server_idx The index of the server to use for all operations
       # @param [T.nilable(::String)] server_url The server URL to use for all operations
       # @param [T.nilable(::Hash<::Symbol, ::String>)] url_params Parameters to optionally template the server URL with
@@ -52,7 +52,7 @@ module OpenApiSDK
         f.request :multipart, {}
         # f.response :logger, nil, { headers: true, bodies: true, errors: true }
       end
-
+      
       if !server_url.nil?
         if !url_params.nil?
           server_url = Utils.template_url(server_url, url_params)
@@ -71,11 +71,7 @@ module OpenApiSDK
         server_url,
         server_idx
       )
-
-      original_server_url = @sdk_configuration.get_server_details.first
-      new_server_url, @sdk_configuration.client = hooks.sdk_init(base_url: original_server_url, client: client)
-      @sdk_configuration.server_url = new_server_url if new_server_url != original_server_url
-
+      @sdk_configuration = hooks.sdk_init(config: @sdk_configuration)
       init_sdks
     end
 
@@ -94,6 +90,21 @@ module OpenApiSDK
       @workspaces = Workspaces.new(@sdk_configuration)
       @embed_tokens = EmbedTokens.new(@sdk_configuration)
       @qr_codes = QRCodes.new(@sdk_configuration)
+    end
+
+    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    def get_url(base_url:, url_variables: nil)
+      sd_base_url, sd_options = @sdk_configuration.get_server_details
+
+      if base_url.nil?
+        base_url = sd_base_url
+      end
+
+      if url_variables.nil?
+        url_variables = sd_options
+      end
+
+      return Utils.template_url base_url, url_variables
     end
   end
 end

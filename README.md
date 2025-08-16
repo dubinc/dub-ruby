@@ -49,33 +49,34 @@ gem install dub
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::CreateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.create(req)
+res = s.links.create(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -86,33 +87,34 @@ end
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::UpsertLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.upsert(req)
+res = s.links.upsert(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -134,33 +136,34 @@ You can set the security parameters through the `security` optional parameter wh
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::CreateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.create(req)
+res = s.links.create(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -327,32 +330,32 @@ begin
       # handle response
     end
 rescue Models::Errors::BadRequest => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::Unauthorized => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::Forbidden => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::NotFound => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::Conflict => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::InviteExpired => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::UnprocessableEntity => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::RateLimitExceeded => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::InternalServerError => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Errors::APIError => e
   # handle default exception
   raise e
@@ -370,34 +373,35 @@ The default server can be overridden globally by passing a URL to the `server_ur
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      server_url: "https://api.dub.co",
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      server_url: 'https://api.dub.co',
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::CreateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.create(req)
+res = s.links.create(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 

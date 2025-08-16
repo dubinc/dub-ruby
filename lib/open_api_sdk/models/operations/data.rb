@@ -5,125 +5,168 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class Data < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Data
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The Android destination URL for the short link for Android device targeting.
-      field :android, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
-      # Whether the short link is archived. Defaults to `false` if not provided.
-      field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
-      # The comments for the short link.
-      field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
-      # The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-      # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
-      field :do_index, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
-      # The URL to redirect to when the short link has expired.
-      field :expired_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
-      # The date and time when the short link will expire at.
-      field :expires_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
-      # The unique ID existing folder to assign the short link to.
-      field :folder_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
-      # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.
-      field :geo, T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
-      # The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
-      field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
-      # The iOS destination URL for the short link for iOS device targeting.
-      field :ios, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
-      # The ID of the partner the short link is associated with.
-      field :partner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
-      # The password required to access the destination URL of the short link.
-      field :password, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('password') } }
-      # The ID of the program the short link is associated with.
-      field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
-      field :proxy, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
-      # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :public_stats, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
-      # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-      field :ref, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
-      # Whether the short link uses link cloaking. Defaults to `false` if not provided.
-      field :rewrite, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
-      # Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :tag_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId') } }
-      # The unique IDs of the tags assigned to the short link.
-      field :tag_ids, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagIds') } }
-      # The unique name of the tags assigned to the short link (case insensitive).
-      field :tag_names, T.nilable(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
-      # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
-      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-      # The date and time when the tests were or will be completed.
-      field :test_completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
-      # The date and time when the tests started.
-      field :test_started_at, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
-      # An array of A/B test URLs and the percentage of traffic to send to each URL.
-      field :test_variants, T.nilable(T::Array[::OpenApiSDK::Operations::BulkUpdateLinksTestVariants]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
-      # The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
-      # Whether to track conversions for the short link. Defaults to `false` if not provided.
-      field :track_conversion, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
-      # The destination URL of the short link.
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
-      # The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-      field :utm_campaign, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_campaign') } }
-      # The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-      field :utm_content, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_content') } }
-      # The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-      field :utm_medium, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_medium') } }
-      # The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-      field :utm_source, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }
-      # The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-      field :utm_term, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
-      # The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
-      field :video, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
-      # An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-      field :webhook_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
+        # The destination URL of the short link.
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+        # Whether to track conversions for the short link. Defaults to `false` if not provided.
+        field :track_conversion, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }
+        # Whether the short link is archived. Defaults to `false` if not provided.
+        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
+        # The unique IDs of the tags assigned to the short link.
+        field :tag_ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagIds') } }
+        # The unique name of the tags assigned to the short link (case insensitive).
+        field :tag_names, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
+        # Whether the short link uses Custom Link Previews feature. Defaults to `false` if not provided.
+        field :proxy, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('proxy') } }
+        # Whether the short link uses link cloaking. Defaults to `false` if not provided.
+        field :rewrite, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewrite') } }
+        # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
+        field :do_index, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
+        # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :public_stats, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
+        # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+        # The ID of the program the short link is associated with.
+        field :program_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
+        # The ID of the partner the short link is associated with.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
+        # The unique ID existing folder to assign the short link to.
+        field :folder_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
+        # The comments for the short link.
+        field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
+        # The date and time when the short link will expire at.
+        field :expires_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiresAt') } }
+        # The URL to redirect to when the short link has expired.
+        field :expired_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
+        # The password required to access the destination URL of the short link.
+        field :password, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('password') } }
+        # The custom link preview title (og:title). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
+        # The custom link preview description (og:description). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        # The custom link preview image (og:image). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
+        field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
+        # The custom link preview video (og:video). Will be used for Custom Link Previews if `proxy` is true. Learn more: https://d.to/og
+        field :video, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('video') } }
+        # The iOS destination URL for the short link for iOS device targeting.
+        field :ios, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
+        # The Android destination URL for the short link for Android device targeting.
+        field :android, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
+        # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.
+        field :geo, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
+        # The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
+        field :utm_source, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }
+        # The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
+        field :utm_medium, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_medium') } }
+        # The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
+        field :utm_campaign, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_campaign') } }
+        # The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
+        field :utm_term, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
+        # The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
+        field :utm_content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_content') } }
+        # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
+        field :ref, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
+        # An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
+        field :webhook_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
+        # An array of A/B test URLs and the percentage of traffic to send to each URL.
+        field :test_variants, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::BulkUpdateLinksTestVariants)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
+        # The date and time when the tests started.
+        field :test_started_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testStartedAt') } }
+        # The date and time when the tests were or will be completed.
+        field :test_completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
+        # Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :tag_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId') } }
 
+        sig { params(url: T.nilable(::String), track_conversion: T.nilable(T::Boolean), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), folder_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), geo: T.nilable(T::Hash[Symbol, ::String]), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String]), test_variants: T.nilable(T::Array[Models::Operations::BulkUpdateLinksTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String), tag_id: T.nilable(::String)).void }
+        def initialize(url: nil, track_conversion: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, public_stats: nil, tenant_id: nil, program_id: nil, partner_id: nil, folder_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, geo: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, webhook_ids: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil, tag_id: nil)
+          @url = url
+          @track_conversion = track_conversion
+          @archived = archived
+          @tag_ids = tag_ids
+          @tag_names = tag_names
+          @proxy = proxy
+          @rewrite = rewrite
+          @do_index = do_index
+          @public_stats = public_stats
+          @tenant_id = tenant_id
+          @program_id = program_id
+          @partner_id = partner_id
+          @folder_id = folder_id
+          @comments = comments
+          @expires_at = expires_at
+          @expired_url = expired_url
+          @password = password
+          @title = title
+          @description = description
+          @image = image
+          @video = video
+          @ios = ios
+          @android = android
+          @geo = geo
+          @utm_source = utm_source
+          @utm_medium = utm_medium
+          @utm_campaign = utm_campaign
+          @utm_term = utm_term
+          @utm_content = utm_content
+          @ref = ref
+          @webhook_ids = webhook_ids
+          @test_variants = test_variants
+          @test_started_at = test_started_at
+          @test_completed_at = test_completed_at
+          @tag_id = tag_id
+        end
 
-      sig { params(android: T.nilable(::String), archived: T.nilable(T::Boolean), comments: T.nilable(::String), description: T.nilable(::String), do_index: T.nilable(T::Boolean), expired_url: T.nilable(::String), expires_at: T.nilable(::String), folder_id: T.nilable(::String), geo: T.nilable(::OpenApiSDK::Shared::LinkGeoTargeting), image: T.nilable(::String), ios: T.nilable(::String), partner_id: T.nilable(::String), password: T.nilable(::String), program_id: T.nilable(::String), proxy: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), ref: T.nilable(::String), rewrite: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), test_completed_at: T.nilable(::String), test_started_at: T.nilable(::String), test_variants: T.nilable(T::Array[::OpenApiSDK::Operations::BulkUpdateLinksTestVariants]), title: T.nilable(::String), track_conversion: T.nilable(T::Boolean), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String), video: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String])).void }
-      def initialize(android: nil, archived: nil, comments: nil, description: nil, do_index: nil, expired_url: nil, expires_at: nil, folder_id: nil, geo: nil, image: nil, ios: nil, partner_id: nil, password: nil, program_id: nil, proxy: nil, public_stats: nil, ref: nil, rewrite: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, test_completed_at: nil, test_started_at: nil, test_variants: nil, title: nil, track_conversion: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, video: nil, webhook_ids: nil)
-        @android = android
-        @archived = archived
-        @comments = comments
-        @description = description
-        @do_index = do_index
-        @expired_url = expired_url
-        @expires_at = expires_at
-        @folder_id = folder_id
-        @geo = geo
-        @image = image
-        @ios = ios
-        @partner_id = partner_id
-        @password = password
-        @program_id = program_id
-        @proxy = proxy
-        @public_stats = public_stats
-        @ref = ref
-        @rewrite = rewrite
-        @tag_id = tag_id
-        @tag_ids = tag_ids
-        @tag_names = tag_names
-        @tenant_id = tenant_id
-        @test_completed_at = test_completed_at
-        @test_started_at = test_started_at
-        @test_variants = test_variants
-        @title = title
-        @track_conversion = track_conversion
-        @url = url
-        @utm_campaign = utm_campaign
-        @utm_content = utm_content
-        @utm_medium = utm_medium
-        @utm_source = utm_source
-        @utm_term = utm_term
-        @video = video
-        @webhook_ids = webhook_ids
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @url == other.url
+          return false unless @track_conversion == other.track_conversion
+          return false unless @archived == other.archived
+          return false unless @tag_ids == other.tag_ids
+          return false unless @tag_names == other.tag_names
+          return false unless @proxy == other.proxy
+          return false unless @rewrite == other.rewrite
+          return false unless @do_index == other.do_index
+          return false unless @public_stats == other.public_stats
+          return false unless @tenant_id == other.tenant_id
+          return false unless @program_id == other.program_id
+          return false unless @partner_id == other.partner_id
+          return false unless @folder_id == other.folder_id
+          return false unless @comments == other.comments
+          return false unless @expires_at == other.expires_at
+          return false unless @expired_url == other.expired_url
+          return false unless @password == other.password
+          return false unless @title == other.title
+          return false unless @description == other.description
+          return false unless @image == other.image
+          return false unless @video == other.video
+          return false unless @ios == other.ios
+          return false unless @android == other.android
+          return false unless @geo == other.geo
+          return false unless @utm_source == other.utm_source
+          return false unless @utm_medium == other.utm_medium
+          return false unless @utm_campaign == other.utm_campaign
+          return false unless @utm_term == other.utm_term
+          return false unless @utm_content == other.utm_content
+          return false unless @ref == other.ref
+          return false unless @webhook_ids == other.webhook_ids
+          return false unless @test_variants == other.test_variants
+          return false unless @test_started_at == other.test_started_at
+          return false unless @test_completed_at == other.test_completed_at
+          return false unless @tag_id == other.tag_id
+          true
+        end
       end
     end
   end

@@ -5,17 +5,21 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # Sort - DEPRECATED. Use `sortBy` instead.
-    # 
-    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class Sort < T::Enum
-      enums do
-        CREATED_AT = new('createdAt')
-        CLICKS = new('clicks')
-        SALE_AMOUNT = new('saleAmount')
-        LAST_CLICKED = new('lastClicked')
+  module Models
+    module Operations
+    
+      # Sort - DEPRECATED. Use `sortBy` instead.
+      # 
+      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      class Sort < T::Enum
+
+
+        enums do
+          CREATED_AT = new('createdAt')
+          CLICKS = new('clicks')
+          SALE_AMOUNT = new('saleAmount')
+          LAST_CLICKED = new('lastClicked')
+        end
       end
     end
   end

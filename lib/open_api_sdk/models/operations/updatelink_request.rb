@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateLinkRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateLinkRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.
-      field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
+        # The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.
+        field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody), { 'request': { 'media_type': 'application/json' } }
+        field :request_body, Crystalline::Nilable.new(Models::Operations::UpdateLinkRequestBody), { 'request': { 'media_type': 'application/json' } }
 
+        sig { params(link_id: ::String, request_body: T.nilable(Models::Operations::UpdateLinkRequestBody)).void }
+        def initialize(link_id:, request_body: nil)
+          @link_id = link_id
+          @request_body = request_body
+        end
 
-      sig { params(link_id: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody)).void }
-      def initialize(link_id: nil, request_body: nil)
-        @link_id = link_id
-        @request_body = request_body
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @link_id == other.link_id
+          return false unless @request_body == other.request_body
+          true
+        end
       end
     end
   end

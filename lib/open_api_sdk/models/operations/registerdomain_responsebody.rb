@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The domain was registered.
-    class RegisterDomainResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The domain was registered.
+      class RegisterDomainResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain name.
-      field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
-      # The expiration timestamp of the domain (Unix timestamp in milliseconds).
-      field :expiration, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiration') } }
-      # The status of the domain registration.
-      field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status') } }
+        # The domain name.
+        field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain'), required: true } }
+        # The status of the domain registration.
+        field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true } }
+        # The expiration timestamp of the domain (Unix timestamp in milliseconds).
+        field :expiration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiration'), required: true } }
 
+        sig { params(domain: ::String, status: ::String, expiration: T.nilable(::Float)).void }
+        def initialize(domain:, status:, expiration: nil)
+          @domain = domain
+          @status = status
+          @expiration = expiration
+        end
 
-      sig { params(domain: ::String, expiration: ::Float, status: ::String).void }
-      def initialize(domain: nil, expiration: nil, status: nil)
-        @domain = domain
-        @expiration = expiration
-        @status = status
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domain == other.domain
+          return false unless @status == other.status
+          return false unless @expiration == other.expiration
+          true
+        end
       end
     end
   end

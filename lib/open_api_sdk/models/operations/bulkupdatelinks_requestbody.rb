@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class BulkUpdateLinksRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, ::OpenApiSDK::Operations::Data, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
-      # The external IDs of the links to update as stored in your database.
-      field :external_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalIds') } }
-      # The IDs of the links to update. Takes precedence over `externalIds`.
-      field :link_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkIds') } }
+      class BulkUpdateLinksRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: ::OpenApiSDK::Operations::Data, external_ids: T.nilable(T::Array[::String]), link_ids: T.nilable(T::Array[::String])).void }
-      def initialize(data: nil, external_ids: nil, link_ids: nil)
-        @data = data
-        @external_ids = external_ids
-        @link_ids = link_ids
+        field :data, Models::Operations::Data, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
+        # The IDs of the links to update. Takes precedence over `externalIds`.
+        field :link_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkIds') } }
+        # The external IDs of the links to update as stored in your database.
+        field :external_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalIds') } }
+
+        sig { params(data: Models::Operations::Data, link_ids: T.nilable(T::Array[::String]), external_ids: T.nilable(T::Array[::String])).void }
+        def initialize(data:, link_ids: nil, external_ids: nil)
+          @data = data
+          @link_ids = link_ids
+          @external_ids = external_ids
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @link_ids == other.link_ids
+          return false unless @external_ids == other.external_ids
+          true
+        end
       end
     end
   end

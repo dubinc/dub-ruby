@@ -5,40 +5,60 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreatePartnerRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreatePartnerRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The partner's email address. Partners will be able to claim their profile by signing up at `partners.dub.co` with this email.
-      field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-      # The partner's country of residence. Must be passed as a 2-letter ISO 3166-1 country code. Learn more: https://d.to/geo
-      field :country, T.nilable(::OpenApiSDK::Operations::Country), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Country, true) } }
-      # A brief description of the partner and their background. Max 5,000 characters.
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-      # The partner's avatar image. If not provided, a default avatar will be used.
-      field :image, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
-      # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
-      field :link_props, T.nilable(::OpenApiSDK::Operations::LinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
-      # The partner's full name. If undefined, the partner's email will be used in lieu of their name (e.g. `john@acme.com`)
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # The partner's unique ID in your system. Useful for retrieving the partner's links and stats later on. If not provided, the partner will be created as a standalone partner.
-      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-      # The partner's unique username in your system (max 100 characters). This will be used to create a short link for the partner using your program's default domain. If not provided, Dub will try to generate a username from the partner's name or email.
-      field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
+        # The partner's email address. Partners will be able to claim their profile by signing up at `partners.dub.co` with this email.
+        field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
+        # The partner's unique ID in your system. Useful for retrieving the partner's links and stats later on. If not provided, the partner will be created as a standalone partner.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+        # The group ID to add the partner to. If not provided, the partner will be added to the default group.
+        field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
+        # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
+        field :link_props, Crystalline::Nilable.new(Models::Operations::LinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
+        # The partner's full name. If undefined, the partner's email will be used in lieu of their name (e.g. `john@acme.com`)
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The partner's unique username in your system (max 100 characters). This will be used to create a short link for the partner using your program's default domain. If not provided, Dub will try to generate a username from the partner's name or email.
+        field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username') } }
+        # The partner's avatar image. If not provided, a default avatar will be used.
+        field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
+        # The partner's country of residence. Must be passed as a 2-letter ISO 3166-1 country code. See https://d.to/geo for more information.
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+        # A brief description of the partner and their background. Max 5,000 characters.
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
+        sig { params(email: ::String, tenant_id: T.nilable(::String), group_id: T.nilable(::String), link_props: T.nilable(Models::Operations::LinkProps), name: T.nilable(::String), username: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), description: T.nilable(::String)).void }
+        def initialize(email:, tenant_id: nil, group_id: nil, link_props: nil, name: nil, username: nil, image: nil, country: nil, description: nil)
+          @email = email
+          @tenant_id = tenant_id
+          @group_id = group_id
+          @link_props = link_props
+          @name = name
+          @username = username
+          @image = image
+          @country = country
+          @description = description
+        end
 
-      sig { params(email: ::String, country: T.nilable(::OpenApiSDK::Operations::Country), description: T.nilable(::String), image: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::LinkProps), name: T.nilable(::String), tenant_id: T.nilable(::String), username: T.nilable(::String)).void }
-      def initialize(email: nil, country: nil, description: nil, image: nil, link_props: nil, name: nil, tenant_id: nil, username: nil)
-        @email = email
-        @country = country
-        @description = description
-        @image = image
-        @link_props = link_props
-        @name = name
-        @tenant_id = tenant_id
-        @username = username
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @email == other.email
+          return false unless @tenant_id == other.tenant_id
+          return false unless @group_id == other.group_id
+          return false unless @link_props == other.link_props
+          return false unless @name == other.name
+          return false unless @username == other.username
+          return false unless @image == other.image
+          return false unless @country == other.country
+          return false unless @description == other.description
+          true
+        end
       end
     end
   end

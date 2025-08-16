@@ -1,0 +1,4 @@
+# RetrievePartnerAnalyticsResponseBody
+
+Partner analytics data
+

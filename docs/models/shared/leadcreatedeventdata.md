@@ -1,0 +1,11 @@
+# LeadCreatedEventData
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `event_name`                                                                                | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `customer`                                                                                  | [Models::Shared::LeadCreatedEventCustomer](../../models/shared/leadcreatedeventcustomer.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `click`                                                                                     | [Models::Shared::LeadCreatedEventClick](../../models/shared/leadcreatedeventclick.md)       | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `link`                                                                                      | [Models::Shared::LeadCreatedEventLink](../../models/shared/leadcreatedeventlink.md)         | :heavy_check_mark:                                                                          | N/A                                                                                         |

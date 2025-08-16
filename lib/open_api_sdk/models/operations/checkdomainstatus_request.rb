@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CheckDomainStatusRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CheckDomainStatusRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domains to search. We only support .link domains for now.
-      field :domains, ::Object, { 'query_param': { 'field_name': 'domains', 'style': 'form', 'explode': false } }
+        # The domains to search. We only support .link domains for now.
+        field :domains, Crystalline::Union.new(::String, Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'domains', 'style': 'form', 'explode': false } }
 
+        sig { params(domains: T.any(::String, T::Array[::String])).void }
+        def initialize(domains:)
+          @domains = domains
+        end
 
-      sig { params(domains: ::Object).void }
-      def initialize(domains: nil)
-        @domains = domains
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domains == other.domains
+          true
+        end
       end
     end
   end

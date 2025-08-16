@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # ContinentCode - The continent to retrieve analytics for.
-    class ContinentCode < T::Enum
-      enums do
-        AF = new('AF')
-        AN = new('AN')
-        AS = new('AS')
-        EU = new('EU')
-        NA = new('NA')
-        OC = new('OC')
-        SA = new('SA')
+  module Models
+    module Shared
+    
+      # ContinentCode - The continent to retrieve analytics for.
+      class ContinentCode < T::Enum
+
+
+        enums do
+          AF = new('AF')
+          AN = new('AN')
+          AS = new('AS')
+          EU = new('EU')
+          NA = new('NA')
+          OC = new('OC')
+          SA = new('SA')
+        end
       end
     end
   end
