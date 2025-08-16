@@ -5,34 +5,48 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateCustomerLink < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateCustomerLink
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
-      field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
-      # The unique ID of the short link.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The short link slug. If not provided, a random 7-character slug will be generated.
-      field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }
-      # The ID of the program the short link is associated with.
-      field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
-      field :short_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shortLink') } }
-      # The destination URL of the short link.
-      field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+        # The unique ID of the short link.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
+        field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain'), required: true } }
+        # The short link slug. If not provided, a random 7-character slug will be generated.
+        field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key'), required: true } }
+        # The full URL of the short link, including the https protocol (e.g. `https://dub.sh/try`).
+        field :short_link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shortLink'), required: true } }
+        # The destination URL of the short link.
+        field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
+        # The ID of the program the short link is associated with.
+        field :program_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId'), required: true } }
 
+        sig { params(id: ::String, domain: ::String, key: ::String, short_link: ::String, url: ::String, program_id: T.nilable(::String)).void }
+        def initialize(id:, domain:, key:, short_link:, url:, program_id: nil)
+          @id = id
+          @domain = domain
+          @key = key
+          @short_link = short_link
+          @url = url
+          @program_id = program_id
+        end
 
-      sig { params(domain: ::String, id: ::String, key: ::String, program_id: ::String, short_link: ::String, url: ::String).void }
-      def initialize(domain: nil, id: nil, key: nil, program_id: nil, short_link: nil, url: nil)
-        @domain = domain
-        @id = id
-        @key = key
-        @program_id = program_id
-        @short_link = short_link
-        @url = url
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @domain == other.domain
+          return false unless @key == other.key
+          return false unless @short_link == other.short_link
+          return false unless @url == other.url
+          return false unless @program_id == other.program_id
+          true
+        end
       end
     end
   end

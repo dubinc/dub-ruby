@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # AccessLevel - The access level of the folder within the workspace.
-    class AccessLevel < T::Enum
-      enums do
-        WRITE = new('write')
-        READ = new('read')
+  module Models
+    module Shared
+    
+      # AccessLevel - The access level of the folder within the workspace.
+      class AccessLevel < T::Enum
+
+
+        enums do
+          WRITE = new('write')
+          READ = new('read')
+        end
       end
     end
   end

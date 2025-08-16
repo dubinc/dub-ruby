@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class RetrieveLinksRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-
-      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+      class RetrieveLinksRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
-      def initialize(partner_id: nil, tenant_id: nil)
-        @partner_id = partner_id
-        @tenant_id = tenant_id
+        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+
+        sig { params(partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
+        def initialize(partner_id: nil, tenant_id: nil)
+          @partner_id = partner_id
+          @tenant_id = tenant_id
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @partner_id == other.partner_id
+          return false unless @tenant_id == other.tenant_id
+          true
+        end
       end
     end
   end

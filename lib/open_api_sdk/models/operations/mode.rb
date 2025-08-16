@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # Mode - The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub.
-    class Mode < T::Enum
-      enums do
-        ASYNC = new('async')
-        WAIT = new('wait')
+  module Models
+    module Operations
+    
+      # Mode - The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub.
+      class Mode < T::Enum
+
+
+        enums do
+          ASYNC = new('async')
+          WAIT = new('wait')
+        end
       end
     end
   end

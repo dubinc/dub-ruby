@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class RegisterDomainRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class RegisterDomainRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain to claim. We only support .link domains for now.
-      field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
+        # The domain to claim. We only support .link domains for now.
+        field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain'), required: true } }
 
+        sig { params(domain: ::String).void }
+        def initialize(domain:)
+          @domain = domain
+        end
 
-      sig { params(domain: ::String).void }
-      def initialize(domain: nil)
-        @domain = domain
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domain == other.domain
+          true
+        end
       end
     end
   end

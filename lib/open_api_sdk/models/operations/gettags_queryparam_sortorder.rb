@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # GetTagsQueryParamSortOrder - The order to sort the tags by.
-    class GetTagsQueryParamSortOrder < T::Enum
-      enums do
-        ASC = new('asc')
-        DESC = new('desc')
+  module Models
+    module Operations
+    
+      # GetTagsQueryParamSortOrder - The order to sort the tags by.
+      class GetTagsQueryParamSortOrder < T::Enum
+
+
+        enums do
+          ASC = new('asc')
+          DESC = new('desc')
+        end
       end
     end
   end

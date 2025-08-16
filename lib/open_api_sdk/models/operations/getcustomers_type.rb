@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetCustomersType < T::Enum
-      enums do
-        PERCENTAGE = new('percentage')
-        FLAT = new('flat')
+      class GetCustomersType < T::Enum
+
+
+        enums do
+          PERCENTAGE = new('percentage')
+          FLAT = new('flat')
+        end
       end
     end
   end

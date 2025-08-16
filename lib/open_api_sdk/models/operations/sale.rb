@@ -5,31 +5,44 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class Sale < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
-
-      field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
-
-      field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
-
-      field :metadata, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
-
-      field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor') } }
+      class Sale
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(amount: ::Float, currency: ::String, invoice_id: ::String, metadata: T::Hash[Symbol, ::Object], payment_processor: ::String).void }
-      def initialize(amount: nil, currency: nil, invoice_id: nil, metadata: nil, payment_processor: nil)
-        @amount = amount
-        @currency = currency
-        @invoice_id = invoice_id
-        @metadata = metadata
-        @payment_processor = payment_processor
+        field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
+
+        field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
+
+        field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), required: true } }
+
+        field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
+
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
+
+        sig { params(amount: ::Float, currency: ::String, payment_processor: ::String, invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(amount:, currency:, payment_processor:, invoice_id: nil, metadata: nil)
+          @amount = amount
+          @currency = currency
+          @payment_processor = payment_processor
+          @invoice_id = invoice_id
+          @metadata = metadata
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @amount == other.amount
+          return false unless @currency == other.currency
+          return false unless @payment_processor == other.payment_processor
+          return false unless @invoice_id == other.invoice_id
+          return false unless @metadata == other.metadata
+          true
+        end
       end
     end
   end

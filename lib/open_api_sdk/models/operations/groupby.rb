@@ -5,32 +5,23 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # GroupBy - The parameter to group the analytics data points by. Defaults to `count` if undefined.
-    class GroupBy < T::Enum
-      enums do
-        COUNT = new('count')
-        TIMESERIES = new('timeseries')
-        CONTINENTS = new('continents')
-        REGIONS = new('regions')
-        COUNTRIES = new('countries')
-        CITIES = new('cities')
-        DEVICES = new('devices')
-        BROWSERS = new('browsers')
-        OS = new('os')
-        TRIGGER = new('trigger')
-        TRIGGERS = new('triggers')
-        REFERERS = new('referers')
-        REFERER_URLS = new('referer_urls')
-        TOP_PARTNERS = new('top_partners')
-        TOP_LINKS = new('top_links')
-        TOP_URLS = new('top_urls')
-        UTM_SOURCES = new('utm_sources')
-        UTM_MEDIUMS = new('utm_mediums')
-        UTM_CAMPAIGNS = new('utm_campaigns')
-        UTM_TERMS = new('utm_terms')
-        UTM_CONTENTS = new('utm_contents')
+  module Models
+    module Operations
+    
+      # The field to group the links by.
+      class GroupBy
+        extend T::Sig
+        include Crystalline::MetadataFields
+
+
+        
+        def initialize; end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
       end
     end
   end

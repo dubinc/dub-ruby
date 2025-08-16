@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Security < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Security
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :token, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
+        field :token, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'bearer', 'field_name': 'Authorization' } }
 
+        sig { params(token: ::String).void }
+        def initialize(token:)
+          @token = token
+        end
 
-      sig { params(token: ::String).void }
-      def initialize(token: nil)
-        @token = token
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @token == other.token
+          true
+        end
       end
     end
   end

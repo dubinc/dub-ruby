@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Domains < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Domains
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Whether the domain is the primary domain for the workspace.
-      field :primary, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
-      # The domain name.
-      field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # Whether the domain is verified.
-      field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
+        # The domain name.
+        field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug'), required: true } }
+        # Whether the domain is the primary domain for the workspace.
+        field :primary, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
+        # Whether the domain is verified.
+        field :verified, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
 
+        sig { params(slug: ::String, primary: T.nilable(T::Boolean), verified: T.nilable(T::Boolean)).void }
+        def initialize(slug:, primary: false, verified: false)
+          @slug = slug
+          @primary = primary
+          @verified = verified
+        end
 
-      sig { params(primary: T::Boolean, slug: ::String, verified: T::Boolean).void }
-      def initialize(primary: nil, slug: nil, verified: nil)
-        @primary = primary
-        @slug = slug
-        @verified = verified
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @slug == other.slug
+          return false unless @primary == other.primary
+          return false unless @verified == other.verified
+          true
+        end
       end
     end
   end

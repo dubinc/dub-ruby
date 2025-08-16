@@ -5,17 +5,21 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # PaymentProcessor - The payment processor via which the sale was made.
-    class PaymentProcessor < T::Enum
-      enums do
-        STRIPE = new('stripe')
-        SHOPIFY = new('shopify')
-        POLAR = new('polar')
-        PADDLE = new('paddle')
-        REVENUECAT = new('revenuecat')
-        CUSTOM = new('custom')
+  module Models
+    module Operations
+    
+      # PaymentProcessor - The payment processor via which the sale was made.
+      class PaymentProcessor < T::Enum
+
+
+        enums do
+          STRIPE = new('stripe')
+          SHOPIFY = new('shopify')
+          POLAR = new('polar')
+          PADDLE = new('paddle')
+          REVENUECAT = new('revenuecat')
+          CUSTOM = new('custom')
+        end
       end
     end
   end

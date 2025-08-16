@@ -5,55 +5,76 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The customer was updated.
-    class UpdateCustomerResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The customer was updated.
+      class UpdateCustomerResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The date the customer was created.
-      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # Unique identifier for the customer in the client's app.
-      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-      # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # Name of the customer.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # Avatar URL of the customer.
-      field :avatar, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
-      # Country of the customer.
-      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+        # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # Unique identifier for the customer in the client's app.
+        field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
+        # Name of the customer.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The date the customer was created.
+        field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
+        # Email of the customer.
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
+        # Avatar URL of the customer.
+        field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
+        # Country of the customer.
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+        # Total number of sales for the customer.
+        field :sales, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales') } }
+        # Total amount of sales for the customer.
+        field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
 
-      field :discount, T.nilable(::OpenApiSDK::Operations::UpdateCustomerDiscount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
-      # Email of the customer.
-      field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
+        field :link, Crystalline::Nilable.new(Models::Operations::UpdateCustomerLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
 
-      field :link, T.nilable(::OpenApiSDK::Operations::UpdateCustomerLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
+        field :program_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
 
-      field :partner, T.nilable(::OpenApiSDK::Operations::UpdateCustomerPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
+        field :partner, Crystalline::Nilable.new(Models::Operations::UpdateCustomerPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
 
-      field :program_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
-      # Total amount of sales for the customer.
-      field :sale_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
-      # Total number of sales for the customer.
-      field :sales, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sales') } }
+        field :discount, Crystalline::Nilable.new(Models::Operations::UpdateCustomerDiscount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
 
+        sig { params(id: ::String, external_id: ::String, name: ::String, created_at: ::String, email: T.nilable(::String), avatar: T.nilable(::String), country: T.nilable(::String), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), link: T.nilable(Models::Operations::UpdateCustomerLink), program_id: T.nilable(::String), partner: T.nilable(Models::Operations::UpdateCustomerPartner), discount: T.nilable(Models::Operations::UpdateCustomerDiscount)).void }
+        def initialize(id:, external_id:, name:, created_at:, email: nil, avatar: nil, country: nil, sales: nil, sale_amount: nil, link: nil, program_id: nil, partner: nil, discount: nil)
+          @id = id
+          @external_id = external_id
+          @name = name
+          @created_at = created_at
+          @email = email
+          @avatar = avatar
+          @country = country
+          @sales = sales
+          @sale_amount = sale_amount
+          @link = link
+          @program_id = program_id
+          @partner = partner
+          @discount = discount
+        end
 
-      sig { params(created_at: ::String, external_id: ::String, id: ::String, name: ::String, avatar: T.nilable(::String), country: T.nilable(::String), discount: T.nilable(::OpenApiSDK::Operations::UpdateCustomerDiscount), email: T.nilable(::String), link: T.nilable(::OpenApiSDK::Operations::UpdateCustomerLink), partner: T.nilable(::OpenApiSDK::Operations::UpdateCustomerPartner), program_id: T.nilable(::String), sale_amount: T.nilable(::Float), sales: T.nilable(::Float)).void }
-      def initialize(created_at: nil, external_id: nil, id: nil, name: nil, avatar: nil, country: nil, discount: nil, email: nil, link: nil, partner: nil, program_id: nil, sale_amount: nil, sales: nil)
-        @created_at = created_at
-        @external_id = external_id
-        @id = id
-        @name = name
-        @avatar = avatar
-        @country = country
-        @discount = discount
-        @email = email
-        @link = link
-        @partner = partner
-        @program_id = program_id
-        @sale_amount = sale_amount
-        @sales = sales
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @external_id == other.external_id
+          return false unless @name == other.name
+          return false unless @created_at == other.created_at
+          return false unless @email == other.email
+          return false unless @avatar == other.avatar
+          return false unless @country == other.country
+          return false unless @sales == other.sales
+          return false unless @sale_amount == other.sale_amount
+          return false unless @link == other.link
+          return false unless @program_id == other.program_id
+          return false unless @partner == other.partner
+          return false unless @discount == other.discount
+          true
+        end
       end
     end
   end

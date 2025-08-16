@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateReferralsEmbedTokenRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :partner, T.nilable(::OpenApiSDK::Operations::Partner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
-
-      field :partner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
-
-      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+      class CreateReferralsEmbedTokenRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(partner: T.nilable(::OpenApiSDK::Operations::Partner), partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
-      def initialize(partner: nil, partner_id: nil, tenant_id: nil)
-        @partner = partner
-        @partner_id = partner_id
-        @tenant_id = tenant_id
+        field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
+
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+
+        field :partner, Crystalline::Nilable.new(Models::Operations::Partner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
+
+        sig { params(partner_id: T.nilable(::String), tenant_id: T.nilable(::String), partner: T.nilable(Models::Operations::Partner)).void }
+        def initialize(partner_id: nil, tenant_id: nil, partner: nil)
+          @partner_id = partner_id
+          @tenant_id = tenant_id
+          @partner = partner
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @partner_id == other.partner_id
+          return false unless @tenant_id == other.tenant_id
+          return false unless @partner == other.partner
+          true
+        end
       end
     end
   end
