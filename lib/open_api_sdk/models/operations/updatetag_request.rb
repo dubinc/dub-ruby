@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateTagRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateTagRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The ID of the tag to update.
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The ID of the tag to update.
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateTagRequestBody), { 'request': { 'media_type': 'application/json' } }
+        field :request_body, Crystalline::Nilable.new(Models::Operations::UpdateTagRequestBody), { 'request': { 'media_type': 'application/json' } }
 
+        sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateTagRequestBody)).void }
+        def initialize(id:, request_body: nil)
+          @id = id
+          @request_body = request_body
+        end
 
-      sig { params(id: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateTagRequestBody)).void }
-      def initialize(id: nil, request_body: nil)
-        @id = id
-        @request_body = request_body
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @request_body == other.request_body
+          true
+        end
       end
     end
   end

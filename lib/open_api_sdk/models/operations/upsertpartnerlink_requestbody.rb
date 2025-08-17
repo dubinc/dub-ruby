@@ -5,34 +5,48 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpsertPartnerLinkRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpsertPartnerLinkRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The comments for the short link.
-      field :comments, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
-      # The short link slug. If not provided, a random 7-character slug will be generated.
-      field :key, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }
-      # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
-      field :link_props, T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
-      # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
-      field :partner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
-      # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
-      field :tenant_id, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-      # The URL to shorten (if not provided, the program's default URL will be used). Will throw an error if the domain doesn't match the program's default URL domain.
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+        # The short link slug. If not provided, a random 7-character slug will be generated.
+        field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }
+        # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
+        field :link_props, Crystalline::Nilable.new(Models::Operations::UpsertPartnerLinkLinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
+        # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
+        # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
+        # The URL to shorten (if not provided, the program's default URL will be used). Will throw an error if the domain doesn't match the program's default URL domain.
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+        # The comments for the short link.
+        field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
 
+        sig { params(key: T.nilable(::String), link_props: T.nilable(Models::Operations::UpsertPartnerLinkLinkProps), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), url: T.nilable(::String), comments: T.nilable(::String)).void }
+        def initialize(key: nil, link_props: nil, partner_id: nil, tenant_id: nil, url: nil, comments: nil)
+          @key = key
+          @link_props = link_props
+          @partner_id = partner_id
+          @tenant_id = tenant_id
+          @url = url
+          @comments = comments
+        end
 
-      sig { params(comments: T.nilable(::String), key: T.nilable(::String), link_props: T.nilable(::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(comments: nil, key: nil, link_props: nil, partner_id: nil, tenant_id: nil, url: nil)
-        @comments = comments
-        @key = key
-        @link_props = link_props
-        @partner_id = partner_id
-        @tenant_id = tenant_id
-        @url = url
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @key == other.key
+          return false unless @link_props == other.link_props
+          return false unless @partner_id == other.partner_id
+          return false unless @tenant_id == other.tenant_id
+          return false unless @url == other.url
+          return false unless @comments == other.comments
+          true
+        end
       end
     end
   end

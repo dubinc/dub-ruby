@@ -5,28 +5,40 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetLinkInfoRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-      # This is the ID of the link in the your database.
-      field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-      # The key of the link to retrieve. E.g. for `d.to/github`, the key is `github`.
-      field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
-      # The unique ID of the short link.
-      field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
+      class GetLinkInfoRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(domain: T.nilable(::String), external_id: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String)).void }
-      def initialize(domain: nil, external_id: nil, key: nil, link_id: nil)
-        @domain = domain
-        @external_id = external_id
-        @key = key
-        @link_id = link_id
+        field :domain, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
+        # The key of the link to retrieve. E.g. for `d.to/github`, the key is `github`.
+        field :key, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
+        # The unique ID of the short link.
+        field :link_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
+        # This is the ID of the link in the your database.
+        field :external_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
+
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil)
+          @domain = domain
+          @key = key
+          @link_id = link_id
+          @external_id = external_id
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domain == other.domain
+          return false unless @key == other.key
+          return false unless @link_id == other.link_id
+          return false unless @external_id == other.external_id
+          true
+        end
       end
     end
   end

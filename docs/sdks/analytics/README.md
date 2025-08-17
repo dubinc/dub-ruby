@@ -13,29 +13,31 @@ Retrieve analytics for a link, a domain, or the authenticated workspace. The res
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="retrieveAnalytics" method="get" path="/analytics" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
-  timezone: "America/New_York",
-  city: "New York",
-  device: "Desktop",
-  browser: "Chrome",
-  os: "Windows",
-  referer: "google.com",
-  referer_url: "https://dub.co/blog",
-  query: "metadata['key']:'value'",
+req = Models::Operations::RetrieveAnalyticsRequest.new(
+  timezone: 'America/New_York',
+  city: 'New York',
+  device: 'Desktop',
+  browser: 'Chrome',
+  os: 'Windows',
+  referer: 'google.com',
+  referer_url: 'https://dub.co/blog',
+  query: 'metadata[\'key\']:\'value\'',
 )
 
-res = s.analytics.retrieve(req)
+res = s.analytics.retrieve(request: req)
 
-if ! res.one_of.nil?
+unless res.nil?
   # handle response
 end
 
@@ -43,11 +45,25 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::OpenApiSDK::Operations::RetrieveAnalyticsRequest](../../models/operations/retrieveanalyticsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::RetrieveAnalyticsRequest](../../models/operations/retrieveanalyticsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::RetrieveAnalyticsResponse)](../../models/operations/retrieveanalyticsresponse.md)**
+**[T.nilable(T.any(Models::Shared::AnalyticsCount, T::Array[Models::Shared::AnalyticsTimeseries], T::Array[Models::Shared::AnalyticsContinents], T::Array[Models::Shared::AnalyticsCountries], T::Array[Models::Shared::AnalyticsRegions], T::Array[Models::Shared::AnalyticsCities], T::Array[Models::Shared::AnalyticsDevices], T::Array[Models::Shared::AnalyticsBrowsers], T::Array[Models::Shared::AnalyticsOS], T::Array[Models::Shared::AnalyticsTriggers], T::Array[Models::Shared::AnalyticsReferers], T::Array[Models::Shared::AnalyticsRefererUrls], T::Array[Models::Shared::AnalyticsTopLinks], T::Array[Models::Shared::AnalyticsTopUrls]))](../../models/operations/retrieveanalyticsresponsebody.md)**
 
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |

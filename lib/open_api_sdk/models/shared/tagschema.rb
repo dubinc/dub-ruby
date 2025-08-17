@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class TagSchema < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class TagSchema
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The color of the tag.
-      field :color, ::OpenApiSDK::Shared::Color, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Shared::Color, false) } }
-      # The unique ID of the tag.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The name of the tag.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The unique ID of the tag.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The name of the tag.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The color of the tag.
+        field :color, Models::Shared::Color, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Color, false) } }
 
+        sig { params(id: ::String, name: ::String, color: Models::Shared::Color).void }
+        def initialize(id:, name:, color:)
+          @id = id
+          @name = name
+          @color = color
+        end
 
-      sig { params(color: ::OpenApiSDK::Shared::Color, id: ::String, name: ::String).void }
-      def initialize(color: nil, id: nil, name: nil)
-        @color = color
-        @id = id
-        @name = name
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @color == other.color
+          true
+        end
       end
     end
   end

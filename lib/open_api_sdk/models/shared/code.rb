@@ -5,12 +5,26 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # Code - A short code indicating the error code returned.
-    class Code < T::Enum
-      enums do
-        BAD_REQUEST = new('bad_request')
+  module Models
+    module Shared
+    
+      # Code - The error code.
+      class Code < T::Enum
+
+
+        enums do
+          BAD_REQUEST = new('bad_request')
+          NOT_FOUND = new('not_found')
+          INTERNAL_SERVER_ERROR = new('internal_server_error')
+          UNAUTHORIZED = new('unauthorized')
+          FORBIDDEN = new('forbidden')
+          RATE_LIMIT_EXCEEDED = new('rate_limit_exceeded')
+          INVITE_EXPIRED = new('invite_expired')
+          INVITE_PENDING = new('invite_pending')
+          EXCEEDED_LIMIT = new('exceeded_limit')
+          CONFLICT = new('conflict')
+          UNPROCESSABLE_ENTITY = new('unprocessable_entity')
+        end
       end
     end
   end

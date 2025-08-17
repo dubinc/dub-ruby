@@ -18,26 +18,27 @@ Create a domain for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="createDomain" method="post" path="/domains" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(
-  slug: "acme.com",
-  expired_url: "https://acme.com/expired",
-  not_found_url: "https://acme.com/not-found",
-  archived: false,
-  placeholder: "https://dub.co/help/article/what-is-dub",
+req = Models::Operations::CreateDomainRequestBody.new(
+  slug: 'acme.com',
+  expired_url: 'https://acme.com/expired',
+  not_found_url: 'https://acme.com/not-found',
+  placeholder: 'https://dub.co/help/article/what-is-dub',
 )
 
-res = s.domains.create(req)
+res = s.domains.create(request: req)
 
-if ! res.domain_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -45,15 +46,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::OpenApiSDK::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::CreateDomainRequestBody](../../models/operations/createdomainrequestbody.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CreateDomainResponse)](../../models/operations/createdomainresponse.md)**
+**[T.nilable(Models::Shared::DomainSchema)](../../models/operations/domainschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## list
 
@@ -61,23 +75,24 @@ Retrieve a list of domains associated with the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="listDomains" method="get" path="/domains" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::ListDomainsRequest.new(
-  page: 1.0,
-  page_size: 50.0,
+req = Models::Operations::ListDomainsRequest.new(
+  archived: true,
 )
 
-res = s.domains.list(req)
+res = s.domains.list(request: req)
 
-if ! res.domain_schemas.nil?
+unless res.nil?
   # handle response
 end
 
@@ -85,15 +100,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::OpenApiSDK::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
+**[T.nilable(Models::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## update
 
@@ -101,24 +129,25 @@ Update a domain for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="updateDomain" method="patch" path="/domains/{slug}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.domains.update(slug="acme.com", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(
-  slug: "acme.com",
-  expired_url: "https://acme.com/expired",
-  not_found_url: "https://acme.com/not-found",
-  archived: false,
-  placeholder: "https://dub.co/help/article/what-is-dub",
+res = s.domains.update(slug: 'acme.com', request_body: Models::Operations::UpdateDomainRequestBody.new(
+  slug: 'acme.com',
+  expired_url: 'https://acme.com/expired',
+  not_found_url: 'https://acme.com/not-found',
+  placeholder: 'https://dub.co/help/article/what-is-dub',
 ))
 
-if ! res.domain_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -126,16 +155,29 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `slug`                                                                                                             | *::String*                                                                                                         | :heavy_check_mark:                                                                                                 | The domain name.                                                                                                   | acme.com                                                                                                           |
-| `request_body`                                                                                                     | [T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody)](../../models/operations/updatedomainrequestbody.md) | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |                                                                                                                    |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `slug`                                                                                                       | *::String*                                                                                                   | :heavy_check_mark:                                                                                           | The domain name.                                                                                             | acme.com                                                                                                     |
+| `request_body`                                                                                               | [T.nilable(Models::Operations::UpdateDomainRequestBody)](../../models/operations/updatedomainrequestbody.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |                                                                                                              |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::UpdateDomainResponse)](../../models/operations/updatedomainresponse.md)**
+**[T.nilable(Models::Shared::DomainSchema)](../../models/operations/domainschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## delete
 
@@ -143,18 +185,20 @@ Delete a domain from a workspace. It cannot be undone. This will also delete all
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="deleteDomain" method="delete" path="/domains/{slug}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.domains.delete(slug="acme.com")
+res = s.domains.delete(slug: 'acme.com')
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -168,9 +212,22 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::DeleteDomainResponse)](../../models/operations/deletedomainresponse.md)**
+**[T.nilable(Models::Operations::DeleteDomainResponseBody)](../../models/operations/deletedomainresponsebody.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## register
 
@@ -178,22 +235,24 @@ Register a domain for the authenticated workspace. Only available for Enterprise
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="registerDomain" method="post" path="/domains/register" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::RegisterDomainRequestBody.new(
-  domain: "acme.link",
+req = Models::Operations::RegisterDomainRequestBody.new(
+  domain: 'acme.link',
 )
 
-res = s.domains.register(req)
+res = s.domains.register(request: req)
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -201,15 +260,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [::OpenApiSDK::Operations::RegisterDomainRequestBody](../../models/operations/registerdomainrequestbody.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::RegisterDomainRequestBody](../../models/operations/registerdomainrequestbody.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::RegisterDomainResponse)](../../models/operations/registerdomainresponse.md)**
+**[T.nilable(Models::Operations::RegisterDomainResponseBody)](../../models/operations/registerdomainresponsebody.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## check_status
 
@@ -217,22 +289,24 @@ Check if a domain name is available for purchase. You can check multiple domains
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="checkDomainStatus" method="get" path="/domains/status" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CheckDomainStatusRequest.new(
-  domains: "<value>",
+req = Models::Operations::CheckDomainStatusRequest.new(
+  domains: '<value>',
 )
 
-res = s.domains.check_status(req)
+res = s.domains.check_status(request: req)
 
-if ! res.response_bodies.nil?
+unless res.nil?
   # handle response
 end
 
@@ -240,11 +314,25 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::OpenApiSDK::Operations::CheckDomainStatusRequest](../../models/operations/checkdomainstatusrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::CheckDomainStatusRequest](../../models/operations/checkdomainstatusrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::CheckDomainStatusResponse)](../../models/operations/checkdomainstatusresponse.md)**
+**[T.nilable(T::Array[Models::Operations::CheckDomainStatusResponseBody])](../../models/operations/.md)**
 
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |

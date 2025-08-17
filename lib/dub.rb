@@ -5,8 +5,6 @@
 
 module OpenApiSDK
   autoload :Dub, 'open_api_sdk/dub'
-  autoload :Shared, 'open_api_sdk/models/shared'
-  autoload :Operations, 'open_api_sdk/models/operations'
   autoload :Links, 'open_api_sdk/links'
   autoload :Analytics, 'open_api_sdk/analytics'
   autoload :Events, 'open_api_sdk/events'
@@ -20,8 +18,20 @@ module OpenApiSDK
   autoload :Workspaces, 'open_api_sdk/workspaces'
   autoload :EmbedTokens, 'open_api_sdk/embed_tokens'
   autoload :QRCodes, 'open_api_sdk/qr_codes'
+  module Models
+    autoload :Shared, 'open_api_sdk/models/shared'
+    autoload :Operations, 'open_api_sdk/models/operations'
+    autoload :Errors, 'open_api_sdk/models/errors'
+    autoload :Callbacks, 'open_api_sdk/models/callbacks'
+  end
 end
 
 require_relative 'open_api_sdk/utils/utils'
+require_relative 'open_api_sdk/utils/request_bodies'
+require_relative 'open_api_sdk/utils/query_params'
+require_relative 'open_api_sdk/utils/forms'
+require_relative 'open_api_sdk/utils/headers'
+require_relative 'open_api_sdk/utils/url'
+require_relative 'open_api_sdk/utils/security'
 require_relative 'crystalline'
 require_relative 'open_api_sdk/sdkconfiguration'

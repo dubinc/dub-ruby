@@ -5,19 +5,23 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # Plan - The plan of the workspace.
-    class Plan < T::Enum
-      enums do
-        FREE = new('free')
-        PRO = new('pro')
-        BUSINESS = new('business')
-        BUSINESS_PLUS = new('business plus')
-        BUSINESS_EXTRA = new('business extra')
-        BUSINESS_MAX = new('business max')
-        ADVANCED = new('advanced')
-        ENTERPRISE = new('enterprise')
+  module Models
+    module Shared
+    
+      # Plan - The plan of the workspace.
+      class Plan < T::Enum
+
+
+        enums do
+          FREE = new('free')
+          PRO = new('pro')
+          BUSINESS = new('business')
+          BUSINESS_PLUS = new('business plus')
+          BUSINESS_EXTRA = new('business extra')
+          BUSINESS_MAX = new('business max')
+          ADVANCED = new('advanced')
+          ENTERPRISE = new('enterprise')
+        end
       end
     end
   end

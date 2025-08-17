@@ -1,0 +1,13 @@
+# CommissionCreatedEvent
+
+Triggered when a commission is created for a partner.
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `event`                                                                                           | [Models::Shared::CommissionCreatedEventEvent](../../models/shared/commissioncreatedeventevent.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `created_at`                                                                                      | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `data`                                                                                            | [Models::Shared::CommissionCreatedEventData](../../models/shared/commissioncreatedeventdata.md)   | :heavy_check_mark:                                                                                | N/A                                                                                               |

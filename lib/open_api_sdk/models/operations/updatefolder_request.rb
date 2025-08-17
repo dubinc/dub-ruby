@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateFolderRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateFolderRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The ID of the folder to update.
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The ID of the folder to update.
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateFolderRequestBody), { 'request': { 'media_type': 'application/json' } }
+        field :request_body, Crystalline::Nilable.new(Models::Operations::UpdateFolderRequestBody), { 'request': { 'media_type': 'application/json' } }
 
+        sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateFolderRequestBody)).void }
+        def initialize(id:, request_body: nil)
+          @id = id
+          @request_body = request_body
+        end
 
-      sig { params(id: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateFolderRequestBody)).void }
-      def initialize(id: nil, request_body: nil)
-        @id = id
-        @request_body = request_body
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @request_body == other.request_body
+          true
+        end
       end
     end
   end

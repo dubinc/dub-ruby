@@ -5,58 +5,80 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class DomainSchema < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class DomainSchema
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # apple-app-site-association configuration file (for deep link support on iOS).
-      field :apple_app_site_association, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
-      # Whether the domain is archived.
-      field :archived, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
-      # assetLinks.json configuration file (for deep link support on Android).
-      field :asset_links, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
-      # The date the domain was created.
-      field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt') } }
-      # The URL to redirect to when a link under this domain has expired.
-      field :expired_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
-      # The unique identifier of the domain.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The logo of the domain.
-      field :logo, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
-      # The URL to redirect to when a link under this domain doesn't exist.
-      field :not_found_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
-      # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
-      field :placeholder, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
-      # Whether the domain is the primary domain for the workspace.
-      field :primary, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
-      # The registered domain record.
-      field :registered_domain, ::OpenApiSDK::Shared::RegisteredDomain, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('registeredDomain') } }
-      # The domain name.
-      field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # The date the domain was last updated.
-      field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
-      # Whether the domain is verified.
-      field :verified, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
+        # The unique identifier of the domain.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The domain name.
+        field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug'), required: true } }
+        # The date the domain was created.
+        field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
+        # The date the domain was last updated.
+        field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
+        # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
+        field :placeholder, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder'), required: true } }
+        # The URL to redirect to when a link under this domain has expired.
+        field :expired_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl'), required: true } }
+        # The URL to redirect to when a link under this domain doesn't exist.
+        field :not_found_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl'), required: true } }
+        # The logo of the domain.
+        field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo'), required: true } }
+        # The registered domain record.
+        field :registered_domain, Crystalline::Nilable.new(Models::Shared::RegisteredDomain), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('registeredDomain'), required: true } }
+        # Whether the domain is verified.
+        field :verified, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verified') } }
+        # Whether the domain is the primary domain for the workspace.
+        field :primary, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('primary') } }
+        # Whether the domain is archived.
+        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
+        # assetLinks.json configuration file (for deep link support on Android).
+        field :asset_links, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
+        # apple-app-site-association configuration file (for deep link support on iOS).
+        field :apple_app_site_association, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
 
+        sig { params(id: ::String, slug: ::String, created_at: ::String, updated_at: ::String, placeholder: T.nilable(::String), expired_url: T.nilable(::String), not_found_url: T.nilable(::String), logo: T.nilable(::String), registered_domain: T.nilable(Models::Shared::RegisteredDomain), verified: T.nilable(T::Boolean), primary: T.nilable(T::Boolean), archived: T.nilable(T::Boolean), asset_links: T.nilable(::String), apple_app_site_association: T.nilable(::String)).void }
+        def initialize(id:, slug:, created_at:, updated_at:, placeholder: nil, expired_url: nil, not_found_url: nil, logo: nil, registered_domain: nil, verified: false, primary: false, archived: false, asset_links: nil, apple_app_site_association: nil)
+          @id = id
+          @slug = slug
+          @created_at = created_at
+          @updated_at = updated_at
+          @placeholder = placeholder
+          @expired_url = expired_url
+          @not_found_url = not_found_url
+          @logo = logo
+          @registered_domain = registered_domain
+          @verified = verified
+          @primary = primary
+          @archived = archived
+          @asset_links = asset_links
+          @apple_app_site_association = apple_app_site_association
+        end
 
-      sig { params(apple_app_site_association: ::String, archived: T::Boolean, asset_links: ::String, created_at: ::String, expired_url: ::String, id: ::String, logo: ::String, not_found_url: ::String, placeholder: ::String, primary: T::Boolean, registered_domain: ::OpenApiSDK::Shared::RegisteredDomain, slug: ::String, updated_at: ::String, verified: T::Boolean).void }
-      def initialize(apple_app_site_association: nil, archived: nil, asset_links: nil, created_at: nil, expired_url: nil, id: nil, logo: nil, not_found_url: nil, placeholder: nil, primary: nil, registered_domain: nil, slug: nil, updated_at: nil, verified: nil)
-        @apple_app_site_association = apple_app_site_association
-        @archived = archived
-        @asset_links = asset_links
-        @created_at = created_at
-        @expired_url = expired_url
-        @id = id
-        @logo = logo
-        @not_found_url = not_found_url
-        @placeholder = placeholder
-        @primary = primary
-        @registered_domain = registered_domain
-        @slug = slug
-        @updated_at = updated_at
-        @verified = verified
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @slug == other.slug
+          return false unless @created_at == other.created_at
+          return false unless @updated_at == other.updated_at
+          return false unless @placeholder == other.placeholder
+          return false unless @expired_url == other.expired_url
+          return false unless @not_found_url == other.not_found_url
+          return false unless @logo == other.logo
+          return false unless @registered_domain == other.registered_domain
+          return false unless @verified == other.verified
+          return false unless @primary == other.primary
+          return false unless @archived == other.archived
+          return false unless @asset_links == other.asset_links
+          return false unless @apple_app_site_association == other.apple_app_site_association
+          true
+        end
       end
     end
   end

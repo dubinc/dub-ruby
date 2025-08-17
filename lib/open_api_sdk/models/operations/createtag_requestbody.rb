@@ -5,27 +5,38 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateTagRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateTagRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, pink, brown.
-      field :color, T.nilable(::OpenApiSDK::Operations::Color), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::Color, true) } }
-      # The name of the tag to create.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # The name of the tag to create.
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :tag, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tag') } }
+        # The name of the tag to create.
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown.
+        field :color, Crystalline::Nilable.new(Models::Operations::Color), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(Models::Operations::Color, true) } }
+        # The name of the tag to create.
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :tag, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tag') } }
 
+        sig { params(name: T.nilable(::String), color: T.nilable(Models::Operations::Color), tag: T.nilable(::String)).void }
+        def initialize(name: nil, color: nil, tag: nil)
+          @name = name
+          @color = color
+          @tag = tag
+        end
 
-      sig { params(color: T.nilable(::OpenApiSDK::Operations::Color), name: T.nilable(::String), tag: T.nilable(::String)).void }
-      def initialize(color: nil, name: nil, tag: nil)
-        @color = color
-        @name = name
-        @tag = tag
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @name == other.name
+          return false unless @color == other.color
+          return false unless @tag == other.tag
+          true
+        end
       end
     end
   end

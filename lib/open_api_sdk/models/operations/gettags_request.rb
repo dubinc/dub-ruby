@@ -5,34 +5,48 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetTagsRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class GetTagsRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # IDs of tags to filter by.
-      field :ids, T.nilable(::Object), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': true } }
-      # The page number for pagination.
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of items per page.
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
-      # The search term to filter the tags by.
-      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
-      # The field to sort the tags by.
-      field :sort_by, T.nilable(::OpenApiSDK::Operations::GetTagsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
-      # The order to sort the tags by.
-      field :sort_order, T.nilable(::OpenApiSDK::Operations::GetTagsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        # The search term to filter the tags by.
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # IDs of tags to filter by.
+        field :ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': true } }
+        # The field to sort the tags by.
+        field :sort_by, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+        # The order to sort the tags by.
+        field :sort_order, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # The number of items per page.
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
+        sig { params(search: T.nilable(::String), ids: T.nilable(T.any(::String, T::Array[::String])), sort_by: T.nilable(Models::Operations::GetTagsQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetTagsQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, ids: nil, sort_by: Models::Operations::GetTagsQueryParamSortBy::NAME, sort_order: Models::Operations::GetTagsQueryParamSortOrder::ASC, page: 1.0, page_size: 100.0)
+          @search = search
+          @ids = ids
+          @sort_by = sort_by
+          @sort_order = sort_order
+          @page = page
+          @page_size = page_size
+        end
 
-      sig { params(ids: T.nilable(::Object), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String), sort_by: T.nilable(::OpenApiSDK::Operations::GetTagsQueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::GetTagsQueryParamSortOrder)).void }
-      def initialize(ids: nil, page: nil, page_size: nil, search: nil, sort_by: nil, sort_order: nil)
-        @ids = ids
-        @page = page
-        @page_size = page_size
-        @search = search
-        @sort_by = sort_by
-        @sort_order = sort_order
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @search == other.search
+          return false unless @ids == other.ids
+          return false unless @sort_by == other.sort_by
+          return false unless @sort_order == other.sort_order
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

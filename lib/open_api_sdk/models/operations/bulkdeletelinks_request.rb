@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class BulkDeleteLinksRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class BulkDeleteLinksRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Comma-separated list of link IDs to delete. Maximum of 100 IDs. Non-existing IDs will be ignored.
-      field :link_ids, T::Array[::String], { 'query_param': { 'field_name': 'linkIds', 'style': 'form', 'explode': false } }
+        # Comma-separated list of link IDs to delete. Maximum of 100 IDs. Non-existing IDs will be ignored.
+        field :link_ids, Crystalline::Array.new(::String), { 'query_param': { 'field_name': 'linkIds', 'style': 'form', 'explode': false } }
 
+        sig { params(link_ids: T::Array[::String]).void }
+        def initialize(link_ids:)
+          @link_ids = link_ids
+        end
 
-      sig { params(link_ids: T::Array[::String]).void }
-      def initialize(link_ids: nil)
-        @link_ids = link_ids
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @link_ids == other.link_ids
+          true
+        end
       end
     end
   end

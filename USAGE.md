@@ -2,33 +2,34 @@
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::CreateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.create(req)
+res = s.links.create(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -37,33 +38,34 @@ end
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::UpsertLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.upsert(req)
+res = s.links.upsert(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 

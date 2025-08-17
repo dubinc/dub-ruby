@@ -5,17 +5,21 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # BannedReason - If the partner was banned from the program, this is the reason for the ban.
-    class BannedReason < T::Enum
-      enums do
-        TOS_VIOLATION = new('tos_violation')
-        INAPPROPRIATE_CONTENT = new('inappropriate_content')
-        FAKE_TRAFFIC = new('fake_traffic')
-        FRAUD = new('fraud')
-        SPAM = new('spam')
-        BRAND_ABUSE = new('brand_abuse')
+  module Models
+    module Operations
+    
+      # BannedReason - If the partner was banned from the program, this is the reason for the ban.
+      class BannedReason < T::Enum
+
+
+        enums do
+          TOS_VIOLATION = new('tos_violation')
+          INAPPROPRIATE_CONTENT = new('inappropriate_content')
+          FAKE_TRAFFIC = new('fake_traffic')
+          FRAUD = new('fraud')
+          SPAM = new('spam')
+          BRAND_ABUSE = new('brand_abuse')
+        end
       end
     end
   end

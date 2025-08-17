@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # A lead was tracked.
-    class TrackLeadResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # A lead was tracked.
+      class TrackLeadResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :click, ::OpenApiSDK::Operations::Click, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click') } }
+        field :click, Models::Operations::Click, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click'), required: true } }
 
-      field :customer, ::OpenApiSDK::Operations::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
+        field :customer, Models::Operations::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
+        sig { params(click: Models::Operations::Click, customer: Models::Operations::Customer).void }
+        def initialize(click:, customer:)
+          @click = click
+          @customer = customer
+        end
 
-      sig { params(click: ::OpenApiSDK::Operations::Click, customer: ::OpenApiSDK::Operations::Customer).void }
-      def initialize(click: nil, customer: nil)
-        @click = click
-        @customer = customer
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @click == other.click
+          return false unless @customer == other.customer
+          true
+        end
       end
     end
   end

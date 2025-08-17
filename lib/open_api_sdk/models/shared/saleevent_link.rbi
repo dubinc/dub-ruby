@@ -1,0 +1,111 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class OpenApiSDK::Models::Shared::SaleEventLink
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class OpenApiSDK::Models::Shared::SaleEventLink
+  def id(); end
+  def id=(str_); end
+  def domain(); end
+  def domain=(str_); end
+  def key(); end
+  def key=(str_); end
+  def url(); end
+  def url=(str_); end
+  def track_conversion(); end
+  def track_conversion=(str_); end
+  def archived(); end
+  def archived=(str_); end
+  def expires_at(); end
+  def expires_at=(str_); end
+  def proxy(); end
+  def proxy=(str_); end
+  def rewrite(); end
+  def rewrite=(str_); end
+  def do_index(); end
+  def do_index=(str_); end
+  def public_stats(); end
+  def public_stats=(str_); end
+  def webhook_ids(); end
+  def webhook_ids=(str_); end
+  def short_link(); end
+  def short_link=(str_); end
+  def qr_code(); end
+  def qr_code=(str_); end
+  def workspace_id(); end
+  def workspace_id=(str_); end
+  def last_clicked(); end
+  def last_clicked=(str_); end
+  def created_at(); end
+  def created_at=(str_); end
+  def updated_at(); end
+  def updated_at=(str_); end
+  def project_id(); end
+  def project_id=(str_); end
+  def external_id(); end
+  def external_id=(str_); end
+  def tenant_id(); end
+  def tenant_id=(str_); end
+  def program_id(); end
+  def program_id=(str_); end
+  def partner_id(); end
+  def partner_id=(str_); end
+  def expired_url(); end
+  def expired_url=(str_); end
+  def password(); end
+  def password=(str_); end
+  def title(); end
+  def title=(str_); end
+  def description(); end
+  def description=(str_); end
+  def image(); end
+  def image=(str_); end
+  def video(); end
+  def video=(str_); end
+  def ios(); end
+  def ios=(str_); end
+  def android(); end
+  def android=(str_); end
+  def geo(); end
+  def geo=(str_); end
+  def tags(); end
+  def tags=(str_); end
+  def folder_id(); end
+  def folder_id=(str_); end
+  def comments(); end
+  def comments=(str_); end
+  def utm_source(); end
+  def utm_source=(str_); end
+  def utm_medium(); end
+  def utm_medium=(str_); end
+  def utm_campaign(); end
+  def utm_campaign=(str_); end
+  def utm_term(); end
+  def utm_term=(str_); end
+  def utm_content(); end
+  def utm_content=(str_); end
+  def test_started_at(); end
+  def test_started_at=(str_); end
+  def test_completed_at(); end
+  def test_completed_at=(str_); end
+  def user_id(); end
+  def user_id=(str_); end
+  def tag_id(); end
+  def tag_id=(str_); end
+  def test_variants(); end
+  def test_variants=(str_); end
+  def clicks(); end
+  def clicks=(str_); end
+  def leads(); end
+  def leads=(str_); end
+  def conversions(); end
+  def conversions=(str_); end
+  def sales(); end
+  def sales=(str_); end
+  def sale_amount(); end
+  def sale_amount=(str_); end
+end

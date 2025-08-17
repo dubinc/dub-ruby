@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # ListPartnersQueryParamSortOrder - The sort order. The default is `desc`.
-    class ListPartnersQueryParamSortOrder < T::Enum
-      enums do
-        ASC = new('asc')
-        DESC = new('desc')
+  module Models
+    module Operations
+    
+      # ListPartnersQueryParamSortOrder - The sort order. The default is `desc`.
+      class ListPartnersQueryParamSortOrder < T::Enum
+
+
+        enums do
+          ASC = new('asc')
+          DESC = new('desc')
+        end
       end
     end
   end

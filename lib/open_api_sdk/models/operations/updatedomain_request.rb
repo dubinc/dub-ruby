@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateDomainRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateDomainRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain name.
-      field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
+        # The domain name.
+        field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
 
-      field :request_body, T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody), { 'request': { 'media_type': 'application/json' } }
+        field :request_body, Crystalline::Nilable.new(Models::Operations::UpdateDomainRequestBody), { 'request': { 'media_type': 'application/json' } }
 
+        sig { params(slug: ::String, request_body: T.nilable(Models::Operations::UpdateDomainRequestBody)).void }
+        def initialize(slug:, request_body: nil)
+          @slug = slug
+          @request_body = request_body
+        end
 
-      sig { params(slug: ::String, request_body: T.nilable(::OpenApiSDK::Operations::UpdateDomainRequestBody)).void }
-      def initialize(slug: nil, request_body: nil)
-        @slug = slug
-        @request_body = request_body
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @slug == other.slug
+          return false unless @request_body == other.request_body
+          true
+        end
       end
     end
   end

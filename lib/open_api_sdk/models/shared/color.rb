@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Shared
-  
-    # Color - The color of the tag.
-    class Color < T::Enum
-      enums do
-        RED = new('red')
-        YELLOW = new('yellow')
-        GREEN = new('green')
-        BLUE = new('blue')
-        PURPLE = new('purple')
-        PINK = new('pink')
-        BROWN = new('brown')
+  module Models
+    module Shared
+    
+      # Color - The color of the tag.
+      class Color < T::Enum
+
+
+        enums do
+          RED = new('red')
+          YELLOW = new('yellow')
+          GREEN = new('green')
+          BLUE = new('blue')
+          PURPLE = new('purple')
+          BROWN = new('brown')
+          PINK = new('pink')
+        end
       end
     end
   end

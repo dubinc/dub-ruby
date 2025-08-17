@@ -5,14 +5,18 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # QueryParamEvent - The type of event to retrieve analytics for. Defaults to 'clicks'.
-    class QueryParamEvent < T::Enum
-      enums do
-        CLICKS = new('clicks')
-        LEADS = new('leads')
-        SALES = new('sales')
+  module Models
+    module Operations
+    
+      # QueryParamEvent - The type of event to retrieve analytics for. Defaults to 'clicks'.
+      class QueryParamEvent < T::Enum
+
+
+        enums do
+          CLICKS = new('clicks')
+          LEADS = new('leads')
+          SALES = new('sales')
+        end
       end
     end
   end

@@ -5,139 +5,188 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListEventsRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListEventsRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The browser to retrieve analytics for.
-      field :browser, T.nilable(::String), { 'query_param': { 'field_name': 'browser', 'style': 'form', 'explode': true } }
-      # The city to retrieve analytics for.
-      field :city, T.nilable(::String), { 'query_param': { 'field_name': 'city', 'style': 'form', 'explode': true } }
-      # The continent to retrieve analytics for.
-      field :continent, T.nilable(::OpenApiSDK::Shared::ContinentCode), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
-      # The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code. Learn more: https://d.to/geo
-      field :country, T.nilable(::OpenApiSDK::Shared::CountryCode), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
-      # The ID of the customer to retrieve analytics for.
-      field :customer_id, T.nilable(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
-      # The device to retrieve analytics for.
-      field :device, T.nilable(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
-      # The domain to filter analytics for.
-      field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-      # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
-      field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
-      # The type of event to retrieve analytics for. Defaults to 'clicks'.
-      field :event, T.nilable(::OpenApiSDK::Operations::QueryParamEvent), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
-      # The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
-      field :external_id, T.nilable(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-      # The folder ID to retrieve analytics for. If not provided, return analytics for unsorted links.
-      field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
-      # The interval to retrieve analytics for. If undefined, defaults to 24h.
-      field :interval, T.nilable(::OpenApiSDK::Operations::QueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
-      # The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.
-      field :key, T.nilable(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
+        # The domain to filter analytics for.
+        field :domain, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
+        # The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.
+        field :key, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
+        # The unique ID of the short link on Dub to retrieve analytics for.
+        field :link_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
+        # The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
+        field :external_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
+        # The ID of the tenant that created the link inside your system.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+        # The ID of the program to retrieve analytics for.
+        field :program_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
+        # The ID of the partner to retrieve analytics for.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+        # The ID of the customer to retrieve analytics for.
+        field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
+        # The interval to retrieve analytics for. If undefined, defaults to 24h.
+        field :interval, Crystalline::Nilable.new(Models::Operations::QueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
+        # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
+        field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
+        # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
+        field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
+        # The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code. See https://d.to/geo for more information.
+        field :country, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
+        # The city to retrieve analytics for.
+        field :city, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'city', 'style': 'form', 'explode': true } }
+        # The ISO 3166-2 region code to retrieve analytics for.
+        field :region, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
+        # The continent to retrieve analytics for.
+        field :continent, Crystalline::Nilable.new(Models::Shared::ContinentCode), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
+        # The device to retrieve analytics for.
+        field :device, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
+        # The browser to retrieve analytics for.
+        field :browser, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'browser', 'style': 'form', 'explode': true } }
+        # The OS to retrieve analytics for.
+        field :os, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
+        # The trigger to retrieve analytics for. If undefined, returns all trigger types.
+        field :trigger, Crystalline::Nilable.new(Models::Operations::QueryParamTrigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
+        # The referer to retrieve analytics for.
+        field :referer, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
+        # The full referer URL to retrieve analytics for.
+        field :referer_url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
+        # The URL to retrieve analytics for.
+        field :url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
+        # The tag IDs to retrieve analytics for.
+        field :tag_ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
+        # The folder ID to retrieve analytics for. If not provided, return analytics for unsorted links.
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
+        # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
+        field :root, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
+        # Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.
+        field :sale_type, Crystalline::Nilable.new(Models::Operations::QueryParamSaleType), { 'query_param': { 'field_name': 'saleType', 'style': 'form', 'explode': true } }
+        # Search the events by a custom metadata value. Only available for lead and sale events.
+        field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
+        # Deprecated: Use `tagIds` instead. The tag ID to retrieve analytics for.
+        field :tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
+        # Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
+        field :qr, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
+        # The type of event to retrieve analytics for. Defaults to 'clicks'.
+        field :event, Crystalline::Nilable.new(Models::Operations::QueryParamEvent), { 'query_param': { 'field_name': 'event', 'style': 'form', 'explode': true } }
+        # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
+        field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
+        # The UTM source of the short link.
+        field :utm_source, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_source', 'style': 'form', 'explode': true } }
+        # The UTM medium of the short link.
+        field :utm_medium, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_medium', 'style': 'form', 'explode': true } }
+        # The UTM campaign of the short link.
+        field :utm_campaign, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_campaign', 'style': 'form', 'explode': true } }
+        # The UTM term of the short link.
+        field :utm_term, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
+        # The UTM content of the short link.
+        field :utm_content, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_content', 'style': 'form', 'explode': true } }
 
-      field :limit, T.nilable(::Float), { 'query_param': { 'field_name': 'limit', 'style': 'form', 'explode': true } }
-      # The unique ID of the short link on Dub to retrieve analytics for.
-      field :link_id, T.nilable(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
-      # DEPRECATED. Use `sortOrder` instead.
-      field :order, T.nilable(::OpenApiSDK::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
-      # The OS to retrieve analytics for.
-      field :os, T.nilable(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
 
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The ID of the partner to retrieve analytics for.
-      field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-      # The ID of the program to retrieve analytics for.
-      field :program_id, T.nilable(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
-      # Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
-      field :qr, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
-      # Search the events by a custom metadata value. Only available for lead and sale events.
-      field :query, T.nilable(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
-      # The referer to retrieve analytics for.
-      field :referer, T.nilable(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
-      # The full referer URL to retrieve analytics for.
-      field :referer_url, T.nilable(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
-      # The ISO 3166-2 region code to retrieve analytics for.
-      field :region, T.nilable(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
-      # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
-      field :root, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
-      # Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.
-      field :sale_type, T.nilable(::OpenApiSDK::Operations::QueryParamSaleType), { 'query_param': { 'field_name': 'saleType', 'style': 'form', 'explode': true } }
-      # The field to sort the events by. The default is `timestamp`.
-      field :sort_by, T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
-      # The sort order. The default is `desc`.
-      field :sort_order, T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-      # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
-      field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
-      # Deprecated: Use `tagIds` instead. The tag ID to retrieve analytics for.
-      field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
-      # The tag IDs to retrieve analytics for.
-      field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
-      # The ID of the tenant that created the link inside your system.
-      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
-      # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
-      field :timezone, T.nilable(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
-      # The trigger to retrieve analytics for. If undefined, returns all trigger types.
-      field :trigger, T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
-      # The URL to retrieve analytics for.
-      field :url, T.nilable(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
-      # The UTM campaign of the short link.
-      field :utm_campaign, T.nilable(::String), { 'query_param': { 'field_name': 'utm_campaign', 'style': 'form', 'explode': true } }
-      # The UTM content of the short link.
-      field :utm_content, T.nilable(::String), { 'query_param': { 'field_name': 'utm_content', 'style': 'form', 'explode': true } }
-      # The UTM medium of the short link.
-      field :utm_medium, T.nilable(::String), { 'query_param': { 'field_name': 'utm_medium', 'style': 'form', 'explode': true } }
-      # The UTM source of the short link.
-      field :utm_source, T.nilable(::String), { 'query_param': { 'field_name': 'utm_source', 'style': 'form', 'explode': true } }
-      # The UTM term of the short link.
-      field :utm_term, T.nilable(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
+        field :limit, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'limit', 'style': 'form', 'explode': true } }
+        # The sort order. The default is `desc`.
+        field :sort_order, Crystalline::Nilable.new(Models::Operations::QueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        # The field to sort the events by. The default is `timestamp`.
+        field :sort_by, Crystalline::Nilable.new(Models::Operations::QueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+        # DEPRECATED. Use `sortOrder` instead.
+        field :order, Crystalline::Nilable.new(Models::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
 
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::QueryParamTrigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), page: T.nilable(::Float), limit: T.nilable(::Float), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), sort_by: T.nilable(Models::Operations::QueryParamSortBy), order: T.nilable(Models::Operations::Order)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, page: 1.0, limit: 100.0, sort_order: Models::Operations::QueryParamSortOrder::DESC, sort_by: Models::Operations::QueryParamSortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
+          @domain = domain
+          @key = key
+          @link_id = link_id
+          @external_id = external_id
+          @tenant_id = tenant_id
+          @program_id = program_id
+          @partner_id = partner_id
+          @customer_id = customer_id
+          @interval = interval
+          @start = start
+          @end_ = end_
+          @country = country
+          @city = city
+          @region = region
+          @continent = continent
+          @device = device
+          @browser = browser
+          @os = os
+          @trigger = trigger
+          @referer = referer
+          @referer_url = referer_url
+          @url = url
+          @tag_ids = tag_ids
+          @folder_id = folder_id
+          @root = root
+          @sale_type = sale_type
+          @query = query
+          @tag_id = tag_id
+          @qr = qr
+          @event = event
+          @timezone = timezone
+          @utm_source = utm_source
+          @utm_medium = utm_medium
+          @utm_campaign = utm_campaign
+          @utm_term = utm_term
+          @utm_content = utm_content
+          @page = page
+          @limit = limit
+          @sort_order = sort_order
+          @sort_by = sort_by
+          @order = order
+        end
 
-      sig { params(browser: T.nilable(::String), city: T.nilable(::String), continent: T.nilable(::OpenApiSDK::Shared::ContinentCode), country: T.nilable(::OpenApiSDK::Shared::CountryCode), customer_id: T.nilable(::String), device: T.nilable(::String), domain: T.nilable(::String), end_: T.nilable(::String), event: T.nilable(::OpenApiSDK::Operations::QueryParamEvent), external_id: T.nilable(::String), folder_id: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::QueryParamInterval), key: T.nilable(::String), limit: T.nilable(::Float), link_id: T.nilable(::String), order: T.nilable(::OpenApiSDK::Operations::Order), os: T.nilable(::String), page: T.nilable(::Float), partner_id: T.nilable(::String), program_id: T.nilable(::String), qr: T.nilable(T::Boolean), query: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), region: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(::OpenApiSDK::Operations::QueryParamSaleType), sort_by: T.nilable(::OpenApiSDK::Operations::QueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::QueryParamSortOrder), start: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tenant_id: T.nilable(::String), timezone: T.nilable(::String), trigger: T.nilable(::OpenApiSDK::Operations::QueryParamTrigger), url: T.nilable(::String), utm_campaign: T.nilable(::String), utm_content: T.nilable(::String), utm_medium: T.nilable(::String), utm_source: T.nilable(::String), utm_term: T.nilable(::String)).void }
-      def initialize(browser: nil, city: nil, continent: nil, country: nil, customer_id: nil, device: nil, domain: nil, end_: nil, event: nil, external_id: nil, folder_id: nil, interval: nil, key: nil, limit: nil, link_id: nil, order: nil, os: nil, page: nil, partner_id: nil, program_id: nil, qr: nil, query: nil, referer: nil, referer_url: nil, region: nil, root: nil, sale_type: nil, sort_by: nil, sort_order: nil, start: nil, tag_id: nil, tag_ids: nil, tenant_id: nil, timezone: nil, trigger: nil, url: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
-        @browser = browser
-        @city = city
-        @continent = continent
-        @country = country
-        @customer_id = customer_id
-        @device = device
-        @domain = domain
-        @end_ = end_
-        @event = event
-        @external_id = external_id
-        @folder_id = folder_id
-        @interval = interval
-        @key = key
-        @limit = limit
-        @link_id = link_id
-        @order = order
-        @os = os
-        @page = page
-        @partner_id = partner_id
-        @program_id = program_id
-        @qr = qr
-        @query = query
-        @referer = referer
-        @referer_url = referer_url
-        @region = region
-        @root = root
-        @sale_type = sale_type
-        @sort_by = sort_by
-        @sort_order = sort_order
-        @start = start
-        @tag_id = tag_id
-        @tag_ids = tag_ids
-        @tenant_id = tenant_id
-        @timezone = timezone
-        @trigger = trigger
-        @url = url
-        @utm_campaign = utm_campaign
-        @utm_content = utm_content
-        @utm_medium = utm_medium
-        @utm_source = utm_source
-        @utm_term = utm_term
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domain == other.domain
+          return false unless @key == other.key
+          return false unless @link_id == other.link_id
+          return false unless @external_id == other.external_id
+          return false unless @tenant_id == other.tenant_id
+          return false unless @program_id == other.program_id
+          return false unless @partner_id == other.partner_id
+          return false unless @customer_id == other.customer_id
+          return false unless @interval == other.interval
+          return false unless @start == other.start
+          return false unless @end_ == other.end_
+          return false unless @country == other.country
+          return false unless @city == other.city
+          return false unless @region == other.region
+          return false unless @continent == other.continent
+          return false unless @device == other.device
+          return false unless @browser == other.browser
+          return false unless @os == other.os
+          return false unless @trigger == other.trigger
+          return false unless @referer == other.referer
+          return false unless @referer_url == other.referer_url
+          return false unless @url == other.url
+          return false unless @tag_ids == other.tag_ids
+          return false unless @folder_id == other.folder_id
+          return false unless @root == other.root
+          return false unless @sale_type == other.sale_type
+          return false unless @query == other.query
+          return false unless @tag_id == other.tag_id
+          return false unless @qr == other.qr
+          return false unless @event == other.event
+          return false unless @timezone == other.timezone
+          return false unless @utm_source == other.utm_source
+          return false unless @utm_medium == other.utm_medium
+          return false unless @utm_campaign == other.utm_campaign
+          return false unless @utm_term == other.utm_term
+          return false unless @utm_content == other.utm_content
+          return false unless @page == other.page
+          return false unless @limit == other.limit
+          return false unless @sort_order == other.sort_order
+          return false unless @sort_by == other.sort_by
+          return false unless @order == other.order
+          true
+        end
       end
     end
   end
