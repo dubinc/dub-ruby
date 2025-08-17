@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # ListPartnersStatus - The status of the partner's enrollment in the program.
-    class ListPartnersStatus < T::Enum
-      enums do
-        PENDING = new('pending')
-        APPROVED = new('approved')
-        REJECTED = new('rejected')
-        INVITED = new('invited')
-        DECLINED = new('declined')
-        BANNED = new('banned')
-        ARCHIVED = new('archived')
+  module Models
+    module Operations
+    
+      # ListPartnersStatus - The status of the partner's enrollment in the program.
+      class ListPartnersStatus < T::Enum
+
+
+        enums do
+          PENDING = new('pending')
+          APPROVED = new('approved')
+          REJECTED = new('rejected')
+          INVITED = new('invited')
+          DECLINED = new('declined')
+          BANNED = new('banned')
+          ARCHIVED = new('archived')
+        end
       end
     end
   end

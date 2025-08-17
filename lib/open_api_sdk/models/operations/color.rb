@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # Color - The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, pink, brown.
-    class Color < T::Enum
-      enums do
-        RED = new('red')
-        YELLOW = new('yellow')
-        GREEN = new('green')
-        BLUE = new('blue')
-        PURPLE = new('purple')
-        PINK = new('pink')
-        BROWN = new('brown')
+  module Models
+    module Operations
+    
+      # Color - The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown.
+      class Color < T::Enum
+
+
+        enums do
+          RED = new('red')
+          YELLOW = new('yellow')
+          GREEN = new('green')
+          BLUE = new('blue')
+          PURPLE = new('purple')
+          BROWN = new('brown')
+          PINK = new('pink')
+        end
       end
     end
   end

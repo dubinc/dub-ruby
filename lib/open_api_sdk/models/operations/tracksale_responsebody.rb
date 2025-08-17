@@ -5,25 +5,36 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # A sale was tracked.
-    class TrackSaleResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # A sale was tracked.
+      class TrackSaleResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :customer, ::OpenApiSDK::Operations::TrackSaleCustomer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
+        field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName'), required: true } }
 
-      field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
+        field :customer, Crystalline::Nilable.new(Models::Operations::TrackSaleCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
-      field :sale, ::OpenApiSDK::Operations::Sale, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale') } }
+        field :sale, Crystalline::Nilable.new(Models::Operations::Sale), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale'), required: true } }
 
+        sig { params(event_name: ::String, customer: T.nilable(Models::Operations::TrackSaleCustomer), sale: T.nilable(Models::Operations::Sale)).void }
+        def initialize(event_name:, customer: nil, sale: nil)
+          @event_name = event_name
+          @customer = customer
+          @sale = sale
+        end
 
-      sig { params(customer: ::OpenApiSDK::Operations::TrackSaleCustomer, event_name: ::String, sale: ::OpenApiSDK::Operations::Sale).void }
-      def initialize(customer: nil, event_name: nil, sale: nil)
-        @customer = customer
-        @event_name = event_name
-        @sale = sale
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @event_name == other.event_name
+          return false unless @customer == other.customer
+          return false unless @sale == other.sale
+          true
+        end
       end
     end
   end

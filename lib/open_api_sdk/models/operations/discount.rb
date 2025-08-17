@@ -5,43 +5,56 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class Discount < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
-
-      field :coupon_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponId') } }
-
-      field :coupon_test_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponTestId') } }
-
-      field :default, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('default') } }
-
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-
-      field :max_duration, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('maxDuration') } }
-
-      field :type, ::OpenApiSDK::Operations::GetCustomersType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::GetCustomersType, false) } }
-
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-
-      field :partners_count, T.nilable(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersCount') } }
+      class Discount
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(amount: ::Float, coupon_id: ::String, coupon_test_id: ::String, default: T::Boolean, id: ::String, max_duration: ::Float, type: ::OpenApiSDK::Operations::GetCustomersType, description: T.nilable(::String), partners_count: T.nilable(::Float)).void }
-      def initialize(amount: nil, coupon_id: nil, coupon_test_id: nil, default: nil, id: nil, max_duration: nil, type: nil, description: nil, partners_count: nil)
-        @amount = amount
-        @coupon_id = coupon_id
-        @coupon_test_id = coupon_test_id
-        @default = default
-        @id = id
-        @max_duration = max_duration
-        @type = type
-        @description = description
-        @partners_count = partners_count
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+
+        field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
+
+        field :type, Models::Operations::GetCustomersType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::GetCustomersType, false) } }
+
+        field :max_duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('maxDuration'), required: true } }
+
+        field :coupon_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponId'), required: true } }
+
+        field :coupon_test_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('couponTestId'), required: true } }
+
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+
+        field :partners_count, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnersCount') } }
+
+        sig { params(id: ::String, amount: ::Float, type: Models::Operations::GetCustomersType, max_duration: T.nilable(::Float), coupon_id: T.nilable(::String), coupon_test_id: T.nilable(::String), description: T.nilable(::String), partners_count: T.nilable(::Float)).void }
+        def initialize(id:, amount:, type:, max_duration: nil, coupon_id: nil, coupon_test_id: nil, description: nil, partners_count: nil)
+          @id = id
+          @amount = amount
+          @type = type
+          @max_duration = max_duration
+          @coupon_id = coupon_id
+          @coupon_test_id = coupon_test_id
+          @description = description
+          @partners_count = partners_count
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @amount == other.amount
+          return false unless @type == other.type
+          return false unless @max_duration == other.max_duration
+          return false unless @coupon_id == other.coupon_id
+          return false unless @coupon_test_id == other.coupon_test_id
+          return false unless @description == other.description
+          return false unless @partners_count == other.partners_count
+          true
+        end
       end
     end
   end

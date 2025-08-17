@@ -5,15 +5,19 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # Type
-    class Type < T::Enum
-      enums do
-        CLICK = new('click')
-        LEAD = new('lead')
-        SALE = new('sale')
-        CUSTOM = new('custom')
+  module Models
+    module Operations
+    
+      # Type
+      class Type < T::Enum
+
+
+        enums do
+          CLICK = new('click')
+          LEAD = new('lead')
+          SALE = new('sale')
+          CUSTOM = new('custom')
+        end
       end
     end
   end

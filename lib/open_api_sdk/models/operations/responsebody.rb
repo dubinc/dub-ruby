@@ -5,28 +5,23 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-      # Whether the domain is available.
-      field :available, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('available') } }
-      # The domain name.
-      field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
-      # Whether the domain is a premium domain.
-      field :premium, T::Boolean, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('premium') } }
-      # The price description.
-      field :price, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('price') } }
+      class ResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(available: T::Boolean, domain: ::String, premium: T::Boolean, price: ::String).void }
-      def initialize(available: nil, domain: nil, premium: nil, price: nil)
-        @available = available
-        @domain = domain
-        @premium = premium
-        @price = price
+        
+        def initialize; end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
       end
     end
   end

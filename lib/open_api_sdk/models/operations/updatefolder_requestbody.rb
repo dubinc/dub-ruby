@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateFolderRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateFolderRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The access level of the folder within the workspace.
-      field :access_level, T.nilable(::OpenApiSDK::Operations::UpdateFolderAccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::UpdateFolderAccessLevel, true) } }
-      # The name of the folder.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The name of the folder.
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The access level of the folder within the workspace.
+        field :access_level, Crystalline::Nilable.new(Models::Operations::UpdateFolderAccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Operations::UpdateFolderAccessLevel, true) } }
 
+        sig { params(name: T.nilable(::String), access_level: T.nilable(Models::Operations::UpdateFolderAccessLevel)).void }
+        def initialize(name: nil, access_level: nil)
+          @name = name
+          @access_level = access_level
+        end
 
-      sig { params(access_level: T.nilable(::OpenApiSDK::Operations::UpdateFolderAccessLevel), name: T.nilable(::String)).void }
-      def initialize(access_level: nil, name: nil)
-        @access_level = access_level
-        @name = name
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @name == other.name
+          return false unless @access_level == other.access_level
+          true
+        end
       end
     end
   end

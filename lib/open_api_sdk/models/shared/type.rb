@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Type < T::Enum
-      enums do
-        DEFAULT = new('default')
-        MEGA = new('mega')
+      class Type < T::Enum
+
+
+        enums do
+          DEFAULT = new('default')
+          MEGA = new('mega')
+        end
       end
     end
   end

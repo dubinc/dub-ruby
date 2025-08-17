@@ -5,34 +5,48 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListCommissionsPartner < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListCommissionsPartner
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The partner's country (required for tax purposes).
-      field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
-      # The partner's email address. Should be a unique value across Dub.
-      field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-      # The partner's unique ID on Dub.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The partner's avatar image.
-      field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
-      # The partner's full legal name.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # The date when the partner enabled payouts.
-      field :payouts_enabled_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt') } }
+        # The partner's unique ID on Dub.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The partner's full legal name.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The partner's email address. Should be a unique value across Dub.
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
+        # The partner's avatar image.
+        field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image'), required: true } }
+        # The date when the partner enabled payouts.
+        field :payouts_enabled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt'), required: true } }
+        # The partner's country (required for tax purposes).
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
 
+        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String)).void }
+        def initialize(id:, name:, email: nil, image: nil, payouts_enabled_at: nil, country: nil)
+          @id = id
+          @name = name
+          @email = email
+          @image = image
+          @payouts_enabled_at = payouts_enabled_at
+          @country = country
+        end
 
-      sig { params(country: ::String, email: ::String, id: ::String, image: ::String, name: ::String, payouts_enabled_at: ::String).void }
-      def initialize(country: nil, email: nil, id: nil, image: nil, name: nil, payouts_enabled_at: nil)
-        @country = country
-        @email = email
-        @id = id
-        @image = image
-        @name = name
-        @payouts_enabled_at = payouts_enabled_at
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @email == other.email
+          return false unless @image == other.image
+          return false unless @payouts_enabled_at == other.payouts_enabled_at
+          return false unless @country == other.country
+          true
+        end
       end
     end
   end

@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class DeleteLinkRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class DeleteLinkRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.
-      field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
+        # The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`.
+        field :link_id, ::String, { 'path_param': { 'field_name': 'linkId', 'style': 'simple', 'explode': false } }
 
+        sig { params(link_id: ::String).void }
+        def initialize(link_id:)
+          @link_id = link_id
+        end
 
-      sig { params(link_id: ::String).void }
-      def initialize(link_id: nil)
-        @link_id = link_id
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @link_id == other.link_id
+          true
+        end
       end
     end
   end

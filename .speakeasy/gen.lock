@@ -1,25 +1,32 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 01948bfd32dd0f2f5519a7d0cb3d4913
+  docChecksum: a235acfd26dc6b8527ab58849870a5ad
   docVersion: 0.0.1
-  speakeasyVersion: 1.526.0
-  generationVersion: 2.563.0
-  releaseVersion: 0.9.0
-  configChecksum: 61542cca9a4c3d26ad52b3addadcc4c5
+  speakeasyVersion: 1.605.1
+  generationVersion: 2.684.0
+  releaseVersion: 0.10.0
+  configChecksum: 813a7282a5e7875bac1b5697fa90ece9
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
-    core: 3.6.0
+    constsAndDefaults: 0.1.1
+    core: 3.10.1
     deprecations: 2.81.2
-    examples: 2.81.5
+    errors: 0.1.0
+    examples: 2.81.6
     flattening: 2.81.1
     globalSecurity: 2.81.8
-    globalServerURLs: 2.82.3
+    globalServerURLs: 2.82.4
+    ignores: 2.81.1
     includes: 2.81.1
     nameOverrides: 2.81.2
+    nullables: 0.1.0
+    pagination: 0.1.0
+    responseFormat: 0.1.0
+    unions: 0.1.0
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
@@ -27,101 +34,118 @@ generatedFiles:
   - Gemfile.lock
   - Rakefile
   - USAGE.md
+  - docs/models/errors/badrequest.md
+  - docs/models/errors/code.md
+  - docs/models/errors/conflict.md
+  - docs/models/errors/conflictcode.md
+  - docs/models/errors/conflicterror.md
+  - docs/models/errors/error.md
+  - docs/models/errors/forbidden.md
+  - docs/models/errors/forbiddencode.md
+  - docs/models/errors/forbiddenerror.md
+  - docs/models/errors/internalservererror.md
+  - docs/models/errors/internalservererrorcode.md
+  - docs/models/errors/internalservererrorerror.md
+  - docs/models/errors/inviteexpired.md
+  - docs/models/errors/inviteexpiredcode.md
+  - docs/models/errors/inviteexpirederror.md
+  - docs/models/errors/notfound.md
+  - docs/models/errors/notfoundcode.md
+  - docs/models/errors/notfounderror.md
+  - docs/models/errors/ratelimitexceeded.md
+  - docs/models/errors/ratelimitexceededcode.md
+  - docs/models/errors/ratelimitexceedederror.md
+  - docs/models/errors/unauthorized.md
+  - docs/models/errors/unauthorizedcode.md
+  - docs/models/errors/unauthorizederror.md
+  - docs/models/errors/unprocessableentity.md
+  - docs/models/errors/unprocessableentitycode.md
+  - docs/models/errors/unprocessableentityerror.md
   - docs/models/operations/accesslevel.md
   - docs/models/operations/bannedreason.md
-  - docs/models/operations/bulkcreatelinksresponse.md
+  - docs/models/operations/bulkcreatelinkstagids.md
+  - docs/models/operations/bulkcreatelinkstagnames.md
   - docs/models/operations/bulkcreatelinkstestvariants.md
   - docs/models/operations/bulkdeletelinksrequest.md
-  - docs/models/operations/bulkdeletelinksresponse.md
   - docs/models/operations/bulkdeletelinksresponsebody.md
   - docs/models/operations/bulkupdatelinksrequestbody.md
-  - docs/models/operations/bulkupdatelinksresponse.md
+  - docs/models/operations/bulkupdatelinkstagids.md
+  - docs/models/operations/bulkupdatelinkstagnames.md
   - docs/models/operations/bulkupdatelinkstestvariants.md
   - docs/models/operations/checkdomainstatusrequest.md
-  - docs/models/operations/checkdomainstatusresponse.md
+  - docs/models/operations/checkdomainstatusresponsebody.md
   - docs/models/operations/click.md
   - docs/models/operations/color.md
-  - docs/models/operations/country.md
   - docs/models/operations/createcustomerdiscount.md
   - docs/models/operations/createcustomerlink.md
   - docs/models/operations/createcustomerpartner.md
   - docs/models/operations/createcustomerrequestbody.md
-  - docs/models/operations/createcustomerresponse.md
   - docs/models/operations/createcustomerresponsebody.md
   - docs/models/operations/createcustomertype.md
   - docs/models/operations/createdomainrequestbody.md
-  - docs/models/operations/createdomainresponse.md
   - docs/models/operations/createfolderrequestbody.md
-  - docs/models/operations/createfolderresponse.md
   - docs/models/operations/createlinkrequestbody.md
-  - docs/models/operations/createlinkresponse.md
   - docs/models/operations/createpartnerlink.md
   - docs/models/operations/createpartnerlinklinkprops.md
   - docs/models/operations/createpartnerlinkrequestbody.md
-  - docs/models/operations/createpartnerlinkresponse.md
+  - docs/models/operations/createpartnerlinktagids.md
+  - docs/models/operations/createpartnerlinktagnames.md
   - docs/models/operations/createpartnerlinktestvariants.md
   - docs/models/operations/createpartnerrequestbody.md
-  - docs/models/operations/createpartnerresponse.md
   - docs/models/operations/createpartnerresponsebody.md
   - docs/models/operations/createpartnerstatus.md
+  - docs/models/operations/createpartnertagids.md
+  - docs/models/operations/createpartnertagnames.md
   - docs/models/operations/createpartnertestvariants.md
-  - docs/models/operations/createreferralsembedtokencountry.md
   - docs/models/operations/createreferralsembedtokenlinkprops.md
   - docs/models/operations/createreferralsembedtokenrequestbody.md
-  - docs/models/operations/createreferralsembedtokenresponse.md
   - docs/models/operations/createreferralsembedtokenresponsebody.md
+  - docs/models/operations/createreferralsembedtokentagids.md
+  - docs/models/operations/createreferralsembedtokentagnames.md
   - docs/models/operations/createreferralsembedtokentestvariants.md
   - docs/models/operations/createtagrequestbody.md
-  - docs/models/operations/createtagresponse.md
   - docs/models/operations/customer.md
   - docs/models/operations/data.md
   - docs/models/operations/deletecustomerrequest.md
-  - docs/models/operations/deletecustomerresponse.md
   - docs/models/operations/deletecustomerresponsebody.md
   - docs/models/operations/deletedomainrequest.md
-  - docs/models/operations/deletedomainresponse.md
   - docs/models/operations/deletedomainresponsebody.md
   - docs/models/operations/deletefolderrequest.md
-  - docs/models/operations/deletefolderresponse.md
   - docs/models/operations/deletefolderresponsebody.md
   - docs/models/operations/deletelinkrequest.md
-  - docs/models/operations/deletelinkresponse.md
   - docs/models/operations/deletelinkresponsebody.md
   - docs/models/operations/deletetagrequest.md
-  - docs/models/operations/deletetagresponse.md
   - docs/models/operations/deletetagresponsebody.md
   - docs/models/operations/discount.md
+  - docs/models/operations/domains.md
   - docs/models/operations/event.md
+  - docs/models/operations/four.md
   - docs/models/operations/getcustomerdiscount.md
   - docs/models/operations/getcustomerlink.md
   - docs/models/operations/getcustomerpartner.md
   - docs/models/operations/getcustomerrequest.md
-  - docs/models/operations/getcustomerresponse.md
   - docs/models/operations/getcustomerresponsebody.md
   - docs/models/operations/getcustomerslink.md
   - docs/models/operations/getcustomerspartner.md
   - docs/models/operations/getcustomersqueryparamsortby.md
   - docs/models/operations/getcustomersqueryparamsortorder.md
   - docs/models/operations/getcustomersrequest.md
-  - docs/models/operations/getcustomersresponse.md
   - docs/models/operations/getcustomersresponsebody.md
   - docs/models/operations/getcustomerstype.md
   - docs/models/operations/getcustomertype.md
   - docs/models/operations/getlinkinforequest.md
-  - docs/models/operations/getlinkinforesponse.md
+  - docs/models/operations/getlinkscountqueryparamtagids.md
+  - docs/models/operations/getlinkscountqueryparamtagnames.md
   - docs/models/operations/getlinkscountrequest.md
-  - docs/models/operations/getlinkscountresponse.md
   - docs/models/operations/getlinksrequest.md
   - docs/models/operations/getlinksresponse.md
   - docs/models/operations/getqrcoderequest.md
-  - docs/models/operations/getqrcoderesponse.md
   - docs/models/operations/gettagsqueryparamsortby.md
   - docs/models/operations/gettagsqueryparamsortorder.md
   - docs/models/operations/gettagsrequest.md
-  - docs/models/operations/gettagsresponse.md
   - docs/models/operations/getworkspacerequest.md
-  - docs/models/operations/getworkspaceresponse.md
   - docs/models/operations/groupby.md
+  - docs/models/operations/ids.md
   - docs/models/operations/interval.md
   - docs/models/operations/level.md
   - docs/models/operations/link.md
@@ -132,26 +156,25 @@ generatedFiles:
   - docs/models/operations/listcommissionsqueryparamsortby.md
   - docs/models/operations/listcommissionsqueryparamsortorder.md
   - docs/models/operations/listcommissionsrequest.md
-  - docs/models/operations/listcommissionsresponse.md
   - docs/models/operations/listcommissionsresponsebody.md
   - docs/models/operations/listcommissionsstatus.md
   - docs/models/operations/listcommissionstype.md
   - docs/models/operations/listdomainsrequest.md
   - docs/models/operations/listdomainsresponse.md
+  - docs/models/operations/listeventsqueryparamtagids.md
   - docs/models/operations/listeventsrequest.md
-  - docs/models/operations/listeventsresponse.md
+  - docs/models/operations/listeventsresponsebody.md
   - docs/models/operations/listfoldersrequest.md
-  - docs/models/operations/listfoldersresponse.md
   - docs/models/operations/listpartnersbannedreason.md
   - docs/models/operations/listpartnerslink.md
   - docs/models/operations/listpartnersqueryparamsortby.md
   - docs/models/operations/listpartnersqueryparamsortorder.md
   - docs/models/operations/listpartnersqueryparamstatus.md
   - docs/models/operations/listpartnersrequest.md
-  - docs/models/operations/listpartnersresponse.md
   - docs/models/operations/listpartnersresponsebody.md
   - docs/models/operations/listpartnersstatus.md
   - docs/models/operations/mode.md
+  - docs/models/operations/one.md
   - docs/models/operations/order.md
   - docs/models/operations/partner.md
   - docs/models/operations/paymentprocessor.md
@@ -162,40 +185,43 @@ generatedFiles:
   - docs/models/operations/queryparamsortby.md
   - docs/models/operations/queryparamsortorder.md
   - docs/models/operations/queryparamstatus.md
+  - docs/models/operations/queryparamtagids.md
+  - docs/models/operations/queryparamtagnames.md
   - docs/models/operations/queryparamtrigger.md
   - docs/models/operations/registerdomainrequestbody.md
-  - docs/models/operations/registerdomainresponse.md
   - docs/models/operations/registerdomainresponsebody.md
   - docs/models/operations/requestbody.md
   - docs/models/operations/responsebody.md
+  - docs/models/operations/retrieveanalyticsqueryparamtagids.md
   - docs/models/operations/retrieveanalyticsrequest.md
-  - docs/models/operations/retrieveanalyticsresponse.md
+  - docs/models/operations/retrieveanalyticsresponsebody.md
   - docs/models/operations/retrievelinksrequest.md
-  - docs/models/operations/retrievelinksresponse.md
+  - docs/models/operations/retrievepartneranalyticsqueryparamgroupby.md
   - docs/models/operations/retrievepartneranalyticsqueryparaminterval.md
   - docs/models/operations/retrievepartneranalyticsrequest.md
-  - docs/models/operations/retrievepartneranalyticsresponse.md
+  - docs/models/operations/retrievepartneranalyticsresponsebody.md
   - docs/models/operations/sale.md
   - docs/models/operations/saletype.md
   - docs/models/operations/sort.md
   - docs/models/operations/sortby.md
   - docs/models/operations/sortorder.md
   - docs/models/operations/status.md
+  - docs/models/operations/tagids.md
+  - docs/models/operations/tagnames.md
   - docs/models/operations/testvariants.md
+  - docs/models/operations/three.md
   - docs/models/operations/trackleadrequestbody.md
-  - docs/models/operations/trackleadresponse.md
   - docs/models/operations/trackleadresponsebody.md
   - docs/models/operations/tracksalecustomer.md
   - docs/models/operations/tracksalerequestbody.md
-  - docs/models/operations/tracksaleresponse.md
   - docs/models/operations/tracksaleresponsebody.md
   - docs/models/operations/trigger.md
+  - docs/models/operations/two.md
   - docs/models/operations/type.md
   - docs/models/operations/updatecommissioncustomer.md
   - docs/models/operations/updatecommissionpartner.md
   - docs/models/operations/updatecommissionrequest.md
   - docs/models/operations/updatecommissionrequestbody.md
-  - docs/models/operations/updatecommissionresponse.md
   - docs/models/operations/updatecommissionresponsebody.md
   - docs/models/operations/updatecommissionstatus.md
   - docs/models/operations/updatecommissiontype.md
@@ -204,79 +230,132 @@ generatedFiles:
   - docs/models/operations/updatecustomerpartner.md
   - docs/models/operations/updatecustomerrequest.md
   - docs/models/operations/updatecustomerrequestbody.md
-  - docs/models/operations/updatecustomerresponse.md
   - docs/models/operations/updatecustomerresponsebody.md
   - docs/models/operations/updatecustomertype.md
   - docs/models/operations/updatedomainrequest.md
   - docs/models/operations/updatedomainrequestbody.md
-  - docs/models/operations/updatedomainresponse.md
   - docs/models/operations/updatefolderaccesslevel.md
   - docs/models/operations/updatefolderrequest.md
   - docs/models/operations/updatefolderrequestbody.md
-  - docs/models/operations/updatefolderresponse.md
   - docs/models/operations/updatelinkrequest.md
   - docs/models/operations/updatelinkrequestbody.md
-  - docs/models/operations/updatelinkresponse.md
+  - docs/models/operations/updatelinktagids.md
+  - docs/models/operations/updatelinktagnames.md
   - docs/models/operations/updatelinktestvariants.md
   - docs/models/operations/updatetagcolor.md
   - docs/models/operations/updatetagrequest.md
   - docs/models/operations/updatetagrequestbody.md
-  - docs/models/operations/updatetagresponse.md
   - docs/models/operations/updateworkspacerequest.md
   - docs/models/operations/updateworkspacerequestbody.md
-  - docs/models/operations/updateworkspaceresponse.md
   - docs/models/operations/upsertlinkrequestbody.md
-  - docs/models/operations/upsertlinkresponse.md
+  - docs/models/operations/upsertlinktagids.md
+  - docs/models/operations/upsertlinktagnames.md
   - docs/models/operations/upsertlinktestvariants.md
   - docs/models/operations/upsertpartnerlinklinkprops.md
   - docs/models/operations/upsertpartnerlinkrequestbody.md
-  - docs/models/operations/upsertpartnerlinkresponse.md
+  - docs/models/operations/upsertpartnerlinktagids.md
+  - docs/models/operations/upsertpartnerlinktagnames.md
   - docs/models/operations/upsertpartnerlinktestvariants.md
   - docs/models/shared/accesslevel.md
-  - docs/models/shared/badrequest.md
+  - docs/models/shared/analyticsbrowsers.md
+  - docs/models/shared/analyticscities.md
+  - docs/models/shared/analyticscontinents.md
+  - docs/models/shared/analyticscount.md
+  - docs/models/shared/analyticscountries.md
+  - docs/models/shared/analyticsdevices.md
+  - docs/models/shared/analyticsos.md
+  - docs/models/shared/analyticsreferers.md
+  - docs/models/shared/analyticsrefererurls.md
+  - docs/models/shared/analyticsregions.md
+  - docs/models/shared/analyticsregionscity.md
+  - docs/models/shared/analyticstimeseries.md
+  - docs/models/shared/analyticstoplinks.md
+  - docs/models/shared/analyticstopurls.md
+  - docs/models/shared/analyticstriggers.md
+  - docs/models/shared/bannedreason.md
+  - docs/models/shared/city.md
+  - docs/models/shared/click.md
+  - docs/models/shared/clickevent.md
+  - docs/models/shared/clickeventtestvariants.md
   - docs/models/shared/code.md
   - docs/models/shared/color.md
-  - docs/models/shared/conflict.md
-  - docs/models/shared/conflictcode.md
-  - docs/models/shared/conflicterror.md
+  - docs/models/shared/commissioncreatedevent.md
+  - docs/models/shared/commissioncreatedeventcustomer.md
+  - docs/models/shared/commissioncreatedeventdata.md
+  - docs/models/shared/commissioncreatedeventevent.md
+  - docs/models/shared/commissioncreatedeventstatus.md
+  - docs/models/shared/commissioncreatedeventtype.md
+  - docs/models/shared/continent.md
   - docs/models/shared/continentcode.md
-  - docs/models/shared/countrycode.md
+  - docs/models/shared/customer.md
+  - docs/models/shared/data.md
   - docs/models/shared/domains.md
   - docs/models/shared/domainschema.md
-  - docs/models/shared/error.md
+  - docs/models/shared/event.md
   - docs/models/shared/folderschema.md
-  - docs/models/shared/forbidden.md
-  - docs/models/shared/forbiddencode.md
-  - docs/models/shared/forbiddenerror.md
-  - docs/models/shared/geo.md
-  - docs/models/shared/internalservererror.md
-  - docs/models/shared/internalservererrorcode.md
-  - docs/models/shared/internalservererrorerror.md
-  - docs/models/shared/inviteexpired.md
-  - docs/models/shared/inviteexpiredcode.md
-  - docs/models/shared/inviteexpirederror.md
-  - docs/models/shared/linkgeotargeting.md
+  - docs/models/shared/leadcreatedevent.md
+  - docs/models/shared/leadcreatedeventclick.md
+  - docs/models/shared/leadcreatedeventcustomer.md
+  - docs/models/shared/leadcreatedeventdata.md
+  - docs/models/shared/leadcreatedeventevent.md
+  - docs/models/shared/leadcreatedeventlink.md
+  - docs/models/shared/leadcreatedeventtestvariants.md
+  - docs/models/shared/leadevent.md
+  - docs/models/shared/leadeventclick.md
+  - docs/models/shared/leadeventevent.md
+  - docs/models/shared/leadeventlink.md
+  - docs/models/shared/leadeventtestvariants.md
+  - docs/models/shared/link.md
+  - docs/models/shared/linkclickedevent.md
+  - docs/models/shared/linkclickedeventclick.md
+  - docs/models/shared/linkclickedeventevent.md
+  - docs/models/shared/linkclickedeventlink.md
+  - docs/models/shared/linkclickedeventtestvariants.md
+  - docs/models/shared/linkerrorschema.md
   - docs/models/shared/linkschema.md
-  - docs/models/shared/notfound.md
-  - docs/models/shared/notfoundcode.md
-  - docs/models/shared/notfounderror.md
+  - docs/models/shared/linkwebhookevent.md
+  - docs/models/shared/linkwebhookeventevent.md
+  - docs/models/shared/linkwebhookeventlink.md
+  - docs/models/shared/linkwebhookeventtestvariants.md
+  - docs/models/shared/one.md
+  - docs/models/shared/partner.md
+  - docs/models/shared/partneranalyticscount.md
+  - docs/models/shared/partneranalyticstimeseries.md
+  - docs/models/shared/partneranalyticstoplinks.md
+  - docs/models/shared/partnerenrolledevent.md
+  - docs/models/shared/partnerenrolledeventdata.md
+  - docs/models/shared/partnerenrolledeventevent.md
+  - docs/models/shared/partnerenrolledeventlink.md
+  - docs/models/shared/paymentprocessor.md
   - docs/models/shared/plan.md
-  - docs/models/shared/ratelimitexceeded.md
-  - docs/models/shared/ratelimitexceededcode.md
-  - docs/models/shared/ratelimitexceedederror.md
+  - docs/models/shared/region.md
   - docs/models/shared/registereddomain.md
   - docs/models/shared/role.md
+  - docs/models/shared/sale.md
+  - docs/models/shared/salecreatedevent.md
+  - docs/models/shared/salecreatedeventclick.md
+  - docs/models/shared/salecreatedeventcustomer.md
+  - docs/models/shared/salecreatedeventdata.md
+  - docs/models/shared/salecreatedeventevent.md
+  - docs/models/shared/salecreatedeventlink.md
+  - docs/models/shared/salecreatedeventsale.md
+  - docs/models/shared/salecreatedeventtestvariants.md
+  - docs/models/shared/saleevent.md
+  - docs/models/shared/saleeventclick.md
+  - docs/models/shared/saleeventcustomer.md
+  - docs/models/shared/saleeventevent.md
+  - docs/models/shared/saleeventlink.md
+  - docs/models/shared/saleeventtestvariants.md
   - docs/models/shared/security.md
+  - docs/models/shared/status.md
   - docs/models/shared/tagschema.md
   - docs/models/shared/testvariants.md
+  - docs/models/shared/three.md
+  - docs/models/shared/trigger.md
+  - docs/models/shared/two.md
   - docs/models/shared/type.md
-  - docs/models/shared/unauthorized.md
-  - docs/models/shared/unauthorizedcode.md
-  - docs/models/shared/unauthorizederror.md
-  - docs/models/shared/unprocessableentity.md
-  - docs/models/shared/unprocessableentitycode.md
-  - docs/models/shared/unprocessableentityerror.md
   - docs/models/shared/users.md
+  - docs/models/shared/webhookevent.md
   - docs/models/shared/workspaceschema.md
   - docs/sdks/analytics/README.md
   - docs/sdks/commissions/README.md
@@ -293,9 +372,11 @@ generatedFiles:
   - docs/sdks/track/README.md
   - docs/sdks/workspaces/README.md
   - dub.gemspec
+  - extra.rbi
   - lib/crystalline.rb
   - lib/crystalline/metadata_fields.rb
-  - lib/crystalline/t.rb
+  - lib/crystalline/module.rb
+  - lib/crystalline/types.rb
   - lib/crystalline/utils.rb
   - lib/dub.rb
   - lib/open_api_sdk/analytics.rb
@@ -307,308 +388,678 @@ generatedFiles:
   - lib/open_api_sdk/events.rb
   - lib/open_api_sdk/folders.rb
   - lib/open_api_sdk/links.rb
+  - lib/open_api_sdk/models/callbacks.rb
+  - lib/open_api_sdk/models/errors.rb
+  - lib/open_api_sdk/models/errors/apierror.rb
+  - lib/open_api_sdk/models/errors/apierror.rbi
+  - lib/open_api_sdk/models/errors/badrequest.rb
+  - lib/open_api_sdk/models/errors/badrequest.rbi
+  - lib/open_api_sdk/models/errors/code.rb
+  - lib/open_api_sdk/models/errors/code.rbi
+  - lib/open_api_sdk/models/errors/conflict.rb
+  - lib/open_api_sdk/models/errors/conflict.rbi
+  - lib/open_api_sdk/models/errors/conflict_code.rb
+  - lib/open_api_sdk/models/errors/conflict_code.rbi
+  - lib/open_api_sdk/models/errors/conflict_error.rb
+  - lib/open_api_sdk/models/errors/conflict_error.rbi
+  - lib/open_api_sdk/models/errors/error.rb
+  - lib/open_api_sdk/models/errors/error.rbi
+  - lib/open_api_sdk/models/errors/forbidden.rb
+  - lib/open_api_sdk/models/errors/forbidden.rbi
+  - lib/open_api_sdk/models/errors/forbidden_code.rb
+  - lib/open_api_sdk/models/errors/forbidden_code.rbi
+  - lib/open_api_sdk/models/errors/forbidden_error.rb
+  - lib/open_api_sdk/models/errors/forbidden_error.rbi
+  - lib/open_api_sdk/models/errors/internalservererror.rb
+  - lib/open_api_sdk/models/errors/internalservererror.rbi
+  - lib/open_api_sdk/models/errors/internalservererror_code.rb
+  - lib/open_api_sdk/models/errors/internalservererror_code.rbi
+  - lib/open_api_sdk/models/errors/internalservererror_error.rb
+  - lib/open_api_sdk/models/errors/internalservererror_error.rbi
+  - lib/open_api_sdk/models/errors/inviteexpired.rb
+  - lib/open_api_sdk/models/errors/inviteexpired.rbi
+  - lib/open_api_sdk/models/errors/inviteexpired_code.rb
+  - lib/open_api_sdk/models/errors/inviteexpired_code.rbi
+  - lib/open_api_sdk/models/errors/inviteexpired_error.rb
+  - lib/open_api_sdk/models/errors/inviteexpired_error.rbi
+  - lib/open_api_sdk/models/errors/notfound.rb
+  - lib/open_api_sdk/models/errors/notfound.rbi
+  - lib/open_api_sdk/models/errors/notfound_code.rb
+  - lib/open_api_sdk/models/errors/notfound_code.rbi
+  - lib/open_api_sdk/models/errors/notfound_error.rb
+  - lib/open_api_sdk/models/errors/notfound_error.rbi
+  - lib/open_api_sdk/models/errors/ratelimitexceeded.rb
+  - lib/open_api_sdk/models/errors/ratelimitexceeded.rbi
+  - lib/open_api_sdk/models/errors/ratelimitexceeded_code.rb
+  - lib/open_api_sdk/models/errors/ratelimitexceeded_code.rbi
+  - lib/open_api_sdk/models/errors/ratelimitexceeded_error.rb
+  - lib/open_api_sdk/models/errors/ratelimitexceeded_error.rbi
+  - lib/open_api_sdk/models/errors/unauthorized.rb
+  - lib/open_api_sdk/models/errors/unauthorized.rbi
+  - lib/open_api_sdk/models/errors/unauthorized_code.rb
+  - lib/open_api_sdk/models/errors/unauthorized_code.rbi
+  - lib/open_api_sdk/models/errors/unauthorized_error.rb
+  - lib/open_api_sdk/models/errors/unauthorized_error.rbi
+  - lib/open_api_sdk/models/errors/unprocessableentity.rb
+  - lib/open_api_sdk/models/errors/unprocessableentity.rbi
+  - lib/open_api_sdk/models/errors/unprocessableentity_code.rb
+  - lib/open_api_sdk/models/errors/unprocessableentity_code.rbi
+  - lib/open_api_sdk/models/errors/unprocessableentity_error.rb
+  - lib/open_api_sdk/models/errors/unprocessableentity_error.rbi
   - lib/open_api_sdk/models/operations.rb
   - lib/open_api_sdk/models/operations/accesslevel.rb
+  - lib/open_api_sdk/models/operations/accesslevel.rbi
   - lib/open_api_sdk/models/operations/bannedreason.rb
-  - lib/open_api_sdk/models/operations/bulkcreatelinks_response.rb
+  - lib/open_api_sdk/models/operations/bannedreason.rbi
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_tagids.rb
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_tagids.rbi
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_tagnames.rb
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_tagnames.rbi
   - lib/open_api_sdk/models/operations/bulkcreatelinks_testvariants.rb
+  - lib/open_api_sdk/models/operations/bulkcreatelinks_testvariants.rbi
   - lib/open_api_sdk/models/operations/bulkdeletelinks_request.rb
-  - lib/open_api_sdk/models/operations/bulkdeletelinks_response.rb
+  - lib/open_api_sdk/models/operations/bulkdeletelinks_request.rbi
   - lib/open_api_sdk/models/operations/bulkdeletelinks_responsebody.rb
+  - lib/open_api_sdk/models/operations/bulkdeletelinks_responsebody.rbi
   - lib/open_api_sdk/models/operations/bulkupdatelinks_requestbody.rb
-  - lib/open_api_sdk/models/operations/bulkupdatelinks_response.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_requestbody.rbi
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_tagids.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_tagids.rbi
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_tagnames.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_tagnames.rbi
   - lib/open_api_sdk/models/operations/bulkupdatelinks_testvariants.rb
+  - lib/open_api_sdk/models/operations/bulkupdatelinks_testvariants.rbi
   - lib/open_api_sdk/models/operations/checkdomainstatus_request.rb
-  - lib/open_api_sdk/models/operations/checkdomainstatus_response.rb
+  - lib/open_api_sdk/models/operations/checkdomainstatus_request.rbi
+  - lib/open_api_sdk/models/operations/checkdomainstatus_responsebody.rb
+  - lib/open_api_sdk/models/operations/checkdomainstatus_responsebody.rbi
   - lib/open_api_sdk/models/operations/click.rb
+  - lib/open_api_sdk/models/operations/click.rbi
   - lib/open_api_sdk/models/operations/color.rb
-  - lib/open_api_sdk/models/operations/country.rb
+  - lib/open_api_sdk/models/operations/color.rbi
   - lib/open_api_sdk/models/operations/createcustomer_discount.rb
+  - lib/open_api_sdk/models/operations/createcustomer_discount.rbi
   - lib/open_api_sdk/models/operations/createcustomer_link.rb
+  - lib/open_api_sdk/models/operations/createcustomer_link.rbi
   - lib/open_api_sdk/models/operations/createcustomer_partner.rb
+  - lib/open_api_sdk/models/operations/createcustomer_partner.rbi
   - lib/open_api_sdk/models/operations/createcustomer_requestbody.rb
-  - lib/open_api_sdk/models/operations/createcustomer_response.rb
+  - lib/open_api_sdk/models/operations/createcustomer_requestbody.rbi
   - lib/open_api_sdk/models/operations/createcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/createcustomer_responsebody.rbi
   - lib/open_api_sdk/models/operations/createcustomer_type.rb
+  - lib/open_api_sdk/models/operations/createcustomer_type.rbi
   - lib/open_api_sdk/models/operations/createdomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/createdomain_response.rb
+  - lib/open_api_sdk/models/operations/createdomain_requestbody.rbi
   - lib/open_api_sdk/models/operations/createfolder_requestbody.rb
-  - lib/open_api_sdk/models/operations/createfolder_response.rb
+  - lib/open_api_sdk/models/operations/createfolder_requestbody.rbi
   - lib/open_api_sdk/models/operations/createlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/createlink_response.rb
+  - lib/open_api_sdk/models/operations/createlink_requestbody.rbi
   - lib/open_api_sdk/models/operations/createpartner_link.rb
+  - lib/open_api_sdk/models/operations/createpartner_link.rbi
   - lib/open_api_sdk/models/operations/createpartner_requestbody.rb
-  - lib/open_api_sdk/models/operations/createpartner_response.rb
+  - lib/open_api_sdk/models/operations/createpartner_requestbody.rbi
   - lib/open_api_sdk/models/operations/createpartner_responsebody.rb
+  - lib/open_api_sdk/models/operations/createpartner_responsebody.rbi
   - lib/open_api_sdk/models/operations/createpartner_status.rb
+  - lib/open_api_sdk/models/operations/createpartner_status.rbi
+  - lib/open_api_sdk/models/operations/createpartner_tagids.rb
+  - lib/open_api_sdk/models/operations/createpartner_tagids.rbi
+  - lib/open_api_sdk/models/operations/createpartner_tagnames.rb
+  - lib/open_api_sdk/models/operations/createpartner_tagnames.rbi
   - lib/open_api_sdk/models/operations/createpartner_testvariants.rb
+  - lib/open_api_sdk/models/operations/createpartner_testvariants.rbi
   - lib/open_api_sdk/models/operations/createpartnerlink_linkprops.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_linkprops.rbi
   - lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/createpartnerlink_response.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rbi
+  - lib/open_api_sdk/models/operations/createpartnerlink_tagids.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_tagids.rbi
+  - lib/open_api_sdk/models/operations/createpartnerlink_tagnames.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_tagnames.rbi
   - lib/open_api_sdk/models/operations/createpartnerlink_testvariants.rb
-  - lib/open_api_sdk/models/operations/createreferralsembedtoken_country.rb
+  - lib/open_api_sdk/models/operations/createpartnerlink_testvariants.rbi
   - lib/open_api_sdk/models/operations/createreferralsembedtoken_linkprops.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_linkprops.rbi
   - lib/open_api_sdk/models/operations/createreferralsembedtoken_requestbody.rb
-  - lib/open_api_sdk/models/operations/createreferralsembedtoken_response.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_requestbody.rbi
   - lib/open_api_sdk/models/operations/createreferralsembedtoken_responsebody.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_responsebody.rbi
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_tagids.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_tagids.rbi
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_tagnames.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_tagnames.rbi
   - lib/open_api_sdk/models/operations/createreferralsembedtoken_testvariants.rb
+  - lib/open_api_sdk/models/operations/createreferralsembedtoken_testvariants.rbi
   - lib/open_api_sdk/models/operations/createtag_requestbody.rb
-  - lib/open_api_sdk/models/operations/createtag_response.rb
+  - lib/open_api_sdk/models/operations/createtag_requestbody.rbi
   - lib/open_api_sdk/models/operations/customer.rb
+  - lib/open_api_sdk/models/operations/customer.rbi
   - lib/open_api_sdk/models/operations/data.rb
+  - lib/open_api_sdk/models/operations/data.rbi
   - lib/open_api_sdk/models/operations/deletecustomer_request.rb
-  - lib/open_api_sdk/models/operations/deletecustomer_response.rb
+  - lib/open_api_sdk/models/operations/deletecustomer_request.rbi
   - lib/open_api_sdk/models/operations/deletecustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletecustomer_responsebody.rbi
   - lib/open_api_sdk/models/operations/deletedomain_request.rb
-  - lib/open_api_sdk/models/operations/deletedomain_response.rb
+  - lib/open_api_sdk/models/operations/deletedomain_request.rbi
   - lib/open_api_sdk/models/operations/deletedomain_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletedomain_responsebody.rbi
   - lib/open_api_sdk/models/operations/deletefolder_request.rb
-  - lib/open_api_sdk/models/operations/deletefolder_response.rb
+  - lib/open_api_sdk/models/operations/deletefolder_request.rbi
   - lib/open_api_sdk/models/operations/deletefolder_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletefolder_responsebody.rbi
   - lib/open_api_sdk/models/operations/deletelink_request.rb
-  - lib/open_api_sdk/models/operations/deletelink_response.rb
+  - lib/open_api_sdk/models/operations/deletelink_request.rbi
   - lib/open_api_sdk/models/operations/deletelink_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletelink_responsebody.rbi
   - lib/open_api_sdk/models/operations/deletetag_request.rb
-  - lib/open_api_sdk/models/operations/deletetag_response.rb
+  - lib/open_api_sdk/models/operations/deletetag_request.rbi
   - lib/open_api_sdk/models/operations/deletetag_responsebody.rb
+  - lib/open_api_sdk/models/operations/deletetag_responsebody.rbi
   - lib/open_api_sdk/models/operations/discount.rb
+  - lib/open_api_sdk/models/operations/discount.rbi
+  - lib/open_api_sdk/models/operations/domains.rb
+  - lib/open_api_sdk/models/operations/domains.rbi
   - lib/open_api_sdk/models/operations/event.rb
+  - lib/open_api_sdk/models/operations/event.rbi
+  - lib/open_api_sdk/models/operations/four.rb
+  - lib/open_api_sdk/models/operations/four.rbi
   - lib/open_api_sdk/models/operations/getcustomer_discount.rb
+  - lib/open_api_sdk/models/operations/getcustomer_discount.rbi
   - lib/open_api_sdk/models/operations/getcustomer_link.rb
+  - lib/open_api_sdk/models/operations/getcustomer_link.rbi
   - lib/open_api_sdk/models/operations/getcustomer_partner.rb
+  - lib/open_api_sdk/models/operations/getcustomer_partner.rbi
   - lib/open_api_sdk/models/operations/getcustomer_request.rb
-  - lib/open_api_sdk/models/operations/getcustomer_response.rb
+  - lib/open_api_sdk/models/operations/getcustomer_request.rbi
   - lib/open_api_sdk/models/operations/getcustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/getcustomer_responsebody.rbi
   - lib/open_api_sdk/models/operations/getcustomer_type.rb
+  - lib/open_api_sdk/models/operations/getcustomer_type.rbi
   - lib/open_api_sdk/models/operations/getcustomers_link.rb
+  - lib/open_api_sdk/models/operations/getcustomers_link.rbi
   - lib/open_api_sdk/models/operations/getcustomers_partner.rb
+  - lib/open_api_sdk/models/operations/getcustomers_partner.rbi
   - lib/open_api_sdk/models/operations/getcustomers_queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/getcustomers_queryparam_sortby.rbi
   - lib/open_api_sdk/models/operations/getcustomers_queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/getcustomers_queryparam_sortorder.rbi
   - lib/open_api_sdk/models/operations/getcustomers_request.rb
-  - lib/open_api_sdk/models/operations/getcustomers_response.rb
+  - lib/open_api_sdk/models/operations/getcustomers_request.rbi
   - lib/open_api_sdk/models/operations/getcustomers_responsebody.rb
+  - lib/open_api_sdk/models/operations/getcustomers_responsebody.rbi
   - lib/open_api_sdk/models/operations/getcustomers_type.rb
+  - lib/open_api_sdk/models/operations/getcustomers_type.rbi
   - lib/open_api_sdk/models/operations/getlinkinfo_request.rb
-  - lib/open_api_sdk/models/operations/getlinkinfo_response.rb
+  - lib/open_api_sdk/models/operations/getlinkinfo_request.rbi
   - lib/open_api_sdk/models/operations/getlinks_request.rb
+  - lib/open_api_sdk/models/operations/getlinks_request.rbi
   - lib/open_api_sdk/models/operations/getlinks_response.rb
+  - lib/open_api_sdk/models/operations/getlinks_response.rbi
+  - lib/open_api_sdk/models/operations/getlinkscount_queryparam_tagids.rb
+  - lib/open_api_sdk/models/operations/getlinkscount_queryparam_tagids.rbi
+  - lib/open_api_sdk/models/operations/getlinkscount_queryparam_tagnames.rb
+  - lib/open_api_sdk/models/operations/getlinkscount_queryparam_tagnames.rbi
   - lib/open_api_sdk/models/operations/getlinkscount_request.rb
-  - lib/open_api_sdk/models/operations/getlinkscount_response.rb
+  - lib/open_api_sdk/models/operations/getlinkscount_request.rbi
   - lib/open_api_sdk/models/operations/getqrcode_request.rb
-  - lib/open_api_sdk/models/operations/getqrcode_response.rb
+  - lib/open_api_sdk/models/operations/getqrcode_request.rbi
   - lib/open_api_sdk/models/operations/gettags_queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/gettags_queryparam_sortby.rbi
   - lib/open_api_sdk/models/operations/gettags_queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/gettags_queryparam_sortorder.rbi
   - lib/open_api_sdk/models/operations/gettags_request.rb
-  - lib/open_api_sdk/models/operations/gettags_response.rb
+  - lib/open_api_sdk/models/operations/gettags_request.rbi
   - lib/open_api_sdk/models/operations/getworkspace_request.rb
-  - lib/open_api_sdk/models/operations/getworkspace_response.rb
+  - lib/open_api_sdk/models/operations/getworkspace_request.rbi
   - lib/open_api_sdk/models/operations/groupby.rb
+  - lib/open_api_sdk/models/operations/groupby.rbi
+  - lib/open_api_sdk/models/operations/ids.rb
+  - lib/open_api_sdk/models/operations/ids.rbi
   - lib/open_api_sdk/models/operations/interval.rb
+  - lib/open_api_sdk/models/operations/interval.rbi
   - lib/open_api_sdk/models/operations/level.rb
+  - lib/open_api_sdk/models/operations/level.rbi
   - lib/open_api_sdk/models/operations/link.rb
+  - lib/open_api_sdk/models/operations/link.rbi
   - lib/open_api_sdk/models/operations/linkprops.rb
+  - lib/open_api_sdk/models/operations/linkprops.rbi
   - lib/open_api_sdk/models/operations/listcommissions_customer.rb
+  - lib/open_api_sdk/models/operations/listcommissions_customer.rbi
   - lib/open_api_sdk/models/operations/listcommissions_partner.rb
+  - lib/open_api_sdk/models/operations/listcommissions_partner.rbi
   - lib/open_api_sdk/models/operations/listcommissions_queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/listcommissions_queryparam_interval.rbi
   - lib/open_api_sdk/models/operations/listcommissions_queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/listcommissions_queryparam_sortby.rbi
   - lib/open_api_sdk/models/operations/listcommissions_queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/listcommissions_queryparam_sortorder.rbi
   - lib/open_api_sdk/models/operations/listcommissions_request.rb
-  - lib/open_api_sdk/models/operations/listcommissions_response.rb
+  - lib/open_api_sdk/models/operations/listcommissions_request.rbi
   - lib/open_api_sdk/models/operations/listcommissions_responsebody.rb
+  - lib/open_api_sdk/models/operations/listcommissions_responsebody.rbi
   - lib/open_api_sdk/models/operations/listcommissions_status.rb
+  - lib/open_api_sdk/models/operations/listcommissions_status.rbi
   - lib/open_api_sdk/models/operations/listcommissions_type.rb
+  - lib/open_api_sdk/models/operations/listcommissions_type.rbi
   - lib/open_api_sdk/models/operations/listdomains_request.rb
+  - lib/open_api_sdk/models/operations/listdomains_request.rbi
   - lib/open_api_sdk/models/operations/listdomains_response.rb
+  - lib/open_api_sdk/models/operations/listdomains_response.rbi
+  - lib/open_api_sdk/models/operations/listevents_queryparam_tagids.rb
+  - lib/open_api_sdk/models/operations/listevents_queryparam_tagids.rbi
   - lib/open_api_sdk/models/operations/listevents_request.rb
-  - lib/open_api_sdk/models/operations/listevents_response.rb
+  - lib/open_api_sdk/models/operations/listevents_request.rbi
+  - lib/open_api_sdk/models/operations/listevents_responsebody.rb
+  - lib/open_api_sdk/models/operations/listevents_responsebody.rbi
   - lib/open_api_sdk/models/operations/listfolders_request.rb
-  - lib/open_api_sdk/models/operations/listfolders_response.rb
+  - lib/open_api_sdk/models/operations/listfolders_request.rbi
   - lib/open_api_sdk/models/operations/listpartners_bannedreason.rb
+  - lib/open_api_sdk/models/operations/listpartners_bannedreason.rbi
   - lib/open_api_sdk/models/operations/listpartners_link.rb
+  - lib/open_api_sdk/models/operations/listpartners_link.rbi
   - lib/open_api_sdk/models/operations/listpartners_queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/listpartners_queryparam_sortby.rbi
   - lib/open_api_sdk/models/operations/listpartners_queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/listpartners_queryparam_sortorder.rbi
   - lib/open_api_sdk/models/operations/listpartners_queryparam_status.rb
+  - lib/open_api_sdk/models/operations/listpartners_queryparam_status.rbi
   - lib/open_api_sdk/models/operations/listpartners_request.rb
-  - lib/open_api_sdk/models/operations/listpartners_response.rb
+  - lib/open_api_sdk/models/operations/listpartners_request.rbi
   - lib/open_api_sdk/models/operations/listpartners_responsebody.rb
+  - lib/open_api_sdk/models/operations/listpartners_responsebody.rbi
   - lib/open_api_sdk/models/operations/listpartners_status.rb
+  - lib/open_api_sdk/models/operations/listpartners_status.rbi
   - lib/open_api_sdk/models/operations/mode.rb
+  - lib/open_api_sdk/models/operations/mode.rbi
+  - lib/open_api_sdk/models/operations/one.rb
+  - lib/open_api_sdk/models/operations/one.rbi
   - lib/open_api_sdk/models/operations/order.rb
+  - lib/open_api_sdk/models/operations/order.rbi
   - lib/open_api_sdk/models/operations/partner.rb
+  - lib/open_api_sdk/models/operations/partner.rbi
   - lib/open_api_sdk/models/operations/paymentprocessor.rb
+  - lib/open_api_sdk/models/operations/paymentprocessor.rbi
   - lib/open_api_sdk/models/operations/queryparam_event.rb
+  - lib/open_api_sdk/models/operations/queryparam_event.rbi
   - lib/open_api_sdk/models/operations/queryparam_groupby.rb
+  - lib/open_api_sdk/models/operations/queryparam_groupby.rbi
   - lib/open_api_sdk/models/operations/queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/queryparam_interval.rbi
   - lib/open_api_sdk/models/operations/queryparam_saletype.rb
+  - lib/open_api_sdk/models/operations/queryparam_saletype.rbi
   - lib/open_api_sdk/models/operations/queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/queryparam_sortby.rbi
   - lib/open_api_sdk/models/operations/queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/queryparam_sortorder.rbi
   - lib/open_api_sdk/models/operations/queryparam_status.rb
+  - lib/open_api_sdk/models/operations/queryparam_status.rbi
+  - lib/open_api_sdk/models/operations/queryparam_tagids.rb
+  - lib/open_api_sdk/models/operations/queryparam_tagids.rbi
+  - lib/open_api_sdk/models/operations/queryparam_tagnames.rb
+  - lib/open_api_sdk/models/operations/queryparam_tagnames.rbi
   - lib/open_api_sdk/models/operations/queryparam_trigger.rb
+  - lib/open_api_sdk/models/operations/queryparam_trigger.rbi
   - lib/open_api_sdk/models/operations/registerdomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/registerdomain_response.rb
+  - lib/open_api_sdk/models/operations/registerdomain_requestbody.rbi
   - lib/open_api_sdk/models/operations/registerdomain_responsebody.rb
+  - lib/open_api_sdk/models/operations/registerdomain_responsebody.rbi
   - lib/open_api_sdk/models/operations/requestbody.rb
+  - lib/open_api_sdk/models/operations/requestbody.rbi
   - lib/open_api_sdk/models/operations/responsebody.rb
+  - lib/open_api_sdk/models/operations/responsebody.rbi
+  - lib/open_api_sdk/models/operations/retrieveanalytics_queryparam_tagids.rb
+  - lib/open_api_sdk/models/operations/retrieveanalytics_queryparam_tagids.rbi
   - lib/open_api_sdk/models/operations/retrieveanalytics_request.rb
-  - lib/open_api_sdk/models/operations/retrieveanalytics_response.rb
+  - lib/open_api_sdk/models/operations/retrieveanalytics_request.rbi
+  - lib/open_api_sdk/models/operations/retrieveanalytics_responsebody.rb
+  - lib/open_api_sdk/models/operations/retrieveanalytics_responsebody.rbi
   - lib/open_api_sdk/models/operations/retrievelinks_request.rb
-  - lib/open_api_sdk/models/operations/retrievelinks_response.rb
+  - lib/open_api_sdk/models/operations/retrievelinks_request.rbi
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_queryparam_groupby.rb
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_queryparam_groupby.rbi
   - lib/open_api_sdk/models/operations/retrievepartneranalytics_queryparam_interval.rb
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_queryparam_interval.rbi
   - lib/open_api_sdk/models/operations/retrievepartneranalytics_request.rb
-  - lib/open_api_sdk/models/operations/retrievepartneranalytics_response.rb
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_request.rbi
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_responsebody.rb
+  - lib/open_api_sdk/models/operations/retrievepartneranalytics_responsebody.rbi
   - lib/open_api_sdk/models/operations/sale.rb
+  - lib/open_api_sdk/models/operations/sale.rbi
   - lib/open_api_sdk/models/operations/saletype.rb
+  - lib/open_api_sdk/models/operations/saletype.rbi
   - lib/open_api_sdk/models/operations/sort.rb
+  - lib/open_api_sdk/models/operations/sort.rbi
   - lib/open_api_sdk/models/operations/sortby.rb
+  - lib/open_api_sdk/models/operations/sortby.rbi
   - lib/open_api_sdk/models/operations/sortorder.rb
+  - lib/open_api_sdk/models/operations/sortorder.rbi
   - lib/open_api_sdk/models/operations/status.rb
+  - lib/open_api_sdk/models/operations/status.rbi
+  - lib/open_api_sdk/models/operations/tagids.rb
+  - lib/open_api_sdk/models/operations/tagids.rbi
+  - lib/open_api_sdk/models/operations/tagnames.rb
+  - lib/open_api_sdk/models/operations/tagnames.rbi
   - lib/open_api_sdk/models/operations/testvariants.rb
+  - lib/open_api_sdk/models/operations/testvariants.rbi
+  - lib/open_api_sdk/models/operations/three.rb
+  - lib/open_api_sdk/models/operations/three.rbi
   - lib/open_api_sdk/models/operations/tracklead_requestbody.rb
-  - lib/open_api_sdk/models/operations/tracklead_response.rb
+  - lib/open_api_sdk/models/operations/tracklead_requestbody.rbi
   - lib/open_api_sdk/models/operations/tracklead_responsebody.rb
+  - lib/open_api_sdk/models/operations/tracklead_responsebody.rbi
   - lib/open_api_sdk/models/operations/tracksale_customer.rb
+  - lib/open_api_sdk/models/operations/tracksale_customer.rbi
   - lib/open_api_sdk/models/operations/tracksale_requestbody.rb
-  - lib/open_api_sdk/models/operations/tracksale_response.rb
+  - lib/open_api_sdk/models/operations/tracksale_requestbody.rbi
   - lib/open_api_sdk/models/operations/tracksale_responsebody.rb
+  - lib/open_api_sdk/models/operations/tracksale_responsebody.rbi
   - lib/open_api_sdk/models/operations/trigger.rb
+  - lib/open_api_sdk/models/operations/trigger.rbi
+  - lib/open_api_sdk/models/operations/two.rb
+  - lib/open_api_sdk/models/operations/two.rbi
   - lib/open_api_sdk/models/operations/type.rb
+  - lib/open_api_sdk/models/operations/type.rbi
   - lib/open_api_sdk/models/operations/updatecommission_customer.rb
+  - lib/open_api_sdk/models/operations/updatecommission_customer.rbi
   - lib/open_api_sdk/models/operations/updatecommission_partner.rb
+  - lib/open_api_sdk/models/operations/updatecommission_partner.rbi
   - lib/open_api_sdk/models/operations/updatecommission_request.rb
+  - lib/open_api_sdk/models/operations/updatecommission_request.rbi
   - lib/open_api_sdk/models/operations/updatecommission_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatecommission_response.rb
+  - lib/open_api_sdk/models/operations/updatecommission_requestbody.rbi
   - lib/open_api_sdk/models/operations/updatecommission_responsebody.rb
+  - lib/open_api_sdk/models/operations/updatecommission_responsebody.rbi
   - lib/open_api_sdk/models/operations/updatecommission_status.rb
+  - lib/open_api_sdk/models/operations/updatecommission_status.rbi
   - lib/open_api_sdk/models/operations/updatecommission_type.rb
+  - lib/open_api_sdk/models/operations/updatecommission_type.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_discount.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_discount.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_link.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_link.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_partner.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_partner.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_request.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_request.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatecustomer_response.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_requestbody.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_responsebody.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_responsebody.rbi
   - lib/open_api_sdk/models/operations/updatecustomer_type.rb
+  - lib/open_api_sdk/models/operations/updatecustomer_type.rbi
   - lib/open_api_sdk/models/operations/updatedomain_request.rb
+  - lib/open_api_sdk/models/operations/updatedomain_request.rbi
   - lib/open_api_sdk/models/operations/updatedomain_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatedomain_response.rb
+  - lib/open_api_sdk/models/operations/updatedomain_requestbody.rbi
   - lib/open_api_sdk/models/operations/updatefolder_accesslevel.rb
+  - lib/open_api_sdk/models/operations/updatefolder_accesslevel.rbi
   - lib/open_api_sdk/models/operations/updatefolder_request.rb
+  - lib/open_api_sdk/models/operations/updatefolder_request.rbi
   - lib/open_api_sdk/models/operations/updatefolder_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatefolder_response.rb
+  - lib/open_api_sdk/models/operations/updatefolder_requestbody.rbi
   - lib/open_api_sdk/models/operations/updatelink_request.rb
+  - lib/open_api_sdk/models/operations/updatelink_request.rbi
   - lib/open_api_sdk/models/operations/updatelink_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatelink_response.rb
+  - lib/open_api_sdk/models/operations/updatelink_requestbody.rbi
+  - lib/open_api_sdk/models/operations/updatelink_tagids.rb
+  - lib/open_api_sdk/models/operations/updatelink_tagids.rbi
+  - lib/open_api_sdk/models/operations/updatelink_tagnames.rb
+  - lib/open_api_sdk/models/operations/updatelink_tagnames.rbi
   - lib/open_api_sdk/models/operations/updatelink_testvariants.rb
+  - lib/open_api_sdk/models/operations/updatelink_testvariants.rbi
   - lib/open_api_sdk/models/operations/updatetag_color.rb
+  - lib/open_api_sdk/models/operations/updatetag_color.rbi
   - lib/open_api_sdk/models/operations/updatetag_request.rb
+  - lib/open_api_sdk/models/operations/updatetag_request.rbi
   - lib/open_api_sdk/models/operations/updatetag_requestbody.rb
-  - lib/open_api_sdk/models/operations/updatetag_response.rb
+  - lib/open_api_sdk/models/operations/updatetag_requestbody.rbi
   - lib/open_api_sdk/models/operations/updateworkspace_request.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_request.rbi
   - lib/open_api_sdk/models/operations/updateworkspace_requestbody.rb
-  - lib/open_api_sdk/models/operations/updateworkspace_response.rb
+  - lib/open_api_sdk/models/operations/updateworkspace_requestbody.rbi
   - lib/open_api_sdk/models/operations/upsertlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/upsertlink_response.rb
+  - lib/open_api_sdk/models/operations/upsertlink_requestbody.rbi
+  - lib/open_api_sdk/models/operations/upsertlink_tagids.rb
+  - lib/open_api_sdk/models/operations/upsertlink_tagids.rbi
+  - lib/open_api_sdk/models/operations/upsertlink_tagnames.rb
+  - lib/open_api_sdk/models/operations/upsertlink_tagnames.rbi
   - lib/open_api_sdk/models/operations/upsertlink_testvariants.rb
+  - lib/open_api_sdk/models/operations/upsertlink_testvariants.rbi
   - lib/open_api_sdk/models/operations/upsertpartnerlink_linkprops.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_linkprops.rbi
   - lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rb
-  - lib/open_api_sdk/models/operations/upsertpartnerlink_response.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rbi
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_tagids.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_tagids.rbi
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_tagnames.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_tagnames.rbi
   - lib/open_api_sdk/models/operations/upsertpartnerlink_testvariants.rb
+  - lib/open_api_sdk/models/operations/upsertpartnerlink_testvariants.rbi
   - lib/open_api_sdk/models/shared.rb
   - lib/open_api_sdk/models/shared/accesslevel.rb
-  - lib/open_api_sdk/models/shared/badrequest.rb
+  - lib/open_api_sdk/models/shared/accesslevel.rbi
+  - lib/open_api_sdk/models/shared/analyticsbrowsers.rb
+  - lib/open_api_sdk/models/shared/analyticsbrowsers.rbi
+  - lib/open_api_sdk/models/shared/analyticscities.rb
+  - lib/open_api_sdk/models/shared/analyticscities.rbi
+  - lib/open_api_sdk/models/shared/analyticscontinents.rb
+  - lib/open_api_sdk/models/shared/analyticscontinents.rbi
+  - lib/open_api_sdk/models/shared/analyticscount.rb
+  - lib/open_api_sdk/models/shared/analyticscount.rbi
+  - lib/open_api_sdk/models/shared/analyticscountries.rb
+  - lib/open_api_sdk/models/shared/analyticscountries.rbi
+  - lib/open_api_sdk/models/shared/analyticsdevices.rb
+  - lib/open_api_sdk/models/shared/analyticsdevices.rbi
+  - lib/open_api_sdk/models/shared/analyticsos.rb
+  - lib/open_api_sdk/models/shared/analyticsos.rbi
+  - lib/open_api_sdk/models/shared/analyticsreferers.rb
+  - lib/open_api_sdk/models/shared/analyticsreferers.rbi
+  - lib/open_api_sdk/models/shared/analyticsrefererurls.rb
+  - lib/open_api_sdk/models/shared/analyticsrefererurls.rbi
+  - lib/open_api_sdk/models/shared/analyticsregions.rb
+  - lib/open_api_sdk/models/shared/analyticsregions.rbi
+  - lib/open_api_sdk/models/shared/analyticsregions_city.rb
+  - lib/open_api_sdk/models/shared/analyticsregions_city.rbi
+  - lib/open_api_sdk/models/shared/analyticstimeseries.rb
+  - lib/open_api_sdk/models/shared/analyticstimeseries.rbi
+  - lib/open_api_sdk/models/shared/analyticstoplinks.rb
+  - lib/open_api_sdk/models/shared/analyticstoplinks.rbi
+  - lib/open_api_sdk/models/shared/analyticstopurls.rb
+  - lib/open_api_sdk/models/shared/analyticstopurls.rbi
+  - lib/open_api_sdk/models/shared/analyticstriggers.rb
+  - lib/open_api_sdk/models/shared/analyticstriggers.rbi
+  - lib/open_api_sdk/models/shared/bannedreason.rb
+  - lib/open_api_sdk/models/shared/bannedreason.rbi
+  - lib/open_api_sdk/models/shared/city.rb
+  - lib/open_api_sdk/models/shared/city.rbi
+  - lib/open_api_sdk/models/shared/click.rb
+  - lib/open_api_sdk/models/shared/click.rbi
+  - lib/open_api_sdk/models/shared/clickevent.rb
+  - lib/open_api_sdk/models/shared/clickevent.rbi
+  - lib/open_api_sdk/models/shared/clickevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/clickevent_testvariants.rbi
   - lib/open_api_sdk/models/shared/code.rb
+  - lib/open_api_sdk/models/shared/code.rbi
   - lib/open_api_sdk/models/shared/color.rb
-  - lib/open_api_sdk/models/shared/conflict.rb
-  - lib/open_api_sdk/models/shared/conflict_code.rb
-  - lib/open_api_sdk/models/shared/conflict_error.rb
+  - lib/open_api_sdk/models/shared/color.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_customer.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_customer.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_data.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_data.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_event.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_event.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_status.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_status.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_type.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_type.rbi
+  - lib/open_api_sdk/models/shared/continent.rb
+  - lib/open_api_sdk/models/shared/continent.rbi
   - lib/open_api_sdk/models/shared/continentcode.rb
-  - lib/open_api_sdk/models/shared/countrycode.rb
+  - lib/open_api_sdk/models/shared/continentcode.rbi
+  - lib/open_api_sdk/models/shared/customer.rb
+  - lib/open_api_sdk/models/shared/customer.rbi
+  - lib/open_api_sdk/models/shared/data.rb
+  - lib/open_api_sdk/models/shared/data.rbi
   - lib/open_api_sdk/models/shared/domains.rb
+  - lib/open_api_sdk/models/shared/domains.rbi
   - lib/open_api_sdk/models/shared/domainschema.rb
-  - lib/open_api_sdk/models/shared/error.rb
+  - lib/open_api_sdk/models/shared/domainschema.rbi
+  - lib/open_api_sdk/models/shared/event.rb
+  - lib/open_api_sdk/models/shared/event.rbi
   - lib/open_api_sdk/models/shared/folderschema.rb
-  - lib/open_api_sdk/models/shared/forbidden.rb
-  - lib/open_api_sdk/models/shared/forbidden_code.rb
-  - lib/open_api_sdk/models/shared/forbidden_error.rb
-  - lib/open_api_sdk/models/shared/geo.rb
-  - lib/open_api_sdk/models/shared/internalservererror.rb
-  - lib/open_api_sdk/models/shared/internalservererror_code.rb
-  - lib/open_api_sdk/models/shared/internalservererror_error.rb
-  - lib/open_api_sdk/models/shared/inviteexpired.rb
-  - lib/open_api_sdk/models/shared/inviteexpired_code.rb
-  - lib/open_api_sdk/models/shared/inviteexpired_error.rb
-  - lib/open_api_sdk/models/shared/linkgeotargeting.rb
+  - lib/open_api_sdk/models/shared/folderschema.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_click.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_click.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_customer.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_customer.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_data.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_data.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_event.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_event.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_link.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_link.rbi
+  - lib/open_api_sdk/models/shared/leadcreatedevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/leadcreatedevent_testvariants.rbi
+  - lib/open_api_sdk/models/shared/leadevent.rb
+  - lib/open_api_sdk/models/shared/leadevent.rbi
+  - lib/open_api_sdk/models/shared/leadevent_click.rb
+  - lib/open_api_sdk/models/shared/leadevent_click.rbi
+  - lib/open_api_sdk/models/shared/leadevent_event.rb
+  - lib/open_api_sdk/models/shared/leadevent_event.rbi
+  - lib/open_api_sdk/models/shared/leadevent_link.rb
+  - lib/open_api_sdk/models/shared/leadevent_link.rbi
+  - lib/open_api_sdk/models/shared/leadevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/leadevent_testvariants.rbi
+  - lib/open_api_sdk/models/shared/link.rb
+  - lib/open_api_sdk/models/shared/link.rbi
+  - lib/open_api_sdk/models/shared/linkclickedevent.rb
+  - lib/open_api_sdk/models/shared/linkclickedevent.rbi
+  - lib/open_api_sdk/models/shared/linkclickedevent_click.rb
+  - lib/open_api_sdk/models/shared/linkclickedevent_click.rbi
+  - lib/open_api_sdk/models/shared/linkclickedevent_event.rb
+  - lib/open_api_sdk/models/shared/linkclickedevent_event.rbi
+  - lib/open_api_sdk/models/shared/linkclickedevent_link.rb
+  - lib/open_api_sdk/models/shared/linkclickedevent_link.rbi
+  - lib/open_api_sdk/models/shared/linkclickedevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/linkclickedevent_testvariants.rbi
+  - lib/open_api_sdk/models/shared/linkerrorschema.rb
+  - lib/open_api_sdk/models/shared/linkerrorschema.rbi
   - lib/open_api_sdk/models/shared/linkschema.rb
-  - lib/open_api_sdk/models/shared/notfound.rb
-  - lib/open_api_sdk/models/shared/notfound_code.rb
-  - lib/open_api_sdk/models/shared/notfound_error.rb
+  - lib/open_api_sdk/models/shared/linkschema.rbi
+  - lib/open_api_sdk/models/shared/linkwebhookevent.rb
+  - lib/open_api_sdk/models/shared/linkwebhookevent.rbi
+  - lib/open_api_sdk/models/shared/linkwebhookevent_event.rb
+  - lib/open_api_sdk/models/shared/linkwebhookevent_event.rbi
+  - lib/open_api_sdk/models/shared/linkwebhookevent_link.rb
+  - lib/open_api_sdk/models/shared/linkwebhookevent_link.rbi
+  - lib/open_api_sdk/models/shared/linkwebhookevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/linkwebhookevent_testvariants.rbi
+  - lib/open_api_sdk/models/shared/one.rb
+  - lib/open_api_sdk/models/shared/one.rbi
+  - lib/open_api_sdk/models/shared/partner.rb
+  - lib/open_api_sdk/models/shared/partner.rbi
+  - lib/open_api_sdk/models/shared/partneranalyticscount.rb
+  - lib/open_api_sdk/models/shared/partneranalyticscount.rbi
+  - lib/open_api_sdk/models/shared/partneranalyticstimeseries.rb
+  - lib/open_api_sdk/models/shared/partneranalyticstimeseries.rbi
+  - lib/open_api_sdk/models/shared/partneranalyticstoplinks.rb
+  - lib/open_api_sdk/models/shared/partneranalyticstoplinks.rbi
+  - lib/open_api_sdk/models/shared/partnerenrolledevent.rb
+  - lib/open_api_sdk/models/shared/partnerenrolledevent.rbi
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_data.rb
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_data.rbi
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_event.rb
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_event.rbi
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_link.rb
+  - lib/open_api_sdk/models/shared/partnerenrolledevent_link.rbi
+  - lib/open_api_sdk/models/shared/paymentprocessor.rb
+  - lib/open_api_sdk/models/shared/paymentprocessor.rbi
   - lib/open_api_sdk/models/shared/plan.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded_code.rb
-  - lib/open_api_sdk/models/shared/ratelimitexceeded_error.rb
+  - lib/open_api_sdk/models/shared/plan.rbi
+  - lib/open_api_sdk/models/shared/region.rb
+  - lib/open_api_sdk/models/shared/region.rbi
   - lib/open_api_sdk/models/shared/registereddomain.rb
+  - lib/open_api_sdk/models/shared/registereddomain.rbi
   - lib/open_api_sdk/models/shared/role.rb
+  - lib/open_api_sdk/models/shared/role.rbi
+  - lib/open_api_sdk/models/shared/sale.rb
+  - lib/open_api_sdk/models/shared/sale.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_click.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_click.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_customer.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_customer.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_data.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_data.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_event.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_event.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_link.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_link.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_sale.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_sale.rbi
+  - lib/open_api_sdk/models/shared/salecreatedevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/salecreatedevent_testvariants.rbi
+  - lib/open_api_sdk/models/shared/saleevent.rb
+  - lib/open_api_sdk/models/shared/saleevent.rbi
+  - lib/open_api_sdk/models/shared/saleevent_click.rb
+  - lib/open_api_sdk/models/shared/saleevent_click.rbi
+  - lib/open_api_sdk/models/shared/saleevent_customer.rb
+  - lib/open_api_sdk/models/shared/saleevent_customer.rbi
+  - lib/open_api_sdk/models/shared/saleevent_event.rb
+  - lib/open_api_sdk/models/shared/saleevent_event.rbi
+  - lib/open_api_sdk/models/shared/saleevent_link.rb
+  - lib/open_api_sdk/models/shared/saleevent_link.rbi
+  - lib/open_api_sdk/models/shared/saleevent_testvariants.rb
+  - lib/open_api_sdk/models/shared/saleevent_testvariants.rbi
   - lib/open_api_sdk/models/shared/security.rb
+  - lib/open_api_sdk/models/shared/security.rbi
+  - lib/open_api_sdk/models/shared/status.rb
+  - lib/open_api_sdk/models/shared/status.rbi
   - lib/open_api_sdk/models/shared/tagschema.rb
+  - lib/open_api_sdk/models/shared/tagschema.rbi
   - lib/open_api_sdk/models/shared/testvariants.rb
+  - lib/open_api_sdk/models/shared/testvariants.rbi
+  - lib/open_api_sdk/models/shared/three.rb
+  - lib/open_api_sdk/models/shared/three.rbi
+  - lib/open_api_sdk/models/shared/trigger.rb
+  - lib/open_api_sdk/models/shared/trigger.rbi
+  - lib/open_api_sdk/models/shared/two.rb
+  - lib/open_api_sdk/models/shared/two.rbi
   - lib/open_api_sdk/models/shared/type.rb
-  - lib/open_api_sdk/models/shared/unauthorized.rb
-  - lib/open_api_sdk/models/shared/unauthorized_code.rb
-  - lib/open_api_sdk/models/shared/unauthorized_error.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity_code.rb
-  - lib/open_api_sdk/models/shared/unprocessableentity_error.rb
+  - lib/open_api_sdk/models/shared/type.rbi
   - lib/open_api_sdk/models/shared/users.rb
+  - lib/open_api_sdk/models/shared/users.rbi
+  - lib/open_api_sdk/models/shared/webhookevent.rb
+  - lib/open_api_sdk/models/shared/webhookevent.rbi
   - lib/open_api_sdk/models/shared/workspaceschema.rb
+  - lib/open_api_sdk/models/shared/workspaceschema.rbi
   - lib/open_api_sdk/partners.rb
   - lib/open_api_sdk/qr_codes.rb
   - lib/open_api_sdk/sdk_hooks/hooks.rb
   - lib/open_api_sdk/sdk_hooks/types.rb
   - lib/open_api_sdk/sdkconfiguration.rb
+  - lib/open_api_sdk/sdkconfiguration.rbi
   - lib/open_api_sdk/tags.rb
   - lib/open_api_sdk/track.rb
+  - lib/open_api_sdk/utils/forms.rb
+  - lib/open_api_sdk/utils/headers.rb
+  - lib/open_api_sdk/utils/query_params.rb
+  - lib/open_api_sdk/utils/request_bodies.rb
   - lib/open_api_sdk/utils/retries.rb
+  - lib/open_api_sdk/utils/security.rb
+  - lib/open_api_sdk/utils/url.rb
   - lib/open_api_sdk/utils/utils.rb
   - lib/open_api_sdk/workspaces.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes
-  - sorbet/rbi/annotations/faraday.rbi
-  - sorbet/rbi/annotations/rainbow.rbi
   - sorbet/rbi/gems/.gitattributes
-  - sorbet/rbi/gems/ast@2.4.2.rbi
-  - sorbet/rbi/gems/base64@0.1.1.rbi
-  - sorbet/rbi/gems/erubi@1.12.0.rbi
-  - sorbet/rbi/gems/faraday-multipart@1.0.4.rbi
-  - sorbet/rbi/gems/faraday-net_http@3.0.2.rbi
-  - sorbet/rbi/gems/faraday-retry@2.2.1.rbi
-  - sorbet/rbi/gems/faraday@2.7.11.rbi
-  - sorbet/rbi/gems/json@2.6.3.rbi
-  - sorbet/rbi/gems/language_server-protocol@3.17.0.3.rbi
-  - sorbet/rbi/gems/minitest@5.20.0.rbi
-  - sorbet/rbi/gems/multipart-post@2.3.0.rbi
-  - sorbet/rbi/gems/netrc@0.11.0.rbi
-  - sorbet/rbi/gems/parallel@1.23.0.rbi
-  - sorbet/rbi/gems/parser@3.2.2.4.rbi
-  - sorbet/rbi/gems/prettier_print@1.2.1.rbi
-  - sorbet/rbi/gems/racc@1.7.1.rbi
-  - sorbet/rbi/gems/rack@3.0.8.rbi
-  - sorbet/rbi/gems/rainbow@3.1.1.rbi
-  - sorbet/rbi/gems/rake@13.0.6.rbi
-  - sorbet/rbi/gems/rbi@0.1.1.rbi
-  - sorbet/rbi/gems/regexp_parser@2.8.2.rbi
-  - sorbet/rbi/gems/rexml@3.2.6.rbi
-  - sorbet/rbi/gems/rubocop-ast@1.29.0.rbi
-  - sorbet/rbi/gems/rubocop@1.57.1.rbi
-  - sorbet/rbi/gems/ruby-progressbar@1.13.0.rbi
-  - sorbet/rbi/gems/ruby2_keywords@0.0.5.rbi
-  - sorbet/rbi/gems/spoom@1.2.4.rbi
-  - sorbet/rbi/gems/syntax_tree@6.2.0.rbi
-  - sorbet/rbi/gems/tapioca@0.11.9.rbi
-  - sorbet/rbi/gems/thor@1.3.0.rbi
-  - sorbet/rbi/gems/unicode-display_width@2.5.0.rbi
-  - sorbet/rbi/gems/yard-sorbet@0.8.1.rbi
-  - sorbet/rbi/gems/yard@0.9.34.rbi
-  - sorbet/rbi/gems/yarp@0.13.0.rbi
   - sorbet/tapioca/config.yml
   - sorbet/tapioca/require.rb
 examples:
@@ -618,7 +1069,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "low-packaging.info", "key": "<key>", "url": "https://black-and-white-secrecy.org/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1757364065452", "expiredUrl": "https://substantial-morbidity.net", "password": "B9652A4R_UwKP9k", "proxy": true, "title": "<value>", "description": "supposing whoa coordination affect hmph worth once which", "image": "https://loremflickr.com/1110/3081?lock=857615867280802", "video": "https://picsum.videos/seed/ZYhaGNJVW/3723/2471", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [{"id": "<id>", "name": "<value>", "color": "pink"}, {"id": "<id>", "name": "<value>", "color": "green"}], "folderId": "<id>", "webhookIds": [], "comments": "gah aha what lobotomise apud overwork snuggle midst er", "shortLink": "https://royal-fen.biz/", "qrCode": "https://impolite-dish.biz", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 4539.75, "leads": 1494.13, "conversions": 4098.74, "sales": 5858.44, "saleAmount": 7031.46, "lastClicked": "<value>", "createdAt": "1724010520507", "updatedAt": "1754485010601", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "graceful-moment.info", "key": "<key>", "url": "https://polite-daddy.name/", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": null, "expiredUrl": "https://infamous-graffiti.info", "password": null, "proxy": false, "title": "<value>", "description": "climb scarily aboard save sleepily hmph", "image": "https://picsum.photos/seed/0EHTzI/387/1590", "video": "https://loremflickr.com/1917/2352?lock=6438769255962246", "rewrite": false, "doIndex": false, "ios": "<value>", "android": null, "geo": null, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": [], "comments": "inasmuch despite generously aside heating bell midst obnoxiously palate term now yet red serenade planula dilate", "shortLink": "https://faraway-bench.biz/", "qrCode": "https://rundown-receptor.name", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": null, "createdAt": "1705952116209", "updatedAt": "1735658833039", "tagId": "<id>", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -641,11 +1092,16 @@ examples:
     speakeasy-default-get-links:
       parameters:
         query:
+          showArchived: false
+          withTags: true
+          sortBy: "createdAt"
+          sortOrder: "desc"
+          sort: "createdAt"
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "domain": "neglected-plastic.biz", "key": "<key>", "url": "https://crooked-overload.name/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1757243458544", "expiredUrl": "https://roasted-language.name/", "password": "COyVtOrvIw1vLIJ", "proxy": true, "title": "<value>", "description": "cleverly blossom defiantly", "image": "https://picsum.photos/seed/FhMx4/296/3347", "video": "https://picsum.videos/seed/gk5Gr0OXM/244/1177", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": ["<value>"], "comments": "eek censor tenement commonly softly boo massive sorrowful aw strict behind along energetic oddball pasta thread vestment meanwhile likely up", "shortLink": "https://lucky-volleyball.biz", "qrCode": "https://discrete-omelet.net/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 8772.27, "leads": 7675.46, "conversions": 4128.54, "sales": 9422.58, "saleAmount": 2820.49, "lastClicked": "<value>", "createdAt": "1734185111620", "updatedAt": "1754511821700", "tagId": "<id>", "projectId": "<id>"}, {"id": "<id>", "domain": "oblong-inspection.net", "key": "<key>", "url": "https://spherical-gerbil.org/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1770260183609", "expiredUrl": "https://sticky-tune-up.net", "password": "0JVb2ZsCSHb4yMl", "proxy": true, "title": "<value>", "description": "phew waft mortally toward by selfishly devise yet questioningly", "image": "https://loremflickr.com/3553/354?lock=6162885763460156", "video": "https://loremflickr.com/3683/3997?lock=8029441932681563", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [{"id": "<id>", "name": "<value>", "color": "green"}, {"id": "<id>", "name": "<value>", "color": "pink"}], "folderId": "<id>", "webhookIds": ["<value>", "<value>"], "comments": "beneath remand until graffiti gee afore when rosy insignificant", "shortLink": "https://esteemed-typeface.info", "qrCode": "https://ethical-skeleton.info", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 5035.27, "leads": 9199.39, "conversions": 8931.08, "sales": 3822.89, "saleAmount": 868.95, "lastClicked": "<value>", "createdAt": "1732425459413", "updatedAt": "1754470813229", "tagId": "<id>", "projectId": "<id>"}, {"id": "<id>", "domain": "minty-underneath.info", "key": "<key>", "url": "https://athletic-exploration.net/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1760961787267", "expiredUrl": "https://clear-cut-freight.org/", "password": "AHwQFgKlGUL5CHZ", "proxy": false, "title": "<value>", "description": "whoever yesterday thorny", "image": "https://picsum.photos/seed/QGUwUNSY/2690/1763", "video": "https://loremflickr.com/2463/1715?lock=2260030295990110", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [], "folderId": "<id>", "webhookIds": ["<value>", "<value>"], "comments": "yet whenever rotating hygienic mid as er polished whether welcome deck gratefully for outfox", "shortLink": "https://improbable-hawk.name", "qrCode": "https://pleasing-distinction.org/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 3113.73, "leads": 8591.05, "conversions": 2693.08, "sales": 4619.21, "saleAmount": 1678.83, "lastClicked": "<value>", "createdAt": "1734382696217", "updatedAt": "1754495351772", "tagId": "<id>", "projectId": "<id>"}]
+          application/json: [{"id": "<id>", "domain": "optimal-tenant.com", "key": "<key>", "url": "https://usable-instruction.name/", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1753101326318", "expiredUrl": "https://vivacious-majority.name/", "password": "YxCfhoJSdu8l5qq", "proxy": false, "title": null, "description": "avaricious concerning bony quintessential overcooked quaintly phooey hydrolyse where", "image": "https://loremflickr.com/413/1691?lock=8203448124792537", "video": "https://loremflickr.com/548/1142?lock=2447699525781624", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://majestic-tinderbox.com/", "key1": "https://corrupt-testimonial.org/", "key2": "https://gorgeous-pacemaker.biz/"}, "publicStats": false, "tags": null, "folderId": null, "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "anenst unhappy incidentally commodity strange deeply who that ragged past triangular toward lamp yesterday anticodon likewise finally", "shortLink": "https://rigid-flint.org/", "qrCode": "https://thorny-encouragement.org", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1725472072978", "updatedAt": "1735625419282", "tagId": "<id>", "projectId": "<id>"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -666,9 +1122,13 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
   getLinksCount:
     speakeasy-default-get-links-count:
+      parameters:
+        query:
+          showArchived: false
+          withTags: false
       responses:
         "200":
-          application/json: 2641.66
+          application/json: 3217.86
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -695,7 +1155,7 @@ examples:
           externalId: "123456"
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "rural-mathematics.name", "key": "<key>", "url": "https://willing-impostor.info", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1784080783249", "expiredUrl": "https://stiff-bidet.biz/", "password": "UmEgZU18kgjdwKI", "proxy": true, "title": "<value>", "description": "restructure gadzooks alongside daily", "image": "https://picsum.photos/seed/45aEFZ1/2964/2015", "video": "https://loremflickr.com/2551/2755?lock=8039426390897665", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "pink"}], "folderId": "<id>", "webhookIds": ["<value>", "<value>", "<value>"], "comments": "huzzah bell unabashedly unwilling disk modulo offset pacemaker violently plait trench guilt like claw incidentally", "shortLink": "https://parched-executor.com", "qrCode": "https://old-incandescence.biz/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 9864.75, "leads": 5433.15, "conversions": 4138.54, "sales": 6841.97, "saleAmount": 4478.18, "lastClicked": "<value>", "createdAt": "1736764735002", "updatedAt": "1754442916756", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "crazy-intent.net", "key": "<key>", "url": "https://official-gripper.com/", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1759373851328", "expiredUrl": "https://grim-window.org/", "password": null, "proxy": false, "title": "<value>", "description": "ack because tenderly huddle gastropod granular gadzooks zowie rundown between", "image": "https://picsum.photos/seed/zUVPOKjtID/3493/3757", "video": "https://picsum.videos/seed/BZOGN/1761/509", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://honored-mathematics.name"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "yellow"}], "folderId": "<id>", "webhookIds": ["<value 1>"], "comments": "barring management instead on knit furthermore oh nab", "shortLink": "https://productive-sundae.name", "qrCode": "https://cheerful-sweatshop.com/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": null, "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1719859422094", "updatedAt": "1735633912324", "tagId": "<id>", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -723,7 +1183,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "tinted-nectarine.info", "key": "<key>", "url": "https://powerless-juggernaut.org", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1768619210505", "expiredUrl": "https://extra-large-chapel.net/", "password": "uMjbGhnJP7Bopud", "proxy": false, "title": "<value>", "description": "hungrily where woot royal duh", "image": "https://loremflickr.com/704/1105?lock=531882236227436", "video": "https://loremflickr.com/1732/307?lock=7953362777850438", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": ["<value>"], "comments": "during since anxiously lightly ultimately in likely opera please antelope exotic fussy", "shortLink": "https://handy-scaffold.org", "qrCode": "https://misguided-range.org", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 2245.52, "leads": 2073.2, "conversions": 7745.3, "sales": 1379.57, "saleAmount": 1781.77, "lastClicked": "<value>", "createdAt": "1732048800610", "updatedAt": "1754454893268", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "concerned-grandson.info", "key": "<key>", "url": "https://bustling-duffel.net/", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1746314140630", "expiredUrl": "https://long-term-understanding.biz/", "password": "BpDVy7nn2ivh8nA", "proxy": false, "title": "<value>", "description": "pish majority bog from substantiate", "image": "https://picsum.photos/seed/W4vaqLs/1360/3162", "video": "https://picsum.videos/seed/KH1Cg5HT/3093/1339", "rewrite": false, "doIndex": false, "ios": "<value>", "android": null, "geo": {"key": "https://powerful-grouper.info/"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "blue"}], "folderId": "<id>", "webhookIds": ["<value 1>"], "comments": "nor now glaring deficient vainly prime beside yuck boohoo athwart pile hose gnash selfish denitrify wafer segregate", "shortLink": "https://potable-council.org", "qrCode": "https://idolized-pop.org", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1734757911906", "updatedAt": "1735657634411", "tagId": "<id>", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -771,10 +1231,10 @@ examples:
   bulkCreateLinks:
     speakeasy-default-bulk-create-links:
       requestBody:
-        application/json: [{"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}, {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}]
+        application/json: [{"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}]
       responses:
         "200":
-          application/json: ["<value>", "<value>", "<value>"]
+          application/json: [{"error": "<value>", "code": "unprocessable_entity"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -799,7 +1259,7 @@ examples:
         application/json: {"data": {"url": "https://google.com", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
       responses:
         "200":
-          application/json: [{"id": "<id>", "domain": "old-lox.org", "key": "<key>", "url": "https://angelic-cellar.org/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1785847053593", "expiredUrl": "https://wordy-version.org", "password": "MRdLF0naLtN5wKv", "proxy": false, "title": "<value>", "description": "convalesce failing faint", "image": "https://loremflickr.com/3643/399?lock=5328086824987349", "video": "https://loremflickr.com/2566/3076?lock=8474317426529991", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [{"id": "<id>", "name": "<value>", "color": "purple"}], "folderId": "<id>", "webhookIds": ["<value>", "<value>"], "comments": "because freckle yin armoire woot plastic vista duh loyally judicious likewise", "shortLink": "https://clean-volleyball.info", "qrCode": "https://lovable-alligator.org/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 964.22, "leads": 7553.21, "conversions": 5339.39, "sales": 2285.23, "saleAmount": 9581.06, "lastClicked": "<value>", "createdAt": "1745581595488", "updatedAt": "1754464074601", "tagId": "<id>", "projectId": "<id>"}, {"id": "<id>", "domain": "agreeable-corporation.org", "key": "<key>", "url": "https://ironclad-cap.info", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1772558278296", "expiredUrl": "https://honorable-nightlife.name", "password": "sL_6uLsdcLcIbbW", "proxy": true, "title": "<value>", "description": "fat who midst aside alert excepting magnetize", "image": "https://loremflickr.com/1915/2418?lock=8396781847242257", "video": "https://picsum.videos/seed/tB24orBy/3081/3461", "rewrite": true, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [{"id": "<id>", "name": "<value>", "color": "pink"}, {"id": "<id>", "name": "<value>", "color": "green"}, {"id": "<id>", "name": "<value>", "color": "purple"}], "folderId": "<id>", "webhookIds": ["<value>"], "comments": "blah verify soybean now aha moment improbable via inside after bonnet however overcoat gee whether substantiate feminize openly modulo", "shortLink": "https://inborn-commercial.com/", "qrCode": "https://excited-epic.info/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 7613.83, "leads": 8591.44, "conversions": 9883.56, "sales": 2770.07, "saleAmount": 7435.74, "lastClicked": "<value>", "createdAt": "1746265247804", "updatedAt": "1754524740847", "tagId": "<id>", "projectId": "<id>"}]
+          application/json: [{"id": "<id>", "domain": "free-sesame.biz", "key": "<key>", "url": "https://proud-provider.com", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1762256349887", "expiredUrl": "https://woeful-hawk.biz/", "password": "mMmlB6odMcI0XGW", "proxy": false, "title": "<value>", "description": "pulp reporter speedily unsteady if phooey royal", "image": "https://picsum.photos/seed/JAqbXM/1853/206", "video": "https://picsum.videos/seed/3ZrxP3Q/2763/3439", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://silky-character.name/", "key1": "https://spiffy-cinema.com/", "key2": "https://superficial-dress.name"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "pink"}], "folderId": null, "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": null, "shortLink": "https://helpless-ecliptic.biz", "qrCode": "https://coordinated-tarragon.name/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": null, "utm_content": null, "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1718588344181", "updatedAt": "1735645854000", "tagId": "<id>", "projectId": "<id>"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -825,7 +1285,7 @@ examples:
           linkIds: ["clux0rgak00011...", "clux0rgak00022..."]
       responses:
         "200":
-          application/json: {"deletedCount": 5277.63}
+          application/json: {"deletedCount": 9686.25}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -850,7 +1310,7 @@ examples:
         application/json: {"url": "https://google.com", "externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "neat-instruction.info", "key": "<key>", "url": "https://entire-rubric.com/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1776503138009", "expiredUrl": "https://accurate-postbox.info", "password": "WcftWRnnmyj_UKT", "proxy": true, "title": "<value>", "description": "account supposing bakeware", "image": "https://loremflickr.com/473/1522?lock=3086614550931103", "video": "https://loremflickr.com/513/908?lock=5606571816595400", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [], "folderId": "<id>", "webhookIds": ["<value>", "<value>", "<value>"], "comments": "characterization whenever an secret uh-huh incidentally a that", "shortLink": "https://glorious-draft.name/", "qrCode": "https://warped-lifestyle.info/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 2566.71, "leads": 4393.08, "conversions": 2587.95, "sales": 8832.25, "saleAmount": 5850.36, "lastClicked": "<value>", "createdAt": "1747483289620", "updatedAt": "1754482848920", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "rural-behest.net", "key": "<key>", "url": "https://odd-brush.net", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1736722275411", "expiredUrl": "https://winding-translation.com", "password": "YGuCo_QEHJ8e0H7", "proxy": false, "title": "<value>", "description": "towards until given sociable powerfully vainly lest considering duster", "image": "https://loremflickr.com/1868/3785?lock=1766899586610357", "video": "https://picsum.videos/seed/fmSnZW7t3w/466/1642", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "yellow"}], "folderId": "<id>", "webhookIds": [], "comments": "unused whoa cap bah rejigger tightly warmhearted contrail depend translation positively with funny calculus jaggedly obnoxiously likewise designation woot broadcast", "shortLink": "https://slow-plumber.net", "qrCode": "https://massive-bin.net/", "utm_source": null, "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1718267252765", "updatedAt": "1735652034484", "tagId": "<id>", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -873,6 +1333,8 @@ examples:
     speakeasy-default-retrieve-analytics:
       parameters:
         query:
+          event: "clicks"
+          groupBy: "count"
           timezone: "America/New_York"
           city: "New York"
           device: "Desktop"
@@ -883,7 +1345,7 @@ examples:
           query: "metadata['key']:'value'"
       responses:
         "200":
-          application/json: "<value>"
+          application/json: []
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -906,6 +1368,7 @@ examples:
     speakeasy-default-list-events:
       parameters:
         query:
+          event: "clicks"
           timezone: "America/New_York"
           city: "New York"
           device: "Desktop"
@@ -914,9 +1377,14 @@ examples:
           referer: "google.com"
           refererUrl: "https://dub.co/blog"
           query: "metadata['key']:'value'"
+          page: 1
+          limit: 100
+          sortOrder: "desc"
+          sortBy: "timestamp"
+          order: "desc"
       responses:
         "200":
-          application/json: ["<value>", "<value>", "<value>"]
+          application/json: [{"event": "sale", "timestamp": "<value>", "eventId": "<id>", "eventName": "<value>", "sale": {"amount": 445052, "invoiceId": null, "paymentProcessor": "stripe"}, "link": {"id": "<id>", "domain": "meager-advancement.org", "key": "<key>", "url": "https://ragged-pocket-watch.biz", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": null, "partnerId": "<id>", "archived": false, "expiresAt": "1766566541044", "expiredUrl": "https://gracious-shore.net/", "password": "WUitgktVmjK2v77", "proxy": false, "title": "<value>", "description": "ill-fated whether amid engender", "image": "https://picsum.photos/seed/lr5Me/2049/1888", "video": "https://loremflickr.com/1857/2631?lock=2314741623996698", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://good-sport.net/", "key1": "https://monumental-strait.org/"}, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "knottily sonata nor pfft recklessly yet fortunate pish hunt foretell given unto past rotating uh-huh purse along", "shortLink": "https://pricey-innovation.info/", "qrCode": "https://impure-space.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "testStartedAt": "<value>", "testCompletedAt": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1717970051249", "updatedAt": "1735662015941", "tagId": "<id>", "projectId": "<id>"}, "click": {"id": "<id>", "timestamp": "<value>", "url": "https://roasted-entry.biz/", "country": "Fiji", "city": "Leannfield", "region": "<value>", "continent": "Australia", "device": "Desktop", "browser": "Firefox", "os": "Symbian", "referer": "wealthy-priesthood.info", "refererUrl": "https://bleak-switchboard.name", "qr": true, "ip": "881e:cf3e:6fe3:02bb:184c:7150:07ed:c76e"}, "customer": {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1724712961149"}, "saleAmount": 7426.65, "invoice_id": "<id>", "payment_processor": "<value>", "click_id": "<id>", "link_id": "<id>", "domain": "crooked-squid.name", "key": "<key>", "url": "https://considerate-championship.biz", "continent": "North America", "country": "Dominica", "city": "Paradise", "device": "Mobile", "browser": "Firefox", "os": "Blackberry", "qr": 9294.32, "ip": "209.139.10.63"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -962,11 +1430,13 @@ examples:
     speakeasy-default-get-tags:
       parameters:
         query:
+          sortBy: "name"
+          sortOrder: "asc"
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "color": "blue"}, {"id": "<id>", "name": "<value>", "color": "purple"}, {"id": "<id>", "name": "<value>", "color": "yellow"}]
+          application/json: [{"id": "<id>", "name": "<value>", "color": "pink"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -992,7 +1462,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "color": "brown"}
+          application/json: {"id": "<id>", "name": "<value>", "color": "purple"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1041,7 +1511,7 @@ examples:
     speakeasy-default-create-folder:
       responses:
         "201":
-          application/json: {"id": "<id>", "name": "<value>", "type": "default", "accessLevel": "read", "createdAt": "1736155893882", "updatedAt": "1754452155342"}
+          application/json: {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": null, "createdAt": "1725832630663", "updatedAt": "1735649938517"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1068,7 +1538,7 @@ examples:
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "read", "createdAt": "1728595097401", "updatedAt": "1754460393645"}, {"id": "<id>", "name": "<value>", "type": "default", "accessLevel": "read", "createdAt": "1743154643764", "updatedAt": "1754442065020"}, {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "write", "createdAt": "1725151313405", "updatedAt": "1754499985376"}]
+          application/json: [{"id": "<id>", "name": "<value>", "type": "default", "accessLevel": null, "createdAt": "1714754290180", "updatedAt": "1735667382734"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1094,7 +1564,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "type": "mega", "accessLevel": "read", "createdAt": "1733858880060", "updatedAt": "1754526207845"}
+          application/json: {"id": "<id>", "name": "<value>", "type": "default", "accessLevel": null, "createdAt": "1707171973185", "updatedAt": "1735657929153"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1145,7 +1615,7 @@ examples:
         application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "201":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": true, "primary": false, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": "<value>", "appleAppSiteAssociation": "<value>", "logo": "<value>", "createdAt": "1727228284139", "updatedAt": "1754446510163", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1748108551944", "expiresAt": "1784519629003", "renewalFee": 0.86}}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": null, "appleAppSiteAssociation": null, "logo": "<value>", "createdAt": "1708218820813", "updatedAt": "1735610192058", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": null, "createdAt": "1711133271878", "expiresAt": "1743736965659", "renewalFee": 9340.34}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1168,11 +1638,12 @@ examples:
     speakeasy-default-list-domains:
       parameters:
         query:
+          archived: true
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "slug": "acme.com", "verified": false, "primary": false, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": "<value>", "appleAppSiteAssociation": "<value>", "logo": "<value>", "createdAt": "1730235293330", "updatedAt": "1754453751436", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1743033091552", "expiresAt": "1774690644832", "renewalFee": 175.77}}, {"id": "<id>", "slug": "acme.com", "verified": false, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": "<value>", "appleAppSiteAssociation": "<value>", "logo": "<value>", "createdAt": "1744686441108", "updatedAt": "1754484599790", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1742981957242", "expiresAt": "1754762461435", "renewalFee": 546.07}}, {"id": "<id>", "slug": "acme.com", "verified": true, "primary": true, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": "<value>", "appleAppSiteAssociation": "<value>", "logo": "<value>", "createdAt": "1752356137384", "updatedAt": "1754489573085", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1750629319243", "expiresAt": "1769982034160", "renewalFee": 516.81}}]
+          application/json: [{"id": "<id>", "slug": "acme.com", "verified": false, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": null, "appleAppSiteAssociation": null, "logo": "<value>", "createdAt": "1723541310880", "updatedAt": "1735624455553", "registeredDomain": null}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1200,7 +1671,7 @@ examples:
         application/json: {"slug": "acme.com", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub"}
       responses:
         "200":
-          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": false, "archived": true, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": "<value>", "appleAppSiteAssociation": "<value>", "logo": "<value>", "createdAt": "1754257746585", "updatedAt": "1754494778200", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1738407392884", "expiresAt": "1785558602076", "renewalFee": 540.62}}
+          application/json: {"id": "<id>", "slug": "acme.com", "verified": false, "primary": false, "archived": false, "placeholder": "https://dub.co/help/article/what-is-dub", "expiredUrl": "https://acme.com/expired", "notFoundUrl": "https://acme.com/not-found", "assetLinks": null, "appleAppSiteAssociation": null, "logo": "<value>", "createdAt": "1719810959941", "updatedAt": "1735647844557", "registeredDomain": {"id": "<id>", "autoRenewalDisabledAt": "<value>", "createdAt": "1708595398893", "expiresAt": "1747017664030", "renewalFee": 3134.06}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1251,7 +1722,7 @@ examples:
         application/json: {"domain": "acme.link"}
       responses:
         "201":
-          application/json: {"domain": "dramatic-nephew.net", "status": "<value>", "expiration": 3575.42}
+          application/json: {"domain": "cooperative-partridge.name", "status": "<value>", "expiration": 9148.99}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1277,7 +1748,7 @@ examples:
           domains: "<value>"
       responses:
         "200":
-          application/json: [{"domain": "flimsy-polyester.com", "available": true, "price": "834.00", "premium": false}]
+          application/json: [{"domain": "little-mallard.info", "available": false, "price": "597.79", "premium": false}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1299,10 +1770,10 @@ examples:
   trackLead:
     speakeasy-default-track-lead:
       requestBody:
-        application/json: {"clickId": "<id>", "eventName": "Sign up", "customerExternalId": "<id>"}
+        application/json: {"clickId": "<id>", "eventName": "Sign up", "customerExternalId": "<id>", "customerName": null, "customerEmail": null, "customerAvatar": null, "mode": "async"}
       responses:
         "200":
-          application/json: {"click": {"id": "<id>"}, "customer": {"name": "<value>", "email": "Diego86@hotmail.com", "avatar": "https://picsum.photos/seed/fWwyl/1479/748", "externalId": "<id>"}}
+          application/json: {"click": {"id": "<id>"}, "customer": {"name": "<value>", "email": "Emilie.Schaefer58@gmail.com", "avatar": "https://loremflickr.com/1842/262?lock=389315303878245", "externalId": "<id>"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1324,10 +1795,10 @@ examples:
   trackSale:
     speakeasy-default-track-sale:
       requestBody:
-        application/json: {"customerExternalId": "<id>", "amount": 996500, "eventName": "Invoice paid", "paymentProcessor": "custom", "leadEventName": "Cloned template 1481267"}
+        application/json: {"customerExternalId": "<id>", "amount": 594903, "currency": "usd", "eventName": "Invoice paid", "paymentProcessor": "paddle", "invoiceId": null, "leadEventName": "Cloned template 1481267"}
       responses:
         "200":
-          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": "Muhammad0@hotmail.com", "avatar": "https://loremflickr.com/2579/465?lock=3083028689214487", "externalId": "<id>"}, "sale": {"amount": 8968.61, "currency": "Saudi Riyal", "paymentProcessor": "<value>", "invoiceId": "<id>", "metadata": {"key": "<value>", "key1": "<value>"}}}
+          application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": null, "avatar": "https://loremflickr.com/752/3883?lock=4755696464293602", "externalId": "<id>"}, "sale": null}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1350,11 +1821,13 @@ examples:
     speakeasy-default-get-customers:
       parameters:
         query:
+          sortBy: "createdAt"
+          sortOrder: "desc"
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1740249711516"}, {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1744382330499"}, {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1728595097597"}]
+          application/json: [{"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1706267254573"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1377,7 +1850,7 @@ examples:
     speakeasy-default-create-customer:
       responses:
         "201":
-          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1738336030744"}
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1705530153628"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1401,10 +1874,9 @@ examples:
       parameters:
         path:
           id: "<id>"
-        query: {}
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1745077072173"}
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1709060395088"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1428,10 +1900,9 @@ examples:
       parameters:
         path:
           id: "<id>"
-        query: {}
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1750032346584"}
+          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1710152406133"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1479,10 +1950,10 @@ examples:
   createPartner:
     speakeasy-default-create-partner:
       requestBody:
-        application/json: {"email": "Loyal79@yahoo.com", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
+        application/json: {"email": "Summer50@yahoo.com", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
       responses:
         "201":
-          application/json: {"id": "<id>", "name": "<value>", "email": "Cecelia58@gmail.com", "image": "https://loremflickr.com/3829/1428?lock=159966360206367", "country": "Cyprus", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "partnerId": "<id>", "tenantId": "<id>", "programId": "<id>", "createdAt": "1729655690197", "status": "pending", "links": [{"id": "<id>", "domain": "dependent-bench.com", "key": "<key>", "shortLink": "https://gripping-analogy.name", "url": "https://distant-advertisement.name", "clicks": 276.19, "leads": 6596.82, "sales": 5504.83, "saleAmount": 9065.37}], "totalCommissions": 4522.24, "clicks": 4963.23, "leads": 2597.72, "sales": 7823.67, "saleAmount": 1373.24, "netRevenue": 7034.41}
+          application/json: {"id": "<id>", "name": "<value>", "email": "Kyle.Lehner@yahoo.com", "image": "https://loremflickr.com/318/1602?lock=5795005191960058", "country": "Cayman Islands", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "programId": "<id>", "partnerId": "<id>", "tenantId": "<id>", "createdAt": "1718706449936", "status": "invited", "links": [], "totalCommissions": 0, "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "netRevenue": 0}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1510,13 +1981,13 @@ examples:
           sortBy: "saleAmount"
           sortOrder: "desc"
           tenantId: "1K0NM7HCN944PEMZ3CQPH43H8"
-          includeExpandedFields: "true"
+          includeExpandedFields: false
           search: "john"
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "email": "Marie.Fay@yahoo.com", "image": "https://loremflickr.com/71/2873?lock=617036312539560", "country": "Panama", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "partnerId": "<id>", "tenantId": "<id>", "programId": "<id>", "createdAt": "1739070612524", "status": "declined", "links": [], "totalCommissions": 546.07, "clicks": 3677.45, "leads": 4857.29, "sales": 732.27, "saleAmount": 9311.65, "netRevenue": 5674.45}, {"id": "<id>", "name": "<value>", "email": "Jennie1@hotmail.com", "image": "https://loremflickr.com/1698/3653?lock=676066414146640", "country": "Tokelau", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "partnerId": "<id>", "tenantId": "<id>", "programId": "<id>", "createdAt": "1727266351952", "status": "invited", "links": [{"id": "<id>", "domain": "ironclad-iridescence.com", "key": "<key>", "shortLink": "https://tempting-handle.org", "url": "https://imaginative-cap.biz/", "clicks": 9138.51, "leads": 335.97, "sales": 6281.06, "saleAmount": 9349.6}], "totalCommissions": 9185.61, "clicks": 841.89, "leads": 6929.18, "sales": 5677.01, "saleAmount": 8389.3, "netRevenue": 8166.37}, {"id": "<id>", "name": "<value>", "email": "Armani_Bins77@hotmail.com", "image": "https://picsum.photos/seed/43iZKgk5/2656/1139", "country": "Pakistan", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "partnerId": "<id>", "tenantId": "<id>", "programId": "<id>", "createdAt": "1737045706260", "status": "pending", "links": [{"id": "<id>", "domain": "well-to-do-sarong.name", "key": "<key>", "shortLink": "https://unruly-agreement.info", "url": "https://severe-ruin.info", "clicks": 292.67, "leads": 6523.26, "sales": 6887.84, "saleAmount": 6050.7}, {"id": "<id>", "domain": "inborn-apparatus.net", "key": "<key>", "shortLink": "https://improbable-bin.com/", "url": "https://writhing-hexagon.info", "clicks": 4574.42, "leads": 2129.21, "sales": 9009.11, "saleAmount": 503.88}, {"id": "<id>", "domain": "potable-hippodrome.biz", "key": "<key>", "shortLink": "https://elegant-casket.net/", "url": "https://lean-restaurant.com", "clicks": 4874.46, "leads": 7516.01, "sales": 7515.63, "saleAmount": 2775.23}], "totalCommissions": 5512.58, "clicks": 1051.7, "leads": 5952.62, "sales": 5676.08, "saleAmount": 1002.08, "netRevenue": 4012.28}]
+          application/json: [{"id": "<id>", "name": "<value>", "email": "Korey.Corkery26@hotmail.com", "image": "https://picsum.photos/seed/X7WjNI/969/1620", "country": "Paraguay", "paypalEmail": "<value>", "stripeConnectId": "<id>", "payoutsEnabledAt": "<value>", "programId": "<id>", "partnerId": "<id>", "tenantId": "<id>", "createdAt": "1715609832325", "status": "rejected", "links": [{"id": "<id>", "domain": "perky-tributary.biz", "key": "<key>", "shortLink": "https://neighboring-draft.biz/", "url": "https://unsightly-nectarine.biz/", "clicks": 0, "leads": 0, "sales": 0, "saleAmount": 0}], "totalCommissions": 0, "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "netRevenue": 0}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1541,7 +2012,7 @@ examples:
         application/json: {"linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
       responses:
         "201":
-          application/json: {"id": "<id>", "domain": "tall-making.com", "key": "<key>", "url": "https://inferior-louse.org", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1781772575441", "expiredUrl": "https://favorable-schnitzel.info", "password": "hoCRFmmigZdFo7_", "proxy": false, "title": "<value>", "description": "triumphantly zowie polite from yippee whether lazily hyena", "image": "https://loremflickr.com/3108/2731?lock=4230767515156707", "video": "https://loremflickr.com/3903/2681?lock=8712371193890444", "rewrite": false, "doIndex": true, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "blue"}, {"id": "<id>", "name": "<value>", "color": "purple"}, {"id": "<id>", "name": "<value>", "color": "green"}], "folderId": "<id>", "webhookIds": [], "comments": "wash advancement around wobbly after under outside onto cow obsess", "shortLink": "https://carefree-jury.org/", "qrCode": "https://excellent-blight.info/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 38.56, "leads": 7559.62, "conversions": 5408.93, "sales": 8131.5, "saleAmount": 7671.22, "lastClicked": "<value>", "createdAt": "1747567806070", "updatedAt": "1754456756387", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "ripe-bracelet.net", "key": "<key>", "url": "https://puzzled-stitcher.com/", "trackConversion": false, "externalId": "<id>", "tenantId": null, "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1750471471889", "expiredUrl": "https://blond-ice-cream.com/", "password": null, "proxy": false, "title": "<value>", "description": "inside gadzooks tankful", "image": "https://loremflickr.com/3936/2248?lock=6413720096781613", "video": "https://picsum.videos/seed/o2LImN/1532/195", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://spotless-louse.org/"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "red"}], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>"], "comments": "clean possession ew yet phew pish however inasmuch rue functional ha pfft phew as plain reprove pish onto with", "shortLink": "https://present-swordfish.net/", "qrCode": "https://illiterate-guidance.name/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1720290854362", "updatedAt": "1735657604112", "tagId": "<id>", "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1564,7 +2035,7 @@ examples:
     speakeasy-default-retrieve-links:
       responses:
         "200":
-          application/json: [{"id": "<id>", "domain": "deafening-jury.net", "key": "<key>", "shortLink": "https://negligible-presume.net/", "url": "https://smart-fax.org", "clicks": 1061.35, "leads": 7996.85, "sales": 26.29, "saleAmount": 7191.27}, {"id": "<id>", "domain": "outgoing-ad.com", "key": "<key>", "shortLink": "https://everlasting-provision.biz/", "url": "https://short-term-making.net", "clicks": 2791.33, "leads": 822.61, "sales": 393.75, "saleAmount": 1045.5}]
+          application/json: [{"id": "<id>", "domain": "pastel-amnesty.info", "key": "<key>", "shortLink": "https://svelte-promise.biz", "url": "https://queasy-milestone.com/", "clicks": 0, "leads": 0, "sales": 0, "saleAmount": 0}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1589,7 +2060,7 @@ examples:
         application/json: {"linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
       responses:
         "200":
-          application/json: {"id": "<id>", "domain": "internal-teriyaki.name", "key": "<key>", "url": "https://snoopy-exasperation.name/", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": true, "expiresAt": "1781877660762", "expiredUrl": "https://ultimate-obedience.name", "password": "aeFj89Olng6LL82", "proxy": false, "title": "<value>", "description": "impartial boo flood frantically between if psst provided frail", "image": "https://picsum.photos/seed/t145k/3796/1693", "video": "https://picsum.videos/seed/oL5X9bSlac/1354/2689", "rewrite": false, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {}, "publicStats": true, "tags": [{"id": "<id>", "name": "<value>", "color": "purple"}], "folderId": "<id>", "webhookIds": [], "comments": "blindly beyond subtract ha colossal utterly on pish blah reckon athwart than", "shortLink": "https://thick-disconnection.name", "qrCode": "https://violent-stall.org", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 6165.2, "leads": 3671.56, "conversions": 6434.41, "sales": 2206.93, "saleAmount": 5064.53, "lastClicked": "<value>", "createdAt": "1753575604938", "updatedAt": "1754525170444", "tagId": "<id>", "projectId": "<id>"}
+          application/json: {"id": "<id>", "domain": "inborn-backbone.info", "key": "<key>", "url": "https://trusty-birdcage.org", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1737478320546", "expiredUrl": "https://mediocre-commodity.name", "password": "2EybwesHSoRuHSl", "proxy": false, "title": "<value>", "description": "questioningly scornful beyond rejoin unlike impure prime", "image": null, "video": "https://loremflickr.com/1976/2445?lock=7226614947361714", "rewrite": false, "doIndex": false, "ios": null, "android": "<id>", "geo": {"key": "https://flawless-bakeware.com/"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "blue"}], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "pace scale valley arcade eek old husband blowgun pish soon stable huzzah ew thorn kick segregate", "shortLink": "https://unwilling-publicity.biz", "qrCode": "https://unsightly-bourgeoisie.net/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1715735514717", "updatedAt": "1735654967859", "tagId": null, "projectId": "<id>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1613,9 +2084,11 @@ examples:
       parameters:
         query:
           timezone: "America/New_York"
+          query: "metadata['key']:'value'"
+          groupBy: "count"
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"clicks": 0, "leads": 0, "sales": 0, "saleAmount": 0, "earnings": 0}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1638,11 +2111,14 @@ examples:
     speakeasy-default-list-commissions:
       parameters:
         query:
+          sortBy: "createdAt"
+          sortOrder: "desc"
+          interval: "all"
           page: 1
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 5472.72, "earnings": 6783.17, "currency": "Chilean Peso", "status": "processed", "invoiceId": "<id>", "description": "rudely as toward uselessly", "quantity": 1355.72, "createdAt": "1737506219452", "updatedAt": "1754477295308", "partner": {"id": "<id>", "name": "<value>", "email": "Jayde41@yahoo.com", "image": "https://loremflickr.com/1230/1568?lock=1631372836811808", "payoutsEnabledAt": "<value>", "country": "Turkey"}}, {"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 335.97, "earnings": 6281.06, "currency": "Tala", "status": "canceled", "invoiceId": "<id>", "description": "defiantly whenever disk", "quantity": 3242.06, "createdAt": "1726040770796", "updatedAt": "1754499140843", "partner": {"id": "<id>", "name": "<value>", "email": "Abigayle50@yahoo.com", "image": "https://loremflickr.com/3600/83?lock=8950245106766472", "payoutsEnabledAt": "<value>", "country": "Qatar"}}, {"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 7679.5, "earnings": 4065.55, "currency": "Netherlands Antillian Guilder", "status": "duplicate", "invoiceId": "<id>", "description": "brightly for dead meh yippee stigmatize minor oh", "quantity": 5231.66, "createdAt": "1732921274545", "updatedAt": "1754494248235", "partner": {"id": "<id>", "name": "<value>", "email": "Deshaun89@gmail.com", "image": "https://picsum.photos/seed/hulbP1D5tN/600/1921", "payoutsEnabledAt": "<value>", "country": "Eswatini"}}]
+          application/json: [{"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 5650.12, "earnings": 3320.11, "currency": "Rwanda Franc", "status": "processed", "invoiceId": "<id>", "description": "courageous yowza faithfully pfft regulate mockingly", "quantity": 4614.08, "createdAt": "1731321984700", "updatedAt": "1735631745387", "partner": {"id": "<id>", "name": "<value>", "email": "Halle51@hotmail.com", "image": "https://loremflickr.com/2543/3334?lock=1264075858872598", "payoutsEnabledAt": "<value>", "country": "Djibouti"}}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1668,7 +2144,7 @@ examples:
           id: "cm_1JVR7XRCSR0EDBAF39FZ4PMYE"
       responses:
         "200":
-          application/json: {"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 8574.78, "earnings": 5971.29, "currency": "Lempira", "status": "canceled", "invoiceId": "<id>", "description": "hence reconstitute amid miserable daintily certainly yak surprised", "quantity": 6952.8, "createdAt": "1729408293889", "updatedAt": "1754498551630", "partner": {"id": "<id>", "name": "<value>", "email": "Dillon_Hayes17@gmail.com", "image": "https://loremflickr.com/1332/237?lock=690319449356996", "payoutsEnabledAt": "<value>", "country": "Kyrgyz Republic"}}
+          application/json: {"id": "cm_1JVR7XRCSR0EDBAF39FZ4PMYE", "amount": 7439.54, "earnings": 3399.15, "currency": "Gourde", "status": "processed", "invoiceId": "<id>", "description": "wide ack or successfully yuck so truthfully acknowledge snoopy", "quantity": 9711.4, "createdAt": "1729751869671", "updatedAt": "1735620514845", "partner": {"id": "<id>", "name": "<value>", "email": null, "image": null, "payoutsEnabledAt": "<value>", "country": "Togo"}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1694,7 +2170,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "business max", "stripeId": "<id>", "billingCycleStart": 5588.34, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 5442.21, "usage": 5212.35, "usageLimit": 9699.61, "linksUsage": 4580.49, "linksLimit": 4508.24, "payoutsUsage": 2627.95, "payoutsLimit": 2134.57, "payoutFee": 9371.46, "domainsLimit": 4381.42, "tagsLimit": 8013.73, "foldersUsage": 788.88, "foldersLimit": 2199.56, "usersLimit": 3134.64, "aiUsage": 945.89, "aiLimit": 5525.82, "conversionEnabled": false, "dotLinkClaimed": true, "partnersEnabled": false, "createdAt": "1742181712666", "users": [{"role": "owner", "defaultFolderId": "<id>"}, {"role": "owner", "defaultFolderId": "<id>"}], "domains": [], "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "advanced", "stripeId": "<id>", "billingCycleStart": 2392.88, "paymentFailedAt": null, "stripeConnectId": "<id>", "totalLinks": 9583.5, "usage": 4075.75, "usageLimit": 312.85, "linksUsage": 9444.18, "linksLimit": 3440.64, "payoutsUsage": 9717.42, "payoutsLimit": 7249.67, "payoutFee": 5932.4, "domainsLimit": 4075.34, "tagsLimit": 4898.74, "foldersUsage": 9012.06, "foldersLimit": 8488.71, "groupsLimit": 9998.84, "usersLimit": 1132.65, "aiUsage": 8447.55, "aiLimit": 9868.89, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1705814025364", "users": [{"role": "owner", "defaultFolderId": "<id>"}], "domains": [], "store": {}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1720,7 +2196,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": "<value>", "inviteCode": "<value>", "plan": "advanced", "stripeId": "<id>", "billingCycleStart": 5971.29, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 3446.2, "usage": 9914.64, "usageLimit": 6276.9, "linksUsage": 4888.52, "linksLimit": 9840.08, "payoutsUsage": 540.62, "payoutsLimit": 8965.01, "payoutFee": 4468.63, "domainsLimit": 3115.07, "tagsLimit": 2494.4, "foldersUsage": 1395.79, "foldersLimit": 7892.75, "usersLimit": 8898.38, "aiUsage": 3024.61, "aiLimit": 4643.85, "conversionEnabled": false, "dotLinkClaimed": false, "partnersEnabled": true, "createdAt": "1724062557325", "users": [{"role": "member", "defaultFolderId": "<id>"}, {"role": "owner", "defaultFolderId": "<id>"}, {"role": "member", "defaultFolderId": "<id>"}], "domains": [], "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "business max", "stripeId": null, "billingCycleStart": 2028.85, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 5728.58, "usage": 2864.53, "usageLimit": 3966.86, "linksUsage": 5981.08, "linksLimit": 2040.39, "payoutsUsage": 9329.44, "payoutsLimit": 9097.44, "payoutFee": 4731.38, "domainsLimit": 7848.2, "tagsLimit": 9885.62, "foldersUsage": 7990.55, "foldersLimit": 6957.36, "groupsLimit": 9372.49, "usersLimit": 6615.64, "aiUsage": 3462.45, "aiLimit": 2275.49, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1731917162893", "users": [], "domains": [], "store": {"key": "<value>"}, "allowedHostnames": ["dub.sh"]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1742,7 +2218,7 @@ examples:
   createReferralsEmbedToken:
     speakeasy-default-create-referrals-embed-token:
       requestBody:
-        application/json: {"partner": {"email": "Florencio98@hotmail.com", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}}
+        application/json: {"partner": {"email": "Letha_Wuckert2@yahoo.com", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}}
       responses:
         "201":
           application/json: {"publicToken": "<value>", "expires": "<value>"}
@@ -1768,7 +2244,14 @@ examples:
     speakeasy-default-get-QR-code:
       parameters:
         query:
-          url: "https://normal-making.name"
+          url: "https://needy-newsstand.biz/"
+          size: 600
+          level: "L"
+          fgColor: "#000000"
+          bgColor: "#FFFFFF"
+          hideLogo: true
+          margin: 2
+          includeMargin: false
       responses:
         "200":
           image/png: "<value>"
@@ -1790,5 +2273,6 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## SDK Changes Detected:\n* `dub.customers.create()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.customers.get()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.links.get()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.update()`: \n  *  `request_body.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.create_many()`: \n  *  `request.[].geo` **Changed** **Breaking** :warning:\n  *  `response.[].[link_schema].geo` **Changed** **Breaking** :warning:\n* `dub.links.update_many()`: \n  *  `request.data.geo` **Changed** **Breaking** :warning:\n  *  `response.[].geo` **Changed** **Breaking** :warning:\n* `dub.links.upsert()`: \n  *  `request.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.analytics.retrieve()`: \n  *  `request.country` **Changed** **Breaking** :warning:\n* `dub.events.list()`: \n  *  `request.country` **Changed** **Breaking** :warning:\n  *  `response.[]` **Changed** **Breaking** :warning:\n* `dub.customers.update()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.links.create()`: \n  *  `request.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.list()`:  `response.[].geo` **Changed** **Breaking** :warning:\n* `dub.customers.list()`:  `response.[].discount.default` **Removed** **Breaking** :warning:\n* `dub.embed_tokens.referrals()`: \n  *  `request.partner` **Changed** **Breaking** :warning:\n* `dub.partners.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed**\n* `dub.partners.create_link()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.partners.upsert_link()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.workspaces.update()`:  `response` **Changed** **Breaking** :warning:\n* `dub.workspaces.get()`:  `response` **Changed** **Breaking** :warning:\n* `dub.commissions.list()`: \n  *  `request.group_id` **Added**\n* `dub.partners.analytics()`: \n  *  `request.query` **Added**\n* `dub.partners.list()`: \n  *  `request.sort_by` **Changed**\n  *  `response.[]` **Changed**\n"

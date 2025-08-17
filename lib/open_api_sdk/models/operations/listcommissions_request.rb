@@ -5,55 +5,80 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListCommissionsRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-      # Filter the list of commissions by the associated customer.
-      field :customer_id, T.nilable(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
-      # The end date of the date range to filter the commissions by.
-      field :end_, T.nilable(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
-      # The interval to retrieve commissions for.
-      field :interval, T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
-      # Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
-      field :invoice_id, T.nilable(::String), { 'query_param': { 'field_name': 'invoiceId', 'style': 'form', 'explode': true } }
-      # The page number for pagination.
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of items per page.
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
-      # Filter the list of commissions by the associated partner.
-      field :partner_id, T.nilable(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-      # Filter the list of commissions by the associated payout.
-      field :payout_id, T.nilable(::String), { 'query_param': { 'field_name': 'payoutId', 'style': 'form', 'explode': true } }
-      # The field to sort the list of commissions by.
-      field :sort_by, T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
-      # The sort order for the list of commissions.
-      field :sort_order, T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-      # The start date of the date range to filter the commissions by.
-      field :start, T.nilable(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
-      # Filter the list of commissions by their corresponding status.
-      field :status, T.nilable(::OpenApiSDK::Operations::QueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
-
-      field :type, T.nilable(::OpenApiSDK::Operations::Type), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
+      class ListCommissionsRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(customer_id: T.nilable(::String), end_: T.nilable(::String), interval: T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamInterval), invoice_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), partner_id: T.nilable(::String), payout_id: T.nilable(::String), sort_by: T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::ListCommissionsQueryParamSortOrder), start: T.nilable(::String), status: T.nilable(::OpenApiSDK::Operations::QueryParamStatus), type: T.nilable(::OpenApiSDK::Operations::Type)).void }
-      def initialize(customer_id: nil, end_: nil, interval: nil, invoice_id: nil, page: nil, page_size: nil, partner_id: nil, payout_id: nil, sort_by: nil, sort_order: nil, start: nil, status: nil, type: nil)
-        @customer_id = customer_id
-        @end_ = end_
-        @interval = interval
-        @invoice_id = invoice_id
-        @page = page
-        @page_size = page_size
-        @partner_id = partner_id
-        @payout_id = payout_id
-        @sort_by = sort_by
-        @sort_order = sort_order
-        @start = start
-        @status = status
-        @type = type
+        field :type, Crystalline::Nilable.new(Models::Operations::Type), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated customer.
+        field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated payout.
+        field :payout_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'payoutId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated partner.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated partner group.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
+        field :invoice_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'invoiceId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by their corresponding status.
+        field :status, Crystalline::Nilable.new(Models::Operations::QueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        # The start date of the date range to filter the commissions by.
+        field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
+        # The end date of the date range to filter the commissions by.
+        field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
+        # The field to sort the list of commissions by.
+        field :sort_by, Crystalline::Nilable.new(Models::Operations::ListCommissionsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+        # The sort order for the list of commissions.
+        field :sort_order, Crystalline::Nilable.new(Models::Operations::ListCommissionsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        # The interval to retrieve commissions for.
+        field :interval, Crystalline::Nilable.new(Models::Operations::ListCommissionsQueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # The number of items per page.
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
+
+        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), group_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, group_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page: 1.0, page_size: 100.0)
+          @type = type
+          @customer_id = customer_id
+          @payout_id = payout_id
+          @partner_id = partner_id
+          @group_id = group_id
+          @invoice_id = invoice_id
+          @status = status
+          @start = start
+          @end_ = end_
+          @sort_by = sort_by
+          @sort_order = sort_order
+          @interval = interval
+          @page = page
+          @page_size = page_size
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @type == other.type
+          return false unless @customer_id == other.customer_id
+          return false unless @payout_id == other.payout_id
+          return false unless @partner_id == other.partner_id
+          return false unless @group_id == other.group_id
+          return false unless @invoice_id == other.invoice_id
+          return false unless @status == other.status
+          return false unless @start == other.start
+          return false unless @end_ == other.end_
+          return false unless @sort_by == other.sort_by
+          return false unless @sort_order == other.sort_order
+          return false unless @interval == other.interval
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

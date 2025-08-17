@@ -5,40 +5,56 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateDomainRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateDomainRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Name of the domain.
-      field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug') } }
-      # apple-app-site-association configuration file (for deep link support on iOS).
-      field :apple_app_site_association, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
-      # Whether to archive this domain. `false` will unarchive a previously archived domain.
-      field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
-      # assetLinks.json configuration file (for deep link support on Android).
-      field :asset_links, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
-      # Redirect users to a specific URL when any link under this domain has expired.
-      field :expired_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
-      # The logo of the domain.
-      field :logo, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
-      # Redirect users to a specific URL when a link under this domain doesn't exist.
-      field :not_found_url, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
-      # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
-      field :placeholder, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
+        # Name of the domain.
+        field :slug, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('slug'), required: true } }
+        # Redirect users to a specific URL when any link under this domain has expired.
+        field :expired_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expiredUrl') } }
+        # Redirect users to a specific URL when a link under this domain doesn't exist.
+        field :not_found_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('notFoundUrl') } }
+        # Whether to archive this domain. `false` will unarchive a previously archived domain.
+        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
+        # Provide context to your teammates in the link creation modal by showing them an example of a link to be shortened.
+        field :placeholder, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('placeholder') } }
+        # The logo of the domain.
+        field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
+        # assetLinks.json configuration file (for deep link support on Android).
+        field :asset_links, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assetLinks') } }
+        # apple-app-site-association configuration file (for deep link support on iOS).
+        field :apple_app_site_association, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('appleAppSiteAssociation') } }
 
+        sig { params(slug: ::String, expired_url: T.nilable(::String), not_found_url: T.nilable(::String), archived: T.nilable(T::Boolean), placeholder: T.nilable(::String), logo: T.nilable(::String), asset_links: T.nilable(::String), apple_app_site_association: T.nilable(::String)).void }
+        def initialize(slug:, expired_url: nil, not_found_url: nil, archived: false, placeholder: nil, logo: nil, asset_links: nil, apple_app_site_association: nil)
+          @slug = slug
+          @expired_url = expired_url
+          @not_found_url = not_found_url
+          @archived = archived
+          @placeholder = placeholder
+          @logo = logo
+          @asset_links = asset_links
+          @apple_app_site_association = apple_app_site_association
+        end
 
-      sig { params(slug: ::String, apple_app_site_association: T.nilable(::String), archived: T.nilable(T::Boolean), asset_links: T.nilable(::String), expired_url: T.nilable(::String), logo: T.nilable(::String), not_found_url: T.nilable(::String), placeholder: T.nilable(::String)).void }
-      def initialize(slug: nil, apple_app_site_association: nil, archived: nil, asset_links: nil, expired_url: nil, logo: nil, not_found_url: nil, placeholder: nil)
-        @slug = slug
-        @apple_app_site_association = apple_app_site_association
-        @archived = archived
-        @asset_links = asset_links
-        @expired_url = expired_url
-        @logo = logo
-        @not_found_url = not_found_url
-        @placeholder = placeholder
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @slug == other.slug
+          return false unless @expired_url == other.expired_url
+          return false unless @not_found_url == other.not_found_url
+          return false unless @archived == other.archived
+          return false unless @placeholder == other.placeholder
+          return false unless @logo == other.logo
+          return false unless @asset_links == other.asset_links
+          return false unless @apple_app_site_association == other.apple_app_site_association
+          true
+        end
       end
     end
   end

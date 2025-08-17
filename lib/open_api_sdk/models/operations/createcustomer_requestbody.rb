@@ -5,28 +5,40 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateCustomerRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateCustomerRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier for the customer in the client's app.
-      field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-      # Avatar URL of the customer in the client's app.
-      field :avatar, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
-      # Email of the customer in the client's app.
-      field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-      # Name of the customer in the client's app. If not provided, a random name will be generated.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # Unique identifier for the customer in the client's app.
+        field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
+        # Email of the customer in the client's app.
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
+        # Name of the customer in the client's app. If not provided, a random name will be generated.
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # Avatar URL of the customer in the client's app.
+        field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
 
+        sig { params(external_id: ::String, email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String)).void }
+        def initialize(external_id:, email: nil, name: nil, avatar: nil)
+          @external_id = external_id
+          @email = email
+          @name = name
+          @avatar = avatar
+        end
 
-      sig { params(external_id: ::String, avatar: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String)).void }
-      def initialize(external_id: nil, avatar: nil, email: nil, name: nil)
-        @external_id = external_id
-        @avatar = avatar
-        @email = email
-        @name = name
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @external_id == other.external_id
+          return false unless @email == other.email
+          return false unless @name == other.name
+          return false unless @avatar == other.avatar
+          true
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateCustomerPartner < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpdateCustomerPartner
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The partner's email address. Should be a unique value across Dub.
-      field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-      # The partner's unique ID on Dub.
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
-      # The partner's avatar image.
-      field :image, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image') } }
-      # The partner's full legal name.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The partner's unique ID on Dub.
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        # The partner's full legal name.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The partner's email address. Should be a unique value across Dub.
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
+        # The partner's avatar image.
+        field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image'), required: true } }
 
+        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String)).void }
+        def initialize(id:, name:, email: nil, image: nil)
+          @id = id
+          @name = name
+          @email = email
+          @image = image
+        end
 
-      sig { params(email: ::String, id: ::String, image: ::String, name: ::String).void }
-      def initialize(email: nil, id: nil, image: nil, name: nil)
-        @email = email
-        @id = id
-        @image = image
-        @name = name
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @email == other.email
+          return false unless @image == other.image
+          true
+        end
       end
     end
   end

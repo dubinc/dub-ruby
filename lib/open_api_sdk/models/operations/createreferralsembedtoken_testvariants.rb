@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateReferralsEmbedTokenTestVariants < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :percentage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('percentage') } }
-
-      field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
+      class CreateReferralsEmbedTokenTestVariants
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(percentage: ::Float, url: ::String).void }
-      def initialize(percentage: nil, url: nil)
-        @percentage = percentage
-        @url = url
+        field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
+
+        field :percentage, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('percentage'), required: true } }
+
+        sig { params(url: ::String, percentage: ::Float).void }
+        def initialize(url:, percentage:)
+          @url = url
+          @percentage = percentage
+        end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @url == other.url
+          return false unless @percentage == other.percentage
+          true
+        end
       end
     end
   end

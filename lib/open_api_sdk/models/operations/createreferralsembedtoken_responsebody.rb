@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The created public embed token.
-    class CreateReferralsEmbedTokenResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The created public embed token.
+      class CreateReferralsEmbedTokenResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :expires, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expires') } }
+        field :public_token, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicToken'), required: true } }
 
-      field :public_token, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicToken') } }
+        field :expires, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('expires'), required: true } }
 
+        sig { params(public_token: ::String, expires: ::String).void }
+        def initialize(public_token:, expires:)
+          @public_token = public_token
+          @expires = expires
+        end
 
-      sig { params(expires: ::String, public_token: ::String).void }
-      def initialize(expires: nil, public_token: nil)
-        @expires = expires
-        @public_token = public_token
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @public_token == other.public_token
+          return false unless @expires == other.expires
+          true
+        end
       end
     end
   end

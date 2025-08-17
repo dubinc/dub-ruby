@@ -5,22 +5,32 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CreateFolderRequestBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateFolderRequestBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The name of the folder.
-      field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-      # The access level of the folder within the workspace.
-      field :access_level, T.nilable(::OpenApiSDK::Operations::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(::OpenApiSDK::Operations::AccessLevel, true) } }
+        # The name of the folder.
+        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The access level of the folder within the workspace.
+        field :access_level, Crystalline::Nilable.new(Models::Operations::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Operations::AccessLevel, true) } }
 
+        sig { params(name: ::String, access_level: T.nilable(Models::Operations::AccessLevel)).void }
+        def initialize(name:, access_level: nil)
+          @name = name
+          @access_level = access_level
+        end
 
-      sig { params(name: ::String, access_level: T.nilable(::OpenApiSDK::Operations::AccessLevel)).void }
-      def initialize(name: nil, access_level: nil)
-        @name = name
-        @access_level = access_level
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @name == other.name
+          return false unless @access_level == other.access_level
+          true
+        end
       end
     end
   end

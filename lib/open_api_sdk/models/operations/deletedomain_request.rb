@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class DeleteDomainRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class DeleteDomainRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain name.
-      field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
+        # The domain name.
+        field :slug, ::String, { 'path_param': { 'field_name': 'slug', 'style': 'simple', 'explode': false } }
 
+        sig { params(slug: ::String).void }
+        def initialize(slug:)
+          @slug = slug
+        end
 
-      sig { params(slug: ::String).void }
-      def initialize(slug: nil)
-        @slug = slug
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @slug == other.slug
+          true
+        end
       end
     end
   end

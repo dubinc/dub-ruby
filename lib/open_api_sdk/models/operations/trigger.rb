@@ -5,15 +5,19 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # Trigger - The trigger to retrieve analytics for. If undefined, returns all trigger types.
-    class Trigger < T::Enum
-      enums do
-        QR = new('qr')
-        LINK = new('link')
-        PAGEVIEW = new('pageview')
-        DEEPLINK = new('deeplink')
+  module Models
+    module Operations
+    
+      # Trigger - The trigger to retrieve analytics for. If undefined, returns all trigger types.
+      class Trigger < T::Enum
+
+
+        enums do
+          QR = new('qr')
+          LINK = new('link')
+          PAGEVIEW = new('pageview')
+          DEEPLINK = new('deeplink')
+        end
       end
     end
   end

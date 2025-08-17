@@ -5,15 +5,19 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateCommissionType < T::Enum
-      enums do
-        CLICK = new('click')
-        LEAD = new('lead')
-        SALE = new('sale')
-        CUSTOM = new('custom')
+      class UpdateCommissionType < T::Enum
+
+
+        enums do
+          CLICK = new('click')
+          LEAD = new('lead')
+          SALE = new('sale')
+          CUSTOM = new('custom')
+        end
       end
     end
   end

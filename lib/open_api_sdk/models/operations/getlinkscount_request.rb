@@ -5,49 +5,68 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetLinksCountRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class GetLinksCountRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.
-      field :domain, T.nilable(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-      # The folder ID to filter the links by.
-      field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
-      # The field to group the links by.
-      field :group_by, T.nilable(::Object), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
-      # The search term to filter the links by. The search term will be matched against the short link slug and the destination url.
-      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
-      # Whether to include archived links in the response. Defaults to `false` if not provided.
-      field :show_archived, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'showArchived', 'style': 'form', 'explode': true } }
-      # Deprecated: Use `tagIds` instead. The tag ID to filter the links by.
-      field :tag_id, T.nilable(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
-      # The tag IDs to filter the links by.
-      field :tag_ids, T.nilable(::Object), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': false } }
-      # The unique name of the tags assigned to the short link (case insensitive).
-      field :tag_names, T.nilable(::Object), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': false } }
-      # The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant.
-      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
-      # The user ID to filter the links by.
-      field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'userId', 'style': 'form', 'explode': true } }
-      # DEPRECATED. Filter for links that have at least one tag assigned to them.
-      field :with_tags, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
+        # The domain to filter the links by. E.g. `ac.me`. If not provided, all links for the workspace will be returned.
+        field :domain, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
+        # Deprecated: Use `tagIds` instead. The tag ID to filter the links by.
+        field :tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
+        # The tag IDs to filter the links by.
+        field :tag_ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': false } }
+        # The unique name of the tags assigned to the short link (case insensitive).
+        field :tag_names, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'tagNames', 'style': 'form', 'explode': false } }
+        # The folder ID to filter the links by.
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
+        # The search term to filter the links by. The search term will be matched against the short link slug and the destination url.
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The user ID to filter the links by.
+        field :user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'userId', 'style': 'form', 'explode': true } }
+        # The ID of the tenant that created the link inside your system. If set, will only return links for the specified tenant.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+        # The field to group the links by.
+        field :group_by, Crystalline::Nilable.new(Crystalline::Union.new(Models::Operations::One, Models::Operations::Two, Models::Operations::Three, Models::Operations::Four)), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
+        # Whether to include archived links in the response. Defaults to `false` if not provided.
+        field :show_archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'showArchived', 'style': 'form', 'explode': true } }
+        # DEPRECATED. Filter for links that have at least one tag assigned to them.
+        field :with_tags, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
+        sig { params(domain: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), search: T.nilable(::String), user_id: T.nilable(::String), tenant_id: T.nilable(::String), group_by: T.nilable(T.any(Models::Operations::One, Models::Operations::Two, Models::Operations::Three, Models::Operations::Four)), show_archived: T.nilable(T::Boolean), with_tags: T.nilable(T::Boolean)).void }
+        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, group_by: nil, show_archived: true, with_tags: true)
+          @domain = domain
+          @tag_id = tag_id
+          @tag_ids = tag_ids
+          @tag_names = tag_names
+          @folder_id = folder_id
+          @search = search
+          @user_id = user_id
+          @tenant_id = tenant_id
+          @group_by = group_by
+          @show_archived = show_archived
+          @with_tags = with_tags
+        end
 
-      sig { params(domain: T.nilable(::String), folder_id: T.nilable(::String), group_by: T.nilable(::Object), search: T.nilable(::String), show_archived: T.nilable(T::Boolean), tag_id: T.nilable(::String), tag_ids: T.nilable(::Object), tag_names: T.nilable(::Object), tenant_id: T.nilable(::String), user_id: T.nilable(::String), with_tags: T.nilable(T::Boolean)).void }
-      def initialize(domain: nil, folder_id: nil, group_by: nil, search: nil, show_archived: nil, tag_id: nil, tag_ids: nil, tag_names: nil, tenant_id: nil, user_id: nil, with_tags: nil)
-        @domain = domain
-        @folder_id = folder_id
-        @group_by = group_by
-        @search = search
-        @show_archived = show_archived
-        @tag_id = tag_id
-        @tag_ids = tag_ids
-        @tag_names = tag_names
-        @tenant_id = tenant_id
-        @user_id = user_id
-        @with_tags = with_tags
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @domain == other.domain
+          return false unless @tag_id == other.tag_id
+          return false unless @tag_ids == other.tag_ids
+          return false unless @tag_names == other.tag_names
+          return false unless @folder_id == other.folder_id
+          return false unless @search == other.search
+          return false unless @user_id == other.user_id
+          return false unless @tenant_id == other.tenant_id
+          return false unless @group_by == other.group_by
+          return false unless @show_archived == other.show_archived
+          return false unless @with_tags == other.with_tags
+          true
+        end
       end
     end
   end

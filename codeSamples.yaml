@@ -8,262 +8,262 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveAnalytics"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n  query: \"metadata['key']:'value'\",\n)\n\nres = s.analytics.retrieve(req)\n\nif ! res.one_of.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrieveAnalyticsRequest.new(\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.analytics.retrieve(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/commissions"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listCommissions"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListCommissionsRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.commissions.list(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListCommissionsRequest.new(\n  page_size: 50.0,\n)\n\nres = s.commissions.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/commissions/{id}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateCommission"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::UpdateCommissionRequest.new(\n  id: \"cm_1JVR7XRCSR0EDBAF39FZ4PMYE\",\n)\n\nres = s.commissions.update(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpdateCommissionRequest.new(\n  id: 'cm_1JVR7XRCSR0EDBAF39FZ4PMYE',\n)\n\nres = s.commissions.update(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getCustomers"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetCustomersRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.customers.list(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetCustomersRequest.new(\n  page_size: 50.0,\n)\n\nres = s.customers.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers/{id}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "deleteCustomer"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.customers.delete(id=\"<id>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.customers.delete(id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getCustomer"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetCustomerRequest.new(\n  id: \"<id>\",\n)\n\nres = s.customers.get(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetCustomerRequest.new(\n  id: '<id>',\n)\n\nres = s.customers.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/customers/{id}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateCustomer"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::UpdateCustomerRequest.new(\n  id: \"<id>\",\n)\n\nres = s.customers.update(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpdateCustomerRequest.new(\n  id: '<id>',\n)\n\nres = s.customers.update(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listDomains"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListDomainsRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.domains.list(req)\n\nif ! res.domain_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListDomainsRequest.new(\n  archived: true,\n)\n\nres = s.domains.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createDomain"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  not_found_url: \"https://acme.com/not-found\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n)\n\nres = s.domains.create(req)\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CreateDomainRequestBody.new(\n  slug: 'acme.com',\n  expired_url: 'https://acme.com/expired',\n  not_found_url: 'https://acme.com/not-found',\n  placeholder: 'https://dub.co/help/article/what-is-dub',\n)\n\nres = s.domains.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains/register"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "registerDomain"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RegisterDomainRequestBody.new(\n  domain: \"acme.link\",\n)\n\nres = s.domains.register(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RegisterDomainRequestBody.new(\n  domain: 'acme.link',\n)\n\nres = s.domains.register(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains/status"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "checkDomainStatus"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CheckDomainStatusRequest.new(\n  domains: \"<value>\",\n)\n\nres = s.domains.check_status(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CheckDomainStatusRequest.new(\n  domains: '<value>',\n)\n\nres = s.domains.check_status(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains/{slug}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "deleteDomain"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.domains.delete(slug=\"acme.com\")\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.domains.delete(slug: 'acme.com')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/domains/{slug}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateDomain"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.domains.update(slug=\"acme.com\", request_body=::OpenApiSDK::Operations::UpdateDomainRequestBody.new(\n  slug: \"acme.com\",\n  expired_url: \"https://acme.com/expired\",\n  not_found_url: \"https://acme.com/not-found\",\n  archived: false,\n  placeholder: \"https://dub.co/help/article/what-is-dub\",\n))\n\nif ! res.domain_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.domains.update(slug: 'acme.com', request_body: Models::Operations::UpdateDomainRequestBody.new(\n  slug: 'acme.com',\n  expired_url: 'https://acme.com/expired',\n  not_found_url: 'https://acme.com/not-found',\n  placeholder: 'https://dub.co/help/article/what-is-dub',\n))\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/events"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listEvents"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListEventsRequest.new(\n  timezone: \"America/New_York\",\n  city: \"New York\",\n  device: \"Desktop\",\n  browser: \"Chrome\",\n  os: \"Windows\",\n  referer: \"google.com\",\n  referer_url: \"https://dub.co/blog\",\n  query: \"metadata['key']:'value'\",\n)\n\nres = s.events.list(req)\n\nif ! res.anies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListEventsRequest.new(\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.events.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listFolders"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListFoldersRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.folders.list(req)\n\nif ! res.folder_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListFoldersRequest.new()\n\nres = s.folders.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createFolder"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateFolderRequestBody.new(\n  name: \"<value>\",\n)\n\nres = s.folders.create(req)\n\nif ! res.folder_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = \n\nres = s.folders.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders/{id}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "deleteFolder"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.folders.delete(id=\"<id>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.folders.delete(id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders/{id}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateFolder"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.folders.update(id=\"<id>\", request_body=::OpenApiSDK::Operations::UpdateFolderRequestBody.new())\n\nif ! res.folder_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.folders.update(id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetLinksRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.links.list(req)\n\nif ! res.link_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetLinksRequest.new(\n  show_archived: false,\n  with_tags: true,\n  page_size: 50.0,\n)\n\nres = s.links.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(\n  url: \"https://google.com\",\n  external_id: \"123456\",\n  tag_ids: [\n    \"clux0rgak00011...\",\n  ],\n  test_variants: [\n    ::OpenApiSDK::Operations::TestVariants.new(\n      url: \"https://example.com/variant-1\",\n      percentage: 50.0,\n    ),\n    ::OpenApiSDK::Operations::TestVariants.new(\n      url: \"https://example.com/variant-2\",\n      percentage: 50.0,\n    ),\n  ],\n)\n\nres = s.links.create(req)\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CreateLinkRequestBody.new(\n  url: 'https://google.com',\n  external_id: '123456',\n  tag_ids: [\n    'clux0rgak00011...',\n  ],\n  test_variants: [\n    Models::Operations::TestVariants.new(\n      url: 'https://example.com/variant-1',\n      percentage: 50.0,\n    ),\n    Models::Operations::TestVariants.new(\n      url: 'https://example.com/variant-2',\n      percentage: 50.0,\n    ),\n  ],\n)\n\nres = s.links.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/bulk"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "bulkDeleteLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(\n  link_ids: [\n    \"clux0rgak00011...\",\n    \"clux0rgak00022...\",\n  ],\n)\n\nres = s.links.delete_many(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::BulkDeleteLinksRequest.new(\n  link_ids: [\n    'clux0rgak00011...',\n    'clux0rgak00022...',\n  ],\n)\n\nres = s.links.delete_many(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/bulk"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "bulkUpdateLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(\n  data: ::OpenApiSDK::Operations::Data.new(\n    url: \"https://google.com\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.links.update_many(req)\n\nif ! res.link_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::BulkUpdateLinksRequestBody.new(\n  data: Models::Operations::Data.new(\n    url: 'https://google.com',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::BulkUpdateLinksTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::BulkUpdateLinksTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.links.update_many(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/bulk"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "bulkCreateLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = [\n  ::OpenApiSDK::Operations::RequestBody.new(\n    url: \"https://google.com\",\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n]\n\nres = s.links.create_many(req)\n\nif ! res.anies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = [\n  Models::Operations::RequestBody.new(\n    url: 'https://google.com',\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::BulkCreateLinksTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::BulkCreateLinksTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n]\n\nres = s.links.create_many(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/count"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getLinksCount"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetLinksCountRequest.new()\n\nres = s.links.count(req)\n\nif ! res.number.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetLinksCountRequest.new(\n  show_archived: false,\n  with_tags: false,\n)\n\nres = s.links.count(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/info"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getLinkInfo"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetLinkInfoRequest.new(\n  link_id: \"clux0rgak00011...\",\n  external_id: \"123456\",\n)\n\nres = s.links.get(req)\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetLinkInfoRequest.new(\n  link_id: 'clux0rgak00011...',\n  external_id: '123456',\n)\n\nres = s.links.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/upsert"]["put"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "upsertLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(\n  url: \"https://google.com\",\n  external_id: \"123456\",\n  tag_ids: [\n    \"clux0rgak00011...\",\n  ],\n  test_variants: [\n    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(\n      url: \"https://example.com/variant-1\",\n      percentage: 50.0,\n    ),\n    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(\n      url: \"https://example.com/variant-2\",\n      percentage: 50.0,\n    ),\n  ],\n)\n\nres = s.links.upsert(req)\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpsertLinkRequestBody.new(\n  url: 'https://google.com',\n  external_id: '123456',\n  tag_ids: [\n    'clux0rgak00011...',\n  ],\n  test_variants: [\n    Models::Operations::UpsertLinkTestVariants.new(\n      url: 'https://example.com/variant-1',\n      percentage: 50.0,\n    ),\n    Models::Operations::UpsertLinkTestVariants.new(\n      url: 'https://example.com/variant-2',\n      percentage: 50.0,\n    ),\n  ],\n)\n\nres = s.links.upsert(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/{linkId}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "deleteLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.links.delete(link_id=\"<id>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.links.delete(link_id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/links/{linkId}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.links.update(link_id=\"<id>\", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(\n  url: \"https://google.com\",\n  external_id: \"123456\",\n  tag_ids: [\n    \"clux0rgak00011...\",\n  ],\n  test_variants: [\n    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(\n      url: \"https://example.com/variant-1\",\n      percentage: 50.0,\n    ),\n    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(\n      url: \"https://example.com/variant-2\",\n      percentage: 50.0,\n    ),\n  ],\n))\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.links.update(link_id: '<id>', request_body: Models::Operations::UpdateLinkRequestBody.new(\n  url: 'https://google.com',\n  external_id: '123456',\n  tag_ids: [\n    'clux0rgak00011...',\n  ],\n  test_variants: [\n    Models::Operations::UpdateLinkTestVariants.new(\n      url: 'https://example.com/variant-1',\n      percentage: 50.0,\n    ),\n    Models::Operations::UpdateLinkTestVariants.new(\n      url: 'https://example.com/variant-2',\n      percentage: 50.0,\n    ),\n  ],\n))\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listPartners"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::ListPartnersRequest.new(\n  status: ::OpenApiSDK::Operations::ListPartnersQueryParamStatus::APPROVED,\n  country: \"US\",\n  sort_by: ::OpenApiSDK::Operations::ListPartnersQueryParamSortBy::SALE_AMOUNT,\n  sort_order: ::OpenApiSDK::Operations::ListPartnersQueryParamSortOrder::DESC,\n  tenant_id: \"1K0NM7HCN944PEMZ3CQPH43H8\",\n  include_expanded_fields: true,\n  search: \"john\",\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.partners.list(req)\n\nif ! res.response_bodies.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListPartnersRequest.new(\n  status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,\n  country: 'US',\n  tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',\n  include_expanded_fields: false,\n  search: 'john',\n  page_size: 50.0,\n)\n\nres = s.partners.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createPartner"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreatePartnerRequestBody.new(\n  email: \"Loyal79@yahoo.com\",\n  link_props: ::OpenApiSDK::Operations::LinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::CreatePartnerTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CreatePartnerRequestBody.new(\n  email: 'Summer50@yahoo.com',\n  link_props: Models::Operations::LinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::CreatePartnerTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::CreatePartnerTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/analytics"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrievePartnerAnalytics"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: \"America/New_York\",\n)\n\nres = s.partners.analytics(req)\n\nif ! res.one_of.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: 'America/New_York',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.partners.analytics(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveLinks"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::RetrieveLinksRequest.new()\n\nres = s.partners.retrieve_links(req)\n\nif ! res.links.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrieveLinksRequest.new()\n\nres = s.partners.retrieve_links(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createPartnerLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreatePartnerLinkRequestBody.new(\n  link_props: ::OpenApiSDK::Operations::CreatePartnerLinkLinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::CreatePartnerLinkTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create_link(req)\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CreatePartnerLinkRequestBody.new(\n  link_props: Models::Operations::CreatePartnerLinkLinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::CreatePartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::CreatePartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.create_link(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links/upsert"]["put"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "upsertPartnerLink"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::UpsertPartnerLinkRequestBody.new(\n  link_props: ::OpenApiSDK::Operations::UpsertPartnerLinkLinkProps.new(\n    external_id: \"123456\",\n    tag_ids: [\n      \"clux0rgak00011...\",\n    ],\n    test_variants: [\n      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(\n        url: \"https://example.com/variant-1\",\n        percentage: 50.0,\n      ),\n      ::OpenApiSDK::Operations::UpsertPartnerLinkTestVariants.new(\n        url: \"https://example.com/variant-2\",\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.upsert_link(req)\n\nif ! res.link_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpsertPartnerLinkRequestBody.new(\n  link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.upsert_link(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/qr"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getQRCode"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetQRCodeRequest.new(\n  url: \"https://normal-making.name\",\n)\n\nres = s.qr_codes.get(req)\n\nif ! res.res.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetQRCodeRequest.new(\n  url: 'https://needy-newsstand.biz/',\n  hide_logo: true,\n  include_margin: false,\n)\n\nres = s.qr_codes.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tags"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getTags"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetTagsRequest.new(\n  page: 1.0,\n  page_size: 50.0,\n)\n\nres = s.tags.list(req)\n\nif ! res.tag_schemas.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetTagsRequest.new(\n  page_size: 50.0,\n)\n\nres = s.tags.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tags"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createTag"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateTagRequestBody.new()\n\nres = s.tags.create(req)\n\nif ! res.tag_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = \n\nres = s.tags.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tags/{id}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "deleteTag"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.tags.delete(id=\"<id>\")\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.tags.delete(id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tags/{id}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateTag"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.tags.update(id=\"<id>\", request_body=::OpenApiSDK::Operations::UpdateTagRequestBody.new())\n\nif ! res.tag_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.tags.update(id: '<id>')\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/tokens/embed/referrals"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "createReferralsEmbedToken"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::CreateReferralsEmbedTokenRequestBody.new(\n  partner: ::OpenApiSDK::Operations::Partner.new(\n    email: \"Florencio98@hotmail.com\",\n    link_props: ::OpenApiSDK::Operations::CreateReferralsEmbedTokenLinkProps.new(\n      external_id: \"123456\",\n      tag_ids: [\n        \"clux0rgak00011...\",\n      ],\n      test_variants: [\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-1\",\n          percentage: 50.0,\n        ),\n        ::OpenApiSDK::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: \"https://example.com/variant-2\",\n          percentage: 50.0,\n        ),\n      ],\n    ),\n  ),\n)\n\nres = s.embed_tokens.referrals(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::CreateReferralsEmbedTokenRequestBody.new(\n  partner: Models::Operations::Partner.new(\n    email: 'Letha_Wuckert2@yahoo.com',\n    link_props: Models::Operations::CreateReferralsEmbedTokenLinkProps.new(\n      external_id: '123456',\n      tag_ids: [\n        'clux0rgak00011...',\n      ],\n      test_variants: [\n        Models::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: 'https://example.com/variant-1',\n          percentage: 50.0,\n        ),\n        Models::Operations::CreateReferralsEmbedTokenTestVariants.new(\n          url: 'https://example.com/variant-2',\n          percentage: 50.0,\n        ),\n      ],\n    ),\n  ),\n)\n\nres = s.embed_tokens.referrals(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/track/lead"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "trackLead"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackLeadRequestBody.new(\n  click_id: \"<id>\",\n  event_name: \"Sign up\",\n  customer_external_id: \"<id>\",\n)\n\nres = s.track.lead(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::TrackLeadRequestBody.new(\n  click_id: '<id>',\n  event_name: 'Sign up',\n  customer_external_id: '<id>',\n)\n\nres = s.track.lead(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/track/sale"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "trackSale"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::TrackSaleRequestBody.new(\n  customer_external_id: \"<id>\",\n  amount: 996_500,\n  event_name: \"Invoice paid\",\n  payment_processor: ::OpenApiSDK::Operations::PaymentProcessor::CUSTOM,\n  lead_event_name: \"Cloned template 1481267\",\n)\n\nres = s.track.sale(req)\n\nif ! res.object.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::TrackSaleRequestBody.new(\n  customer_external_id: '<id>',\n  amount: 594_903,\n  event_name: 'Invoice paid',\n  payment_processor: Models::Operations::PaymentProcessor::PADDLE,\n  lead_event_name: 'Cloned template 1481267',\n)\n\nres = s.track.sale(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "getWorkspace"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nreq = ::OpenApiSDK::Operations::GetWorkspaceRequest.new(\n  id_or_slug: \"<value>\",\n)\n\nres = s.workspaces.get(req)\n\nif ! res.workspace_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetWorkspaceRequest.new(\n  id_or_slug: '<value>',\n)\n\nres = s.workspaces.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/workspaces/{idOrSlug}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "updateWorkspace"
-          "source": "require 'dub'\n\ns = ::OpenApiSDK::Dub.new(\n      security: ::OpenApiSDK::Shared::Security.new(\n        token: \"DUB_API_KEY\",\n      ),\n    )\n\nres = s.workspaces.update(id_or_slug=\"<value>\", request_body=::OpenApiSDK::Operations::UpdateWorkspaceRequestBody.new())\n\nif ! res.workspace_schema.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.workspaces.update(id_or_slug: '<value>')\n\nunless res.nil?\n  # handle response\nend"

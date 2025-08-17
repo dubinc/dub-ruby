@@ -22,153 +22,38 @@ Create a link for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="createLink" method="post" path="/links" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::CreateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::TestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::TestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.create(req)
+res = s.links.create(request: req)
 
-if ! res.link_schema.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::OpenApiSDK::Operations::CreateLinkRequestBody](../../models/operations/createlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::CreateLinkResponse)](../../models/operations/createlinkresponse.md)**
-
-
-
-## list
-
-Retrieve a paginated list of links for the authenticated workspace.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
-      ),
-    )
-
-req = ::OpenApiSDK::Operations::GetLinksRequest.new(
-  page: 1.0,
-  page_size: 50.0,
-)
-
-res = s.links.list(req)
-
-if ! res.link_schemas.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [::OpenApiSDK::Operations::GetLinksRequest](../../models/operations/getlinksrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::GetLinksResponse)](../../models/operations/getlinksresponse.md)**
-
-
-
-## count
-
-Retrieve the number of links for the authenticated workspace.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
-      ),
-    )
-
-req = ::OpenApiSDK::Operations::GetLinksCountRequest.new()
-
-res = s.links.count(req)
-
-if ! res.number.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::OpenApiSDK::Operations::GetLinksCountRequest](../../models/operations/getlinkscountrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
-
-### Response
-
-**[T.nilable(::OpenApiSDK::Operations::GetLinksCountResponse)](../../models/operations/getlinkscountresponse.md)**
-
-
-
-## get
-
-Retrieve the info for a link.
-
-### Example Usage
-
-```ruby
-require 'dub'
-
-s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
-      ),
-    )
-
-req = ::OpenApiSDK::Operations::GetLinkInfoRequest.new(
-  link_id: "clux0rgak00011...",
-  external_id: "123456",
-)
-
-res = s.links.get(req)
-
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -178,13 +63,192 @@ end
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::OpenApiSDK::Operations::GetLinkInfoRequest](../../models/operations/getlinkinforequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [Models::Operations::CreateLinkRequestBody](../../models/operations/createlinkrequestbody.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::GetLinkInfoResponse)](../../models/operations/getlinkinforesponse.md)**
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## list
+
+Retrieve a paginated list of links for the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="getLinks" method="get" path="/links" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::GetLinksRequest.new(
+  show_archived: false,
+  with_tags: true,
+  page_size: 50.0,
+)
+
+res = s.links.list(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [Models::Operations::GetLinksRequest](../../models/operations/getlinksrequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::GetLinksResponse)](../../models/operations/getlinksresponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## count
+
+Retrieve the number of links for the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="getLinksCount" method="get" path="/links/count" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::GetLinksCountRequest.new(
+  show_archived: false,
+  with_tags: false,
+)
+
+res = s.links.count(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::GetLinksCountRequest](../../models/operations/getlinkscountrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+
+### Response
+
+**[T.nilable(::Float)](../../models/operations/.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## get
+
+Retrieve the info for a link.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="getLinkInfo" method="get" path="/links/info" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::GetLinkInfoRequest.new(
+  link_id: 'clux0rgak00011...',
+  external_id: '123456',
+)
+
+res = s.links.get(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::GetLinkInfoRequest](../../models/operations/getlinkinforequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## update
 
@@ -192,34 +256,36 @@ Update a link for the authenticated workspace. If there's no change, returns it 
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="updateLink" method="patch" path="/links/{linkId}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.links.update(link_id="<id>", request_body=::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+res = s.links.update(link_id: '<id>', request_body: Models::Operations::UpdateLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::UpdateLinkTestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::UpdateLinkTestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::UpdateLinkTestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 ))
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -230,13 +296,26 @@ end
 | Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to update. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
-| `request_body`                                                                                                                        | [T.nilable(::OpenApiSDK::Operations::UpdateLinkRequestBody)](../../models/operations/updatelinkrequestbody.md)                        | :heavy_minus_sign:                                                                                                                    | N/A                                                                                                                                   |
+| `request_body`                                                                                                                        | [T.nilable(Models::Operations::UpdateLinkRequestBody)](../../models/operations/updatelinkrequestbody.md)                              | :heavy_minus_sign:                                                                                                                    | N/A                                                                                                                                   |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::UpdateLinkResponse)](../../models/operations/updatelinkresponse.md)**
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## delete
 
@@ -244,18 +323,20 @@ Delete a link for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="deleteLink" method="delete" path="/links/{linkId}" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-res = s.links.delete(link_id="<id>")
+res = s.links.delete(link_id: '<id>')
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -269,9 +350,22 @@ end
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::DeleteLinkResponse)](../../models/operations/deletelinkresponse.md)**
+**[T.nilable(Models::Operations::DeleteLinkResponseBody)](../../models/operations/deletelinkresponsebody.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## create_many
 
@@ -279,38 +373,40 @@ Bulk create up to 100 links for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="bulkCreateLinks" method="post" path="/links/bulk" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
 req = [
-  ::OpenApiSDK::Operations::RequestBody.new(
-    url: "https://google.com",
-    external_id: "123456",
+  Models::Operations::RequestBody.new(
+    url: 'https://google.com',
+    external_id: '123456',
     tag_ids: [
-      "clux0rgak00011...",
+      'clux0rgak00011...',
     ],
     test_variants: [
-      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(
-        url: "https://example.com/variant-1",
+      Models::Operations::BulkCreateLinksTestVariants.new(
+        url: 'https://example.com/variant-1',
         percentage: 50.0,
       ),
-      ::OpenApiSDK::Operations::BulkCreateLinksTestVariants.new(
-        url: "https://example.com/variant-2",
+      Models::Operations::BulkCreateLinksTestVariants.new(
+        url: 'https://example.com/variant-2',
         percentage: 50.0,
       ),
     ],
   ),
 ]
 
-res = s.links.create_many(req)
+res = s.links.create_many(request: req)
 
-if ! res.anies.nil?
+unless res.nil?
   # handle response
 end
 
@@ -318,15 +414,28 @@ end
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [T::Array[::OpenApiSDK::Operations::RequestBody]](../../models//.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `request`                                                      | [T::Array[Models::Operations::RequestBody]](../../models//.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::BulkCreateLinksResponse)](../../models/operations/bulkcreatelinksresponse.md)**
+**[T.nilable(T::Array[T.any(Models::Shared::LinkSchema, Models::Shared::LinkErrorSchema)])](../../models/operations/.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## update_many
 
@@ -334,37 +443,39 @@ Bulk update up to 100 links with the same data for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="bulkUpdateLinks" method="patch" path="/links/bulk" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::BulkUpdateLinksRequestBody.new(
-  data: ::OpenApiSDK::Operations::Data.new(
-    url: "https://google.com",
+req = Models::Operations::BulkUpdateLinksRequestBody.new(
+  data: Models::Operations::Data.new(
+    url: 'https://google.com',
     tag_ids: [
-      "clux0rgak00011...",
+      'clux0rgak00011...',
     ],
     test_variants: [
-      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(
-        url: "https://example.com/variant-1",
+      Models::Operations::BulkUpdateLinksTestVariants.new(
+        url: 'https://example.com/variant-1',
         percentage: 50.0,
       ),
-      ::OpenApiSDK::Operations::BulkUpdateLinksTestVariants.new(
-        url: "https://example.com/variant-2",
+      Models::Operations::BulkUpdateLinksTestVariants.new(
+        url: 'https://example.com/variant-2',
         percentage: 50.0,
       ),
     ],
   ),
 )
 
-res = s.links.update_many(req)
+res = s.links.update_many(request: req)
 
-if ! res.link_schemas.nil?
+unless res.nil?
   # handle response
 end
 
@@ -372,15 +483,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::OpenApiSDK::Operations::BulkUpdateLinksRequestBody](../../models/operations/bulkupdatelinksrequestbody.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::BulkUpdateLinksRequestBody](../../models/operations/bulkupdatelinksrequestbody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::BulkUpdateLinksResponse)](../../models/operations/bulkupdatelinksresponse.md)**
+**[T.nilable(T::Array[Models::Shared::LinkSchema])](../../models/operations/.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## delete_many
 
@@ -388,25 +512,27 @@ Bulk delete up to 100 links for the authenticated workspace.
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="bulkDeleteLinks" method="delete" path="/links/bulk" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::BulkDeleteLinksRequest.new(
+req = Models::Operations::BulkDeleteLinksRequest.new(
   link_ids: [
-    "clux0rgak00011...",
-    "clux0rgak00022...",
+    'clux0rgak00011...',
+    'clux0rgak00022...',
   ],
 )
 
-res = s.links.delete_many(req)
+res = s.links.delete_many(request: req)
 
-if ! res.object.nil?
+unless res.nil?
   # handle response
 end
 
@@ -414,15 +540,28 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::OpenApiSDK::Operations::BulkDeleteLinksRequest](../../models/operations/bulkdeletelinksrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::BulkDeleteLinksRequest](../../models/operations/bulkdeletelinksrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::BulkDeleteLinksResponse)](../../models/operations/bulkdeletelinksresponse.md)**
+**[T.nilable(Models::Operations::BulkDeleteLinksResponseBody)](../../models/operations/bulkdeletelinksresponsebody.md)**
 
+### Errors
 
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## upsert
 
@@ -430,36 +569,38 @@ Upsert a link for the authenticated workspace by its URL. If a link with the sam
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="upsertLink" method="put" path="/links/upsert" -->
 ```ruby
 require 'dub'
 
+Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: ::OpenApiSDK::Shared::Security.new(
-        token: "DUB_API_KEY",
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
       ),
     )
 
-req = ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
-  url: "https://google.com",
-  external_id: "123456",
+req = Models::Operations::UpsertLinkRequestBody.new(
+  url: 'https://google.com',
+  external_id: '123456',
   tag_ids: [
-    "clux0rgak00011...",
+    'clux0rgak00011...',
   ],
   test_variants: [
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-1",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-1',
       percentage: 50.0,
     ),
-    ::OpenApiSDK::Operations::UpsertLinkTestVariants.new(
-      url: "https://example.com/variant-2",
+    Models::Operations::UpsertLinkTestVariants.new(
+      url: 'https://example.com/variant-2',
       percentage: 50.0,
     ),
   ],
 )
 
-res = s.links.upsert(req)
+res = s.links.upsert(request: req)
 
-if ! res.link_schema.nil?
+unless res.nil?
   # handle response
 end
 
@@ -467,11 +608,25 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::OpenApiSDK::Operations::UpsertLinkRequestBody](../../models/operations/upsertlinkrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::UpsertLinkRequestBody](../../models/operations/upsertlinkrequestbody.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::OpenApiSDK::Operations::UpsertLinkResponse)](../../models/operations/upsertlinkresponse.md)**
+**[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
 
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |

@@ -5,20 +5,24 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # ListCommissionsQueryParamInterval - The interval to retrieve commissions for.
-    class ListCommissionsQueryParamInterval < T::Enum
-      enums do
-        TWENTY_FOURH = new('24h')
-        SEVEND = new('7d')
-        THIRTYD = new('30d')
-        NINETYD = new('90d')
-        ONEY = new('1y')
-        MTD = new('mtd')
-        QTD = new('qtd')
-        YTD = new('ytd')
-        ALL = new('all')
+  module Models
+    module Operations
+    
+      # ListCommissionsQueryParamInterval - The interval to retrieve commissions for.
+      class ListCommissionsQueryParamInterval < T::Enum
+
+
+        enums do
+          TWENTY_FOURH = new('24h')
+          SEVEND = new('7d')
+          THIRTYD = new('30d')
+          NINETYD = new('90d')
+          ONEY = new('1y')
+          MTD = new('mtd')
+          QTD = new('qtd')
+          YTD = new('ytd')
+          ALL = new('all')
+        end
       end
     end
   end

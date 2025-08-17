@@ -5,43 +5,60 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListPartnersRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListPartnersRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # A filter on the list based on the partner's `country` field.
-      field :country, T.nilable(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
-      # Whether to include stats fields on the partner (`clicks`, `leads`, `sales`, `saleAmount`, `commissions`, `netRevenue`). If false, those fields will be returned as 0.
-      field :include_expanded_fields, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
-      # The page number for pagination.
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of items per page.
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
-      # A search query to filter partners by name, email, or tenantId.
-      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
-      # The field to sort the partners by. The default is `saleAmount`.
-      field :sort_by, T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
-      # The sort order. The default is `desc`.
-      field :sort_order, T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-      # A filter on the list based on the partner's `status` field.
-      field :status, T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
-      # A case-sensitive filter on the list based on the partner's `tenantId` field. The value must be a string. Takes precedence over `search`.
-      field :tenant_id, T.nilable(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+        # A filter on the list based on the partner's `status` field.
+        field :status, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        # A filter on the list based on the partner's `country` field.
+        field :country, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
+        # A case-sensitive filter on the list based on the partner's `tenantId` field. The value must be a string. Takes precedence over `search`.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
+        # Whether to include stats fields on the partner (`clicks`, `leads`, `conversions`, `sales`, `saleAmount`, `commissions`, `netRevenue`). If false, those fields will be returned as 0.
+        field :include_expanded_fields, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
+        # A search query to filter partners by name, email, or tenantId.
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The field to sort the partners by. The default is `saleAmount`.
+        field :sort_by, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+        # The sort order. The default is `desc`.
+        field :sort_order, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # The number of items per page.
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
+        sig { params(status: T.nilable(Models::Operations::ListPartnersQueryParamStatus), country: T.nilable(::String), tenant_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), search: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPartnersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(status: nil, country: nil, tenant_id: nil, include_expanded_fields: nil, search: nil, sort_by: Models::Operations::ListPartnersQueryParamSortBy::SALE_AMOUNT, sort_order: Models::Operations::ListPartnersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
+          @status = status
+          @country = country
+          @tenant_id = tenant_id
+          @include_expanded_fields = include_expanded_fields
+          @search = search
+          @sort_by = sort_by
+          @sort_order = sort_order
+          @page = page
+          @page_size = page_size
+        end
 
-      sig { params(country: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String), sort_by: T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamSortOrder), status: T.nilable(::OpenApiSDK::Operations::ListPartnersQueryParamStatus), tenant_id: T.nilable(::String)).void }
-      def initialize(country: nil, include_expanded_fields: nil, page: nil, page_size: nil, search: nil, sort_by: nil, sort_order: nil, status: nil, tenant_id: nil)
-        @country = country
-        @include_expanded_fields = include_expanded_fields
-        @page = page
-        @page_size = page_size
-        @search = search
-        @sort_by = sort_by
-        @sort_order = sort_order
-        @status = status
-        @tenant_id = tenant_id
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @status == other.status
+          return false unless @country == other.country
+          return false unless @tenant_id == other.tenant_id
+          return false unless @include_expanded_fields == other.include_expanded_fields
+          return false unless @search == other.search
+          return false unless @sort_by == other.sort_by
+          return false unless @sort_order == other.sort_order
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

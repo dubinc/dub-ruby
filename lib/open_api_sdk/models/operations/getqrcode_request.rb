@@ -5,43 +5,60 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class GetQRCodeRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class GetQRCodeRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The URL to generate a QR code for.
-      field :url, ::String, { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
-      # The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.
-      field :bg_color, T.nilable(::String), { 'query_param': { 'field_name': 'bgColor', 'style': 'form', 'explode': true } }
-      # The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.
-      field :fg_color, T.nilable(::String), { 'query_param': { 'field_name': 'fgColor', 'style': 'form', 'explode': true } }
-      # Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.
-      field :hide_logo, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'hideLogo', 'style': 'form', 'explode': true } }
-      # DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.
-      field :include_margin, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'includeMargin', 'style': 'form', 'explode': true } }
-      # The level of error correction to use for the QR code. Defaults to `L` if not provided.
-      field :level, T.nilable(::OpenApiSDK::Operations::Level), { 'query_param': { 'field_name': 'level', 'style': 'form', 'explode': true } }
-      # The logo to include in the QR code. Can only be used with a paid plan on Dub.
-      field :logo, T.nilable(::String), { 'query_param': { 'field_name': 'logo', 'style': 'form', 'explode': true } }
-      # The size of the margin around the QR code. Defaults to 2 if not provided.
-      field :margin, T.nilable(::Float), { 'query_param': { 'field_name': 'margin', 'style': 'form', 'explode': true } }
-      # The size of the QR code in pixels. Defaults to `600` if not provided.
-      field :size, T.nilable(::Float), { 'query_param': { 'field_name': 'size', 'style': 'form', 'explode': true } }
+        # The URL to generate a QR code for.
+        field :url, ::String, { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
+        # The logo to include in the QR code. Can only be used with a paid plan on Dub.
+        field :logo, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'logo', 'style': 'form', 'explode': true } }
+        # The size of the QR code in pixels. Defaults to `600` if not provided.
+        field :size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'size', 'style': 'form', 'explode': true } }
+        # The level of error correction to use for the QR code. Defaults to `L` if not provided.
+        field :level, Crystalline::Nilable.new(Models::Operations::Level), { 'query_param': { 'field_name': 'level', 'style': 'form', 'explode': true } }
+        # The foreground color of the QR code in hex format. Defaults to `#000000` if not provided.
+        field :fg_color, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fgColor', 'style': 'form', 'explode': true } }
+        # The background color of the QR code in hex format. Defaults to `#ffffff` if not provided.
+        field :bg_color, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'bgColor', 'style': 'form', 'explode': true } }
+        # Whether to hide the logo in the QR code. Can only be used with a paid plan on Dub.
+        field :hide_logo, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'hideLogo', 'style': 'form', 'explode': true } }
+        # The size of the margin around the QR code. Defaults to 2 if not provided.
+        field :margin, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'margin', 'style': 'form', 'explode': true } }
+        # DEPRECATED: Margin is included by default. Use the `margin` prop to customize the margin size.
+        field :include_margin, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeMargin', 'style': 'form', 'explode': true } }
 
+        sig { params(url: ::String, logo: T.nilable(::String), size: T.nilable(::Float), level: T.nilable(Models::Operations::Level), fg_color: T.nilable(::String), bg_color: T.nilable(::String), hide_logo: T.nilable(T::Boolean), margin: T.nilable(::Float), include_margin: T.nilable(T::Boolean)).void }
+        def initialize(url:, logo: nil, size: 600.0, level: Models::Operations::Level::L, fg_color: '#000000', bg_color: '#FFFFFF', hide_logo: true, margin: 2.0, include_margin: true)
+          @url = url
+          @logo = logo
+          @size = size
+          @level = level
+          @fg_color = fg_color
+          @bg_color = bg_color
+          @hide_logo = hide_logo
+          @margin = margin
+          @include_margin = include_margin
+        end
 
-      sig { params(url: ::String, bg_color: T.nilable(::String), fg_color: T.nilable(::String), hide_logo: T.nilable(T::Boolean), include_margin: T.nilable(T::Boolean), level: T.nilable(::OpenApiSDK::Operations::Level), logo: T.nilable(::String), margin: T.nilable(::Float), size: T.nilable(::Float)).void }
-      def initialize(url: nil, bg_color: nil, fg_color: nil, hide_logo: nil, include_margin: nil, level: nil, logo: nil, margin: nil, size: nil)
-        @url = url
-        @bg_color = bg_color
-        @fg_color = fg_color
-        @hide_logo = hide_logo
-        @include_margin = include_margin
-        @level = level
-        @logo = logo
-        @margin = margin
-        @size = size
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @url == other.url
+          return false unless @logo == other.logo
+          return false unless @size == other.size
+          return false unless @level == other.level
+          return false unless @fg_color == other.fg_color
+          return false unless @bg_color == other.bg_color
+          return false unless @hide_logo == other.hide_logo
+          return false unless @margin == other.margin
+          return false unless @include_margin == other.include_margin
+          true
+        end
       end
     end
   end

@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class Click < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Click
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
 
+        sig { params(id: ::String).void }
+        def initialize(id:)
+          @id = id
+        end
 
-      sig { params(id: ::String).void }
-      def initialize(id: nil)
-        @id = id
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          true
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class ListDomainsRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListDomainsRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Whether to include archived domains in the response. Defaults to `false` if not provided.
-      field :archived, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'archived', 'style': 'form', 'explode': true } }
-      # The page number for pagination.
-      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of items per page.
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
-      # The search term to filter the domains by.
-      field :search, T.nilable(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The search term to filter the domains by.
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # Whether to include archived domains in the response. Defaults to `false` if not provided.
+        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'archived', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # The number of items per page.
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
+        sig { params(search: T.nilable(::String), archived: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, archived: true, page: 1.0, page_size: 50.0)
+          @search = search
+          @archived = archived
+          @page = page
+          @page_size = page_size
+        end
 
-      sig { params(archived: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float), search: T.nilable(::String)).void }
-      def initialize(archived: nil, page: nil, page_size: nil, search: nil)
-        @archived = archived
-        @page = page
-        @page_size = page_size
-        @search = search
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @search == other.search
+          return false unless @archived == other.archived
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

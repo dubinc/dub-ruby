@@ -5,13 +5,17 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # ListCommissionsQueryParamSortOrder - The sort order for the list of commissions.
-    class ListCommissionsQueryParamSortOrder < T::Enum
-      enums do
-        ASC = new('asc')
-        DESC = new('desc')
+  module Models
+    module Operations
+    
+      # ListCommissionsQueryParamSortOrder - The sort order for the list of commissions.
+      class ListCommissionsQueryParamSortOrder < T::Enum
+
+
+        enums do
+          ASC = new('asc')
+          DESC = new('desc')
+        end
       end
     end
   end

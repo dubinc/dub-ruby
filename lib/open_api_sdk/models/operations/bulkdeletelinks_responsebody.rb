@@ -5,19 +5,28 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # The deleted links count.
-    class BulkDeleteLinksResponseBody < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # The deleted links count.
+      class BulkDeleteLinksResponseBody
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The number of links deleted.
-      field :deleted_count, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deletedCount') } }
+        # The number of links deleted.
+        field :deleted_count, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deletedCount'), required: true } }
 
+        sig { params(deleted_count: ::Float).void }
+        def initialize(deleted_count:)
+          @deleted_count = deleted_count
+        end
 
-      sig { params(deleted_count: ::Float).void }
-      def initialize(deleted_count: nil)
-        @deleted_count = deleted_count
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @deleted_count == other.deleted_count
+          true
+        end
       end
     end
   end

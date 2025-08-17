@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class UpdateCommissionStatus < T::Enum
-      enums do
-        PENDING = new('pending')
-        PROCESSED = new('processed')
-        PAID = new('paid')
-        REFUNDED = new('refunded')
-        DUPLICATE = new('duplicate')
-        FRAUD = new('fraud')
-        CANCELED = new('canceled')
+      class UpdateCommissionStatus < T::Enum
+
+
+        enums do
+          PENDING = new('pending')
+          PROCESSED = new('processed')
+          PAID = new('paid')
+          REFUNDED = new('refunded')
+          DUPLICATE = new('duplicate')
+          FRAUD = new('fraud')
+          CANCELED = new('canceled')
+        end
       end
     end
   end

@@ -5,18 +5,22 @@
 
 
 module OpenApiSDK
-  module Operations
-  
-    # ListPartnersQueryParamStatus - A filter on the list based on the partner's `status` field.
-    class ListPartnersQueryParamStatus < T::Enum
-      enums do
-        PENDING = new('pending')
-        APPROVED = new('approved')
-        REJECTED = new('rejected')
-        INVITED = new('invited')
-        DECLINED = new('declined')
-        BANNED = new('banned')
-        ARCHIVED = new('archived')
+  module Models
+    module Operations
+    
+      # ListPartnersQueryParamStatus - A filter on the list based on the partner's `status` field.
+      class ListPartnersQueryParamStatus < T::Enum
+
+
+        enums do
+          PENDING = new('pending')
+          APPROVED = new('approved')
+          REJECTED = new('rejected')
+          INVITED = new('invited')
+          DECLINED = new('declined')
+          BANNED = new('banned')
+          ARCHIVED = new('archived')
+        end
       end
     end
   end
