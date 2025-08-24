@@ -1,21 +1,21 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: a235acfd26dc6b8527ab58849870a5ad
+  docChecksum: b064e9938ff571586b1d703bf639a40f
   docVersion: 0.0.1
-  speakeasyVersion: 1.605.1
-  generationVersion: 2.684.0
-  releaseVersion: 0.10.0
-  configChecksum: 813a7282a5e7875bac1b5697fa90ece9
+  speakeasyVersion: 1.606.3
+  generationVersion: 2.687.1
+  releaseVersion: 0.10.1
+  configChecksum: 43fc1c6efe6b988a71f564fdac35892c
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 features:
   ruby:
     constsAndDefaults: 0.1.1
-    core: 3.10.1
+    core: 3.10.2
     deprecations: 2.81.2
-    errors: 0.1.0
+    errors: 0.1.1
     examples: 2.81.6
     flattening: 2.81.1
     globalSecurity: 2.81.8
@@ -1795,7 +1795,7 @@ examples:
   trackSale:
     speakeasy-default-track-sale:
       requestBody:
-        application/json: {"customerExternalId": "<id>", "amount": 594903, "currency": "usd", "eventName": "Invoice paid", "paymentProcessor": "paddle", "invoiceId": null, "leadEventName": "Cloned template 1481267"}
+        application/json: {"customerExternalId": "<id>", "amount": 594903, "currency": "usd", "eventName": "Invoice paid", "paymentProcessor": "custom", "invoiceId": null, "leadEventName": "Cloned template 1481267"}
       responses:
         "200":
           application/json: {"eventName": "<value>", "customer": {"id": "<id>", "name": "<value>", "email": null, "avatar": "https://loremflickr.com/752/3883?lock=4755696464293602", "externalId": "<id>"}, "sale": null}
@@ -2275,4 +2275,4 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `dub.customers.create()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.customers.get()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.links.get()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.update()`: \n  *  `request_body.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.create_many()`: \n  *  `request.[].geo` **Changed** **Breaking** :warning:\n  *  `response.[].[link_schema].geo` **Changed** **Breaking** :warning:\n* `dub.links.update_many()`: \n  *  `request.data.geo` **Changed** **Breaking** :warning:\n  *  `response.[].geo` **Changed** **Breaking** :warning:\n* `dub.links.upsert()`: \n  *  `request.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.analytics.retrieve()`: \n  *  `request.country` **Changed** **Breaking** :warning:\n* `dub.events.list()`: \n  *  `request.country` **Changed** **Breaking** :warning:\n  *  `response.[]` **Changed** **Breaking** :warning:\n* `dub.customers.update()`:  `response.discount.default` **Removed** **Breaking** :warning:\n* `dub.links.create()`: \n  *  `request.geo` **Changed** **Breaking** :warning:\n  *  `response.geo` **Changed** **Breaking** :warning:\n* `dub.links.list()`:  `response.[].geo` **Changed** **Breaking** :warning:\n* `dub.customers.list()`:  `response.[].discount.default` **Removed** **Breaking** :warning:\n* `dub.embed_tokens.referrals()`: \n  *  `request.partner` **Changed** **Breaking** :warning:\n* `dub.partners.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed**\n* `dub.partners.create_link()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.partners.upsert_link()`:  `response.geo` **Changed** **Breaking** :warning:\n* `dub.workspaces.update()`:  `response` **Changed** **Breaking** :warning:\n* `dub.workspaces.get()`:  `response` **Changed** **Breaking** :warning:\n* `dub.commissions.list()`: \n  *  `request.group_id` **Added**\n* `dub.partners.analytics()`: \n  *  `request.query` **Added**\n* `dub.partners.list()`: \n  *  `request.sort_by` **Changed**\n  *  `response.[]` **Changed**\n"
+releaseNotes: "## SDK Changes Detected:\n* `dub.workspaces.update()`: \n  *  `request_body.allowed_hostnames` **Removed** **Breaking** :warning:\n* `dub.events.list()`:  `response.[].[sale].sale.payment_processor` **Changed**\n* `dub.track.sale()`: \n  *  `request.payment_processor` **Changed**\n"

@@ -9,7 +9,7 @@ module OpenApiSDK
     module Errors
     
       # The server has encountered a situation it does not know how to handle.
-      class InternalServerError
+      class InternalServerError < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

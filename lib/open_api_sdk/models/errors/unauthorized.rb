@@ -9,7 +9,7 @@ module OpenApiSDK
     module Errors
     
       # Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
-      class Unauthorized
+      class Unauthorized < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

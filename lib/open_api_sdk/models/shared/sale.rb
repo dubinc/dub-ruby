@@ -16,12 +16,12 @@ module OpenApiSDK
         # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1437` JPY). Learn more: https://d.to/currency
         field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
         # The payment processor via which the sale was made.
-        field :payment_processor, Models::Shared::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PaymentProcessor, false) } }
+        field :payment_processor, Crystalline::Nilable.new(Models::Shared::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(Models::Shared::PaymentProcessor, true) } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
-        sig { params(amount: ::Integer, payment_processor: Models::Shared::PaymentProcessor, invoice_id: T.nilable(::String)).void }
-        def initialize(amount:, payment_processor:, invoice_id: nil)
+        sig { params(amount: ::Integer, payment_processor: T.nilable(Models::Shared::PaymentProcessor), invoice_id: T.nilable(::String)).void }
+        def initialize(amount:, payment_processor: Models::Shared::PaymentProcessor::CUSTOM, invoice_id: nil)
           @amount = amount
           @payment_processor = payment_processor
           @invoice_id = invoice_id

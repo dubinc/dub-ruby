@@ -9,7 +9,7 @@ module OpenApiSDK
     module Errors
     
       # This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
-      class InviteExpired
+      class InviteExpired < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 
