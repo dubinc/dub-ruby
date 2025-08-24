@@ -17,12 +17,12 @@ module OpenApiSDK
         field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId'), required: true } }
         # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1437` JPY). Learn more: https://d.to/currency
         field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
-        # The payment processor via which the sale was made.
-        field :payment_processor, Models::Operations::PaymentProcessor, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::PaymentProcessor, false) } }
         # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
         field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
         # The name of the sale event. Recommended format: `Invoice paid` or `Subscription created`.
         field :event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
+        # The payment processor via which the sale was made.
+        field :payment_processor, Crystalline::Nilable.new(Models::Operations::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(Models::Operations::PaymentProcessor, true) } }
         # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
         field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
@@ -30,13 +30,13 @@ module OpenApiSDK
         # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event for a link-customer combination, which is the default behavior).
         field :lead_event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
 
-        sig { params(customer_external_id: ::String, amount: ::Integer, payment_processor: Models::Operations::PaymentProcessor, currency: T.nilable(::String), event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object]), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String)).void }
-        def initialize(customer_external_id:, amount:, payment_processor:, currency: 'usd', event_name: 'Purchase', metadata: nil, invoice_id: nil, lead_event_name: nil)
+        sig { params(customer_external_id: ::String, amount: ::Integer, currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::PaymentProcessor), metadata: T.nilable(T::Hash[Symbol, ::Object]), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String)).void }
+        def initialize(customer_external_id:, amount:, currency: 'usd', event_name: 'Purchase', payment_processor: Models::Operations::PaymentProcessor::CUSTOM, metadata: nil, invoice_id: nil, lead_event_name: nil)
           @customer_external_id = customer_external_id
           @amount = amount
-          @payment_processor = payment_processor
           @currency = currency
           @event_name = event_name
+          @payment_processor = payment_processor
           @metadata = metadata
           @invoice_id = invoice_id
           @lead_event_name = lead_event_name
@@ -47,9 +47,9 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @customer_external_id == other.customer_external_id
           return false unless @amount == other.amount
-          return false unless @payment_processor == other.payment_processor
           return false unless @currency == other.currency
           return false unless @event_name == other.event_name
+          return false unless @payment_processor == other.payment_processor
           return false unless @metadata == other.metadata
           return false unless @invoice_id == other.invoice_id
           return false unless @lead_event_name == other.lead_event_name

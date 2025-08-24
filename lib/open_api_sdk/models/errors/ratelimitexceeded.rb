@@ -9,7 +9,7 @@ module OpenApiSDK
     module Errors
     
       # The user has sent too many requests in a given amount of time ("rate limiting")
-      class RateLimitExceeded
+      class RateLimitExceeded < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

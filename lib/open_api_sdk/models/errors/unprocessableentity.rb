@@ -9,7 +9,7 @@ module OpenApiSDK
     module Errors
     
       # The request was well-formed but was unable to be followed due to semantic errors.
-      class UnprocessableEntity
+      class UnprocessableEntity < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

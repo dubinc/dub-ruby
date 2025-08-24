@@ -14,8 +14,6 @@ class OpenApiSDK::Models::Operations::UpdateWorkspaceRequestBody
   def slug=(str_); end
   def conversion_enabled(); end
   def conversion_enabled=(str_); end
-  def allowed_hostnames(); end
-  def allowed_hostnames=(str_); end
   def logo(); end
   def logo=(str_); end
 end

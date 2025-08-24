@@ -85,7 +85,6 @@ req = Models::Operations::TrackSaleRequestBody.new(
   customer_external_id: '<id>',
   amount: 594_903,
   event_name: 'Invoice paid',
-  payment_processor: Models::Operations::PaymentProcessor::PADDLE,
   lead_event_name: 'Cloned template 1481267',
 )
 

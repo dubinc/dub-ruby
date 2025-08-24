@@ -9,4 +9,3 @@
 | `slug`                  | *T.nilable(::String)*   | :heavy_minus_sign:      | N/A                     |
 | `logo`                  | *T.nilable(::String)*   | :heavy_minus_sign:      | N/A                     |
 | `conversion_enabled`    | *T.nilable(T::Boolean)* | :heavy_minus_sign:      | N/A                     |
-| `allowed_hostnames`     | T::Array<*::String*>    | :heavy_minus_sign:      | N/A                     |

@@ -20,16 +20,13 @@ module OpenApiSDK
 
         field :conversion_enabled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
 
-        field :allowed_hostnames, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames') } }
-
         field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
 
-        sig { params(name: T.nilable(::String), slug: T.nilable(::String), conversion_enabled: T.nilable(T::Boolean), allowed_hostnames: T.nilable(T::Array[::String]), logo: T.nilable(::String)).void }
-        def initialize(name: nil, slug: nil, conversion_enabled: nil, allowed_hostnames: nil, logo: nil)
+        sig { params(name: T.nilable(::String), slug: T.nilable(::String), conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::String)).void }
+        def initialize(name: nil, slug: nil, conversion_enabled: nil, logo: nil)
           @name = name
           @slug = slug
           @conversion_enabled = conversion_enabled
-          @allowed_hostnames = allowed_hostnames
           @logo = logo
         end
 
@@ -39,7 +36,6 @@ module OpenApiSDK
           return false unless @name == other.name
           return false unless @slug == other.slug
           return false unless @conversion_enabled == other.conversion_enabled
-          return false unless @allowed_hostnames == other.allowed_hostnames
           return false unless @logo == other.logo
           true
         end
