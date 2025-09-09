@@ -12,6 +12,18 @@ class OpenApiSDK::Models::Shared::Partner
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def total_clicks(); end
+  def total_clicks=(str_); end
+  def total_leads(); end
+  def total_leads=(str_); end
+  def total_conversions(); end
+  def total_conversions=(str_); end
+  def total_sales(); end
+  def total_sales=(str_); end
+  def total_sale_amount(); end
+  def total_sale_amount=(str_); end
+  def total_commissions(); end
+  def total_commissions=(str_); end
   def email(); end
   def email=(str_); end
   def image(); end

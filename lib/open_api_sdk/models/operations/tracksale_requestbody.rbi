@@ -20,8 +20,16 @@ class OpenApiSDK::Models::Operations::TrackSaleRequestBody
   def payment_processor=(str_); end
   def metadata(); end
   def metadata=(str_); end
+  def click_id(); end
+  def click_id=(str_); end
   def invoice_id(); end
   def invoice_id=(str_); end
   def lead_event_name(); end
   def lead_event_name=(str_); end
+  def customer_name(); end
+  def customer_name=(str_); end
+  def customer_email(); end
+  def customer_email=(str_); end
+  def customer_avatar(); end
+  def customer_avatar=(str_); end
 end

@@ -8,13 +8,14 @@ module OpenApiSDK
   module Models
     module Operations
     
-      # Mode - The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub.
+      # Mode - The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub; `deferred` will defer the lead event creation to a subsequent request.
       class Mode < T::Enum
 
 
         enums do
           ASYNC = new('async')
           WAIT = new('wait')
+          DEFERRED = new('deferred')
         end
       end
     end

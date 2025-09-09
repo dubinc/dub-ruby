@@ -14,10 +14,10 @@ class OpenApiSDK::Models::Operations::TrackLeadRequestBody
   def event_name=(str_); end
   def customer_external_id(); end
   def customer_external_id=(str_); end
-  def event_quantity(); end
-  def event_quantity=(str_); end
   def mode(); end
   def mode=(str_); end
+  def event_quantity(); end
+  def event_quantity=(str_); end
   def metadata(); end
   def metadata=(str_); end
   def customer_name(); end
