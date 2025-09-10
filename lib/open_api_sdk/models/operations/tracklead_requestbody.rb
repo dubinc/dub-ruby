@@ -13,16 +13,16 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The unique ID of the click that the lead conversion event is attributed to. You can read this value from `dub_id` cookie.
+        # The unique ID of the click that the lead conversion event is attributed to. You can read this value from `dub_id` cookie. If an empty string is provided, Dub will try to find an existing customer with the provided `customerExternalId` and use the `clickId` from the customer if found.
         field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId'), required: true } }
         # The name of the lead event to track. Can also be used as a unique identifier to associate a given lead event for a customer for a subsequent sale event (via the `leadEventName` prop in `/track/sale`).
         field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName'), required: true } }
         # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
         field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId'), required: true } }
+        # The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub; `deferred` will defer the lead event creation to a subsequent request.
+        field :mode, Crystalline::Nilable.new(Models::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': Utils.enum_from_string(Models::Operations::Mode, true) } }
         # The numerical value associated with this lead event (e.g., number of provisioned seats in a free trial). If defined as N, the lead event will be tracked N times.
         field :event_quantity, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventQuantity') } }
-        # The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub.
-        field :mode, Crystalline::Nilable.new(Models::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': Utils.enum_from_string(Models::Operations::Mode, true) } }
         # Additional metadata to be stored with the lead event. Max 10,000 characters.
         field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # The name of the customer. If not passed, a random name will be generated (e.g. “Big Red Caribou”).
@@ -32,13 +32,13 @@ module OpenApiSDK
         # The avatar URL of the customer.
         field :customer_avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
 
-        sig { params(click_id: ::String, event_name: ::String, customer_external_id: ::String, event_quantity: T.nilable(::Float), mode: T.nilable(Models::Operations::Mode), metadata: T.nilable(T::Hash[Symbol, ::Object]), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
-        def initialize(click_id:, event_name:, customer_external_id:, event_quantity: nil, mode: Models::Operations::Mode::ASYNC, metadata: nil, customer_name: nil, customer_email: nil, customer_avatar: nil)
+        sig { params(click_id: ::String, event_name: ::String, customer_external_id: ::String, mode: T.nilable(Models::Operations::Mode), event_quantity: T.nilable(::Float), metadata: T.nilable(T::Hash[Symbol, ::Object]), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
+        def initialize(click_id:, event_name:, customer_external_id:, mode: Models::Operations::Mode::ASYNC, event_quantity: nil, metadata: nil, customer_name: nil, customer_email: nil, customer_avatar: nil)
           @click_id = click_id
           @event_name = event_name
           @customer_external_id = customer_external_id
-          @event_quantity = event_quantity
           @mode = mode
+          @event_quantity = event_quantity
           @metadata = metadata
           @customer_name = customer_name
           @customer_email = customer_email
@@ -51,8 +51,8 @@ module OpenApiSDK
           return false unless @click_id == other.click_id
           return false unless @event_name == other.event_name
           return false unless @customer_external_id == other.customer_external_id
-          return false unless @event_quantity == other.event_quantity
           return false unless @mode == other.mode
+          return false unless @event_quantity == other.event_quantity
           return false unless @metadata == other.metadata
           return false unless @customer_name == other.customer_name
           return false unless @customer_email == other.customer_email
