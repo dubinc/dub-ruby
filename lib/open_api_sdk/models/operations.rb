@@ -156,6 +156,7 @@ module OpenApiSDK
       autoload :TagIds, 'open_api_sdk/models/operations/tagids.rb'
       autoload :TagNames, 'open_api_sdk/models/operations/tagnames.rb'
       autoload :TestVariants, 'open_api_sdk/models/operations/testvariants.rb'
+      autoload :TrackLeadLink, 'open_api_sdk/models/operations/tracklead_link.rb'
       autoload :TrackLeadRequestBody, 'open_api_sdk/models/operations/tracklead_requestbody.rb'
       autoload :TrackLeadResponseBody, 'open_api_sdk/models/operations/tracklead_responsebody.rb'
       autoload :TrackSaleCustomer, 'open_api_sdk/models/operations/tracksale_customer.rb'
