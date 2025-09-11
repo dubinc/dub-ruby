@@ -12,4 +12,6 @@ class OpenApiSDK::Models::Operations::TrackLeadResponseBody
   def click=(str_); end
   def customer(); end
   def customer=(str_); end
+  def link(); end
+  def link=(str_); end
 end

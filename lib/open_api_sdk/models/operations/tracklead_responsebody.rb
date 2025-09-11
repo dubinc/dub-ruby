@@ -18,10 +18,13 @@ module OpenApiSDK
 
         field :customer, Models::Operations::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
-        sig { params(click: Models::Operations::Click, customer: Models::Operations::Customer).void }
-        def initialize(click:, customer:)
+        field :link, Crystalline::Nilable.new(Models::Operations::TrackLeadLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
+
+        sig { params(click: Models::Operations::Click, customer: Models::Operations::Customer, link: T.nilable(Models::Operations::TrackLeadLink)).void }
+        def initialize(click:, customer:, link: nil)
           @click = click
           @customer = customer
+          @link = link
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -29,6 +32,7 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @click == other.click
           return false unless @customer == other.customer
+          return false unless @link == other.link
           true
         end
       end

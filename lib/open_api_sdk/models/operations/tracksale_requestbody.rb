@@ -25,17 +25,17 @@ module OpenApiSDK
         field :payment_processor, Crystalline::Nilable.new(Models::Operations::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(Models::Operations::PaymentProcessor, true) } }
         # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
         field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
-        # [For sale tracking without a pre-existing lead event]: The unique ID of the click that the sale conversion event is attributed to. You can read this value from `dub_id` cookie.
+        # [For direct sale tracking]: The unique ID of the click that the sale conversion event is attributed to. You can read this value from `dub_id` cookie.
         field :click_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId') } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
-        # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event for a link-customer combination, which is the default behavior). For sale tracking without a pre-existing lead event, this field can also be used to specify the lead event name.
+        # The name of the lead event that occurred before the sale (case-sensitive). This is used to associate the sale event with a particular lead event (instead of the latest lead event for a link-customer combination, which is the default behavior). For direct sale tracking, this field can also be used to specify the lead event name.
         field :lead_event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
-        # [For sale tracking without a pre-existing lead event]: The name of the customer. If not passed, a random name will be generated (e.g. “Big Red Caribou”).
+        # [For direct sale tracking]: The name of the customer. If not passed, a random name will be generated (e.g. “Big Red Caribou”).
         field :customer_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerName') } }
-        # [For sale tracking without a pre-existing lead event]: The email address of the customer.
+        # [For direct sale tracking]: The email address of the customer.
         field :customer_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerEmail') } }
-        # [For sale tracking without a pre-existing lead event]: The avatar URL of the customer.
+        # [For direct sale tracking]: The avatar URL of the customer.
         field :customer_avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
 
         sig { params(customer_external_id: ::String, amount: ::Integer, currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::PaymentProcessor), metadata: T.nilable(T::Hash[Symbol, ::Object]), click_id: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
