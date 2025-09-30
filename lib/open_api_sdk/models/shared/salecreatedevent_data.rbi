@@ -18,4 +18,8 @@ class OpenApiSDK::Models::Shared::SaleCreatedEventData
   def link=(str_); end
   def sale(); end
   def sale=(str_); end
+  def metadata(); end
+  def metadata=(str_); end
+  def partner(); end
+  def partner=(str_); end
 end

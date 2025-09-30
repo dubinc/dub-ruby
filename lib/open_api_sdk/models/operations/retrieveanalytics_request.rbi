@@ -82,4 +82,6 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def utm_term=(str_); end
   def utm_content(); end
   def utm_content=(str_); end
+  def ref(); end
+  def ref=(str_); end
 end

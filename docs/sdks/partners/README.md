@@ -102,9 +102,10 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::ListPartnersRequest.new(
   status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,
   country: 'US',
+  email: 'panic@thedis.co',
   tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
-  include_expanded_fields: false,
   search: 'john',
+  include_expanded_fields: false,
   page_size: 50.0,
 )
 

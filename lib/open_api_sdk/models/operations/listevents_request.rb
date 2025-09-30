@@ -85,6 +85,8 @@ module OpenApiSDK
         field :utm_term, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
         # The UTM content of the short link.
         field :utm_content, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_content', 'style': 'form', 'explode': true } }
+        # The ref of the short link.
+        field :ref, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'ref', 'style': 'form', 'explode': true } }
 
         field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
 
@@ -96,8 +98,8 @@ module OpenApiSDK
         # DEPRECATED. Use `sortOrder` instead.
         field :order, Crystalline::Nilable.new(Models::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::QueryParamTrigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), page: T.nilable(::Float), limit: T.nilable(::Float), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), sort_by: T.nilable(Models::Operations::QueryParamSortBy), order: T.nilable(Models::Operations::Order)).void }
-        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, page: 1.0, limit: 100.0, sort_order: Models::Operations::QueryParamSortOrder::DESC, sort_by: Models::Operations::QueryParamSortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::QueryParamTrigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), page: T.nilable(::Float), limit: T.nilable(::Float), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), sort_by: T.nilable(Models::Operations::QueryParamSortBy), order: T.nilable(Models::Operations::Order)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, page: 1.0, limit: 100.0, sort_order: Models::Operations::QueryParamSortOrder::DESC, sort_by: Models::Operations::QueryParamSortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
           @domain = domain
           @key = key
           @link_id = link_id
@@ -134,6 +136,7 @@ module OpenApiSDK
           @utm_campaign = utm_campaign
           @utm_term = utm_term
           @utm_content = utm_content
+          @ref = ref
           @page = page
           @limit = limit
           @sort_order = sort_order
@@ -180,6 +183,7 @@ module OpenApiSDK
           return false unless @utm_campaign == other.utm_campaign
           return false unless @utm_term == other.utm_term
           return false unless @utm_content == other.utm_content
+          return false unless @ref == other.ref
           return false unless @page == other.page
           return false unless @limit == other.limit
           return false unless @sort_order == other.sort_order

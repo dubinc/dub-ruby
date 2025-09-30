@@ -30,7 +30,7 @@ module OpenApiSDK
 
         field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
 
-        field :partner, Models::Shared::Partner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner'), required: true } }
+        field :partner, Models::Shared::CommissionCreatedEventPartner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner'), required: true } }
 
         field :type, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::CommissionCreatedEventType, true) } }
 
@@ -42,7 +42,7 @@ module OpenApiSDK
 
         field :customer, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
-        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::Partner, type: T.nilable(Models::Shared::CommissionCreatedEventType), invoice_id: T.nilable(::String), description: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
+        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::CommissionCreatedEventPartner, type: T.nilable(Models::Shared::CommissionCreatedEventType), invoice_id: T.nilable(::String), description: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
         def initialize(id:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, type: nil, invoice_id: nil, description: nil, user_id: nil, customer: nil)
           @id = id
           @amount = amount

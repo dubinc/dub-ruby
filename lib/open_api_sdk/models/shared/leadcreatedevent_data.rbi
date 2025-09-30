@@ -16,4 +16,8 @@ class OpenApiSDK::Models::Shared::LeadCreatedEventData
   def click=(str_); end
   def link(); end
   def link=(str_); end
+  def metadata(); end
+  def metadata=(str_); end
+  def partner(); end
+  def partner=(str_); end
 end

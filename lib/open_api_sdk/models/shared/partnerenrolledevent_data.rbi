@@ -20,6 +20,8 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def created_at=(str_); end
   def status(); end
   def status=(str_); end
+  def company_name(); end
+  def company_name=(str_); end
   def email(); end
   def email=(str_); end
   def image(); end
@@ -70,32 +72,14 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def net_revenue=(str_); end
   def website(); end
   def website=(str_); end
-  def website_txt_record(); end
-  def website_txt_record=(str_); end
-  def website_verified_at(); end
-  def website_verified_at=(str_); end
   def youtube(); end
   def youtube=(str_); end
-  def youtube_verified_at(); end
-  def youtube_verified_at=(str_); end
-  def youtube_subscriber_count(); end
-  def youtube_subscriber_count=(str_); end
-  def youtube_view_count(); end
-  def youtube_view_count=(str_); end
   def twitter(); end
   def twitter=(str_); end
-  def twitter_verified_at(); end
-  def twitter_verified_at=(str_); end
   def linkedin(); end
   def linkedin=(str_); end
-  def linkedin_verified_at(); end
-  def linkedin_verified_at=(str_); end
   def instagram(); end
   def instagram=(str_); end
-  def instagram_verified_at(); end
-  def instagram_verified_at=(str_); end
   def tiktok(); end
   def tiktok=(str_); end
-  def tiktok_verified_at(); end
-  def tiktok_verified_at=(str_); end
 end
