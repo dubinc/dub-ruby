@@ -16,6 +16,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsRequest
   def payout_id=(str_); end
   def partner_id(); end
   def partner_id=(str_); end
+  def tenant_id(); end
+  def tenant_id=(str_); end
   def group_id(); end
   def group_id=(str_); end
   def invoice_id(); end

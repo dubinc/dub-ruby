@@ -19,8 +19,10 @@ module OpenApiSDK
         field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated payout.
         field :payout_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'payoutId', 'style': 'form', 'explode': true } }
-        # Filter the list of commissions by the associated partner.
+        # Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`.
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated partner group.
         field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
@@ -42,12 +44,13 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), group_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, group_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page: 1.0, page_size: 100.0)
+        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page: 1.0, page_size: 100.0)
           @type = type
           @customer_id = customer_id
           @payout_id = payout_id
           @partner_id = partner_id
+          @tenant_id = tenant_id
           @group_id = group_id
           @invoice_id = invoice_id
           @status = status
@@ -67,6 +70,7 @@ module OpenApiSDK
           return false unless @customer_id == other.customer_id
           return false unless @payout_id == other.payout_id
           return false unless @partner_id == other.partner_id
+          return false unless @tenant_id == other.tenant_id
           return false unless @group_id == other.group_id
           return false unless @invoice_id == other.invoice_id
           return false unless @status == other.status

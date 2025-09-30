@@ -25,6 +25,8 @@ module OpenApiSDK
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
         # The status of the partner's enrollment in the program.
         field :status, Models::Operations::CreatePartnerStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::CreatePartnerStatus, false) } }
+        # If the partner profile type is a company, this is the partner's legal company name.
+        field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('companyName'), required: true } }
         # The partner's email address. Should be a unique value across Dub.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
         # The partner's avatar image.
@@ -75,43 +77,26 @@ module OpenApiSDK
         field :net_revenue, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('netRevenue') } }
         # The partner's website URL (including the https protocol).
         field :website, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('website') } }
-
-        field :website_txt_record, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('websiteTxtRecord') } }
-
-        field :website_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('websiteVerifiedAt') } }
         # The partner's YouTube channel username (e.g. `johndoe`).
         field :youtube, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('youtube') } }
-
-        field :youtube_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('youtubeVerifiedAt') } }
-
-        field :youtube_subscriber_count, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('youtubeSubscriberCount') } }
-
-        field :youtube_view_count, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('youtubeViewCount') } }
         # The partner's Twitter username (e.g. `johndoe`).
         field :twitter, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('twitter') } }
-
-        field :twitter_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('twitterVerifiedAt') } }
         # The partner's LinkedIn username (e.g. `johndoe`).
         field :linkedin, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkedin') } }
-
-        field :linkedin_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkedinVerifiedAt') } }
         # The partner's Instagram username (e.g. `johndoe`).
         field :instagram, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('instagram') } }
-
-        field :instagram_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('instagramVerifiedAt') } }
         # The partner's TikTok username (e.g. `johndoe`).
         field :tiktok, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tiktok') } }
 
-        field :tiktok_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tiktokVerifiedAt') } }
-
-        sig { params(id: ::String, name: ::String, program_id: ::String, partner_id: ::String, created_at: ::String, status: Models::Operations::CreatePartnerStatus, email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), paypal_email: T.nilable(::String), stripe_connect_id: T.nilable(::String), payouts_enabled_at: T.nilable(::String), tenant_id: T.nilable(::String), links: T.nilable(T::Array[Models::Operations::CreatePartnerLink]), description: T.nilable(::String), group_id: T.nilable(::String), total_commissions: T.nilable(::Float), click_reward_id: T.nilable(::String), lead_reward_id: T.nilable(::String), sale_reward_id: T.nilable(::String), discount_id: T.nilable(::String), application_id: T.nilable(::String), banned_at: T.nilable(::String), banned_reason: T.nilable(Models::Operations::BannedReason), clicks: T.nilable(::Float), leads: T.nilable(::Float), conversions: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), net_revenue: T.nilable(::Float), website: T.nilable(::String), website_txt_record: T.nilable(::String), website_verified_at: T.nilable(::String), youtube: T.nilable(::String), youtube_verified_at: T.nilable(::String), youtube_subscriber_count: T.nilable(::Float), youtube_view_count: T.nilable(::Float), twitter: T.nilable(::String), twitter_verified_at: T.nilable(::String), linkedin: T.nilable(::String), linkedin_verified_at: T.nilable(::String), instagram: T.nilable(::String), instagram_verified_at: T.nilable(::String), tiktok: T.nilable(::String), tiktok_verified_at: T.nilable(::String)).void }
-        def initialize(id:, name:, program_id:, partner_id:, created_at:, status:, email: nil, image: nil, country: nil, paypal_email: nil, stripe_connect_id: nil, payouts_enabled_at: nil, tenant_id: nil, links: nil, description: nil, group_id: nil, total_commissions: 0.0, click_reward_id: nil, lead_reward_id: nil, sale_reward_id: nil, discount_id: nil, application_id: nil, banned_at: nil, banned_reason: nil, clicks: 0.0, leads: 0.0, conversions: 0.0, sales: 0.0, sale_amount: 0.0, net_revenue: 0.0, website: nil, website_txt_record: nil, website_verified_at: nil, youtube: nil, youtube_verified_at: nil, youtube_subscriber_count: nil, youtube_view_count: nil, twitter: nil, twitter_verified_at: nil, linkedin: nil, linkedin_verified_at: nil, instagram: nil, instagram_verified_at: nil, tiktok: nil, tiktok_verified_at: nil)
+        sig { params(id: ::String, name: ::String, program_id: ::String, partner_id: ::String, created_at: ::String, status: Models::Operations::CreatePartnerStatus, company_name: T.nilable(::String), email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), paypal_email: T.nilable(::String), stripe_connect_id: T.nilable(::String), payouts_enabled_at: T.nilable(::String), tenant_id: T.nilable(::String), links: T.nilable(T::Array[Models::Operations::CreatePartnerLink]), description: T.nilable(::String), group_id: T.nilable(::String), total_commissions: T.nilable(::Float), click_reward_id: T.nilable(::String), lead_reward_id: T.nilable(::String), sale_reward_id: T.nilable(::String), discount_id: T.nilable(::String), application_id: T.nilable(::String), banned_at: T.nilable(::String), banned_reason: T.nilable(Models::Operations::BannedReason), clicks: T.nilable(::Float), leads: T.nilable(::Float), conversions: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), net_revenue: T.nilable(::Float), website: T.nilable(::String), youtube: T.nilable(::String), twitter: T.nilable(::String), linkedin: T.nilable(::String), instagram: T.nilable(::String), tiktok: T.nilable(::String)).void }
+        def initialize(id:, name:, program_id:, partner_id:, created_at:, status:, company_name: nil, email: nil, image: nil, country: nil, paypal_email: nil, stripe_connect_id: nil, payouts_enabled_at: nil, tenant_id: nil, links: nil, description: nil, group_id: nil, total_commissions: 0.0, click_reward_id: nil, lead_reward_id: nil, sale_reward_id: nil, discount_id: nil, application_id: nil, banned_at: nil, banned_reason: nil, clicks: 0.0, leads: 0.0, conversions: 0.0, sales: 0.0, sale_amount: 0.0, net_revenue: 0.0, website: nil, youtube: nil, twitter: nil, linkedin: nil, instagram: nil, tiktok: nil)
           @id = id
           @name = name
           @program_id = program_id
           @partner_id = partner_id
           @created_at = created_at
           @status = status
+          @company_name = company_name
           @email = email
           @image = image
           @country = country
@@ -137,20 +122,11 @@ module OpenApiSDK
           @sale_amount = sale_amount
           @net_revenue = net_revenue
           @website = website
-          @website_txt_record = website_txt_record
-          @website_verified_at = website_verified_at
           @youtube = youtube
-          @youtube_verified_at = youtube_verified_at
-          @youtube_subscriber_count = youtube_subscriber_count
-          @youtube_view_count = youtube_view_count
           @twitter = twitter
-          @twitter_verified_at = twitter_verified_at
           @linkedin = linkedin
-          @linkedin_verified_at = linkedin_verified_at
           @instagram = instagram
-          @instagram_verified_at = instagram_verified_at
           @tiktok = tiktok
-          @tiktok_verified_at = tiktok_verified_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -162,6 +138,7 @@ module OpenApiSDK
           return false unless @partner_id == other.partner_id
           return false unless @created_at == other.created_at
           return false unless @status == other.status
+          return false unless @company_name == other.company_name
           return false unless @email == other.email
           return false unless @image == other.image
           return false unless @country == other.country
@@ -187,20 +164,11 @@ module OpenApiSDK
           return false unless @sale_amount == other.sale_amount
           return false unless @net_revenue == other.net_revenue
           return false unless @website == other.website
-          return false unless @website_txt_record == other.website_txt_record
-          return false unless @website_verified_at == other.website_verified_at
           return false unless @youtube == other.youtube
-          return false unless @youtube_verified_at == other.youtube_verified_at
-          return false unless @youtube_subscriber_count == other.youtube_subscriber_count
-          return false unless @youtube_view_count == other.youtube_view_count
           return false unless @twitter == other.twitter
-          return false unless @twitter_verified_at == other.twitter_verified_at
           return false unless @linkedin == other.linkedin
-          return false unless @linkedin_verified_at == other.linkedin_verified_at
           return false unless @instagram == other.instagram
-          return false unless @instagram_verified_at == other.instagram_verified_at
           return false unless @tiktok == other.tiktok
-          return false unless @tiktok_verified_at == other.tiktok_verified_at
           true
         end
       end

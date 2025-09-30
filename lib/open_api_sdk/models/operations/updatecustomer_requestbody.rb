@@ -21,13 +21,16 @@ module OpenApiSDK
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
         # Avatar URL of the customer in the client's app.
         field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
+        # The customer's Stripe customer ID. Useful for attribution recurring sale events to the partner who referred the customer.
+        field :stripe_customer_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeCustomerId') } }
 
-        sig { params(external_id: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String)).void }
-        def initialize(external_id: nil, email: nil, name: nil, avatar: nil)
+        sig { params(external_id: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String)).void }
+        def initialize(external_id: nil, email: nil, name: nil, avatar: nil, stripe_customer_id: nil)
           @external_id = external_id
           @email = email
           @name = name
           @avatar = avatar
+          @stripe_customer_id = stripe_customer_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -37,6 +40,7 @@ module OpenApiSDK
           return false unless @email == other.email
           return false unless @name == other.name
           return false unless @avatar == other.avatar
+          return false unless @stripe_customer_id == other.stripe_customer_id
           true
         end
       end

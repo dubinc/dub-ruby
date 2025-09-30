@@ -19,7 +19,7 @@ module OpenApiSDK
           CONVERSIONS = new('conversions')
           SALES = new('sales')
           SALE_AMOUNT = new('saleAmount')
-          COMMISSIONS = new('commissions')
+          TOTAL_COMMISSIONS = new('totalCommissions')
           NET_REVENUE = new('netRevenue')
         end
       end

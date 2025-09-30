@@ -16,4 +16,6 @@ class OpenApiSDK::Models::Operations::UpdateCustomerRequestBody
   def name=(str_); end
   def avatar(); end
   def avatar=(str_); end
+  def stripe_customer_id(); end
+  def stripe_customer_id=(str_); end
 end

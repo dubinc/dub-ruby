@@ -80,6 +80,8 @@ class OpenApiSDK::Models::Operations::ListEventsRequest
   def utm_term=(str_); end
   def utm_content(); end
   def utm_content=(str_); end
+  def ref(); end
+  def ref=(str_); end
   def page(); end
   def page=(str_); end
   def limit(); end
