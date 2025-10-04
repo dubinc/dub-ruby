@@ -18,6 +18,7 @@ module OpenApiSDK
           REJECTED = new('rejected')
           INVITED = new('invited')
           DECLINED = new('declined')
+          DEACTIVATED = new('deactivated')
           BANNED = new('banned')
           ARCHIVED = new('archived')
         end
