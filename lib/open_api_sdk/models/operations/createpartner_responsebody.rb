@@ -8,7 +8,7 @@ module OpenApiSDK
   module Models
     module Operations
     
-      # The created partner
+      # The created or updated partner
       class CreatePartnerResponseBody
         extend T::Sig
         include Crystalline::MetadataFields

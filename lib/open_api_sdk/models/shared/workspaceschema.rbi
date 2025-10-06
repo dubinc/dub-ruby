@@ -74,6 +74,10 @@ class OpenApiSDK::Models::Shared::WorkspaceSchema
   def store=(str_); end
   def allowed_hostnames(); end
   def allowed_hostnames=(str_); end
+  def sso_email_domain(); end
+  def sso_email_domain=(str_); end
+  def sso_enforced_at(); end
+  def sso_enforced_at=(str_); end
   def logo(); end
   def logo=(str_); end
 end

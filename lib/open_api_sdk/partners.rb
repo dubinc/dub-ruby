@@ -41,8 +41,8 @@ module OpenApiSDK
 
     sig { params(request: T.nilable(Models::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CreatePartnerResponseBody) }
     def create(request: nil, timeout_ms: nil)
-      # create - Create a partner
-      # Create a partner for a program. If partner exists, automatically enrolls them.
+      # create - Create or update a partner
+      # Creates or updates a partner record (upsert behavior). If a partner with the same email already exists, their program enrollment will be updated with the provided tenantId. If no existing partner is found, a new partner will be created using the supplied information.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners"
