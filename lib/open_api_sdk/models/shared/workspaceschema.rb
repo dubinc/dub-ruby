@@ -79,11 +79,15 @@ module OpenApiSDK
         field :store, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('store'), required: true } }
         # Specifies hostnames permitted for client-side click tracking.
         field :allowed_hostnames, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('allowedHostnames'), required: true } }
+
+        field :sso_email_domain, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ssoEmailDomain'), required: true } }
+
+        field :sso_enforced_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ssoEnforcedAt'), required: true } }
         # The logo of the workspace.
         field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
 
-        sig { params(id: ::String, name: ::String, slug: ::String, plan: Models::Shared::Plan, billing_cycle_start: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, links_usage: ::Float, links_limit: ::Float, payouts_usage: ::Float, payouts_limit: ::Float, payout_fee: ::Float, domains_limit: ::Float, tags_limit: ::Float, folders_usage: ::Float, folders_limit: ::Float, groups_limit: ::Float, users_limit: ::Float, ai_usage: ::Float, ai_limit: ::Float, conversion_enabled: T::Boolean, dot_link_claimed: T::Boolean, created_at: ::String, users: T::Array[Models::Shared::Users], domains: T::Array[Models::Shared::Domains], invite_code: T.nilable(::String), stripe_id: T.nilable(::String), payment_failed_at: T.nilable(::String), stripe_connect_id: T.nilable(::String), flags: T.nilable(T::Hash[Symbol, T::Boolean]), store: T.nilable(T::Hash[Symbol, ::Object]), allowed_hostnames: T.nilable(T::Array[::String]), logo: T.nilable(::String)).void }
-        def initialize(id:, name:, slug:, plan:, billing_cycle_start:, total_links:, usage:, usage_limit:, links_usage:, links_limit:, payouts_usage:, payouts_limit:, payout_fee:, domains_limit:, tags_limit:, folders_usage:, folders_limit:, groups_limit:, users_limit:, ai_usage:, ai_limit:, conversion_enabled:, dot_link_claimed:, created_at:, users:, domains:, invite_code: nil, stripe_id: nil, payment_failed_at: nil, stripe_connect_id: nil, flags: nil, store: nil, allowed_hostnames: nil, logo: nil)
+        sig { params(id: ::String, name: ::String, slug: ::String, plan: Models::Shared::Plan, billing_cycle_start: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, links_usage: ::Float, links_limit: ::Float, payouts_usage: ::Float, payouts_limit: ::Float, payout_fee: ::Float, domains_limit: ::Float, tags_limit: ::Float, folders_usage: ::Float, folders_limit: ::Float, groups_limit: ::Float, users_limit: ::Float, ai_usage: ::Float, ai_limit: ::Float, conversion_enabled: T::Boolean, dot_link_claimed: T::Boolean, created_at: ::String, users: T::Array[Models::Shared::Users], domains: T::Array[Models::Shared::Domains], invite_code: T.nilable(::String), stripe_id: T.nilable(::String), payment_failed_at: T.nilable(::String), stripe_connect_id: T.nilable(::String), flags: T.nilable(T::Hash[Symbol, T::Boolean]), store: T.nilable(T::Hash[Symbol, ::Object]), allowed_hostnames: T.nilable(T::Array[::String]), sso_email_domain: T.nilable(::String), sso_enforced_at: T.nilable(::String), logo: T.nilable(::String)).void }
+        def initialize(id:, name:, slug:, plan:, billing_cycle_start:, total_links:, usage:, usage_limit:, links_usage:, links_limit:, payouts_usage:, payouts_limit:, payout_fee:, domains_limit:, tags_limit:, folders_usage:, folders_limit:, groups_limit:, users_limit:, ai_usage:, ai_limit:, conversion_enabled:, dot_link_claimed:, created_at:, users:, domains:, invite_code: nil, stripe_id: nil, payment_failed_at: nil, stripe_connect_id: nil, flags: nil, store: nil, allowed_hostnames: nil, sso_email_domain: nil, sso_enforced_at: nil, logo: nil)
           @id = id
           @name = name
           @slug = slug
@@ -117,6 +121,8 @@ module OpenApiSDK
           @flags = flags
           @store = store
           @allowed_hostnames = allowed_hostnames
+          @sso_email_domain = sso_email_domain
+          @sso_enforced_at = sso_enforced_at
           @logo = logo
         end
 
@@ -156,6 +162,8 @@ module OpenApiSDK
           return false unless @flags == other.flags
           return false unless @store == other.store
           return false unless @allowed_hostnames == other.allowed_hostnames
+          return false unless @sso_email_domain == other.sso_email_domain
+          return false unless @sso_enforced_at == other.sso_enforced_at
           return false unless @logo == other.logo
           true
         end

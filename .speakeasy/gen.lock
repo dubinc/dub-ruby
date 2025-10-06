@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 2e1136299e8788ffa141b33afd2f3cbc
+  docChecksum: 43797075fd9e0d4bb17d9938a972af9d
   docVersion: 0.0.1
-  speakeasyVersion: 1.631.5
-  generationVersion: 2.716.16
-  releaseVersion: 0.10.4
-  configChecksum: 0a5566b3af98bef3a467f0d365333832
+  speakeasyVersion: 1.635.1
+  generationVersion: 2.722.2
+  releaseVersion: 0.10.5
+  configChecksum: dd8d59203499125667f556a68611f192
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -2180,7 +2180,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "advanced", "stripeId": "<id>", "billingCycleStart": 2392.88, "paymentFailedAt": null, "stripeConnectId": "<id>", "totalLinks": 9583.5, "usage": 4075.75, "usageLimit": 312.85, "linksUsage": 9444.18, "linksLimit": 3440.64, "payoutsUsage": 9717.42, "payoutsLimit": 7249.67, "payoutFee": 5932.4, "domainsLimit": 4075.34, "tagsLimit": 4898.74, "foldersUsage": 9012.06, "foldersLimit": 8488.71, "groupsLimit": 9998.84, "usersLimit": 1132.65, "aiUsage": 8447.55, "aiLimit": 9868.89, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1705814025364", "users": [{"role": "owner", "defaultFolderId": "<id>"}], "domains": [], "store": {}, "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "advanced", "stripeId": "<id>", "billingCycleStart": 2392.88, "paymentFailedAt": null, "stripeConnectId": "<id>", "totalLinks": 9583.5, "usage": 4075.75, "usageLimit": 312.85, "linksUsage": 9444.18, "linksLimit": 3440.64, "payoutsUsage": 9717.42, "payoutsLimit": 7249.67, "payoutFee": 5932.4, "domainsLimit": 4075.34, "tagsLimit": 4898.74, "foldersUsage": 9012.06, "foldersLimit": 8488.71, "groupsLimit": 9998.84, "usersLimit": 1132.65, "aiUsage": 8447.55, "aiLimit": 9868.89, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1705814025364", "users": [{"role": "owner", "defaultFolderId": "<id>"}], "domains": [], "store": {}, "allowedHostnames": ["dub.sh"], "ssoEmailDomain": "<value>", "ssoEnforcedAt": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -2206,7 +2206,7 @@ examples:
           idOrSlug: "<value>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "business max", "stripeId": null, "billingCycleStart": 2028.85, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 5728.58, "usage": 2864.53, "usageLimit": 3966.86, "linksUsage": 5981.08, "linksLimit": 2040.39, "payoutsUsage": 9329.44, "payoutsLimit": 9097.44, "payoutFee": 4731.38, "domainsLimit": 7848.2, "tagsLimit": 9885.62, "foldersUsage": 7990.55, "foldersLimit": 6957.36, "groupsLimit": 9372.49, "usersLimit": 6615.64, "aiUsage": 3462.45, "aiLimit": 2275.49, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1731917162893", "users": [], "domains": [], "store": {"key": "<value>"}, "allowedHostnames": ["dub.sh"]}
+          application/json: {"id": "<id>", "name": "<value>", "slug": "<value>", "logo": null, "inviteCode": "<value>", "plan": "business max", "stripeId": null, "billingCycleStart": 2028.85, "paymentFailedAt": "<value>", "stripeConnectId": "<id>", "totalLinks": 5728.58, "usage": 2864.53, "usageLimit": 3966.86, "linksUsage": 5981.08, "linksLimit": 2040.39, "payoutsUsage": 9329.44, "payoutsLimit": 9097.44, "payoutFee": 4731.38, "domainsLimit": 7848.2, "tagsLimit": 9885.62, "foldersUsage": 7990.55, "foldersLimit": 6957.36, "groupsLimit": 9372.49, "usersLimit": 6615.64, "aiUsage": 3462.45, "aiLimit": 2275.49, "conversionEnabled": false, "dotLinkClaimed": true, "createdAt": "1731917162893", "users": [], "domains": [], "store": {"key": "<value>"}, "allowedHostnames": ["dub.sh"], "ssoEmailDomain": "<value>", "ssoEnforcedAt": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -2285,4 +2285,4 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `dub.partners.list()`: \n  *  `request` **Changed**\n  *  `response.[]` **Changed** **Breaking** :warning:\n* `dub.partners.create()`:  `response` **Changed** **Breaking** :warning:\n* `dub.analytics.retrieve()`: \n  *  `request.ref` **Added**\n* `dub.events.list()`: \n  *  `request.ref` **Added**\n* `dub.customers.create()`: \n  *  `request.stripe_customer_id` **Added**\n* `dub.customers.update()`: \n  *  `request.request_body.stripe_customer_id` **Added**\n* `dub.partners.retrieve_links()`:  `response.[].conversions` **Added**\n* `dub.commissions.list()`: \n  *  `request.tenant_id` **Added**\n"
+releaseNotes: "## Ruby SDK Changes Detected:\n* `dub.partners.list()`: \n  *  `request.status` **Changed**\n* `dub.workspaces.get()`:  `response` **Changed**\n* `dub.workspaces.update()`:  `response` **Changed**\n"
