@@ -23,16 +23,19 @@ module OpenApiSDK
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
         # The date the folder was updated.
         field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
+        # The description of the folder.
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
         # The access level of the folder within the workspace.
         field :access_level, Crystalline::Nilable.new(Models::Shared::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Shared::AccessLevel, true) } }
 
-        sig { params(id: ::String, name: ::String, type: Models::Shared::Type, created_at: ::String, updated_at: ::String, access_level: T.nilable(Models::Shared::AccessLevel)).void }
-        def initialize(id:, name:, type:, created_at:, updated_at:, access_level: nil)
+        sig { params(id: ::String, name: ::String, type: Models::Shared::Type, created_at: ::String, updated_at: ::String, description: T.nilable(::String), access_level: T.nilable(Models::Shared::AccessLevel)).void }
+        def initialize(id:, name:, type:, created_at:, updated_at:, description: nil, access_level: nil)
           @id = id
           @name = name
           @type = type
           @created_at = created_at
           @updated_at = updated_at
+          @description = description
           @access_level = access_level
         end
 
@@ -44,6 +47,7 @@ module OpenApiSDK
           return false unless @type == other.type
           return false unless @created_at == other.created_at
           return false unless @updated_at == other.updated_at
+          return false unless @description == other.description
           return false unless @access_level == other.access_level
           true
         end
