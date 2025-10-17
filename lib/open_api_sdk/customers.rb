@@ -63,7 +63,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getCustomers',
         security_source: @sdk_configuration.security_source
       )
@@ -300,7 +300,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'createCustomer',
         security_source: @sdk_configuration.security_source
       )
@@ -531,7 +531,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getCustomer',
         security_source: @sdk_configuration.security_source
       )
@@ -772,7 +772,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'updateCustomer',
         security_source: @sdk_configuration.security_source
       )
@@ -1006,7 +1006,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'deleteCustomer',
         security_source: @sdk_configuration.security_source
       )

@@ -73,7 +73,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'createDomain',
         security_source: @sdk_configuration.security_source
       )
@@ -299,7 +299,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'listDomains',
         security_source: @sdk_configuration.security_source
       )
@@ -577,7 +577,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'updateDomain',
         security_source: @sdk_configuration.security_source
       )
@@ -810,7 +810,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'deleteDomain',
         security_source: @sdk_configuration.security_source
       )
@@ -1044,7 +1044,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'registerDomain',
         security_source: @sdk_configuration.security_source
       )
@@ -1270,7 +1270,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'checkDomainStatus',
         security_source: @sdk_configuration.security_source
       )
