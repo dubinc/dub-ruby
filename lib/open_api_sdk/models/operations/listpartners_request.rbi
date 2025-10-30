@@ -18,8 +18,6 @@ class OpenApiSDK::Models::Operations::ListPartnersRequest
   def tenant_id=(str_); end
   def search(); end
   def search=(str_); end
-  def include_expanded_fields(); end
-  def include_expanded_fields=(str_); end
   def sort_by(); end
   def sort_by=(str_); end
   def sort_order(); end

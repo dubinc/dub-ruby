@@ -32,4 +32,6 @@ class OpenApiSDK::Models::Shared::Partner
   def payouts_enabled_at=(str_); end
   def country(); end
   def country=(str_); end
+  def group_id(); end
+  def group_id=(str_); end
 end

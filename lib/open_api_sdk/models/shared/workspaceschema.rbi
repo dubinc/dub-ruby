@@ -44,6 +44,8 @@ class OpenApiSDK::Models::Shared::WorkspaceSchema
   def folders_limit=(str_); end
   def groups_limit(); end
   def groups_limit=(str_); end
+  def network_invites_limit(); end
+  def network_invites_limit=(str_); end
   def users_limit(); end
   def users_limit=(str_); end
   def ai_usage(); end

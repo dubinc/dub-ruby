@@ -39,7 +39,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::TagSchema) }
+    sig { params(request: T.nilable(Models::Operations::CreateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkTagSchema) }
     def create(request: nil, timeout_ms: nil)
       # create - Create a tag
       # Create a tag for the authenticated workspace.
@@ -72,7 +72,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'createTag',
         security_source: @sdk_configuration.security_source
       )
@@ -131,7 +131,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TagSchema)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkTagSchema)
 
           return obj
         else
@@ -274,7 +274,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetTagsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::TagSchema]) }
+    sig { params(request: Models::Operations::GetTagsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::LinkTagSchema]) }
     def list(request:, timeout_ms: nil)
       # list - Retrieve a list of tags
       # Retrieve a list of tags for the authenticated workspace.
@@ -298,7 +298,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'getTags',
         security_source: @sdk_configuration.security_source
       )
@@ -357,7 +357,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::TagSchema))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::LinkTagSchema))
 
           return obj
         else
@@ -500,7 +500,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::TagSchema) }
+    sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkTagSchema) }
     def update(id:, request_body: nil, timeout_ms: nil)
       # update - Update a tag
       # Update a tag in the workspace.
@@ -542,7 +542,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'updateTag',
         security_source: @sdk_configuration.security_source
       )
@@ -601,7 +601,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TagSchema)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkTagSchema)
 
           return obj
         else
@@ -775,7 +775,7 @@ module OpenApiSDK
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'deleteTag',
         security_source: @sdk_configuration.security_source
       )

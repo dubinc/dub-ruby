@@ -58,16 +58,16 @@ class OpenApiSDK::Models::Operations::ListPartnersResponseBody
   def banned_at=(str_); end
   def banned_reason(); end
   def banned_reason=(str_); end
-  def clicks(); end
-  def clicks=(str_); end
-  def leads(); end
-  def leads=(str_); end
-  def conversions(); end
-  def conversions=(str_); end
-  def sales(); end
-  def sales=(str_); end
-  def sale_amount(); end
-  def sale_amount=(str_); end
+  def total_clicks(); end
+  def total_clicks=(str_); end
+  def total_leads(); end
+  def total_leads=(str_); end
+  def total_conversions(); end
+  def total_conversions=(str_); end
+  def total_sales(); end
+  def total_sales=(str_); end
+  def total_sale_amount(); end
+  def total_sale_amount=(str_); end
   def net_revenue(); end
   def net_revenue=(str_); end
   def website(); end

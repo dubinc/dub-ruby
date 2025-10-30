@@ -15,7 +15,7 @@ module OpenApiSDK
 
         # The destination URL of the short link.
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
-        # The domain of the short link. If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
+        # The domain of the short link (without protocol). If not provided, the primary domain for the workspace will be used (or `dub.sh` if the workspace has no domains).
         field :domain, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain') } }
         # The short link slug. If not provided, a random 7-character slug will be generated.
         field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }

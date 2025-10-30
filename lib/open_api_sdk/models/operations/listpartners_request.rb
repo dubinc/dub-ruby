@@ -23,9 +23,7 @@ module OpenApiSDK
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # A search query to filter partners by ID, name, email, or link.
         field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
-        # Whether to include stats fields on the partner (`clicks`, `leads`, `conversions`, `sales`, `saleAmount`, `commissions`, `netRevenue`). If false, those fields will be returned as 0.
-        field :include_expanded_fields, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
-        # The field to sort the partners by. The default is `saleAmount`.
+        # The field to sort the partners by. The default is `totalSaleAmount`.
         field :sort_by, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The sort order. The default is `desc`.
         field :sort_order, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
@@ -34,14 +32,13 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(status: T.nilable(Models::Operations::ListPartnersQueryParamStatus), country: T.nilable(::String), email: T.nilable(::String), tenant_id: T.nilable(::String), search: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPartnersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(status: nil, country: nil, email: nil, tenant_id: nil, search: nil, include_expanded_fields: nil, sort_by: Models::Operations::ListPartnersQueryParamSortBy::SALE_AMOUNT, sort_order: Models::Operations::ListPartnersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
+        sig { params(status: T.nilable(Models::Operations::ListPartnersQueryParamStatus), country: T.nilable(::String), email: T.nilable(::String), tenant_id: T.nilable(::String), search: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPartnersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(status: nil, country: nil, email: nil, tenant_id: nil, search: nil, sort_by: Models::Operations::ListPartnersQueryParamSortBy::TOTAL_SALE_AMOUNT, sort_order: Models::Operations::ListPartnersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
           @status = status
           @country = country
           @email = email
           @tenant_id = tenant_id
           @search = search
-          @include_expanded_fields = include_expanded_fields
           @sort_by = sort_by
           @sort_order = sort_order
           @page = page
@@ -56,7 +53,6 @@ module OpenApiSDK
           return false unless @email == other.email
           return false unless @tenant_id == other.tenant_id
           return false unless @search == other.search
-          return false unless @include_expanded_fields == other.include_expanded_fields
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order
           return false unless @page == other.page

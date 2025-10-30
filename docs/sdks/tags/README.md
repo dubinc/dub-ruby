@@ -45,7 +45,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Shared::TagSchema)](../../models/operations/tagschema.md)**
+**[T.nilable(Models::Shared::LinkTagSchema)](../../models/operations/linktagschema.md)**
 
 ### Errors
 
@@ -99,7 +99,7 @@ end
 
 ### Response
 
-**[T.nilable(T::Array[Models::Shared::TagSchema])](../../models/operations/.md)**
+**[T.nilable(T::Array[Models::Shared::LinkTagSchema])](../../models/operations/.md)**
 
 ### Errors
 
@@ -150,7 +150,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Shared::TagSchema)](../../models/operations/tagschema.md)**
+**[T.nilable(Models::Shared::LinkTagSchema)](../../models/operations/linktagschema.md)**
 
 ### Errors
 

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::TagSchema
+class OpenApiSDK::Models::Shared::LinkTagSchema
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::TagSchema
+class OpenApiSDK::Models::Shared::LinkTagSchema
   def id(); end
   def id=(str_); end
   def name(); end

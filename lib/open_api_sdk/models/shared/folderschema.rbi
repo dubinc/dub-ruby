@@ -18,6 +18,8 @@ class OpenApiSDK::Models::Shared::FolderSchema
   def created_at=(str_); end
   def updated_at(); end
   def updated_at=(str_); end
+  def description(); end
+  def description=(str_); end
   def access_level(); end
   def access_level=(str_); end
 end
