@@ -9,7 +9,7 @@ module OpenApiSDK
     module Shared
     
 
-      class TagSchema
+      class LinkTagSchema
         extend T::Sig
         include Crystalline::MetadataFields
 

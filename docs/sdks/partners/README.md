@@ -105,7 +105,6 @@ req = Models::Operations::ListPartnersRequest.new(
   email: 'panic@thedis.co',
   tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
   search: 'john',
-  include_expanded_fields: false,
   page_size: 50.0,
 )
 

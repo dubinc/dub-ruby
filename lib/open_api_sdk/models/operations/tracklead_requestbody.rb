@@ -13,7 +13,7 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The unique ID of the click that the lead conversion event is attributed to. You can read this value from `dub_id` cookie. If an empty string is provided, Dub will try to find an existing customer with the provided `customerExternalId` and use the `clickId` from the customer if found.
+        # The unique ID of the click that the lead conversion event is attributed to. You can read this value from `dub_id` cookie. [For deferred lead tracking]: If an empty string is provided, Dub will try to find an existing customer with the provided `customerExternalId` and use the `clickId` from the customer if found.
         field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId'), required: true } }
         # The name of the lead event to track. Can also be used as a unique identifier to associate a given lead event for a customer for a subsequent sale event (via the `leadEventName` prop in `/track/sale`).
         field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName'), required: true } }

@@ -8,19 +8,17 @@ module OpenApiSDK
   module Models
     module Operations
     
-      # ListPartnersQueryParamSortBy - The field to sort the partners by. The default is `saleAmount`.
+      # ListPartnersQueryParamSortBy - The field to sort the partners by. The default is `totalSaleAmount`.
       class ListPartnersQueryParamSortBy < T::Enum
 
 
         enums do
           CREATED_AT = new('createdAt')
-          CLICKS = new('clicks')
-          LEADS = new('leads')
-          CONVERSIONS = new('conversions')
-          SALES = new('sales')
-          SALE_AMOUNT = new('saleAmount')
+          TOTAL_CLICKS = new('totalClicks')
+          TOTAL_LEADS = new('totalLeads')
+          TOTAL_CONVERSIONS = new('totalConversions')
+          TOTAL_SALE_AMOUNT = new('totalSaleAmount')
           TOTAL_COMMISSIONS = new('totalCommissions')
-          NET_REVENUE = new('netRevenue')
         end
       end
     end

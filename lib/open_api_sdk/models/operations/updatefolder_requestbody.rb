@@ -15,12 +15,15 @@ module OpenApiSDK
 
         # The name of the folder.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        # The description of the folder.
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
         # The access level of the folder within the workspace.
         field :access_level, Crystalline::Nilable.new(Models::Operations::UpdateFolderAccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Operations::UpdateFolderAccessLevel, true) } }
 
-        sig { params(name: T.nilable(::String), access_level: T.nilable(Models::Operations::UpdateFolderAccessLevel)).void }
-        def initialize(name: nil, access_level: nil)
+        sig { params(name: T.nilable(::String), description: T.nilable(::String), access_level: T.nilable(Models::Operations::UpdateFolderAccessLevel)).void }
+        def initialize(name: nil, description: nil, access_level: nil)
           @name = name
+          @description = description
           @access_level = access_level
         end
 
@@ -28,6 +31,7 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @name == other.name
+          return false unless @description == other.description
           return false unless @access_level == other.access_level
           true
         end
