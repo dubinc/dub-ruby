@@ -19,12 +19,13 @@ generation:
     hoistGlobalSecurity: true
   schemas:
     allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 ruby:
-  version: 0.11.0
+  version: 0.12.0
   additionalDependencies:
     development: {}
     runtime: {}
@@ -43,6 +44,7 @@ ruby:
       operations: models/operations
       shared: models/shared
       webhooks: models/webhooks
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 0
   module: OpenApiSdk

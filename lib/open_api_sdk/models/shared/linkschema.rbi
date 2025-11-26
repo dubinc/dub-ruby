@@ -42,6 +42,8 @@ class OpenApiSDK::Models::Shared::LinkSchema
   def expires_at=(str_); end
   def expired_url(); end
   def expired_url=(str_); end
+  def disabled_at(); end
+  def disabled_at=(str_); end
   def password(); end
   def password=(str_); end
   def title(); end

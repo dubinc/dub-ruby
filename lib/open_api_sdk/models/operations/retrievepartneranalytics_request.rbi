@@ -8,10 +8,6 @@ end
 
 
 class OpenApiSDK::Models::Operations::RetrievePartnerAnalyticsRequest
-  def partner_id(); end
-  def partner_id=(str_); end
-  def tenant_id(); end
-  def tenant_id=(str_); end
   def interval(); end
   def interval=(str_); end
   def start(); end
@@ -20,6 +16,10 @@ class OpenApiSDK::Models::Operations::RetrievePartnerAnalyticsRequest
   def end_=(str_); end
   def query(); end
   def query=(str_); end
+  def partner_id(); end
+  def partner_id=(str_); end
+  def tenant_id(); end
+  def tenant_id=(str_); end
   def timezone(); end
   def timezone=(str_); end
   def group_by(); end

@@ -13,9 +13,9 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-
+        # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
 
         sig { params(partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }

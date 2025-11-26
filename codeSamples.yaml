@@ -189,6 +189,12 @@ actions:
         - "lang": "ruby"
           "label": "retrievePartnerAnalytics"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: 'America/New_York',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.partners.analytics(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/ban"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "banPartner"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = \n\nres = s.partners.ban(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["get"]
     update:
       "x-codeSamples":
