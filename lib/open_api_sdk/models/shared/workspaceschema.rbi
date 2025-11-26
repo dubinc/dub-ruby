@@ -64,6 +64,8 @@ class OpenApiSDK::Models::Shared::WorkspaceSchema
   def domains=(str_); end
   def invite_code(); end
   def invite_code=(str_); end
+  def plan_tier(); end
+  def plan_tier=(str_); end
   def stripe_id(); end
   def stripe_id=(str_); end
   def payment_failed_at(); end

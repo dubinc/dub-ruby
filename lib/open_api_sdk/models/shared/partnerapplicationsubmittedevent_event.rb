@@ -6,15 +6,14 @@
 
 module OpenApiSDK
   module Models
-    module Operations
+    module Shared
     
 
-      class CreateCustomerType < T::Enum
+      class PartnerApplicationSubmittedEventEvent < T::Enum
 
 
         enums do
-          PERCENTAGE = new('percentage')
-          FLAT = new('flat')
+          PARTNER_APPLICATION_SUBMITTED = new('partner.application_submitted')
         end
       end
     end

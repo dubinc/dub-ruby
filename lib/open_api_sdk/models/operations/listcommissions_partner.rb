@@ -25,15 +25,18 @@ module OpenApiSDK
         field :payouts_enabled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt'), required: true } }
         # The partner's country (required for tax purposes).
         field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
+        # The partner's group ID on Dub.
+        field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
 
-        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String)).void }
-        def initialize(id:, name:, email: nil, image: nil, payouts_enabled_at: nil, country: nil)
+        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), group_id: T.nilable(::String)).void }
+        def initialize(id:, name:, email: nil, image: nil, payouts_enabled_at: nil, country: nil, group_id: nil)
           @id = id
           @name = name
           @email = email
           @image = image
           @payouts_enabled_at = payouts_enabled_at
           @country = country
+          @group_id = group_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -45,6 +48,7 @@ module OpenApiSDK
           return false unless @image == other.image
           return false unless @payouts_enabled_at == other.payouts_enabled_at
           return false unless @country == other.country
+          return false unless @group_id == other.group_id
           true
         end
       end

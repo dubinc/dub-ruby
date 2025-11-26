@@ -22,6 +22,8 @@ class OpenApiSDK::Models::Shared::LeadEventLink
   def archived=(str_); end
   def expires_at(); end
   def expires_at=(str_); end
+  def disabled_at(); end
+  def disabled_at=(str_); end
   def proxy(); end
   def proxy=(str_); end
   def rewrite(); end
@@ -36,6 +38,10 @@ class OpenApiSDK::Models::Shared::LeadEventLink
   def short_link=(str_); end
   def qr_code(); end
   def qr_code=(str_); end
+  def test_started_at(); end
+  def test_started_at=(str_); end
+  def test_completed_at(); end
+  def test_completed_at=(str_); end
   def workspace_id(); end
   def workspace_id=(str_); end
   def last_clicked(); end
@@ -88,10 +94,6 @@ class OpenApiSDK::Models::Shared::LeadEventLink
   def utm_term=(str_); end
   def utm_content(); end
   def utm_content=(str_); end
-  def test_started_at(); end
-  def test_started_at=(str_); end
-  def test_completed_at(); end
-  def test_completed_at=(str_); end
   def user_id(); end
   def user_id=(str_); end
   def tag_id(); end

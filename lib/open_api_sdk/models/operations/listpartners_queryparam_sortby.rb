@@ -19,6 +19,13 @@ module OpenApiSDK
           TOTAL_CONVERSIONS = new('totalConversions')
           TOTAL_SALE_AMOUNT = new('totalSaleAmount')
           TOTAL_COMMISSIONS = new('totalCommissions')
+          NET_REVENUE = new('netRevenue')
+          EARNINGS_PER_CLICK = new('earningsPerClick')
+          AVERAGE_LIFETIME_VALUE = new('averageLifetimeValue')
+          CLICK_TO_LEAD_RATE = new('clickToLeadRate')
+          CLICK_TO_CONVERSION_RATE = new('clickToConversionRate')
+          LEAD_TO_CONVERSION_RATE = new('leadToConversionRate')
+          RETURN_ON_AD_SPEND = new('returnOnAdSpend')
         end
       end
     end

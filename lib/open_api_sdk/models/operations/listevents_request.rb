@@ -61,6 +61,8 @@ module OpenApiSDK
         field :tag_ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
         # The folder ID to retrieve analytics for. If not provided, return analytics for unsorted links.
         field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
+        # The group ID to retrieve analytics for.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
         # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
         field :root, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
         # Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.
@@ -98,8 +100,8 @@ module OpenApiSDK
         # DEPRECATED. Use `sortOrder` instead.
         field :order, Crystalline::Nilable.new(Models::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::QueryParamTrigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), page: T.nilable(::Float), limit: T.nilable(::Float), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), sort_by: T.nilable(Models::Operations::QueryParamSortBy), order: T.nilable(Models::Operations::Order)).void }
-        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, page: 1.0, limit: 100.0, sort_order: Models::Operations::QueryParamSortOrder::DESC, sort_by: Models::Operations::QueryParamSortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::QueryParamTrigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), group_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), page: T.nilable(::Float), limit: T.nilable(::Float), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), sort_by: T.nilable(Models::Operations::QueryParamSortBy), order: T.nilable(Models::Operations::Order)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, group_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, page: 1.0, limit: 100.0, sort_order: Models::Operations::QueryParamSortOrder::DESC, sort_by: Models::Operations::QueryParamSortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
           @domain = domain
           @key = key
           @link_id = link_id
@@ -124,6 +126,7 @@ module OpenApiSDK
           @url = url
           @tag_ids = tag_ids
           @folder_id = folder_id
+          @group_id = group_id
           @root = root
           @sale_type = sale_type
           @query = query
@@ -171,6 +174,7 @@ module OpenApiSDK
           return false unless @url == other.url
           return false unless @tag_ids == other.tag_ids
           return false unless @folder_id == other.folder_id
+          return false unless @group_id == other.group_id
           return false unless @root == other.root
           return false unless @sale_type == other.sale_type
           return false unless @query == other.query

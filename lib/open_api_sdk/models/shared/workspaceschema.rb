@@ -69,6 +69,8 @@ module OpenApiSDK
         field :domains, Crystalline::Array.new(Models::Shared::Domains), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domains'), required: true } }
         # The invite code of the workspace.
         field :invite_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('inviteCode'), required: true } }
+        # The tier of the workspace's plan.
+        field :plan_tier, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('planTier'), required: true } }
         # The Stripe ID of the workspace.
         field :stripe_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeId'), required: true } }
         # The date and time when the payment failed for the workspace.
@@ -88,8 +90,8 @@ module OpenApiSDK
         # The logo of the workspace.
         field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
 
-        sig { params(id: ::String, name: ::String, slug: ::String, plan: Models::Shared::Plan, billing_cycle_start: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, links_usage: ::Float, links_limit: ::Float, payouts_usage: ::Float, payouts_limit: ::Float, payout_fee: ::Float, domains_limit: ::Float, tags_limit: ::Float, folders_usage: ::Float, folders_limit: ::Float, groups_limit: ::Float, network_invites_limit: ::Float, users_limit: ::Float, ai_usage: ::Float, ai_limit: ::Float, conversion_enabled: T::Boolean, dot_link_claimed: T::Boolean, created_at: ::String, users: T::Array[Models::Shared::Users], domains: T::Array[Models::Shared::Domains], invite_code: T.nilable(::String), stripe_id: T.nilable(::String), payment_failed_at: T.nilable(::String), stripe_connect_id: T.nilable(::String), flags: T.nilable(T::Hash[Symbol, T::Boolean]), store: T.nilable(T::Hash[Symbol, ::Object]), allowed_hostnames: T.nilable(T::Array[::String]), sso_email_domain: T.nilable(::String), sso_enforced_at: T.nilable(::String), logo: T.nilable(::String)).void }
-        def initialize(id:, name:, slug:, plan:, billing_cycle_start:, total_links:, usage:, usage_limit:, links_usage:, links_limit:, payouts_usage:, payouts_limit:, payout_fee:, domains_limit:, tags_limit:, folders_usage:, folders_limit:, groups_limit:, network_invites_limit:, users_limit:, ai_usage:, ai_limit:, conversion_enabled:, dot_link_claimed:, created_at:, users:, domains:, invite_code: nil, stripe_id: nil, payment_failed_at: nil, stripe_connect_id: nil, flags: nil, store: nil, allowed_hostnames: nil, sso_email_domain: nil, sso_enforced_at: nil, logo: nil)
+        sig { params(id: ::String, name: ::String, slug: ::String, plan: Models::Shared::Plan, billing_cycle_start: ::Float, total_links: ::Float, usage: ::Float, usage_limit: ::Float, links_usage: ::Float, links_limit: ::Float, payouts_usage: ::Float, payouts_limit: ::Float, payout_fee: ::Float, domains_limit: ::Float, tags_limit: ::Float, folders_usage: ::Float, folders_limit: ::Float, groups_limit: ::Float, network_invites_limit: ::Float, users_limit: ::Float, ai_usage: ::Float, ai_limit: ::Float, conversion_enabled: T::Boolean, dot_link_claimed: T::Boolean, created_at: ::String, users: T::Array[Models::Shared::Users], domains: T::Array[Models::Shared::Domains], invite_code: T.nilable(::String), plan_tier: T.nilable(::Float), stripe_id: T.nilable(::String), payment_failed_at: T.nilable(::String), stripe_connect_id: T.nilable(::String), flags: T.nilable(T::Hash[Symbol, T::Boolean]), store: T.nilable(T::Hash[Symbol, ::Object]), allowed_hostnames: T.nilable(T::Array[::String]), sso_email_domain: T.nilable(::String), sso_enforced_at: T.nilable(::String), logo: T.nilable(::String)).void }
+        def initialize(id:, name:, slug:, plan:, billing_cycle_start:, total_links:, usage:, usage_limit:, links_usage:, links_limit:, payouts_usage:, payouts_limit:, payout_fee:, domains_limit:, tags_limit:, folders_usage:, folders_limit:, groups_limit:, network_invites_limit:, users_limit:, ai_usage:, ai_limit:, conversion_enabled:, dot_link_claimed:, created_at:, users:, domains:, invite_code: nil, plan_tier: nil, stripe_id: nil, payment_failed_at: nil, stripe_connect_id: nil, flags: nil, store: nil, allowed_hostnames: nil, sso_email_domain: nil, sso_enforced_at: nil, logo: nil)
           @id = id
           @name = name
           @slug = slug
@@ -118,6 +120,7 @@ module OpenApiSDK
           @users = users
           @domains = domains
           @invite_code = invite_code
+          @plan_tier = plan_tier
           @stripe_id = stripe_id
           @payment_failed_at = payment_failed_at
           @stripe_connect_id = stripe_connect_id
@@ -160,6 +163,7 @@ module OpenApiSDK
           return false unless @users == other.users
           return false unless @domains == other.domains
           return false unless @invite_code == other.invite_code
+          return false unless @plan_tier == other.plan_tier
           return false unless @stripe_id == other.stripe_id
           return false unless @payment_failed_at == other.payment_failed_at
           return false unless @stripe_connect_id == other.stripe_connect_id

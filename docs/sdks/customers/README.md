@@ -6,7 +6,6 @@
 ### Available Operations
 
 * [list](#list) - Retrieve a list of customers
-* [~~create~~](#create) - Create a customer :warning: **Deprecated**
 * [get](#get) - Retrieve a customer
 * [update](#update) - Update a customer
 * [delete](#delete) - Delete a customer
@@ -49,60 +48,6 @@ end
 ### Response
 
 **[T.nilable(T::Array[Models::Operations::GetCustomersResponseBody])](../../models/operations/.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## ~~create~~
-
-[Deprecated]: Customer creation can only be done via tracking a lead event. Use the /track/lead endpoint instead.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="createCustomer" method="post" path="/customers" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = 
-
-res = s.customers.create(request: req)
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [Models::Operations::CreateCustomerRequestBody](../../models/operations/createcustomerrequestbody.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
-
-### Response
-
-**[T.nilable(Models::Operations::CreateCustomerResponseBody)](../../models/operations/createcustomerresponsebody.md)**
 
 ### Errors
 

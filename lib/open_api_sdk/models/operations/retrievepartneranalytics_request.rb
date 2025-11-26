@@ -13,10 +13,6 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The ID of the partner to retrieve analytics for.
-        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
-        # The ID of the tenant that created the link inside your system.
-        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # The interval to retrieve analytics for. If undefined, defaults to 24h.
         field :interval, Crystalline::Nilable.new(Models::Operations::RetrievePartnerAnalyticsQueryParamInterval), { 'query_param': { 'field_name': 'interval', 'style': 'form', 'explode': true } }
         # The start date and time when to retrieve analytics from. If set, takes precedence over `interval`.
@@ -25,19 +21,23 @@ module OpenApiSDK
         field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
         # Search the events by a custom metadata value. Only available for lead and sale events.
         field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
+        # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
+        # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
+        field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
         field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
         # The parameter to group the analytics data points by. Defaults to `count` if undefined.
         field :group_by, Crystalline::Nilable.new(Models::Operations::RetrievePartnerAnalyticsQueryParamGroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
 
-        sig { params(partner_id: T.nilable(::String), tenant_id: T.nilable(::String), interval: T.nilable(Models::Operations::RetrievePartnerAnalyticsQueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), query: T.nilable(::String), timezone: T.nilable(::String), group_by: T.nilable(Models::Operations::RetrievePartnerAnalyticsQueryParamGroupBy)).void }
-        def initialize(partner_id: nil, tenant_id: nil, interval: nil, start: nil, end_: nil, query: nil, timezone: 'UTC', group_by: Models::Operations::RetrievePartnerAnalyticsQueryParamGroupBy::COUNT)
-          @partner_id = partner_id
-          @tenant_id = tenant_id
+        sig { params(interval: T.nilable(Models::Operations::RetrievePartnerAnalyticsQueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), query: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), timezone: T.nilable(::String), group_by: T.nilable(Models::Operations::RetrievePartnerAnalyticsQueryParamGroupBy)).void }
+        def initialize(interval: nil, start: nil, end_: nil, query: nil, partner_id: nil, tenant_id: nil, timezone: 'UTC', group_by: Models::Operations::RetrievePartnerAnalyticsQueryParamGroupBy::COUNT)
           @interval = interval
           @start = start
           @end_ = end_
           @query = query
+          @partner_id = partner_id
+          @tenant_id = tenant_id
           @timezone = timezone
           @group_by = group_by
         end
@@ -45,12 +45,12 @@ module OpenApiSDK
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @partner_id == other.partner_id
-          return false unless @tenant_id == other.tenant_id
           return false unless @interval == other.interval
           return false unless @start == other.start
           return false unless @end_ == other.end_
           return false unless @query == other.query
+          return false unless @partner_id == other.partner_id
+          return false unless @tenant_id == other.tenant_id
           return false unless @timezone == other.timezone
           return false unless @group_by == other.group_by
           true

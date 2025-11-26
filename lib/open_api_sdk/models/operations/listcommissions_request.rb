@@ -33,6 +33,8 @@ module OpenApiSDK
         field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
         # The end date of the date range to filter the commissions by.
         field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
+
+        field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
         # The field to sort the list of commissions by.
         field :sort_by, Crystalline::Nilable.new(Models::Operations::ListCommissionsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The sort order for the list of commissions.
@@ -44,8 +46,8 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page: 1.0, page_size: 100.0)
+        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), timezone: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, timezone: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page: 1.0, page_size: 100.0)
           @type = type
           @customer_id = customer_id
           @payout_id = payout_id
@@ -56,6 +58,7 @@ module OpenApiSDK
           @status = status
           @start = start
           @end_ = end_
+          @timezone = timezone
           @sort_by = sort_by
           @sort_order = sort_order
           @interval = interval
@@ -76,6 +79,7 @@ module OpenApiSDK
           return false unless @status == other.status
           return false unless @start == other.start
           return false unless @end_ == other.end_
+          return false unless @timezone == other.timezone
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order
           return false unless @interval == other.interval

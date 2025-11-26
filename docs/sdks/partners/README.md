@@ -11,6 +11,7 @@
 * [retrieve_links](#retrieve_links) - Retrieve a partner's links.
 * [upsert_link](#upsert_link) - Upsert a link for a partner
 * [analytics](#analytics) - Retrieve analytics for a partner
+* [ban](#ban) - Ban a partner
 
 ## create
 
@@ -370,6 +371,58 @@ end
 ### Response
 
 **[T.nilable(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks]))](../../models/operations/retrievepartneranalyticsresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## ban
+
+Ban a partner from your program. This will disable all links and mark all commissions as canceled.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="banPartner" method="post" path="/partners/ban" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = 
+
+res = s.partners.ban(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::BanPartnerRequestBody](../../models/operations/banpartnerrequestbody.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[T.nilable(Models::Operations::BanPartnerResponseBody)](../../models/operations/banpartnerresponsebody.md)**
 
 ### Errors
 

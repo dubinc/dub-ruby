@@ -13,7 +13,7 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The destination URL
+        # The full destination URL (including query parameters)
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
         # The number of clicks from this URL
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }

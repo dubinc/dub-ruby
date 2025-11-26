@@ -28,6 +28,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsRequest
   def start=(str_); end
   def end_(); end
   def end_=(str_); end
+  def timezone(); end
+  def timezone=(str_); end
   def sort_by(); end
   def sort_by=(str_); end
   def sort_order(); end

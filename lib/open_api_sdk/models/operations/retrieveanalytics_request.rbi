@@ -56,6 +56,8 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def tag_ids=(str_); end
   def folder_id(); end
   def folder_id=(str_); end
+  def group_id(); end
+  def group_id=(str_); end
   def root(); end
   def root=(str_); end
   def sale_type(); end

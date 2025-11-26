@@ -34,6 +34,8 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def stripe_connect_id=(str_); end
   def payouts_enabled_at(); end
   def payouts_enabled_at=(str_); end
+  def trusted_at(); end
+  def trusted_at=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
   def links(); end
@@ -70,6 +72,18 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def total_sale_amount=(str_); end
   def net_revenue(); end
   def net_revenue=(str_); end
+  def earnings_per_click(); end
+  def earnings_per_click=(str_); end
+  def average_lifetime_value(); end
+  def average_lifetime_value=(str_); end
+  def click_to_lead_rate(); end
+  def click_to_lead_rate=(str_); end
+  def click_to_conversion_rate(); end
+  def click_to_conversion_rate=(str_); end
+  def lead_to_conversion_rate(); end
+  def lead_to_conversion_rate=(str_); end
+  def return_on_ad_spend(); end
+  def return_on_ad_spend=(str_); end
   def website(); end
   def website=(str_); end
   def youtube(); end
