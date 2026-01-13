@@ -14,16 +14,16 @@ module OpenApiSDK
 
         enums do
           BAD_REQUEST = new('bad_request')
-          NOT_FOUND = new('not_found')
-          INTERNAL_SERVER_ERROR = new('internal_server_error')
           UNAUTHORIZED = new('unauthorized')
           FORBIDDEN = new('forbidden')
-          RATE_LIMIT_EXCEEDED = new('rate_limit_exceeded')
-          INVITE_EXPIRED = new('invite_expired')
-          INVITE_PENDING = new('invite_pending')
           EXCEEDED_LIMIT = new('exceeded_limit')
+          NOT_FOUND = new('not_found')
           CONFLICT = new('conflict')
+          INVITE_PENDING = new('invite_pending')
+          INVITE_EXPIRED = new('invite_expired')
           UNPROCESSABLE_ENTITY = new('unprocessable_entity')
+          RATE_LIMIT_EXCEEDED = new('rate_limit_exceeded')
+          INTERNAL_SERVER_ERROR = new('internal_server_error')
         end
       end
     end

@@ -23,6 +23,10 @@ module OpenApiSDK
         field :country, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
         # A filter on the list based on the customer's `linkId` field (the referral link ID).
         field :link_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
+        # Program ID to filter by.
+        field :program_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
+        # Partner ID to filter by.
+        field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
         # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
         field :include_expanded_fields, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
         # The field to sort the customers by. The default is `createdAt`.
@@ -34,13 +38,15 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(email: T.nilable(::String), external_id: T.nilable(::String), search: T.nilable(::String), country: T.nilable(::String), link_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::GetCustomersQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetCustomersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(email: nil, external_id: nil, search: nil, country: nil, link_id: nil, include_expanded_fields: nil, sort_by: Models::Operations::GetCustomersQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::GetCustomersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
+        sig { params(email: T.nilable(::String), external_id: T.nilable(::String), search: T.nilable(::String), country: T.nilable(::String), link_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::GetCustomersQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetCustomersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
+        def initialize(email: nil, external_id: nil, search: nil, country: nil, link_id: nil, program_id: nil, partner_id: nil, include_expanded_fields: nil, sort_by: Models::Operations::GetCustomersQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::GetCustomersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
           @email = email
           @external_id = external_id
           @search = search
           @country = country
           @link_id = link_id
+          @program_id = program_id
+          @partner_id = partner_id
           @include_expanded_fields = include_expanded_fields
           @sort_by = sort_by
           @sort_order = sort_order
@@ -56,6 +62,8 @@ module OpenApiSDK
           return false unless @search == other.search
           return false unless @country == other.country
           return false unless @link_id == other.link_id
+          return false unless @program_id == other.program_id
+          return false unless @partner_id == other.partner_id
           return false unless @include_expanded_fields == other.include_expanded_fields
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order

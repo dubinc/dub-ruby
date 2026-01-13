@@ -42,7 +42,7 @@ module OpenApiSDK
         # The ISO 3166-2 region code to retrieve analytics for.
         field :region, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
         # The continent to retrieve analytics for.
-        field :continent, Crystalline::Nilable.new(Models::Shared::ContinentCode), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
+        field :continent, Crystalline::Nilable.new(Models::Operations::Continent), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
         # The device to retrieve analytics for.
         field :device, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
         # The browser to retrieve analytics for.
@@ -51,7 +51,7 @@ module OpenApiSDK
         field :os, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
         # The trigger to retrieve analytics for. If undefined, returns all trigger types.
         field :trigger, Crystalline::Nilable.new(Models::Operations::Trigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
-        # The referer to retrieve analytics for.
+        # The referer hostname to retrieve analytics for.
         field :referer, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
         # The full referer URL to retrieve analytics for.
         field :referer_url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
@@ -92,7 +92,7 @@ module OpenApiSDK
         # The ref of the short link.
         field :ref, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'ref', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Shared::ContinentCode), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::Trigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), group_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::SaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String)).void }
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Operations::Continent), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::Trigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), group_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::SaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String)).void }
         def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, group_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::Event::CLICKS, group_by: Models::Operations::QueryParamGroupBy::COUNT, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil)
           @domain = domain
           @key = key

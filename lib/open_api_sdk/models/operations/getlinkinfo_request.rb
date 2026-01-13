@@ -15,7 +15,7 @@ module OpenApiSDK
 
 
         field :domain, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
-        # The key of the link to retrieve. E.g. for `d.to/github`, the key is `github`.
+
         field :key, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
         # The unique ID of the short link.
         field :link_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }

@@ -13,20 +13,23 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Unique identifier for the customer in the client's app.
+        # The customer's unique identifier your database. This is useful for associating subsequent conversion events from Dub's API to your internal systems.
         field :external_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-        # Email of the customer in the client's app.
+        # The customer's country in ISO 3166-1 alpha-2 format. Updating this field will only affect the customer's country in Dub's system (and has no effect on existing conversion events).
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
+        # The customer's email address.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
-        # Name of the customer in the client's app. If not provided, a random name will be generated.
+        # The customer's name. If not provided, the email address will be used, and if email is not provided, a random name will be generated.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-        # Avatar URL of the customer in the client's app.
+        # The customer's avatar URL. If not provided, a random avatar will be generated.
         field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
-        # The customer's Stripe customer ID. Useful for attribution recurring sale events to the partner who referred the customer.
+        # The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
         field :stripe_customer_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeCustomerId') } }
 
-        sig { params(external_id: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String)).void }
-        def initialize(external_id: nil, email: nil, name: nil, avatar: nil, stripe_customer_id: nil)
+        sig { params(external_id: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String)).void }
+        def initialize(external_id: nil, country: nil, email: nil, name: nil, avatar: nil, stripe_customer_id: nil)
           @external_id = external_id
+          @country = country
           @email = email
           @name = name
           @avatar = avatar
@@ -37,6 +40,7 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @external_id == other.external_id
+          return false unless @country == other.country
           return false unless @email == other.email
           return false unless @name == other.name
           return false unless @avatar == other.avatar

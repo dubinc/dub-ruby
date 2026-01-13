@@ -102,8 +102,6 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = Models::Operations::GetLinksRequest.new(
-  show_archived: false,
-  with_tags: true,
   page_size: 50.0,
 )
 
@@ -157,10 +155,7 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::GetLinksCountRequest.new(
-  show_archived: false,
-  with_tags: false,
-)
+req = Models::Operations::GetLinksCountRequest.new()
 
 res = s.links.count(request: req)
 

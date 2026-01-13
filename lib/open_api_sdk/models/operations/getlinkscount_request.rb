@@ -37,7 +37,7 @@ module OpenApiSDK
         field :with_tags, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
 
         sig { params(domain: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), search: T.nilable(::String), user_id: T.nilable(::String), tenant_id: T.nilable(::String), group_by: T.nilable(T.any(Models::Operations::One, Models::Operations::Two, Models::Operations::Three, Models::Operations::Four)), show_archived: T.nilable(T::Boolean), with_tags: T.nilable(T::Boolean)).void }
-        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, group_by: nil, show_archived: true, with_tags: true)
+        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, group_by: nil, show_archived: false, with_tags: false)
           @domain = domain
           @tag_id = tag_id
           @tag_ids = tag_ids

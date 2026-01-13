@@ -28,8 +28,6 @@ class OpenApiSDK::Models::Operations::CreateReferralsEmbedTokenLinkProps
   def external_id=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
-  def folder_id(); end
-  def folder_id=(str_); end
   def comments(); end
   def comments=(str_); end
   def expires_at(); end
@@ -50,18 +48,6 @@ class OpenApiSDK::Models::Operations::CreateReferralsEmbedTokenLinkProps
   def ios=(str_); end
   def android(); end
   def android=(str_); end
-  def utm_source(); end
-  def utm_source=(str_); end
-  def utm_medium(); end
-  def utm_medium=(str_); end
-  def utm_campaign(); end
-  def utm_campaign=(str_); end
-  def utm_term(); end
-  def utm_term=(str_); end
-  def utm_content(); end
-  def utm_content=(str_); end
-  def ref(); end
-  def ref=(str_); end
   def test_variants(); end
   def test_variants=(str_); end
   def test_started_at(); end

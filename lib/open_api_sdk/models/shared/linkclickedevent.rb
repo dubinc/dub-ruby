@@ -20,9 +20,9 @@ module OpenApiSDK
 
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
 
-        field :data, Models::Shared::Data, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
+        field :data, Models::Shared::LinkClickedEventData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
 
-        sig { params(id: ::String, event: Models::Shared::LinkClickedEventEvent, created_at: ::String, data: Models::Shared::Data).void }
+        sig { params(id: ::String, event: Models::Shared::LinkClickedEventEvent, created_at: ::String, data: Models::Shared::LinkClickedEventData).void }
         def initialize(id:, event:, created_at:, data:)
           @id = id
           @event = event

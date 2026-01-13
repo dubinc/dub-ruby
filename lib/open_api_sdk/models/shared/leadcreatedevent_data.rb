@@ -16,24 +16,24 @@ module OpenApiSDK
 
         field :event_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName'), required: true } }
 
-        field :customer, Models::Shared::LeadCreatedEventCustomer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
+        field :customer, Models::Shared::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
         field :click, Models::Shared::LeadCreatedEventClick, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click'), required: true } }
 
         field :link, Models::Shared::LeadCreatedEventLink, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
 
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
-
         field :partner, Crystalline::Nilable.new(Models::Shared::Partner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
 
-        sig { params(event_name: ::String, customer: Models::Shared::LeadCreatedEventCustomer, click: Models::Shared::LeadCreatedEventClick, link: Models::Shared::LeadCreatedEventLink, metadata: T.nilable(T::Hash[Symbol, ::Object]), partner: T.nilable(Models::Shared::Partner)).void }
-        def initialize(event_name:, customer:, click:, link:, metadata: nil, partner: nil)
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+
+        sig { params(event_name: ::String, customer: Models::Shared::Customer, click: Models::Shared::LeadCreatedEventClick, link: Models::Shared::LeadCreatedEventLink, partner: T.nilable(Models::Shared::Partner), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(event_name:, customer:, click:, link:, partner: nil, metadata: nil)
           @event_name = event_name
           @customer = customer
           @click = click
           @link = link
-          @metadata = metadata
           @partner = partner
+          @metadata = metadata
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -43,8 +43,8 @@ module OpenApiSDK
           return false unless @customer == other.customer
           return false unless @click == other.click
           return false unless @link == other.link
-          return false unless @metadata == other.metadata
           return false unless @partner == other.partner
+          return false unless @metadata == other.metadata
           true
         end
       end

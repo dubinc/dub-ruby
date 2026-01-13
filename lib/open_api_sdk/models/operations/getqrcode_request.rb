@@ -33,7 +33,7 @@ module OpenApiSDK
         field :include_margin, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeMargin', 'style': 'form', 'explode': true } }
 
         sig { params(url: ::String, logo: T.nilable(::String), size: T.nilable(::Float), level: T.nilable(Models::Operations::Level), fg_color: T.nilable(::String), bg_color: T.nilable(::String), hide_logo: T.nilable(T::Boolean), margin: T.nilable(::Float), include_margin: T.nilable(T::Boolean)).void }
-        def initialize(url:, logo: nil, size: 600.0, level: Models::Operations::Level::L, fg_color: '#000000', bg_color: '#FFFFFF', hide_logo: true, margin: 2.0, include_margin: true)
+        def initialize(url:, logo: nil, size: 600.0, level: Models::Operations::Level::L, fg_color: '#000000', bg_color: '#FFFFFF', hide_logo: false, margin: 2.0, include_margin: true)
           @url = url
           @logo = logo
           @size = size

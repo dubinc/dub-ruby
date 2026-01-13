@@ -9,11 +9,18 @@ module OpenApiSDK
     module Shared
     
 
-      class Event < T::Enum
+      class Event
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-        enums do
-          CLICK = new('click')
+        
+        def initialize; end
+
+        sig { params(other: T.untyped).returns(T::Boolean) }
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
         end
       end
     end

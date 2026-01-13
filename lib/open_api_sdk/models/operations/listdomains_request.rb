@@ -23,7 +23,7 @@ module OpenApiSDK
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
         sig { params(search: T.nilable(::String), archived: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(search: nil, archived: true, page: 1.0, page_size: 50.0)
+        def initialize(search: nil, archived: false, page: 1.0, page_size: 50.0)
           @search = search
           @archived = archived
           @page = page

@@ -13,26 +13,26 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The link that caused the error.
+        field :link, ::Object, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
         # The error message.
         field :error, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('error'), required: true } }
         # The error code.
         field :code, Models::Shared::Code, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Code, false) } }
-        # The link that caused the error.
-        field :link, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link') } }
 
-        sig { params(error: ::String, code: Models::Shared::Code, link: T.nilable(::Object)).void }
-        def initialize(error:, code:, link: nil)
+        sig { params(link: ::Object, error: ::String, code: Models::Shared::Code).void }
+        def initialize(link:, error:, code:)
+          @link = link
           @error = error
           @code = code
-          @link = link
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @link == other.link
           return false unless @error == other.error
           return false unless @code == other.code
-          return false unless @link == other.link
           true
         end
       end

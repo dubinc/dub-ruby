@@ -86,9 +86,7 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::ListDomainsRequest.new(
-  archived: true,
-)
+req = Models::Operations::ListDomainsRequest.new()
 
 res = s.domains.list(request: req)
 

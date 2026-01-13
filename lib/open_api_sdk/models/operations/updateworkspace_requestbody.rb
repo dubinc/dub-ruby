@@ -20,9 +20,9 @@ module OpenApiSDK
 
         field :conversion_enabled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('conversionEnabled') } }
 
-        field :logo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
+        field :logo, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo') } }
 
-        sig { params(name: T.nilable(::String), slug: T.nilable(::String), conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::String)).void }
+        sig { params(name: T.nilable(::String), slug: T.nilable(::String), conversion_enabled: T.nilable(T::Boolean), logo: T.nilable(::Object)).void }
         def initialize(name: nil, slug: nil, conversion_enabled: nil, logo: nil)
           @name = name
           @slug = slug

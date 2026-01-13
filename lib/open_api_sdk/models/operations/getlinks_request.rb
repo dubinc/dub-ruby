@@ -45,7 +45,7 @@ module OpenApiSDK
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
         sig { params(domain: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), search: T.nilable(::String), user_id: T.nilable(::String), tenant_id: T.nilable(::String), show_archived: T.nilable(T::Boolean), with_tags: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::SortBy), sort_order: T.nilable(Models::Operations::SortOrder), sort: T.nilable(Models::Operations::Sort), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, show_archived: true, with_tags: true, sort_by: Models::Operations::SortBy::CREATED_AT, sort_order: Models::Operations::SortOrder::DESC, sort: Models::Operations::Sort::CREATED_AT, page: 1.0, page_size: 100.0)
+        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, show_archived: false, with_tags: false, sort_by: Models::Operations::SortBy::CREATED_AT, sort_order: Models::Operations::SortOrder::DESC, sort: Models::Operations::Sort::CREATED_AT, page: 1.0, page_size: 100.0)
           @domain = domain
           @tag_id = tag_id
           @tag_ids = tag_ids
