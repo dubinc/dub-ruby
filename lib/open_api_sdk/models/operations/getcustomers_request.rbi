@@ -18,6 +18,10 @@ class OpenApiSDK::Models::Operations::GetCustomersRequest
   def country=(str_); end
   def link_id(); end
   def link_id=(str_); end
+  def program_id(); end
+  def program_id=(str_); end
+  def partner_id(); end
+  def partner_id=(str_); end
   def include_expanded_fields(); end
   def include_expanded_fields=(str_); end
   def sort_by(); end

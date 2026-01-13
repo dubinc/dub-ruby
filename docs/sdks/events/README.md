@@ -51,7 +51,7 @@ end
 
 ### Response
 
-**[T.nilable(T::Array[T.any(Models::Shared::ClickEvent, Models::Shared::LeadEvent, Models::Shared::SaleEvent)])](../../models/operations/.md)**
+**[T.nilable(T::Array[T.any(Models::Operations::ClickEvent, Models::Operations::LeadEvent, Models::Operations::SaleEvent)])](../../models/operations/.md)**
 
 ### Errors
 

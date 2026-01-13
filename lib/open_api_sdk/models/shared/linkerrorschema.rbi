@@ -8,10 +8,10 @@ end
 
 
 class OpenApiSDK::Models::Shared::LinkErrorSchema
+  def link(); end
+  def link=(str_); end
   def error(); end
   def error=(str_); end
   def code(); end
   def code=(str_); end
-  def link(); end
-  def link=(str_); end
 end

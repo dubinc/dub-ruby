@@ -735,7 +735,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrieveLinksRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::Link]) }
+    sig { params(request: Models::Operations::RetrieveLinksRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::RetrieveLinksResponseBody]) }
     def retrieve_links(request:, timeout_ms: nil)
       # retrieve_links - Retrieve a partner's links.
       # Retrieve a partner's links by their partner ID or tenant ID.
@@ -818,7 +818,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::Link))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::RetrieveLinksResponseBody))
 
           return obj
         else

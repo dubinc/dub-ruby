@@ -33,8 +33,6 @@ module OpenApiSDK
         field :external_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
         # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-        # The unique ID existing folder to assign the short link to.
-        field :folder_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
         # The comments for the short link.
         field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
         # The date and time when the short link will expire at.
@@ -55,18 +53,6 @@ module OpenApiSDK
         field :ios, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
         # The Android destination URL for the short link for Android device targeting.
         field :android, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
-        # The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
-        field :utm_source, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }
-        # The UTM medium of the short link. If set, this will populate or override the UTM medium in the destination URL.
-        field :utm_medium, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_medium') } }
-        # The UTM campaign of the short link. If set, this will populate or override the UTM campaign in the destination URL.
-        field :utm_campaign, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_campaign') } }
-        # The UTM term of the short link. If set, this will populate or override the UTM term in the destination URL.
-        field :utm_term, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_term') } }
-        # The UTM content of the short link. If set, this will populate or override the UTM content in the destination URL.
-        field :utm_content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_content') } }
-        # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
-        field :ref, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
         # An array of A/B test URLs and the percentage of traffic to send to each URL.
         field :test_variants, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::CreatePartnerLinkTestVariants)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
         # The date and time when the tests started.
@@ -74,8 +60,8 @@ module OpenApiSDK
         # The date and time when the tests were or will be completed.
         field :test_completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
 
-        sig { params(key_length: T.nilable(::Float), prefix: T.nilable(::String), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), external_id: T.nilable(::String), tenant_id: T.nilable(::String), folder_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), test_variants: T.nilable(T::Array[Models::Operations::CreatePartnerLinkTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String)).void }
-        def initialize(key_length: nil, prefix: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, external_id: nil, tenant_id: nil, folder_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil)
+        sig { params(key_length: T.nilable(::Float), prefix: T.nilable(::String), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), external_id: T.nilable(::String), tenant_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), test_variants: T.nilable(T::Array[Models::Operations::CreatePartnerLinkTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String)).void }
+        def initialize(key_length: nil, prefix: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, external_id: nil, tenant_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil)
           @key_length = key_length
           @prefix = prefix
           @archived = archived
@@ -86,7 +72,6 @@ module OpenApiSDK
           @do_index = do_index
           @external_id = external_id
           @tenant_id = tenant_id
-          @folder_id = folder_id
           @comments = comments
           @expires_at = expires_at
           @expired_url = expired_url
@@ -97,12 +82,6 @@ module OpenApiSDK
           @video = video
           @ios = ios
           @android = android
-          @utm_source = utm_source
-          @utm_medium = utm_medium
-          @utm_campaign = utm_campaign
-          @utm_term = utm_term
-          @utm_content = utm_content
-          @ref = ref
           @test_variants = test_variants
           @test_started_at = test_started_at
           @test_completed_at = test_completed_at
@@ -121,7 +100,6 @@ module OpenApiSDK
           return false unless @do_index == other.do_index
           return false unless @external_id == other.external_id
           return false unless @tenant_id == other.tenant_id
-          return false unless @folder_id == other.folder_id
           return false unless @comments == other.comments
           return false unless @expires_at == other.expires_at
           return false unless @expired_url == other.expired_url
@@ -132,12 +110,6 @@ module OpenApiSDK
           return false unless @video == other.video
           return false unless @ios == other.ios
           return false unless @android == other.android
-          return false unless @utm_source == other.utm_source
-          return false unless @utm_medium == other.utm_medium
-          return false unless @utm_campaign == other.utm_campaign
-          return false unless @utm_term == other.utm_term
-          return false unless @utm_content == other.utm_content
-          return false unless @ref == other.ref
           return false unless @test_variants == other.test_variants
           return false unless @test_started_at == other.test_started_at
           return false unless @test_completed_at == other.test_completed_at

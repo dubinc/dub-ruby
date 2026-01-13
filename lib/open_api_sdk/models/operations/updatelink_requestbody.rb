@@ -67,7 +67,7 @@ module OpenApiSDK
         field :ios, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ios') } }
         # The Android destination URL for the short link for Android device targeting.
         field :android, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('android') } }
-        # Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. See https://d.to/geo for more information.
+
         field :geo, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('geo') } }
         # The UTM source of the short link. If set, this will populate or override the UTM source in the destination URL.
         field :utm_source, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_source') } }

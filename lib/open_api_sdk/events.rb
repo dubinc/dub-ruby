@@ -39,7 +39,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ListEventsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[T.any(Models::Shared::ClickEvent, Models::Shared::LeadEvent, Models::Shared::SaleEvent)]) }
+    sig { params(request: Models::Operations::ListEventsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[T.any(Models::Operations::ClickEvent, Models::Operations::LeadEvent, Models::Operations::SaleEvent)]) }
     def list(request:, timeout_ms: nil)
       # list - Retrieve a list of events
       # Retrieve a paginated list of events for the authenticated workspace.
@@ -122,7 +122,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Crystalline::Union.new(Models::Shared::ClickEvent, Models::Shared::LeadEvent, Models::Shared::SaleEvent)))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Crystalline::Union.new(Models::Operations::ClickEvent, Models::Operations::LeadEvent, Models::Operations::SaleEvent)))
 
           return obj
         else

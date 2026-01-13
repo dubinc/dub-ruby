@@ -24,8 +24,9 @@ generation:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
+  persistentEdits: {}
 ruby:
-  version: 0.12.0
+  version: 0.12.1
   additionalDependencies:
     development: {}
     runtime: {}
@@ -48,6 +49,7 @@ ruby:
   inputModelSuffix: input
   maxMethodParams: 0
   module: OpenApiSdk
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: dub
   responseFormat: flat

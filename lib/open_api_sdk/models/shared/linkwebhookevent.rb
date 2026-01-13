@@ -20,9 +20,9 @@ module OpenApiSDK
 
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
 
-        field :data, Models::Shared::LinkWebhookEventLink, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
+        field :data, Models::Shared::Data, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
 
-        sig { params(id: ::String, event: T.any(Models::Shared::One, Models::Shared::Two, Models::Shared::Three), created_at: ::String, data: Models::Shared::LinkWebhookEventLink).void }
+        sig { params(id: ::String, event: T.any(Models::Shared::One, Models::Shared::Two, Models::Shared::Three), created_at: ::String, data: Models::Shared::Data).void }
         def initialize(id:, event:, created_at:, data:)
           @id = id
           @event = event

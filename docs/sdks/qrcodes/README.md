@@ -26,8 +26,6 @@ s = ::OpenApiSDK::Dub.new(
 
 req = Models::Operations::GetQRCodeRequest.new(
   url: 'https://needy-newsstand.biz/',
-  hide_logo: true,
-  include_margin: false,
 )
 
 res = s.qr_codes.get(request: req)

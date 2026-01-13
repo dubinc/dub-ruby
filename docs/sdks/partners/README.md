@@ -246,7 +246,7 @@ end
 
 ### Response
 
-**[T.nilable(T::Array[Models::Operations::Link])](../../models/operations/.md)**
+**[T.nilable(T::Array[Models::Operations::RetrieveLinksResponseBody])](../../models/operations/.md)**
 
 ### Errors
 

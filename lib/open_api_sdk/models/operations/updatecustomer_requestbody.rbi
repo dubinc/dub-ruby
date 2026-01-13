@@ -10,6 +10,8 @@ end
 class OpenApiSDK::Models::Operations::UpdateCustomerRequestBody
   def external_id(); end
   def external_id=(str_); end
+  def country(); end
+  def country=(str_); end
   def email(); end
   def email=(str_); end
   def name(); end

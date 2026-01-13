@@ -18,9 +18,9 @@ module OpenApiSDK
 
         field :customer, Models::Operations::Customer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
-        field :link, Crystalline::Nilable.new(Models::Operations::TrackLeadLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
+        field :link, Crystalline::Nilable.new(Models::Operations::Link), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
 
-        sig { params(click: Models::Operations::Click, customer: Models::Operations::Customer, link: T.nilable(Models::Operations::TrackLeadLink)).void }
+        sig { params(click: Models::Operations::Click, customer: Models::Operations::Customer, link: T.nilable(Models::Operations::Link)).void }
         def initialize(click:, customer:, link: nil)
           @click = click
           @customer = customer
