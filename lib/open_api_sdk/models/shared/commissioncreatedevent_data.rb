@@ -37,13 +37,15 @@ module OpenApiSDK
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+
+        field :link, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
         # The user who created the manual commission.
         field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('userId') } }
 
         field :customer, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
-        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::CommissionCreatedEventPartner, type: T.nilable(Models::Shared::CommissionCreatedEventType), invoice_id: T.nilable(::String), description: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
-        def initialize(id:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, type: nil, invoice_id: nil, description: nil, user_id: nil, customer: nil)
+        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::CommissionCreatedEventPartner, type: T.nilable(Models::Shared::CommissionCreatedEventType), invoice_id: T.nilable(::String), description: T.nilable(::String), link: T.nilable(Models::Shared::CommissionCreatedEventLink), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
+        def initialize(id:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, type: nil, invoice_id: nil, description: nil, link: nil, user_id: nil, customer: nil)
           @id = id
           @amount = amount
           @earnings = earnings
@@ -56,6 +58,7 @@ module OpenApiSDK
           @type = type
           @invoice_id = invoice_id
           @description = description
+          @link = link
           @user_id = user_id
           @customer = customer
         end
@@ -75,6 +78,7 @@ module OpenApiSDK
           return false unless @type == other.type
           return false unless @invoice_id == other.invoice_id
           return false unless @description == other.description
+          return false unless @link == other.link
           return false unless @user_id == other.user_id
           return false unless @customer == other.customer
           true

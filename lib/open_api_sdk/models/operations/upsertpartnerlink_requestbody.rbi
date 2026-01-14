@@ -8,6 +8,8 @@ end
 
 
 class OpenApiSDK::Models::Operations::UpsertPartnerLinkRequestBody
+  def url(); end
+  def url=(str_); end
   def key(); end
   def key=(str_); end
   def link_props(); end
@@ -16,8 +18,6 @@ class OpenApiSDK::Models::Operations::UpsertPartnerLinkRequestBody
   def partner_id=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
-  def url(); end
-  def url=(str_); end
   def comments(); end
   def comments=(str_); end
 end

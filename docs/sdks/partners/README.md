@@ -281,6 +281,7 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = Models::Operations::UpsertPartnerLinkRequestBody.new(
+  url: 'https://bad-intent.org/',
   link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(
     external_id: '123456',
     tag_ids: [
