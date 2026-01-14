@@ -180,6 +180,12 @@ end
 
 * [retrieve](docs/sdks/analytics/README.md#retrieve) - Retrieve analytics for a link, a domain, or the authenticated workspace.
 
+### [bounties](docs/sdks/bounties/README.md)
+
+* [list_submissions](docs/sdks/bounties/README.md#list_submissions) - List bounty submissions
+* [approve_submission](docs/sdks/bounties/README.md#approve_submission) - Approve a bounty submission
+* [reject_submission](docs/sdks/bounties/README.md#reject_submission) - Reject a bounty submission
+
 ### [commissions](docs/sdks/commissions/README.md)
 
 * [list](docs/sdks/commissions/README.md#list) - Get commissions for a program.

@@ -28,6 +28,7 @@ module OpenApiSDK
       autoload :CommissionCreatedEventCustomer, 'open_api_sdk/models/shared/commissioncreatedevent_customer.rb'
       autoload :CommissionCreatedEventData, 'open_api_sdk/models/shared/commissioncreatedevent_data.rb'
       autoload :CommissionCreatedEventEvent, 'open_api_sdk/models/shared/commissioncreatedevent_event.rb'
+      autoload :CommissionCreatedEventLink, 'open_api_sdk/models/shared/commissioncreatedevent_link.rb'
       autoload :CommissionCreatedEventPartner, 'open_api_sdk/models/shared/commissioncreatedevent_partner.rb'
       autoload :CommissionCreatedEventStatus, 'open_api_sdk/models/shared/commissioncreatedevent_status.rb'
       autoload :CommissionCreatedEventType, 'open_api_sdk/models/shared/commissioncreatedevent_type.rb'

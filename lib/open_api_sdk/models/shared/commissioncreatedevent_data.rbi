@@ -32,6 +32,8 @@ class OpenApiSDK::Models::Shared::CommissionCreatedEventData
   def invoice_id=(str_); end
   def description(); end
   def description=(str_); end
+  def link(); end
+  def link=(str_); end
   def user_id(); end
   def user_id=(str_); end
   def customer(); end

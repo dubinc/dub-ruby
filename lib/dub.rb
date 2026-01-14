@@ -18,6 +18,7 @@ module OpenApiSDK
   autoload :Workspaces, 'open_api_sdk/workspaces'
   autoload :EmbedTokens, 'open_api_sdk/embed_tokens'
   autoload :QRCodes, 'open_api_sdk/qr_codes'
+  autoload :Bounties, 'open_api_sdk/bounties'
   module Models
     autoload :Shared, 'open_api_sdk/models/shared'
     autoload :Operations, 'open_api_sdk/models/operations'

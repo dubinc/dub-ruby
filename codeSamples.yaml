@@ -9,6 +9,24 @@ actions:
         - "lang": "ruby"
           "label": "retrieveAnalytics"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrieveAnalyticsRequest.new(\n  event: Models::Operations::Event::LEADS,\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.analytics.retrieve(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/bounties/{bountyId}/submissions"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "listBountySubmissions"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListBountySubmissionsRequest.new(\n  bounty_id: '<id>',\n  page_size: 50.0,\n)\n\nres = s.bounties.list_submissions(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/bounties/{bountyId}/submissions/{submissionId}/approve"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "approveBountySubmission"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ApproveBountySubmissionRequest.new(\n  bounty_id: '<id>',\n  submission_id: '<id>',\n)\n\nres = s.bounties.approve_submission(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/bounties/{bountyId}/submissions/{submissionId}/reject"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "rejectBountySubmission"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RejectBountySubmissionRequest.new(\n  bounty_id: '<id>',\n  submission_id: '<id>',\n)\n\nres = s.bounties.reject_submission(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/commissions"]["get"]
     update:
       "x-codeSamples":
@@ -212,7 +230,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "upsertPartnerLink"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpsertPartnerLinkRequestBody.new(\n  link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.upsert_link(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpsertPartnerLinkRequestBody.new(\n  url: 'https://bad-intent.org/',\n  link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.upsert_link(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/qr"]["get"]
     update:
       "x-codeSamples":

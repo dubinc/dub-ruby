@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 4fe71b8b593ac1efb49346d3604bbe46
+  docChecksum: 1dfd58e77751ca1d1443d50d088508ad
   docVersion: 0.0.1
   speakeasyVersion: 1.662.0
   generationVersion: 2.763.3
-  releaseVersion: 0.12.1
-  configChecksum: a7652069e534b66afb7f58f1cda3a6fa
+  releaseVersion: 0.12.2
+  configChecksum: f37d3b6096f74bb9f3e4b1c2345742e9
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -62,6 +62,11 @@ generatedFiles:
   - docs/models/errors/unprocessableentitycode.md
   - docs/models/errors/unprocessableentityerror.md
   - docs/models/operations/accesslevel.md
+  - docs/models/operations/approvebountysubmissionfiles.md
+  - docs/models/operations/approvebountysubmissionrequest.md
+  - docs/models/operations/approvebountysubmissionrequestbody.md
+  - docs/models/operations/approvebountysubmissionresponsebody.md
+  - docs/models/operations/approvebountysubmissionstatus.md
   - docs/models/operations/bannedreason.md
   - docs/models/operations/banpartnerrequestbody.md
   - docs/models/operations/banpartnerresponsebody.md
@@ -116,6 +121,7 @@ generatedFiles:
   - docs/models/operations/discount.md
   - docs/models/operations/domains.md
   - docs/models/operations/event.md
+  - docs/models/operations/files.md
   - docs/models/operations/four.md
   - docs/models/operations/getcustomerdiscount.md
   - docs/models/operations/getcustomerlink.md
@@ -149,6 +155,12 @@ generatedFiles:
   - docs/models/operations/link.md
   - docs/models/operations/linkprops.md
   - docs/models/operations/links.md
+  - docs/models/operations/listbountysubmissionsqueryparamsortby.md
+  - docs/models/operations/listbountysubmissionsqueryparamsortorder.md
+  - docs/models/operations/listbountysubmissionsqueryparamstatus.md
+  - docs/models/operations/listbountysubmissionsrequest.md
+  - docs/models/operations/listbountysubmissionsresponsebody.md
+  - docs/models/operations/listbountysubmissionsstatus.md
   - docs/models/operations/listcommissionscustomer.md
   - docs/models/operations/listcommissionspartner.md
   - docs/models/operations/listcommissionsqueryparaminterval.md
@@ -200,6 +212,12 @@ generatedFiles:
   - docs/models/operations/reason.md
   - docs/models/operations/registerdomainrequestbody.md
   - docs/models/operations/registerdomainresponsebody.md
+  - docs/models/operations/rejectbountysubmissionfiles.md
+  - docs/models/operations/rejectbountysubmissionrequest.md
+  - docs/models/operations/rejectbountysubmissionrequestbody.md
+  - docs/models/operations/rejectbountysubmissionresponsebody.md
+  - docs/models/operations/rejectbountysubmissionstatus.md
+  - docs/models/operations/rejectionreason.md
   - docs/models/operations/requestbody.md
   - docs/models/operations/responsebody.md
   - docs/models/operations/responsebodyclick.md
@@ -301,6 +319,7 @@ generatedFiles:
   - docs/models/shared/commissioncreatedeventcustomer.md
   - docs/models/shared/commissioncreatedeventdata.md
   - docs/models/shared/commissioncreatedeventevent.md
+  - docs/models/shared/commissioncreatedeventlink.md
   - docs/models/shared/commissioncreatedeventpartner.md
   - docs/models/shared/commissioncreatedeventstatus.md
   - docs/models/shared/commissioncreatedeventtype.md
@@ -367,6 +386,7 @@ generatedFiles:
   - docs/models/shared/webhookevent.md
   - docs/models/shared/workspaceschema.md
   - docs/sdks/analytics/README.md
+  - docs/sdks/bounties/README.md
   - docs/sdks/commissions/README.md
   - docs/sdks/customers/README.md
   - docs/sdks/domains/README.md
@@ -388,6 +408,7 @@ generatedFiles:
   - lib/crystalline/utils.rb
   - lib/dub.rb
   - lib/open_api_sdk/analytics.rb
+  - lib/open_api_sdk/bounties.rb
   - lib/open_api_sdk/commissions.rb
   - lib/open_api_sdk/customers.rb
   - lib/open_api_sdk/domains.rb
@@ -457,6 +478,16 @@ generatedFiles:
   - lib/open_api_sdk/models/operations.rb
   - lib/open_api_sdk/models/operations/accesslevel.rb
   - lib/open_api_sdk/models/operations/accesslevel.rbi
+  - lib/open_api_sdk/models/operations/approvebountysubmission_files.rb
+  - lib/open_api_sdk/models/operations/approvebountysubmission_files.rbi
+  - lib/open_api_sdk/models/operations/approvebountysubmission_request.rb
+  - lib/open_api_sdk/models/operations/approvebountysubmission_request.rbi
+  - lib/open_api_sdk/models/operations/approvebountysubmission_requestbody.rb
+  - lib/open_api_sdk/models/operations/approvebountysubmission_requestbody.rbi
+  - lib/open_api_sdk/models/operations/approvebountysubmission_responsebody.rb
+  - lib/open_api_sdk/models/operations/approvebountysubmission_responsebody.rbi
+  - lib/open_api_sdk/models/operations/approvebountysubmission_status.rb
+  - lib/open_api_sdk/models/operations/approvebountysubmission_status.rbi
   - lib/open_api_sdk/models/operations/bannedreason.rb
   - lib/open_api_sdk/models/operations/bannedreason.rbi
   - lib/open_api_sdk/models/operations/banpartner_requestbody.rb
@@ -565,6 +596,8 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/domains.rbi
   - lib/open_api_sdk/models/operations/event.rb
   - lib/open_api_sdk/models/operations/event.rbi
+  - lib/open_api_sdk/models/operations/files.rb
+  - lib/open_api_sdk/models/operations/files.rbi
   - lib/open_api_sdk/models/operations/four.rb
   - lib/open_api_sdk/models/operations/four.rbi
   - lib/open_api_sdk/models/operations/getcustomer_discount.rb
@@ -631,6 +664,18 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/linkprops.rbi
   - lib/open_api_sdk/models/operations/links.rb
   - lib/open_api_sdk/models/operations/links.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortby.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortby.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortorder.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortorder.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_status.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_status.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_request.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_request.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_responsebody.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_responsebody.rbi
+  - lib/open_api_sdk/models/operations/listbountysubmissions_status.rb
+  - lib/open_api_sdk/models/operations/listbountysubmissions_status.rbi
   - lib/open_api_sdk/models/operations/listcommissions_customer.rb
   - lib/open_api_sdk/models/operations/listcommissions_customer.rbi
   - lib/open_api_sdk/models/operations/listcommissions_partner.rb
@@ -733,6 +778,18 @@ generatedFiles:
   - lib/open_api_sdk/models/operations/registerdomain_requestbody.rbi
   - lib/open_api_sdk/models/operations/registerdomain_responsebody.rb
   - lib/open_api_sdk/models/operations/registerdomain_responsebody.rbi
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_files.rb
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_files.rbi
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_request.rb
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_request.rbi
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_requestbody.rb
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_requestbody.rbi
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_responsebody.rb
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_responsebody.rbi
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_status.rb
+  - lib/open_api_sdk/models/operations/rejectbountysubmission_status.rbi
+  - lib/open_api_sdk/models/operations/rejectionreason.rb
+  - lib/open_api_sdk/models/operations/rejectionreason.rbi
   - lib/open_api_sdk/models/operations/requestbody.rb
   - lib/open_api_sdk/models/operations/requestbody.rbi
   - lib/open_api_sdk/models/operations/responsebody.rb
@@ -936,6 +993,8 @@ generatedFiles:
   - lib/open_api_sdk/models/shared/commissioncreatedevent_data.rbi
   - lib/open_api_sdk/models/shared/commissioncreatedevent_event.rb
   - lib/open_api_sdk/models/shared/commissioncreatedevent_event.rbi
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_link.rb
+  - lib/open_api_sdk/models/shared/commissioncreatedevent_link.rbi
   - lib/open_api_sdk/models/shared/commissioncreatedevent_partner.rb
   - lib/open_api_sdk/models/shared/commissioncreatedevent_partner.rbi
   - lib/open_api_sdk/models/shared/commissioncreatedevent_status.rb
@@ -2084,7 +2143,7 @@ examples:
   upsertPartnerLink:
     speakeasy-default-upsert-partner-link:
       requestBody:
-        application/json: {"linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
+        application/json: {"url": "https://bad-intent.org/", "linkProps": {"externalId": "123456", "tagIds": ["clux0rgak00011..."], "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}]}}
       responses:
         "200":
           application/json: {"id": "<id>", "domain": "inborn-backbone.info", "key": "<key>", "url": "https://trusty-birdcage.org", "trackConversion": false, "externalId": "<id>", "tenantId": "<id>", "programId": "<id>", "partnerId": "<id>", "archived": false, "expiresAt": "1737478320546", "expiredUrl": "https://mediocre-commodity.name", "disabledAt": "<value>", "password": "2EybwesHSoRuHSl", "proxy": false, "title": "<value>", "description": "questioningly scornful beyond rejoin unlike impure prime", "image": null, "video": "https://loremflickr.com/1976/2445?lock=7226614947361714", "rewrite": false, "doIndex": false, "ios": null, "android": "<id>", "geo": {"key": "https://flawless-bakeware.com/"}, "publicStats": false, "tags": [{"id": "<id>", "name": "<value>", "color": "blue"}], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "pace scale valley arcade eek old husband blowgun pish soon stable huzzah ew thorn kick segregate", "shortLink": "https://unwilling-publicity.biz", "qrCode": "https://unsightly-bourgeoisie.net/", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1715735514717", "updatedAt": "1735654967859", "tagId": null, "projectId": "<id>"}
@@ -2323,9 +2382,94 @@ examples:
           application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  listBountySubmissions:
+    speakeasy-default-list-bounty-submissions:
+      parameters:
+        path:
+          bountyId: "<id>"
+        query:
+          sortBy: "completedAt"
+          sortOrder: "asc"
+          page: 1
+          pageSize: 50
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "bountyId": "<id>", "partnerId": "<id>", "description": null, "urls": ["<value 1>", "<value 2>", "<value 3>"], "files": [], "status": "rejected", "performanceCount": 7252.47, "createdAt": "1730788726599", "completedAt": "<value>", "reviewedAt": "<value>", "rejectionReason": "<value>", "rejectionNote": "<value>"}]
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  approveBountySubmission:
+    speakeasy-default-approve-bounty-submission:
+      parameters:
+        path:
+          bountyId: "<id>"
+          submissionId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "bountyId": "<id>", "partnerId": "<id>", "description": "braid probe where", "urls": [], "files": [], "status": "rejected", "performanceCount": 1758.64, "createdAt": "1734899747469", "completedAt": "<value>", "reviewedAt": "<value>", "rejectionReason": "<value>", "rejectionNote": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
+  rejectBountySubmission:
+    speakeasy-default-reject-bounty-submission:
+      parameters:
+        path:
+          bountyId: "<id>"
+          submissionId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "bountyId": "<id>", "partnerId": "<id>", "description": "concentration blah safely inspection", "urls": ["<value 1>", "<value 2>"], "files": [], "status": "approved", "performanceCount": 6879.81, "createdAt": "1731452499894", "completedAt": "<value>", "reviewedAt": "<value>", "rejectionReason": "<value>", "rejectionNote": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `dub.partners.create()`: \n  *  `request.link_props` **Changed** **Breaking** :warning:\n* `dub.partners.create_link()`: \n  *  `request.link_props` **Changed** **Breaking** :warning:\n* `dub.partners.upsert_link()`: \n  *  `request.link_props` **Changed** **Breaking** :warning:\n* `dub.workspaces.update()`: \n  *  `request_body.logo` **Changed** **Breaking** :warning:\n* `dub.embed_tokens.referrals()`: \n  *  `request.partner.link_props` **Changed** **Breaking** :warning:\n* `dub.links.create_many()`:  `response.[].[link_error_schema].link` **Changed**\n* `dub.analytics.retrieve()`: \n  *  `request.continent` **Changed**\n* `dub.events.list()`: \n  *  `request.continent` **Changed**\n  *  `response.[]` **Changed**\n* `dub.customers.list()`:  `request` **Changed**\n* `dub.customers.update()`: \n  *  `request.request_body.country` **Added**\n"
+releaseNotes: "## Ruby SDK Changes Detected:\n* `dub.partners.upsert_link()`: \n  *  `request.url` **Changed** **Breaking** :warning:\n* `dub.bounties.list_submissions()`: **Added**\n* `dub.bounties.approve_submission()`: **Added**\n* `dub.bounties.reject_submission()`: **Added**\n"
 trackedFiles:
   .gitattributes:
     last_write_checksum: sha1:ddc1beb0214aecada04e60ef2e038729bd8d20e6
@@ -2334,7 +2478,7 @@ trackedFiles:
   Gemfile:
     last_write_checksum: sha1:8c1b6fa9505f61abd0fb6741f8094e9655a55495
   Gemfile.lock:
-    last_write_checksum: sha1:880c7ecb70ae2052089b32f46b582eea2388e7cc
+    last_write_checksum: sha1:0e36a69670656b9e838da53f7010892553c88aa5
   Rakefile:
     last_write_checksum: sha1:bb15946e7c34d00098a6ee8fef994bbd57960092
   USAGE.md:
@@ -2395,6 +2539,16 @@ trackedFiles:
     last_write_checksum: sha1:6dcc89514c65a6bb086cae6442f8db2c72587f6a
   docs/models/operations/accesslevel.md:
     last_write_checksum: sha1:cc45be6a76d0f0354fe775f256e9955510bf68fe
+  docs/models/operations/approvebountysubmissionfiles.md:
+    last_write_checksum: sha1:29d03dc506de37d4c16462e38ad90d059e9c8c06
+  docs/models/operations/approvebountysubmissionrequest.md:
+    last_write_checksum: sha1:e4b42d954f13da597ba3230974bca620d122eb4f
+  docs/models/operations/approvebountysubmissionrequestbody.md:
+    last_write_checksum: sha1:84aa9c1a7ab605f1f943f6e7310db367aea2bfe8
+  docs/models/operations/approvebountysubmissionresponsebody.md:
+    last_write_checksum: sha1:25d8f5c9efafc42de58e2813e9ceea27598b677e
+  docs/models/operations/approvebountysubmissionstatus.md:
+    last_write_checksum: sha1:c88413bd147c3ee1b829334b42056f1a3b8f417e
   docs/models/operations/bannedreason.md:
     last_write_checksum: sha1:3a5911bfedf75b8b6d49a4a27b37c64700a8e651
   docs/models/operations/banpartnerrequestbody.md:
@@ -2503,6 +2657,8 @@ trackedFiles:
     last_write_checksum: sha1:ded6409a79ebd0cdb997c71fc6bf61b395583539
   docs/models/operations/event.md:
     last_write_checksum: sha1:bf254f360e05ee06eea67a3961078d3c1657e9d5
+  docs/models/operations/files.md:
+    last_write_checksum: sha1:75dcd498314f916588d48b0fb298dc29fe702b50
   docs/models/operations/four.md:
     last_write_checksum: sha1:b1ab81ce90d5768366ea391b87429337517c85cc
   docs/models/operations/getcustomerdiscount.md:
@@ -2569,6 +2725,18 @@ trackedFiles:
     last_write_checksum: sha1:dba0a381c4898d1bc6495d7dfe1c3eabd8341480
   docs/models/operations/links.md:
     last_write_checksum: sha1:5f36bba80591a3369dcd5c156d61b4763d2973ab
+  docs/models/operations/listbountysubmissionsqueryparamsortby.md:
+    last_write_checksum: sha1:962358f4cae9eb22b06dae766a976a9e287186d6
+  docs/models/operations/listbountysubmissionsqueryparamsortorder.md:
+    last_write_checksum: sha1:00f0b03c7e19fa32908d7d5ec858f6c7ce0f112e
+  docs/models/operations/listbountysubmissionsqueryparamstatus.md:
+    last_write_checksum: sha1:c87b97af03b512e84d242828bdc6f09b44e87228
+  docs/models/operations/listbountysubmissionsrequest.md:
+    last_write_checksum: sha1:a8112c85d1447c3e72a3552092c1b2bc0a33aa74
+  docs/models/operations/listbountysubmissionsresponsebody.md:
+    last_write_checksum: sha1:1fd963641e212bf1b6231583e3d988b6709f0b0d
+  docs/models/operations/listbountysubmissionsstatus.md:
+    last_write_checksum: sha1:f961cb79a54c887ea74df2f2b81c0335b7aeda17
   docs/models/operations/listcommissionscustomer.md:
     last_write_checksum: sha1:1d1349baef6ec01a2d76e18ea501bae243ffbbc0
   docs/models/operations/listcommissionspartner.md:
@@ -2671,6 +2839,18 @@ trackedFiles:
     last_write_checksum: sha1:80e2c5c219128e2273f6b7e74d5bd0597a82a285
   docs/models/operations/registerdomainresponsebody.md:
     last_write_checksum: sha1:e1a963d9e00b56c289ae77564313e5e431931a1d
+  docs/models/operations/rejectbountysubmissionfiles.md:
+    last_write_checksum: sha1:2c2d2cb0cab7e001bc46549513278547b2f4ae01
+  docs/models/operations/rejectbountysubmissionrequest.md:
+    last_write_checksum: sha1:1a1fad104afcf24ef675fb6afd76ab73d90c32bb
+  docs/models/operations/rejectbountysubmissionrequestbody.md:
+    last_write_checksum: sha1:69beeaffcb599d24131ccb3487689d5ab2329303
+  docs/models/operations/rejectbountysubmissionresponsebody.md:
+    last_write_checksum: sha1:ce67d328f47033bf128445a4b625640168840f00
+  docs/models/operations/rejectbountysubmissionstatus.md:
+    last_write_checksum: sha1:885b4f0dc15f87e00dd2852bc87634d40a52ba96
+  docs/models/operations/rejectionreason.md:
+    last_write_checksum: sha1:d88d34b2962b976aa9e76e4b2b1af48f1b4cc20b
   docs/models/operations/requestbody.md:
     last_write_checksum: sha1:312a8941c0bc22e8aeaf35f83322d1a885a4456c
   docs/models/operations/responsebody.md:
@@ -2814,7 +2994,7 @@ trackedFiles:
   docs/models/operations/upsertpartnerlinklinkprops.md:
     last_write_checksum: sha1:012089dace4fab048dab1f33fac1477f9dd47d60
   docs/models/operations/upsertpartnerlinkrequestbody.md:
-    last_write_checksum: sha1:c6709246b15a4828220a974f2039a9bd0767595e
+    last_write_checksum: sha1:551a524ee9ea73d52e41ad36457a3af0a99a88f2
   docs/models/operations/upsertpartnerlinktagids.md:
     last_write_checksum: sha1:7d1a4e151c8b7515d3c2dae5f2acddcc0f684800
   docs/models/operations/upsertpartnerlinktagnames.md:
@@ -2870,9 +3050,11 @@ trackedFiles:
   docs/models/shared/commissioncreatedeventcustomer.md:
     last_write_checksum: sha1:b827515b3277462a8c452c72a528a7530afdcdec
   docs/models/shared/commissioncreatedeventdata.md:
-    last_write_checksum: sha1:c058eb8ee8af419967c3fa2b221d157a459d4b22
+    last_write_checksum: sha1:6206a99dab6ec99b6b8915a2a81f7a9c448bfea8
   docs/models/shared/commissioncreatedeventevent.md:
     last_write_checksum: sha1:f0a5476120b6d1d23731f5c79373923b78cbddb0
+  docs/models/shared/commissioncreatedeventlink.md:
+    last_write_checksum: sha1:9952c47abb620cd4e8f1afffb056639276e59bd0
   docs/models/shared/commissioncreatedeventpartner.md:
     last_write_checksum: sha1:aad0275b3fe5a0b3cbb8e2e5efce95b0f37de8b7
   docs/models/shared/commissioncreatedeventstatus.md:
@@ -3005,6 +3187,8 @@ trackedFiles:
     last_write_checksum: sha1:0401f2f7f06b847baa4e01260b5a15bdd91d5490
   docs/sdks/analytics/README.md:
     last_write_checksum: sha1:08ee0646fa1c44e88970735ee64a7c148db7abe5
+  docs/sdks/bounties/README.md:
+    last_write_checksum: sha1:7c47b55beb3241c2ce6f56c8fb580d84e1fdab93
   docs/sdks/commissions/README.md:
     last_write_checksum: sha1:9e64241bf3e5076deb27a9381e8655527ca706fd
   docs/sdks/customers/README.md:
@@ -3020,7 +3204,7 @@ trackedFiles:
   docs/sdks/links/README.md:
     last_write_checksum: sha1:e139e934835aba431c2fadc85467093a2f81f189
   docs/sdks/partners/README.md:
-    last_write_checksum: sha1:2b26df056e87bfab5968cc7c18b0b3e0c9606bbe
+    last_write_checksum: sha1:ae507eabd064f5e80ae2feabf4d4b0f02a568a30
   docs/sdks/qrcodes/README.md:
     last_write_checksum: sha1:db4590b12b90c5834baae450651dd11fe832aae3
   docs/sdks/tags/README.md:
@@ -3030,7 +3214,7 @@ trackedFiles:
   docs/sdks/workspaces/README.md:
     last_write_checksum: sha1:acaec508cdf730a5141afdafd641f30db04af94b
   dub.gemspec:
-    last_write_checksum: sha1:803f1f5b438fa8e1c55dfe5800c772f01977e0ed
+    last_write_checksum: sha1:036437ba3f76a310a7b6ed72754e8d01117ec036
   extra.rbi:
     last_write_checksum: sha1:b4d764c7b4eb0b56246a260e2a6644523dc78b04
   lib/crystalline.rb:
@@ -3044,9 +3228,11 @@ trackedFiles:
   lib/crystalline/utils.rb:
     last_write_checksum: sha1:b32469851da6f9f729e484ade6a23b38639a652a
   lib/dub.rb:
-    last_write_checksum: sha1:76fd623159944deec62093456421db4444b97dab
+    last_write_checksum: sha1:0df22cc4b779d721411efb9c99c4d87124793744
   lib/open_api_sdk/analytics.rb:
     last_write_checksum: sha1:65a524f58c49b49a25969fbafe5d8946bbd13b37
+  lib/open_api_sdk/bounties.rb:
+    last_write_checksum: sha1:d4c12c08afe1d1bd88a4f0d0d9c8c626b405d1d5
   lib/open_api_sdk/commissions.rb:
     last_write_checksum: sha1:0329f69628ebdc43b3b4b1622108b56d49c078c0
   lib/open_api_sdk/customers.rb:
@@ -3054,7 +3240,7 @@ trackedFiles:
   lib/open_api_sdk/domains.rb:
     last_write_checksum: sha1:c5cdb4bbf4e76c56b7cf26ac9a2e50d6d3e51985
   lib/open_api_sdk/dub.rb:
-    last_write_checksum: sha1:52c551f0199333e441ed262bb7e90dad48a4570e
+    last_write_checksum: sha1:25baf7f193af88730e0cb2ab39854161383ea6b0
   lib/open_api_sdk/embed_tokens.rb:
     last_write_checksum: sha1:43ef0f72fa1bb271ffb335295fedffc648fd4003
   lib/open_api_sdk/events.rb:
@@ -3180,11 +3366,31 @@ trackedFiles:
   lib/open_api_sdk/models/errors/unprocessableentity_error.rbi:
     last_write_checksum: sha1:21e5822f55563901fb2d75a05ab08237388f5fd3
   lib/open_api_sdk/models/operations.rb:
-    last_write_checksum: sha1:f97b6475b16a1d7696a5e237484892496cca63e5
+    last_write_checksum: sha1:a38207b413e1a9baadee23cc5f101903566546df
   lib/open_api_sdk/models/operations/accesslevel.rb:
     last_write_checksum: sha1:5ea21e49ea2cb8f8a3fcec0141f479f97a1dd7d9
   lib/open_api_sdk/models/operations/accesslevel.rbi:
     last_write_checksum: sha1:9c0c60a07f8a54a7c9857a46879e9ca15a2e5dd1
+  lib/open_api_sdk/models/operations/approvebountysubmission_files.rb:
+    last_write_checksum: sha1:8b0e9e5afaed14c2002141da27159514d2a3492e
+  lib/open_api_sdk/models/operations/approvebountysubmission_files.rbi:
+    last_write_checksum: sha1:2b772759216a420a0a5db78fb688fa3849adc736
+  lib/open_api_sdk/models/operations/approvebountysubmission_request.rb:
+    last_write_checksum: sha1:151a14ce6758ccb77260ffec97699c8d0a144562
+  lib/open_api_sdk/models/operations/approvebountysubmission_request.rbi:
+    last_write_checksum: sha1:9b97a2a20dfc82af236a772403e323378f616bca
+  lib/open_api_sdk/models/operations/approvebountysubmission_requestbody.rb:
+    last_write_checksum: sha1:44cdee5600b562e51a46784f090c64eadd8bc685
+  lib/open_api_sdk/models/operations/approvebountysubmission_requestbody.rbi:
+    last_write_checksum: sha1:e9e3b978d0becc2c94fa6d561a659f3c3de20b9c
+  lib/open_api_sdk/models/operations/approvebountysubmission_responsebody.rb:
+    last_write_checksum: sha1:e5a0b141cf29a4ba29d4eba2f3ed63bc3643c5fa
+  lib/open_api_sdk/models/operations/approvebountysubmission_responsebody.rbi:
+    last_write_checksum: sha1:e43303997e347a8a327278a903da804b635181ea
+  lib/open_api_sdk/models/operations/approvebountysubmission_status.rb:
+    last_write_checksum: sha1:62144fb3d36098c2f8ae2e8916948165821174cd
+  lib/open_api_sdk/models/operations/approvebountysubmission_status.rbi:
+    last_write_checksum: sha1:0e36e073406814fc720f3a8669361c163f317b5f
   lib/open_api_sdk/models/operations/bannedreason.rb:
     last_write_checksum: sha1:efd33d8a3b9057da5cfdf2a322a2dfc475e261cd
   lib/open_api_sdk/models/operations/bannedreason.rbi:
@@ -3401,6 +3607,10 @@ trackedFiles:
     last_write_checksum: sha1:3683ab4fd7cf7b6633f091cc3ea78640fe8ddfe8
   lib/open_api_sdk/models/operations/event.rbi:
     last_write_checksum: sha1:9720d85f32f19f448e02027f37941b820a8ec39d
+  lib/open_api_sdk/models/operations/files.rb:
+    last_write_checksum: sha1:d4b455601e9371580603486edae5df1850dd0610
+  lib/open_api_sdk/models/operations/files.rbi:
+    last_write_checksum: sha1:bd6c05d4d1859d8e630c28892a42b1b901a770f9
   lib/open_api_sdk/models/operations/four.rb:
     last_write_checksum: sha1:27f5c2435887c96c598205cf73e78c40d57e6556
   lib/open_api_sdk/models/operations/four.rbi:
@@ -3533,6 +3743,30 @@ trackedFiles:
     last_write_checksum: sha1:0bb337208b56be17841b03c38b39fe396e2bd0ba
   lib/open_api_sdk/models/operations/links.rbi:
     last_write_checksum: sha1:72382e665aed38b386c69a01f9cd33ef7d6ff610
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortby.rb:
+    last_write_checksum: sha1:796b6c3caa7caa7440baa203c181e94f54b867c6
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortby.rbi:
+    last_write_checksum: sha1:9e9d8b9c178ea38e854d0aa3a4b930c86e278e6c
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortorder.rb:
+    last_write_checksum: sha1:0f0f42043be62e8a82987fe65a8b6c4d0a767e67
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_sortorder.rbi:
+    last_write_checksum: sha1:84fe9b8b7ad3cede976be0d01bd4bfd105b515ae
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_status.rb:
+    last_write_checksum: sha1:844ce2e5de92a2d9a7e435d1e66b808bcbb472a9
+  lib/open_api_sdk/models/operations/listbountysubmissions_queryparam_status.rbi:
+    last_write_checksum: sha1:dd2d85474ae0ea22ebcfc9f235b6222bf889b332
+  lib/open_api_sdk/models/operations/listbountysubmissions_request.rb:
+    last_write_checksum: sha1:caa6c789cc283e271e20b288bd8a0e6d17574e24
+  lib/open_api_sdk/models/operations/listbountysubmissions_request.rbi:
+    last_write_checksum: sha1:6ec1b62c9d3ae48ac7d406ad1a0f39d927650a9a
+  lib/open_api_sdk/models/operations/listbountysubmissions_responsebody.rb:
+    last_write_checksum: sha1:28c5c295927a222dc9e424d72ae2a3ecf2b9cc22
+  lib/open_api_sdk/models/operations/listbountysubmissions_responsebody.rbi:
+    last_write_checksum: sha1:6abd22b072da8937b371c238758e64b9286e39fa
+  lib/open_api_sdk/models/operations/listbountysubmissions_status.rb:
+    last_write_checksum: sha1:4d4d92ae0c52bee718622b15d39e3daafb32ff7a
+  lib/open_api_sdk/models/operations/listbountysubmissions_status.rbi:
+    last_write_checksum: sha1:3b12812f06bc500235d88d238e0f00b0821b2c1c
   lib/open_api_sdk/models/operations/listcommissions_customer.rb:
     last_write_checksum: sha1:978c7a9efe9cbc64269fed0bb79e66eca66a8871
   lib/open_api_sdk/models/operations/listcommissions_customer.rbi:
@@ -3737,6 +3971,30 @@ trackedFiles:
     last_write_checksum: sha1:5da4f45e5f1352152b1733f2c878a95b8ce9768b
   lib/open_api_sdk/models/operations/registerdomain_responsebody.rbi:
     last_write_checksum: sha1:e80b5d80efdc866d4755f0053bca4fe247dac7cc
+  lib/open_api_sdk/models/operations/rejectbountysubmission_files.rb:
+    last_write_checksum: sha1:6e8dca9f2dab9ef61c0b28ba90b43d8be8e7900a
+  lib/open_api_sdk/models/operations/rejectbountysubmission_files.rbi:
+    last_write_checksum: sha1:fc0055af49d929dc52ba9b0c6a209066fff24762
+  lib/open_api_sdk/models/operations/rejectbountysubmission_request.rb:
+    last_write_checksum: sha1:c6ea96808d98faeffae34e09d8a7d5de6d688246
+  lib/open_api_sdk/models/operations/rejectbountysubmission_request.rbi:
+    last_write_checksum: sha1:0e3f63e7b01e7c482b92ae164d4b8a6d0d36e6bc
+  lib/open_api_sdk/models/operations/rejectbountysubmission_requestbody.rb:
+    last_write_checksum: sha1:ea8eb6b4e8862265461580c38207eb818db2745e
+  lib/open_api_sdk/models/operations/rejectbountysubmission_requestbody.rbi:
+    last_write_checksum: sha1:e204ef2e7ceea60a481a7dd1376fc6618b390623
+  lib/open_api_sdk/models/operations/rejectbountysubmission_responsebody.rb:
+    last_write_checksum: sha1:4b61b5b3863d289ccca1cdfd68a5fd6cad0a8910
+  lib/open_api_sdk/models/operations/rejectbountysubmission_responsebody.rbi:
+    last_write_checksum: sha1:b76601faf0b42af6231e04a74c5996e07dd91fff
+  lib/open_api_sdk/models/operations/rejectbountysubmission_status.rb:
+    last_write_checksum: sha1:f9198ab20a6c3e7fb6a30a40d884612d11cb6604
+  lib/open_api_sdk/models/operations/rejectbountysubmission_status.rbi:
+    last_write_checksum: sha1:9efb0409969a5023d13e78ada54259b78ec6b041
+  lib/open_api_sdk/models/operations/rejectionreason.rb:
+    last_write_checksum: sha1:e591e70ccd4987be197071873368ec605db64bef
+  lib/open_api_sdk/models/operations/rejectionreason.rbi:
+    last_write_checksum: sha1:d14a232f50e8bcae374d7fba069ac1068ab069ec
   lib/open_api_sdk/models/operations/requestbody.rb:
     last_write_checksum: sha1:7704a63d485b763854054d968729470cb5325e1b
   lib/open_api_sdk/models/operations/requestbody.rbi:
@@ -4022,9 +4280,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/upsertpartnerlink_linkprops.rbi:
     last_write_checksum: sha1:23e4aa6d92be3bdd4e0dcb9383d9c15bfd7acfb9
   lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rb:
-    last_write_checksum: sha1:9f5f34f7580c61d1119da1f33fe719cf5e680b78
+    last_write_checksum: sha1:8a8e0b26de893b307727a36c17d3b960fa9d28f4
   lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rbi:
-    last_write_checksum: sha1:aab2d8ebaad4415b64e6441c6b0d5b6b66468529
+    last_write_checksum: sha1:6a14cfd0a3414e2149443c8635bf19989ade0654
   lib/open_api_sdk/models/operations/upsertpartnerlink_tagids.rb:
     last_write_checksum: sha1:691632ed7f39e01b3649523acc570c7c32021748
   lib/open_api_sdk/models/operations/upsertpartnerlink_tagids.rbi:
@@ -4038,7 +4296,7 @@ trackedFiles:
   lib/open_api_sdk/models/operations/upsertpartnerlink_testvariants.rbi:
     last_write_checksum: sha1:db6b8870b25db24b657eb7f018b60e0bc545fbf9
   lib/open_api_sdk/models/shared.rb:
-    last_write_checksum: sha1:9e0cc1c0108172cb7c8c4aeb2b47d51c9c8ac31b
+    last_write_checksum: sha1:7c9652040d0b3405392b0734c86493a59b739bc0
   lib/open_api_sdk/models/shared/accesslevel.rb:
     last_write_checksum: sha1:22f50c8726d9e3e2adb50cd7820b638a0b396f36
   lib/open_api_sdk/models/shared/accesslevel.rbi:
@@ -4136,13 +4394,17 @@ trackedFiles:
   lib/open_api_sdk/models/shared/commissioncreatedevent_customer.rbi:
     last_write_checksum: sha1:f41a543be9e67b3196d5677ec9e6fe1891000b59
   lib/open_api_sdk/models/shared/commissioncreatedevent_data.rb:
-    last_write_checksum: sha1:2e13b114848f75f6a55e6d26f868a1d7cf4167dd
+    last_write_checksum: sha1:aa64e65fc7cf1cd74a7521142e7cace7a72d1a96
   lib/open_api_sdk/models/shared/commissioncreatedevent_data.rbi:
-    last_write_checksum: sha1:2d48ff351b042ac218b208e1287220f965d70cfa
+    last_write_checksum: sha1:f1f76c5987a880ce9827b3aa0bb5ca39b032168d
   lib/open_api_sdk/models/shared/commissioncreatedevent_event.rb:
     last_write_checksum: sha1:487a878e2a71cf294d1db712c53e87d22dd8282e
   lib/open_api_sdk/models/shared/commissioncreatedevent_event.rbi:
     last_write_checksum: sha1:e6dcaceaea3d74a160fd1954cba82209b67d5b75
+  lib/open_api_sdk/models/shared/commissioncreatedevent_link.rb:
+    last_write_checksum: sha1:f0e392ff516c9a08417ab6236f45badfe4d13795
+  lib/open_api_sdk/models/shared/commissioncreatedevent_link.rbi:
+    last_write_checksum: sha1:9d150c7b4b8aef859b2400cc1b8c7b59f4de11b8
   lib/open_api_sdk/models/shared/commissioncreatedevent_partner.rb:
     last_write_checksum: sha1:8afd94d3338c92e9a27cf3c36c79035929e99d08
   lib/open_api_sdk/models/shared/commissioncreatedevent_partner.rbi:
@@ -4412,7 +4674,7 @@ trackedFiles:
   lib/open_api_sdk/sdk_hooks/types.rb:
     last_write_checksum: sha1:5428d53541c37a59216a11ca482bafc62a0313be
   lib/open_api_sdk/sdkconfiguration.rb:
-    last_write_checksum: sha1:4f038ab3601ed21d60825e21115152a05dbc76cc
+    last_write_checksum: sha1:49217617c3d6dda3c47e74ba1d93afdac02441d4
   lib/open_api_sdk/sdkconfiguration.rbi:
     last_write_checksum: sha1:0b796b05d0d50a43f6b7d3a53ca4a6939701305b
   lib/open_api_sdk/tags.rb:
