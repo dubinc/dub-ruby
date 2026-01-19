@@ -15,16 +15,18 @@ module OpenApiSDK
 
         # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
-        # Unique identifier for the customer in the client's app.
-        field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
         # Name of the customer.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # Unique identifier for the customer in the client's app.
+        field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
         # The date the customer was created.
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
         # Email of the customer.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
         # Avatar URL of the customer.
         field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
+        # The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
+        field :stripe_customer_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeCustomerId') } }
         # Country of the customer.
         field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country') } }
         # Total number of sales for the customer.
@@ -40,14 +42,15 @@ module OpenApiSDK
 
         field :discount, Crystalline::Nilable.new(Models::Operations::Discount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
 
-        sig { params(id: ::String, external_id: ::String, name: ::String, created_at: ::String, email: T.nilable(::String), avatar: T.nilable(::String), country: T.nilable(::String), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), link: T.nilable(Models::Operations::GetCustomersLink), program_id: T.nilable(::String), partner: T.nilable(Models::Operations::GetCustomersPartner), discount: T.nilable(Models::Operations::Discount)).void }
-        def initialize(id:, external_id:, name:, created_at:, email: nil, avatar: nil, country: nil, sales: nil, sale_amount: nil, link: nil, program_id: nil, partner: nil, discount: nil)
+        sig { params(id: ::String, name: ::String, external_id: ::String, created_at: ::String, email: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String), country: T.nilable(::String), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), link: T.nilable(Models::Operations::GetCustomersLink), program_id: T.nilable(::String), partner: T.nilable(Models::Operations::GetCustomersPartner), discount: T.nilable(Models::Operations::Discount)).void }
+        def initialize(id:, name:, external_id:, created_at:, email: nil, avatar: nil, stripe_customer_id: nil, country: nil, sales: nil, sale_amount: nil, link: nil, program_id: nil, partner: nil, discount: nil)
           @id = id
-          @external_id = external_id
           @name = name
+          @external_id = external_id
           @created_at = created_at
           @email = email
           @avatar = avatar
+          @stripe_customer_id = stripe_customer_id
           @country = country
           @sales = sales
           @sale_amount = sale_amount
@@ -61,11 +64,12 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
-          return false unless @external_id == other.external_id
           return false unless @name == other.name
+          return false unless @external_id == other.external_id
           return false unless @created_at == other.created_at
           return false unless @email == other.email
           return false unless @avatar == other.avatar
+          return false unless @stripe_customer_id == other.stripe_customer_id
           return false unless @country == other.country
           return false unless @sales == other.sales
           return false unless @sale_amount == other.sale_amount

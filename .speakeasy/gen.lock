@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 1dfd58e77751ca1d1443d50d088508ad
+  docChecksum: fc5c0def49651ec035c6a0d4876588a6
   docVersion: 0.0.1
   speakeasyVersion: 1.662.0
   generationVersion: 2.763.3
-  releaseVersion: 0.12.2
-  configChecksum: f37d3b6096f74bb9f3e4b1c2345742e9
+  releaseVersion: 0.12.3
+  configChecksum: d2024118d1f3420050e7b012fa016032
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
@@ -1469,7 +1469,7 @@ examples:
           order: "desc"
       responses:
         "200":
-          application/json: [{"event": "sale", "timestamp": "<value>", "eventId": "<id>", "eventName": "<value>", "sale": {"amount": 445052, "invoiceId": null, "paymentProcessor": "stripe"}, "link": {"id": "<id>", "domain": "meager-advancement.org", "key": "<key>", "url": "https://ragged-pocket-watch.biz", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": null, "partnerId": "<id>", "archived": false, "expiresAt": "1766566541044", "expiredUrl": "https://gracious-shore.net/", "disabledAt": "<value>", "password": "WUitgktVmjK2v77", "proxy": false, "title": "<value>", "description": "ill-fated whether amid engender", "image": "https://picsum.photos/seed/lr5Me/2049/1888", "video": "https://loremflickr.com/1857/2631?lock=2314741623996698", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://good-sport.net/", "key1": "https://monumental-strait.org/"}, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "knottily sonata nor pfft recklessly yet fortunate pish hunt foretell given unto past rotating uh-huh purse along", "shortLink": "https://pricey-innovation.info/", "qrCode": "https://impure-space.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "testStartedAt": "<value>", "testCompletedAt": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1717970051249", "updatedAt": "1735662015941", "tagId": "<id>", "projectId": "<id>"}, "click": {"id": "<id>", "timestamp": "<value>", "url": "https://roasted-entry.biz/", "country": "Fiji", "city": "Leannfield", "region": "<value>", "continent": "Australia", "device": "Desktop", "browser": "Firefox", "os": "Symbian", "referer": "wealthy-priesthood.info", "refererUrl": "https://bleak-switchboard.name", "qr": true, "ip": "881e:cf3e:6fe3:02bb:184c:7150:07ed:c76e"}, "customer": {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1724712961149"}, "saleAmount": 7426.65, "invoice_id": "<id>", "payment_processor": "<value>", "click_id": "<id>", "link_id": "<id>", "domain": "crooked-squid.name", "key": "<key>", "url": "https://considerate-championship.biz", "continent": "North America", "country": "Dominica", "city": "Paradise", "device": "Mobile", "browser": "Firefox", "os": "Blackberry", "qr": 9294.32, "ip": "209.139.10.63"}]
+          application/json: [{"event": "sale", "timestamp": "<value>", "eventId": "<id>", "eventName": "<value>", "sale": {"amount": 445052, "invoiceId": null, "paymentProcessor": "stripe"}, "link": {"id": "<id>", "domain": "meager-advancement.org", "key": "<key>", "url": "https://ragged-pocket-watch.biz", "trackConversion": true, "externalId": "<id>", "tenantId": "<id>", "programId": null, "partnerId": "<id>", "archived": false, "expiresAt": "1766566541044", "expiredUrl": "https://gracious-shore.net/", "disabledAt": "<value>", "password": "WUitgktVmjK2v77", "proxy": false, "title": "<value>", "description": "ill-fated whether amid engender", "image": "https://picsum.photos/seed/lr5Me/2049/1888", "video": "https://loremflickr.com/1857/2631?lock=2314741623996698", "rewrite": true, "doIndex": false, "ios": "<value>", "android": "<id>", "geo": {"key": "https://good-sport.net/", "key1": "https://monumental-strait.org/"}, "publicStats": false, "tags": [], "folderId": "<id>", "webhookIds": ["<value 1>", "<value 2>", "<value 3>"], "comments": "knottily sonata nor pfft recklessly yet fortunate pish hunt foretell given unto past rotating uh-huh purse along", "shortLink": "https://pricey-innovation.info/", "qrCode": "https://impure-space.com", "utm_source": "<value>", "utm_medium": "<value>", "utm_campaign": "<value>", "utm_term": "<value>", "utm_content": "<value>", "testVariants": [{"url": "https://example.com/variant-1", "percentage": 50}, {"url": "https://example.com/variant-2", "percentage": 50}], "testStartedAt": "<value>", "testCompletedAt": "<value>", "userId": "<id>", "workspaceId": "<id>", "clicks": 0, "leads": 0, "conversions": 0, "sales": 0, "saleAmount": 0, "lastClicked": "<value>", "createdAt": "1717970051249", "updatedAt": "1735662015941", "tagId": "<id>", "projectId": "<id>"}, "click": {"id": "<id>", "timestamp": "<value>", "url": "https://roasted-entry.biz/", "country": "Fiji", "city": "Leannfield", "region": "<value>", "continent": "Australia", "device": "Desktop", "browser": "Firefox", "os": "Symbian", "referer": "wealthy-priesthood.info", "refererUrl": "https://bleak-switchboard.name", "qr": true, "ip": "881e:cf3e:6fe3:02bb:184c:7150:07ed:c76e"}, "customer": {"id": "<id>", "name": "<value>", "externalId": "<id>", "createdAt": "1724712961149"}, "saleAmount": 7426.65, "invoice_id": "<id>", "payment_processor": "<value>", "click_id": "<id>", "link_id": "<id>", "domain": "crooked-squid.name", "key": "<key>", "url": "https://considerate-championship.biz", "continent": "North America", "country": "Dominica", "city": "Paradise", "device": "Mobile", "browser": "Firefox", "os": "Blackberry", "qr": 9294.32, "ip": "209.139.10.63"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1912,7 +1912,7 @@ examples:
           pageSize: 50
       responses:
         "200":
-          application/json: [{"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1706267254573"}]
+          application/json: [{"id": "<id>", "name": "<value>", "externalId": "<id>", "createdAt": "1706267254573"}]
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1961,7 +1961,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1709060395088"}
+          application/json: {"id": "<id>", "name": "<value>", "externalId": "<id>", "createdAt": "1709060395088"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -1987,7 +1987,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "name": "<value>", "createdAt": "1710152406133"}
+          application/json: {"id": "<id>", "name": "<value>", "externalId": "<id>", "createdAt": "1710152406133"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#bad-request"}}
         "401":
@@ -2469,7 +2469,14 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `dub.partners.upsert_link()`: \n  *  `request.url` **Changed** **Breaking** :warning:\n* `dub.bounties.list_submissions()`: **Added**\n* `dub.bounties.approve_submission()`: **Added**\n* `dub.bounties.reject_submission()`: **Added**\n"
+releaseNotes: |
+  ## Ruby SDK Changes Detected:
+  * `dub.events.list()`:  `response.[]` **Changed**
+  * `dub.customers.list()`:  `response.[].stripe_customer_id` **Added**
+  * `dub.customers.get()`:  `response.stripe_customer_id` **Added**
+  * `dub.customers.update()`:  `response.stripe_customer_id` **Added**
+  * `dub.commissions.list()`:  `response.[].customer.stripe_customer_id` **Added**
+  * `dub.commissions.update()`:  `response.customer.stripe_customer_id` **Added**
 trackedFiles:
   .gitattributes:
     last_write_checksum: sha1:ddc1beb0214aecada04e60ef2e038729bd8d20e6
@@ -2478,7 +2485,7 @@ trackedFiles:
   Gemfile:
     last_write_checksum: sha1:8c1b6fa9505f61abd0fb6741f8094e9655a55495
   Gemfile.lock:
-    last_write_checksum: sha1:0e36a69670656b9e838da53f7010892553c88aa5
+    last_write_checksum: sha1:2dec100db9cd5924f442e8c269285028b490f9e3
   Rakefile:
     last_write_checksum: sha1:bb15946e7c34d00098a6ee8fef994bbd57960092
   USAGE.md:
@@ -2670,7 +2677,7 @@ trackedFiles:
   docs/models/operations/getcustomerrequest.md:
     last_write_checksum: sha1:e79ea2e9a0db3fe37e022846597be828c5a1f054
   docs/models/operations/getcustomerresponsebody.md:
-    last_write_checksum: sha1:9d88357365427282d0a6251843b9b6f9f92b9e31
+    last_write_checksum: sha1:1c66c2e88abec113b5af8808863ecccb2f25d6b6
   docs/models/operations/getcustomerslink.md:
     last_write_checksum: sha1:0b4939223878e251aa32f72daaca27dae952d6f9
   docs/models/operations/getcustomerspartner.md:
@@ -2682,7 +2689,7 @@ trackedFiles:
   docs/models/operations/getcustomersrequest.md:
     last_write_checksum: sha1:b532af1fe509d884c8269649d4b097ec8967157c
   docs/models/operations/getcustomersresponsebody.md:
-    last_write_checksum: sha1:67a66a104530a8d9c253b74a28def331b6541392
+    last_write_checksum: sha1:7f2bb46bd32c63bc25ac9c2424e2b67b745735c4
   docs/models/operations/getcustomerstype.md:
     last_write_checksum: sha1:b58f505fea69c991936b34f52926e3e45513c065
   docs/models/operations/getcustomertype.md:
@@ -2738,7 +2745,7 @@ trackedFiles:
   docs/models/operations/listbountysubmissionsstatus.md:
     last_write_checksum: sha1:f961cb79a54c887ea74df2f2b81c0335b7aeda17
   docs/models/operations/listcommissionscustomer.md:
-    last_write_checksum: sha1:1d1349baef6ec01a2d76e18ea501bae243ffbbc0
+    last_write_checksum: sha1:0d7354b3be98fae81e783d3229fa4a9fd69ee8f9
   docs/models/operations/listcommissionspartner.md:
     last_write_checksum: sha1:43982ed12260566156cb498182b4c9a6e3092d95
   docs/models/operations/listcommissionsqueryparaminterval.md:
@@ -2768,7 +2775,7 @@ trackedFiles:
   docs/models/operations/listeventsresponsebodyclick.md:
     last_write_checksum: sha1:e68925fc78f988af74955d575c7afb93d2944f84
   docs/models/operations/listeventsresponsebodycustomer.md:
-    last_write_checksum: sha1:cb5c55e1b20de02ffe2f0e8d2f608c42c9399957
+    last_write_checksum: sha1:fb5a4b3ba5198730ff282472306870f43bf39917
   docs/models/operations/listeventsresponsebodyevent.md:
     last_write_checksum: sha1:4648a80b65530fc247be4208e10cbb892994118e
   docs/models/operations/listeventsresponsebodyeventsclick.md:
@@ -2858,7 +2865,7 @@ trackedFiles:
   docs/models/operations/responsebodyclick.md:
     last_write_checksum: sha1:0ed282764e31790585e3140be5fced5d22212d46
   docs/models/operations/responsebodycustomer.md:
-    last_write_checksum: sha1:1bf2254ed12a448f8c3e2631732d1c82d4088ef1
+    last_write_checksum: sha1:2d04fa204f829e9843d220aefca84bbfd01217c6
   docs/models/operations/responsebodyevent.md:
     last_write_checksum: sha1:c1e0d4b680f1221b0aaf5c5ed8c9ad3e0900e56a
   docs/models/operations/responsebodylink.md:
@@ -2926,7 +2933,7 @@ trackedFiles:
   docs/models/operations/type.md:
     last_write_checksum: sha1:6601c3a8aaacea378fd8ffb4d75ce2c03baf97e3
   docs/models/operations/updatecommissioncustomer.md:
-    last_write_checksum: sha1:4dab47c65933f671798c9e2e371ea3a3d5682462
+    last_write_checksum: sha1:fefcfc0bf64e7a96ed88fd1eecd92c161a95a914
   docs/models/operations/updatecommissionpartner.md:
     last_write_checksum: sha1:506b64ee78f1d80764e74fb13c5808d6803f4835
   docs/models/operations/updatecommissionrequest.md:
@@ -2950,7 +2957,7 @@ trackedFiles:
   docs/models/operations/updatecustomerrequestbody.md:
     last_write_checksum: sha1:ab1ef7f486c479a89bec36ff0b56847b81a7c679
   docs/models/operations/updatecustomerresponsebody.md:
-    last_write_checksum: sha1:56d8c7375937b27065f0b73d2cc39a3a301c137d
+    last_write_checksum: sha1:945f598e961aa508897d829424910d9f4fcc88aa
   docs/models/operations/updatecustomertype.md:
     last_write_checksum: sha1:cc9f12c8b2b1bb8077366c2ab2cbd49e092512ea
   docs/models/operations/updatedomainrequest.md:
@@ -3048,7 +3055,7 @@ trackedFiles:
   docs/models/shared/commissioncreatedevent.md:
     last_write_checksum: sha1:7ca4f5d5cc1e287c6d11c13e5c3b896bf8f4f814
   docs/models/shared/commissioncreatedeventcustomer.md:
-    last_write_checksum: sha1:b827515b3277462a8c452c72a528a7530afdcdec
+    last_write_checksum: sha1:e6a647e4462b86a6b508523c9ad01fa9f91fa41d
   docs/models/shared/commissioncreatedeventdata.md:
     last_write_checksum: sha1:6206a99dab6ec99b6b8915a2a81f7a9c448bfea8
   docs/models/shared/commissioncreatedeventevent.md:
@@ -3064,7 +3071,7 @@ trackedFiles:
   docs/models/shared/continent.md:
     last_write_checksum: sha1:3660513542052ac25b154234590d25fcfe5f3dce
   docs/models/shared/customer.md:
-    last_write_checksum: sha1:1b4c5638ccffcf6d943d7756eac5b3f9733656e2
+    last_write_checksum: sha1:3f068e98c4d774b1280e30558411c2339d795c5b
   docs/models/shared/data.md:
     last_write_checksum: sha1:2c726adf60d7caf83318b78c834f11d2c1f014be
   docs/models/shared/domains.md:
@@ -3146,7 +3153,7 @@ trackedFiles:
   docs/models/shared/registereddomain.md:
     last_write_checksum: sha1:5cae139045b38e4259e1d563a2212bc0cb7d1d65
   docs/models/shared/role.md:
-    last_write_checksum: sha1:fd6e533d734bf76a81210f2e446421f3011092de
+    last_write_checksum: sha1:8df5dbec8eab51c88f611eeda3478037626e4bc0
   docs/models/shared/sale.md:
     last_write_checksum: sha1:c6efcfdd144fe21ac0f517d123b3d21bc692cbd7
   docs/models/shared/salecreatedevent.md:
@@ -3154,7 +3161,7 @@ trackedFiles:
   docs/models/shared/salecreatedeventclick.md:
     last_write_checksum: sha1:8d01f859b2028e06431f9eba4205a7a2fd530743
   docs/models/shared/salecreatedeventcustomer.md:
-    last_write_checksum: sha1:f6f608574e6a9c82cc31f4529f871e0b3ad18e28
+    last_write_checksum: sha1:5f3a314f562a19489d8c22a008b43641f14e0f5b
   docs/models/shared/salecreatedeventdata.md:
     last_write_checksum: sha1:a36bd6eecac85e272d60c5fcd2e5b5be82de5367
   docs/models/shared/salecreatedeventevent.md:
@@ -3214,7 +3221,7 @@ trackedFiles:
   docs/sdks/workspaces/README.md:
     last_write_checksum: sha1:acaec508cdf730a5141afdafd641f30db04af94b
   dub.gemspec:
-    last_write_checksum: sha1:036437ba3f76a310a7b6ed72754e8d01117ec036
+    last_write_checksum: sha1:e937280317d31833c13d4cbe52fa443816835f84
   extra.rbi:
     last_write_checksum: sha1:b4d764c7b4eb0b56246a260e2a6644523dc78b04
   lib/crystalline.rb:
@@ -3632,9 +3639,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/getcustomer_request.rbi:
     last_write_checksum: sha1:f9bf7cf7ca365bbdea8fa4bc22590226077a7fd6
   lib/open_api_sdk/models/operations/getcustomer_responsebody.rb:
-    last_write_checksum: sha1:013e3ab54bbcfa0032f9dbc9cc1b54ba46ed8724
+    last_write_checksum: sha1:0d56c129cedce111668be0e9ac570d3f6389a0c9
   lib/open_api_sdk/models/operations/getcustomer_responsebody.rbi:
-    last_write_checksum: sha1:fe3ca2db36b319d66582994d8c08e08649b20bee
+    last_write_checksum: sha1:2fa818894ccd4405ba694329d6ed83bd4775e2df
   lib/open_api_sdk/models/operations/getcustomer_type.rb:
     last_write_checksum: sha1:83cecc068dc5144ef391a22174c16d548bb1540e
   lib/open_api_sdk/models/operations/getcustomer_type.rbi:
@@ -3660,9 +3667,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/getcustomers_request.rbi:
     last_write_checksum: sha1:e015774c94bafcf18e4cfa5d06584bd579945c1d
   lib/open_api_sdk/models/operations/getcustomers_responsebody.rb:
-    last_write_checksum: sha1:ac15977de4982dbfa07261bc3dac7e22fac63e8d
+    last_write_checksum: sha1:5531da465b8849ec7bf2b0d4ba0a69074fb4b887
   lib/open_api_sdk/models/operations/getcustomers_responsebody.rbi:
-    last_write_checksum: sha1:24d3821ef18a6eff3ad359ba34ab21a6dc3871da
+    last_write_checksum: sha1:2237eeb02c363956b1b933ab7481396bc25db44d
   lib/open_api_sdk/models/operations/getcustomers_type.rb:
     last_write_checksum: sha1:268322c2c7289beb8d27c253d80d70b4ed9f89f4
   lib/open_api_sdk/models/operations/getcustomers_type.rbi:
@@ -3768,9 +3775,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/listbountysubmissions_status.rbi:
     last_write_checksum: sha1:3b12812f06bc500235d88d238e0f00b0821b2c1c
   lib/open_api_sdk/models/operations/listcommissions_customer.rb:
-    last_write_checksum: sha1:978c7a9efe9cbc64269fed0bb79e66eca66a8871
+    last_write_checksum: sha1:4655e8821d23336d3a4f4bb4430828fb14485748
   lib/open_api_sdk/models/operations/listcommissions_customer.rbi:
-    last_write_checksum: sha1:eb0b6ac19ddd830f08e8ee213e637e78a7a5956c
+    last_write_checksum: sha1:e27e3dea73e0ed7fba9944ee034948f4383345bc
   lib/open_api_sdk/models/operations/listcommissions_partner.rb:
     last_write_checksum: sha1:7b6a0d0bf208a1824628ce0336e719e88b584125
   lib/open_api_sdk/models/operations/listcommissions_partner.rbi:
@@ -3828,9 +3835,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/listevents_responsebody_click.rbi:
     last_write_checksum: sha1:9bf89db818df6e8d0aa38d5d73e980fe4633dd71
   lib/open_api_sdk/models/operations/listevents_responsebody_customer.rb:
-    last_write_checksum: sha1:054fc39c18366f6d5fb7749ae0d76445cce7d2bf
+    last_write_checksum: sha1:6cff14b17092a029587194e0b29daff135578869
   lib/open_api_sdk/models/operations/listevents_responsebody_customer.rbi:
-    last_write_checksum: sha1:c4134217a4d6d414306740a3150f85b46d787475
+    last_write_checksum: sha1:b85efc5d53e0e86a249c979d9902dea9ce44f2bd
   lib/open_api_sdk/models/operations/listevents_responsebody_event.rb:
     last_write_checksum: sha1:00c0680c64659e135887961680dfd5a53497d3b4
   lib/open_api_sdk/models/operations/listevents_responsebody_event.rbi:
@@ -4008,9 +4015,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/responsebody_click.rbi:
     last_write_checksum: sha1:f99afa533cf22b5e23220c85356d7ab714d17d8f
   lib/open_api_sdk/models/operations/responsebody_customer.rb:
-    last_write_checksum: sha1:5106f38359c0391c8615a588dfc8ca1fcd2e852c
+    last_write_checksum: sha1:82de80165e46dd27af1bf55177b857a888c11297
   lib/open_api_sdk/models/operations/responsebody_customer.rbi:
-    last_write_checksum: sha1:401b98f586e19e8b1969302747bbacd6fdace3e2
+    last_write_checksum: sha1:f60fc35109ce427127f7f6d4509b4af94297feaa
   lib/open_api_sdk/models/operations/responsebody_event.rb:
     last_write_checksum: sha1:d7c49dbf2e82f69a27096956d5945177a093c993
   lib/open_api_sdk/models/operations/responsebody_event.rbi:
@@ -4144,9 +4151,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/type.rbi:
     last_write_checksum: sha1:5007797e9125b49f8a48bb51430ded19638f3c85
   lib/open_api_sdk/models/operations/updatecommission_customer.rb:
-    last_write_checksum: sha1:5c9dd7962b8a053fb29218209225825b66c7f42f
+    last_write_checksum: sha1:1a47b6913380f528953a62ffbd8fa66dfa4a72df
   lib/open_api_sdk/models/operations/updatecommission_customer.rbi:
-    last_write_checksum: sha1:a2bac7d8fdae0fb72b4ca7a960cd5ff8aee8fed3
+    last_write_checksum: sha1:ef575cd4f57ce7714d24af56e2754536b05f249e
   lib/open_api_sdk/models/operations/updatecommission_partner.rb:
     last_write_checksum: sha1:6fc9fcfa830668fbab8e2402d16bca6c5f25ed0e
   lib/open_api_sdk/models/operations/updatecommission_partner.rbi:
@@ -4192,9 +4199,9 @@ trackedFiles:
   lib/open_api_sdk/models/operations/updatecustomer_requestbody.rbi:
     last_write_checksum: sha1:896ac106744f338df06d668c8bab66d3ae704884
   lib/open_api_sdk/models/operations/updatecustomer_responsebody.rb:
-    last_write_checksum: sha1:eb7fc836b850ea78e850ea00937d20c6ce8738a6
+    last_write_checksum: sha1:f08f6ffc36354004a7bfbe25b5ab339cb2f6e4ae
   lib/open_api_sdk/models/operations/updatecustomer_responsebody.rbi:
-    last_write_checksum: sha1:465e4d3deefb4bcca4032c68719de9258580134d
+    last_write_checksum: sha1:2edb645be1dd7b0fe7d08f0cce6f7d969a624737
   lib/open_api_sdk/models/operations/updatecustomer_type.rb:
     last_write_checksum: sha1:9014f718fe45527db9b3433005967ab4d61d2345
   lib/open_api_sdk/models/operations/updatecustomer_type.rbi:
@@ -4390,9 +4397,9 @@ trackedFiles:
   lib/open_api_sdk/models/shared/commissioncreatedevent.rbi:
     last_write_checksum: sha1:0ee8cdc30f6cc2d425674d3eecd176a902b3d0b5
   lib/open_api_sdk/models/shared/commissioncreatedevent_customer.rb:
-    last_write_checksum: sha1:b69c7eb3d1727ef9f23009167c686dc8c85f1560
+    last_write_checksum: sha1:f9d23b8621dc1d33576b28ecc68cfa4d5967cae9
   lib/open_api_sdk/models/shared/commissioncreatedevent_customer.rbi:
-    last_write_checksum: sha1:f41a543be9e67b3196d5677ec9e6fe1891000b59
+    last_write_checksum: sha1:af0cf050c3d3c60b3170fea7843d22ef4091f337
   lib/open_api_sdk/models/shared/commissioncreatedevent_data.rb:
     last_write_checksum: sha1:aa64e65fc7cf1cd74a7521142e7cace7a72d1a96
   lib/open_api_sdk/models/shared/commissioncreatedevent_data.rbi:
@@ -4422,9 +4429,9 @@ trackedFiles:
   lib/open_api_sdk/models/shared/continent.rbi:
     last_write_checksum: sha1:deab4ac669898044bf2f5d13cd68974919ff5cb3
   lib/open_api_sdk/models/shared/customer.rb:
-    last_write_checksum: sha1:fa6e6241fead21226e86207f74e6344286151eeb
+    last_write_checksum: sha1:b066da0e93af5f255e29727e81a422da0d57ec11
   lib/open_api_sdk/models/shared/customer.rbi:
-    last_write_checksum: sha1:859d78f2946143aed17acfa67bd636a467364c67
+    last_write_checksum: sha1:4f9802ac4669f5ec34788fbc059aef7b8351eeb1
   lib/open_api_sdk/models/shared/data.rb:
     last_write_checksum: sha1:2169fee01ac6432f65851f93c6106917f0ab676a
   lib/open_api_sdk/models/shared/data.rbi:
@@ -4586,7 +4593,7 @@ trackedFiles:
   lib/open_api_sdk/models/shared/registereddomain.rbi:
     last_write_checksum: sha1:61daf50adfdac4b3e784e4ab3ac878889a355025
   lib/open_api_sdk/models/shared/role.rb:
-    last_write_checksum: sha1:3702bac20e9325e950cb396f4c15544d92bf3321
+    last_write_checksum: sha1:0eb10b85e19689efef4566643d61c76c2ede1506
   lib/open_api_sdk/models/shared/role.rbi:
     last_write_checksum: sha1:d897d860c35e33d2635e98423ecb65fa40ab4ac5
   lib/open_api_sdk/models/shared/sale.rb:
@@ -4602,9 +4609,9 @@ trackedFiles:
   lib/open_api_sdk/models/shared/salecreatedevent_click.rbi:
     last_write_checksum: sha1:b84809cd7716e80eb0bad59123d9b357087c03e3
   lib/open_api_sdk/models/shared/salecreatedevent_customer.rb:
-    last_write_checksum: sha1:aaefcfae4f56e16332d7a46b1034a40b5834c5e5
+    last_write_checksum: sha1:195f37a2484e3af4fec91a3d4560a08660b18379
   lib/open_api_sdk/models/shared/salecreatedevent_customer.rbi:
-    last_write_checksum: sha1:a3ba2fca0dd26d5ac0d71fcd56d81447001f3b89
+    last_write_checksum: sha1:c3d889eff57fd6a1b34bbc8d51e3a19ef66cfcf5
   lib/open_api_sdk/models/shared/salecreatedevent_data.rb:
     last_write_checksum: sha1:2e6789a58fdf96d9a4d7c3f29eb9a4934ad77de6
   lib/open_api_sdk/models/shared/salecreatedevent_data.rbi:
@@ -4674,7 +4681,7 @@ trackedFiles:
   lib/open_api_sdk/sdk_hooks/types.rb:
     last_write_checksum: sha1:5428d53541c37a59216a11ca482bafc62a0313be
   lib/open_api_sdk/sdkconfiguration.rb:
-    last_write_checksum: sha1:49217617c3d6dda3c47e74ba1d93afdac02441d4
+    last_write_checksum: sha1:f4276a4edbd762e966a4bcd024faad3a343011b8
   lib/open_api_sdk/sdkconfiguration.rbi:
     last_write_checksum: sha1:0b796b05d0d50a43f6b7d3a53ca4a6939701305b
   lib/open_api_sdk/tags.rb:

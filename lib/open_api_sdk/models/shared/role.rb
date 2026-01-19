@@ -15,6 +15,8 @@ module OpenApiSDK
         enums do
           OWNER = new('owner')
           MEMBER = new('member')
+          VIEWER = new('viewer')
+          BILLING = new('billing')
         end
       end
     end
