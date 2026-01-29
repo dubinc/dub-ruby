@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # UpdateFolderAccessLevel - The access level of the folder within the workspace.
       class UpdateFolderAccessLevel < T::Enum
 

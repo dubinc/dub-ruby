@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The banned partner
       class BanPartnerResponseBody
         extend T::Sig

@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ResponseBodyPaymentProcessor - The payment processor via which the sale was made.
       class ResponseBodyPaymentProcessor < T::Enum
 

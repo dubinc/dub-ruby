@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # UnauthorizedCode - A short code indicating the error code returned.
       class UnauthorizedCode < T::Enum
 

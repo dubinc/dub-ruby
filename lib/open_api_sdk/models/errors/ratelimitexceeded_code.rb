@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # RateLimitExceededCode - A short code indicating the error code returned.
       class RateLimitExceededCode < T::Enum
 

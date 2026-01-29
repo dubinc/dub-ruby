@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # AccessLevel - The access level of the folder within the workspace.
       class AccessLevel < T::Enum
 

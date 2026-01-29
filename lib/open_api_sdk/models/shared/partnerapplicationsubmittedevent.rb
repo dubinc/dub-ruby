@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a partner submits an application to join a program.
       class PartnerApplicationSubmittedEvent
         extend T::Sig

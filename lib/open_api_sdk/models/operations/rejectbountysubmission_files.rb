@@ -7,17 +7,16 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class RejectBountySubmissionFiles
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The URL of the uploaded file.
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
-
+        # The original file name.
         field :file_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('fileName'), required: true } }
-
+        # The file size in bytes.
         field :size, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('size'), required: true } }
 
         sig { params(url: ::String, file_name: ::String, size: ::Float).void }

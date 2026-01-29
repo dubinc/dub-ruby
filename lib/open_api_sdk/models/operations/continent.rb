@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Continent - The continent to retrieve analytics for.
       class Continent < T::Enum
 

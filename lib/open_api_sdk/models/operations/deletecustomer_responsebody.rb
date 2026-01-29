@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The customer was deleted.
       class DeleteCustomerResponseBody
         extend T::Sig

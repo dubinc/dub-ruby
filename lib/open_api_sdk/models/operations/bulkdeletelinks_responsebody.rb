@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The deleted links count.
       class BulkDeleteLinksResponseBody
         extend T::Sig

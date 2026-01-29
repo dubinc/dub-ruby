@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListCommissionsQueryParamSortBy - The field to sort the list of commissions by.
       class ListCommissionsQueryParamSortBy < T::Enum
 
