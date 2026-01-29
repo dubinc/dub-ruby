@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a commission is created for a partner.
       class CommissionCreatedEvent
         extend T::Sig

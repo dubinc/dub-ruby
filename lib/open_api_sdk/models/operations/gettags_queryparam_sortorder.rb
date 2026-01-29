@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # GetTagsQueryParamSortOrder - The order to sort the tags by.
       class GetTagsQueryParamSortOrder < T::Enum
 

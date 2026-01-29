@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # GetCustomersQueryParamSortBy - The field to sort the customers by. The default is `createdAt`.
       class GetCustomersQueryParamSortBy < T::Enum
 

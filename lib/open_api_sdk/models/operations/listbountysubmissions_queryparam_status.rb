@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListBountySubmissionsQueryParamStatus - The status of the submissions to list.
       class ListBountySubmissionsQueryParamStatus < T::Enum
 

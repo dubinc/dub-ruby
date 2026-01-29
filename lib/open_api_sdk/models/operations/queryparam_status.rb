@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # QueryParamStatus - Filter the list of commissions by their corresponding status.
       class QueryParamStatus < T::Enum
 

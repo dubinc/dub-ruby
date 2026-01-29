@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # LinkTagSchemaColor - The color of the tag.
       class LinkTagSchemaColor < T::Enum
 

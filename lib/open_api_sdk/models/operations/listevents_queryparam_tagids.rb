@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The tag IDs to retrieve analytics for.
       class ListEventsQueryParamTagIds
         extend T::Sig

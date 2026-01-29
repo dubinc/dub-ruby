@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Interval - The interval to retrieve analytics for. If undefined, defaults to 24h.
       class Interval < T::Enum
 

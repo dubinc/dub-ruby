@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # A lead was tracked.
       class TrackLeadResponseBody
         extend T::Sig
