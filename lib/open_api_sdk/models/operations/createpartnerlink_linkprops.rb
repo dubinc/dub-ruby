@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
       class CreatePartnerLinkLinkProps
         extend T::Sig

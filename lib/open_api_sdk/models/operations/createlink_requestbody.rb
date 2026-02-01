@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class CreateLinkRequestBody
         extend T::Sig

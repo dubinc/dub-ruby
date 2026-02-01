@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # InternalServerErrorCode - A short code indicating the error code returned.
       class InternalServerErrorCode < T::Enum
 

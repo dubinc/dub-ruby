@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListPartnersStatus - The status of the partner's enrollment in the program.
       class ListPartnersStatus < T::Enum
 

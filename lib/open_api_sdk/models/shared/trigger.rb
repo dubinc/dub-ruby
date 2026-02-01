@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Trigger - The type of trigger method: link click or QR scan
       class Trigger < T::Enum
 

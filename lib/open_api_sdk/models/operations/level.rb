@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Level - The level of error correction to use for the QR code. Defaults to `L` if not provided.
       class Level < T::Enum
 

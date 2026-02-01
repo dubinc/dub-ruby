@@ -7,13 +7,12 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class ListBountySubmissionsRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The ID of the bounty
         field :bounty_id, ::String, { 'path_param': { 'field_name': 'bountyId', 'style': 'simple', 'explode': false } }
         # The status of the submissions to list.
         field :status, Crystalline::Nilable.new(Models::Operations::ListBountySubmissionsQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }

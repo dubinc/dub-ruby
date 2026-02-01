@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Analytics data
       class RetrieveAnalyticsResponseBody
         extend T::Sig

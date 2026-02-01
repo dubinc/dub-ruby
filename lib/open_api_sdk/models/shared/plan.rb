@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Plan - The plan of the workspace.
       class Plan < T::Enum
 

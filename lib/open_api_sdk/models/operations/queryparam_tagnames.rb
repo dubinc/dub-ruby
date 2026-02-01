@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The unique name of the tags assigned to the short link (case insensitive).
       class QueryParamTagNames
         extend T::Sig

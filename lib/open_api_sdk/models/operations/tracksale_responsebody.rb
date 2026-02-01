@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # A sale was tracked.
       class TrackSaleResponseBody
         extend T::Sig
