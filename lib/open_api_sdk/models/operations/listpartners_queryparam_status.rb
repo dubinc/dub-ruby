@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListPartnersQueryParamStatus - A filter on the list based on the partner's `status` field.
       class ListPartnersQueryParamStatus < T::Enum
 

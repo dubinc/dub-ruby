@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # ConflictCode - A short code indicating the error code returned.
       class ConflictCode < T::Enum
 

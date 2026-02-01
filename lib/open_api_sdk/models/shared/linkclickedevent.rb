@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a link is clicked.
       class LinkClickedEvent
         extend T::Sig

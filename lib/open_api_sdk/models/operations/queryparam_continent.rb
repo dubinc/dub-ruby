@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # QueryParamContinent - The continent to retrieve analytics for.
       class QueryParamContinent < T::Enum
 

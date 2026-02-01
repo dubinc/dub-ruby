@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Status - The status of the partner's enrollment in the program.
       class Status < T::Enum
 

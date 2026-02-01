@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a partner is enrolled.
       class PartnerEnrolledEvent
         extend T::Sig

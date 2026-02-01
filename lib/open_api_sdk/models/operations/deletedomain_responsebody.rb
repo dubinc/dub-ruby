@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The domain was deleted.
       class DeleteDomainResponseBody
         extend T::Sig

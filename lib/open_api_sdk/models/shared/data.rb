@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
 
       class Data
         extend T::Sig

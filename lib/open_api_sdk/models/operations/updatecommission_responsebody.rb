@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The updated commission.
       class UpdateCommissionResponseBody
         extend T::Sig

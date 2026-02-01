@@ -1,5 +1,4 @@
 # Bounties
-(*bounties*)
 
 ## Overview
 
