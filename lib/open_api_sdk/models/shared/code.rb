@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Code - The error code.
       class Code < T::Enum
 

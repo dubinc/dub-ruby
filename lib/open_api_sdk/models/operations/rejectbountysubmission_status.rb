@@ -7,8 +7,7 @@
 module OpenApiSDK
   module Models
     module Operations
-    
-
+      # RejectBountySubmissionStatus - The status of the submission
       class RejectBountySubmissionStatus < T::Enum
 
 

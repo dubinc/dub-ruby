@@ -7,37 +7,36 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The rejected bounty submission.
       class RejectBountySubmissionResponseBody
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The ID of the bounty submission
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
-
+        # The ID of the bounty
         field :bounty_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bountyId'), required: true } }
-
+        # The ID of the partner
         field :partner_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId'), required: true } }
-
+        # The status of the submission
         field :status, Models::Operations::RejectBountySubmissionStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::RejectBountySubmissionStatus, false) } }
-
+        # The date and time the submission was created
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
-
+        # The description of the submission
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
-
+        # The URLs submitted for the submission
         field :urls, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('urls'), required: true } }
-
+        # The files uploaded for the submission
         field :files, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::RejectBountySubmissionFiles)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('files'), required: true } }
-
+        # The performance count of the submission
         field :performance_count, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('performanceCount'), required: true } }
-
+        # The date and time the submission was completed
         field :completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('completedAt'), required: true } }
-
+        # The date and time the submission was reviewed
         field :reviewed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reviewedAt'), required: true } }
-
+        # The reason for rejecting the submission
         field :rejection_reason, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionReason'), required: true } }
-
+        # The note for rejecting the submission
         field :rejection_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionNote'), required: true } }
 
         sig { params(id: ::String, bounty_id: ::String, partner_id: ::String, status: Models::Operations::RejectBountySubmissionStatus, created_at: ::String, description: T.nilable(::String), urls: T.nilable(T::Array[::String]), files: T.nilable(T::Array[Models::Operations::RejectBountySubmissionFiles]), performance_count: T.nilable(::Float), completed_at: T.nilable(::String), reviewed_at: T.nilable(::String), rejection_reason: T.nilable(::String), rejection_note: T.nilable(::String)).void }

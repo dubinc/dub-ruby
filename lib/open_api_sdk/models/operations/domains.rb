@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The domains to search. We only support .link domains for now.
       class Domains
         extend T::Sig

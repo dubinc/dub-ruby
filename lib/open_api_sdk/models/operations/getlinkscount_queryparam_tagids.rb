@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The tag IDs to filter the links by.
       class GetLinksCountQueryParamTagIds
         extend T::Sig

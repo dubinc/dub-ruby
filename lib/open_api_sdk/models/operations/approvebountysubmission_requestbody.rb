@@ -7,13 +7,12 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class ApproveBountySubmissionRequestBody
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The reward amount for the performance-based bounty. Applicable if the bounty reward amount is not set.
         field :reward_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rewardAmount') } }
 
         sig { params(reward_amount: T.nilable(::Float)).void }
