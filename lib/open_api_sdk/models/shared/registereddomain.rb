@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # The registered domain record.
       class RegisteredDomain
         extend T::Sig

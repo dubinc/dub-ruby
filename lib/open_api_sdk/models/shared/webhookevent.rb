@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Webhook event schema
       class WebhookEvent
         extend T::Sig

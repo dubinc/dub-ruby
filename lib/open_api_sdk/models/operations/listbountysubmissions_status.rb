@@ -7,8 +7,7 @@
 module OpenApiSDK
   module Models
     module Operations
-    
-
+      # ListBountySubmissionsStatus - The status of the submission
       class ListBountySubmissionsStatus < T::Enum
 
 

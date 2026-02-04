@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a sale is created.
       class SaleCreatedEvent
         extend T::Sig

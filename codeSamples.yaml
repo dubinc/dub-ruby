@@ -279,15 +279,3 @@ actions:
         - "lang": "ruby"
           "label": "trackSale"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::TrackSaleRequestBody.new(\n  customer_external_id: '<id>',\n  amount: 594_903,\n  event_name: 'Invoice paid',\n  lead_event_name: 'Cloned template 1481267',\n)\n\nres = s.track.sale(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "getWorkspace"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetWorkspaceRequest.new(\n  id_or_slug: '<value>',\n)\n\nres = s.workspaces.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/workspaces/{idOrSlug}"]["patch"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "updateWorkspace"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.workspaces.update(id_or_slug: '<value>')\n\nunless res.nil?\n  # handle response\nend"

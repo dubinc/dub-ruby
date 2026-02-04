@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Sort - DEPRECATED. Use `sortBy` instead.
       # 
       # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.

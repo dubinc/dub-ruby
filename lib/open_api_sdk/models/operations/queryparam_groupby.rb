@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # QueryParamGroupBy - The parameter to group the analytics data points by. Defaults to `count` if undefined.
       class QueryParamGroupBy < T::Enum
 

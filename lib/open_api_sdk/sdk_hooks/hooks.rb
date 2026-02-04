@@ -3,9 +3,8 @@
 # typed: true
 # frozen_string_literal: true
 
-require_relative './registration'
 require_relative './types'
-
+require_relative './registration'
 
 module OpenApiSDK
   module SDKHooks

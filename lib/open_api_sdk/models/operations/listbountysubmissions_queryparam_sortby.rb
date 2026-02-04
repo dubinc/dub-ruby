@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListBountySubmissionsQueryParamSortBy - The field to sort the submissions by.
       class ListBountySubmissionsQueryParamSortBy < T::Enum
 

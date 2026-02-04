@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # Partner analytics data
       class RetrievePartnerAnalyticsResponseBody
         extend T::Sig

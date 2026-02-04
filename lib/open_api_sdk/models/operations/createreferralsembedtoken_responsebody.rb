@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The created public embed token.
       class CreateReferralsEmbedTokenResponseBody
         extend T::Sig

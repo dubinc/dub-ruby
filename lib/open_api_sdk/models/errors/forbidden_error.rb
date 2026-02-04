@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
 
       class ForbiddenError
         extend T::Sig
