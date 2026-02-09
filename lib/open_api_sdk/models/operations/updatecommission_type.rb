@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class UpdateCommissionType < T::Enum
 

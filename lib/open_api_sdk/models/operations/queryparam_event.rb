@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # QueryParamEvent - The type of event to retrieve analytics for. Defaults to 'clicks'.
       class QueryParamEvent < T::Enum
 

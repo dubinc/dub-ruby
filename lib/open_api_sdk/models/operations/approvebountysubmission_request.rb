@@ -7,15 +7,14 @@
 module OpenApiSDK
   module Models
     module Operations
-    
 
       class ApproveBountySubmissionRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The ID of the bounty
         field :bounty_id, ::String, { 'path_param': { 'field_name': 'bountyId', 'style': 'simple', 'explode': false } }
-
+        # The ID of the bounty submission
         field :submission_id, ::String, { 'path_param': { 'field_name': 'submissionId', 'style': 'simple', 'explode': false } }
 
         field :request_body, Crystalline::Nilable.new(Models::Operations::ApproveBountySubmissionRequestBody), { 'request': { 'media_type': 'application/json' } }

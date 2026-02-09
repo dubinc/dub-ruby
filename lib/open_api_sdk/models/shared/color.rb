@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Color - The color of the tag.
       class Color < T::Enum
 

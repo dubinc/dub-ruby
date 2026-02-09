@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # RejectionReason - The reason for rejecting the submission.
       class RejectionReason < T::Enum
 

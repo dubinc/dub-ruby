@@ -41,8 +41,8 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::ListCommissionsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::ListCommissionsResponseBody]) }
     def list(request:, timeout_ms: nil)
-      # list - Get commissions for a program.
-      # Retrieve a list of commissions for a program.
+      # list - List all commissions
+      # Retrieve a list of commissions for your partner program.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/commissions"

@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # PartnerApplicationSubmittedEventStatus - The status of the partner's enrollment in the program.
       class PartnerApplicationSubmittedEventStatus < T::Enum
 

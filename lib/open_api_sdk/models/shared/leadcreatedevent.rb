@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a lead is created.
       class LeadCreatedEvent
         extend T::Sig

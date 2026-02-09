@@ -42,7 +42,7 @@ module OpenApiSDK
     sig { params(request: Models::Operations::ListBountySubmissionsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::ListBountySubmissionsResponseBody]) }
     def list_submissions(request:, timeout_ms: nil)
       # list_submissions - List bounty submissions
-      # List all submissions for a specific bounty.
+      # List all submissions for a specific bounty in your partner program.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
