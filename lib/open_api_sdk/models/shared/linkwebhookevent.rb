@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Shared
-    
       # Triggered when a link is created, updated, or deleted.
       class LinkWebhookEvent
         extend T::Sig

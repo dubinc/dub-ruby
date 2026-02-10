@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # Code - A short code indicating the error code returned.
       class Code < T::Enum
 

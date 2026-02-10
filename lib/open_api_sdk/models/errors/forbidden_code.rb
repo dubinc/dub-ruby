@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Errors
-    
       # ForbiddenCode - A short code indicating the error code returned.
       class ForbiddenCode < T::Enum
 

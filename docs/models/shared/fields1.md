@@ -1,0 +1,14 @@
+# Fields1
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `key`                                                                        | *::String*                                                                   | :heavy_check_mark:                                                           | N/A                                                                          |
+| `label`                                                                      | *::String*                                                                   | :heavy_check_mark:                                                           | N/A                                                                          |
+| `required`                                                                   | *T::Boolean*                                                                 | :heavy_check_mark:                                                           | N/A                                                                          |
+| `locked`                                                                     | *T::Boolean*                                                                 | :heavy_check_mark:                                                           | N/A                                                                          |
+| `position`                                                                   | *::Integer*                                                                  | :heavy_check_mark:                                                           | N/A                                                                          |
+| `type`                                                                       | [Models::Shared::FieldsType](../../models/shared/fieldstype.md)              | :heavy_check_mark:                                                           | N/A                                                                          |
+| `constraints`                                                                | [T.nilable(Models::Shared::Constraints)](../../models/shared/constraints.md) | :heavy_minus_sign:                                                           | N/A                                                                          |

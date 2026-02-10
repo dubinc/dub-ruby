@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # IDs of tags to filter by.
       class Ids
         extend T::Sig

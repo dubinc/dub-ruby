@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The domain was registered.
       class RegisterDomainResponseBody
         extend T::Sig

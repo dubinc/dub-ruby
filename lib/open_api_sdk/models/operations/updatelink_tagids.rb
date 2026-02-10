@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The unique IDs of the tags assigned to the short link.
       class UpdateLinkTagIds
         extend T::Sig

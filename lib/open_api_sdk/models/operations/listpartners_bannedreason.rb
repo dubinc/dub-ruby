@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # ListPartnersBannedReason - If the partner was banned from the program, this is the reason for the ban.
       class ListPartnersBannedReason < T::Enum
 

@@ -1,5 +1,4 @@
 # Bounties
-(*bounties*)
 
 ## Overview
 
@@ -11,7 +10,7 @@
 
 ## list_submissions
 
-List all submissions for a specific bounty.
+List all submissions for a specific bounty in your partner program.
 
 ### Example Usage
 

@@ -7,7 +7,6 @@
 module OpenApiSDK
   module Models
     module Operations
-    
       # The field to group the links by.
       class GroupBy
         extend T::Sig

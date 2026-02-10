@@ -213,6 +213,12 @@ actions:
         - "lang": "ruby"
           "label": "banPartner"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = \n\nres = s.partners.ban(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/deactivate"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "deactivatePartner"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = \n\nres = s.partners.deactivate(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["get"]
     update:
       "x-codeSamples":
@@ -231,6 +237,12 @@ actions:
         - "lang": "ruby"
           "label": "upsertPartnerLink"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::UpsertPartnerLinkRequestBody.new(\n  url: 'https://bad-intent.org/',\n  link_props: Models::Operations::UpsertPartnerLinkLinkProps.new(\n    external_id: '123456',\n    tag_ids: [\n      'clux0rgak00011...',\n    ],\n    test_variants: [\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-1',\n        percentage: 50.0,\n      ),\n      Models::Operations::UpsertPartnerLinkTestVariants.new(\n        url: 'https://example.com/variant-2',\n        percentage: 50.0,\n      ),\n    ],\n  ),\n)\n\nres = s.partners.upsert_link(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/payouts"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "listPayouts"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListPayoutsRequest.new(\n  page_size: 50.0,\n)\n\nres = s.payouts.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/qr"]["get"]
     update:
       "x-codeSamples":
@@ -279,15 +291,3 @@ actions:
         - "lang": "ruby"
           "label": "trackSale"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::TrackSaleRequestBody.new(\n  customer_external_id: '<id>',\n  amount: 594_903,\n  event_name: 'Invoice paid',\n  lead_event_name: 'Cloned template 1481267',\n)\n\nres = s.track.sale(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/workspaces/{idOrSlug}"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "getWorkspace"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::GetWorkspaceRequest.new(\n  id_or_slug: '<value>',\n)\n\nres = s.workspaces.get(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/workspaces/{idOrSlug}"]["patch"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "updateWorkspace"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nres = s.workspaces.update(id_or_slug: '<value>')\n\nunless res.nil?\n  # handle response\nend"
