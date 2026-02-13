@@ -4,62 +4,10 @@
 
 ### Available Operations
 
-* [create](#create) - Create a tag
 * [list](#list) - Retrieve a list of tags
-* [update](#update) - Update a tag
+* [create](#create) - Create a tag
 * [delete](#delete) - Delete a tag
-
-## create
-
-Create a tag for the authenticated workspace.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="createTag" method="post" path="/tags" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = 
-
-res = s.tags.create(request: req)
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [Models::Operations::CreateTagRequestBody](../../models/operations/createtagrequestbody.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
-
-### Response
-
-**[T.nilable(Models::Shared::LinkTagSchemaOutput)](../../models/operations/linktagschemaoutput.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+* [update](#update) - Update a tag
 
 ## list
 
@@ -115,13 +63,13 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
-## update
+## create
 
-Update a tag in the workspace.
+Create a tag for the authenticated workspace.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="updateTag" method="patch" path="/tags/{id}" -->
+<!-- UsageSnippet language="ruby" operationID="createTag" method="post" path="/tags" -->
 ```ruby
 require 'dub'
 
@@ -132,7 +80,9 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-res = s.tags.update(id: '<id>')
+req = 
+
+res = s.tags.create(request: req)
 
 unless res.nil?
   # handle response
@@ -142,10 +92,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                   | *::String*                                                                                             | :heavy_check_mark:                                                                                     | The ID of the tag to update.                                                                           |
-| `request_body`                                                                                         | [T.nilable(Models::Operations::UpdateTagRequestBody)](../../models/operations/updatetagrequestbody.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::CreateTagRequestBody](../../models/operations/createtagrequestbody.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
@@ -200,6 +149,57 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::DeleteTagResponseBody)](../../models/operations/deletetagresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## update
+
+Update a tag in the workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="updateTag" method="patch" path="/tags/{id}" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+res = s.tags.update(id: '<id>')
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                   | *::String*                                                                                             | :heavy_check_mark:                                                                                     | The ID of the tag to update.                                                                           |
+| `request_body`                                                                                         | [T.nilable(Models::Operations::UpdateTagRequestBody)](../../models/operations/updatetagrequestbody.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+
+### Response
+
+**[T.nilable(Models::Shared::LinkTagSchemaOutput)](../../models/operations/linktagschemaoutput.md)**
 
 ### Errors
 

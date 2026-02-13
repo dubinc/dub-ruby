@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # QueryParamContinent - The continent to retrieve analytics for.
       class QueryParamContinent < T::Enum
-
-
         enums do
           AF = new('AF')
           AN = new('AN')

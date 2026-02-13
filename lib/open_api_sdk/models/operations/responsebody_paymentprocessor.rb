@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ResponseBodyPaymentProcessor - The payment processor via which the sale was made.
       class ResponseBodyPaymentProcessor < T::Enum
-
-
         enums do
           STRIPE = new('stripe')
           SHOPIFY = new('shopify')

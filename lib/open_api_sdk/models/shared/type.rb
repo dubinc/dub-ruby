@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class Type < T::Enum
-
-
         enums do
           DEFAULT = new('default')
           MEGA = new('mega')

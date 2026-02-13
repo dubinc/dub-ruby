@@ -16,83 +16,29 @@ module OpenApiSDK
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
         # The partner's full legal name.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
-        # The partner's profile type on Dub.
-        field :profile_type, Models::Operations::ProfileType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('profileType'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ProfileType, false) } }
-        # The date when the partner was created on Dub.
-        field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
-        # If the partner profile type is a company, this is the partner's legal company name.
-        field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('companyName'), required: true } }
         # The partner's email address. Should be a unique value across Dub.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
         # The partner's avatar image.
         field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image'), required: true } }
-        # The partner's country (required for tax purposes).
-        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
-        # The partner's Stripe Connect ID (for receiving payouts via Stripe).
-        field :stripe_connect_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeConnectId'), required: true } }
-        # The partner's PayPal email (for receiving payouts via PayPal).
-        field :paypal_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paypalEmail'), required: true } }
         # The date when the partner enabled payouts.
         field :payouts_enabled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt'), required: true } }
-        # The partner's invoice settings.
-        field :invoice_settings, Crystalline::Nilable.new(Models::Operations::InvoiceSettings), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceSettings'), required: true } }
-        # The date when the partner was added to the partner network.
-        field :discoverable_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discoverableAt'), required: true } }
-        # The date when the partner received the trusted badge in the partner network.
-        field :trusted_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trustedAt'), required: true } }
-        # The partner's industry interests.
-        field :industry_interests, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::IndustryInterests)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('industryInterests') } }
-        # The partner's preferred earning structures.
-        field :preferred_earning_structures, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::PreferredEarningStructures)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('preferredEarningStructures') } }
-        # The partner's sales channels.
-        field :sales_channels, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::SalesChannels)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salesChannels') } }
-
+        # The partner's country (required for tax purposes).
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
+        # The partner's unique ID within your database. Can be useful for associating the partner with a user in your database and retrieving/update their data in the future.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId'), required: true } }
-        # A brief description of the partner and their background.
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-        # The partner's website URL (including the https protocol).
-        field :website, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('website') } }
-        # The partner's YouTube channel username (e.g. `johndoe`).
-        field :youtube, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('youtube') } }
-        # The partner's Twitter username (e.g. `johndoe`).
-        field :twitter, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('twitter') } }
-        # The partner's LinkedIn username (e.g. `johndoe`).
-        field :linkedin, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkedin') } }
-        # The partner's Instagram username (e.g. `johndoe`).
-        field :instagram, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('instagram') } }
-        # The partner's TikTok username (e.g. `johndoe`).
-        field :tiktok, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tiktok') } }
-        # The partner's monthly traffic.
-        field :monthly_traffic, Crystalline::Nilable.new(Models::Operations::MonthlyTraffic), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('monthlyTraffic'), 'decoder': Utils.enum_from_string(Models::Operations::MonthlyTraffic, true) } }
+        # The partner's group ID on Dub.
+        field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
 
-        sig { params(id: ::String, name: ::String, profile_type: Models::Operations::ProfileType, created_at: ::String, company_name: T.nilable(::String), email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), stripe_connect_id: T.nilable(::String), paypal_email: T.nilable(::String), payouts_enabled_at: T.nilable(::String), invoice_settings: T.nilable(Models::Operations::InvoiceSettings), discoverable_at: T.nilable(::String), trusted_at: T.nilable(::String), industry_interests: T.nilable(T::Array[Models::Operations::IndustryInterests]), preferred_earning_structures: T.nilable(T::Array[Models::Operations::PreferredEarningStructures]), sales_channels: T.nilable(T::Array[Models::Operations::SalesChannels]), tenant_id: T.nilable(::String), description: T.nilable(::String), website: T.nilable(::String), youtube: T.nilable(::String), twitter: T.nilable(::String), linkedin: T.nilable(::String), instagram: T.nilable(::String), tiktok: T.nilable(::String), monthly_traffic: T.nilable(Models::Operations::MonthlyTraffic)).void }
-        def initialize(id:, name:, profile_type:, created_at:, company_name: nil, email: nil, image: nil, country: nil, stripe_connect_id: nil, paypal_email: nil, payouts_enabled_at: nil, invoice_settings: nil, discoverable_at: nil, trusted_at: nil, industry_interests: nil, preferred_earning_structures: nil, sales_channels: nil, tenant_id: nil, description: nil, website: nil, youtube: nil, twitter: nil, linkedin: nil, instagram: nil, tiktok: nil, monthly_traffic: nil)
+        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String)).void }
+        def initialize(id:, name:, email: nil, image: nil, payouts_enabled_at: nil, country: nil, tenant_id: nil, group_id: nil)
           @id = id
           @name = name
-          @profile_type = profile_type
-          @created_at = created_at
-          @company_name = company_name
           @email = email
           @image = image
-          @country = country
-          @stripe_connect_id = stripe_connect_id
-          @paypal_email = paypal_email
           @payouts_enabled_at = payouts_enabled_at
-          @invoice_settings = invoice_settings
-          @discoverable_at = discoverable_at
-          @trusted_at = trusted_at
-          @industry_interests = industry_interests
-          @preferred_earning_structures = preferred_earning_structures
-          @sales_channels = sales_channels
+          @country = country
           @tenant_id = tenant_id
-          @description = description
-          @website = website
-          @youtube = youtube
-          @twitter = twitter
-          @linkedin = linkedin
-          @instagram = instagram
-          @tiktok = tiktok
-          @monthly_traffic = monthly_traffic
+          @group_id = group_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -100,30 +46,12 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @name == other.name
-          return false unless @profile_type == other.profile_type
-          return false unless @created_at == other.created_at
-          return false unless @company_name == other.company_name
           return false unless @email == other.email
           return false unless @image == other.image
-          return false unless @country == other.country
-          return false unless @stripe_connect_id == other.stripe_connect_id
-          return false unless @paypal_email == other.paypal_email
           return false unless @payouts_enabled_at == other.payouts_enabled_at
-          return false unless @invoice_settings == other.invoice_settings
-          return false unless @discoverable_at == other.discoverable_at
-          return false unless @trusted_at == other.trusted_at
-          return false unless @industry_interests == other.industry_interests
-          return false unless @preferred_earning_structures == other.preferred_earning_structures
-          return false unless @sales_channels == other.sales_channels
+          return false unless @country == other.country
           return false unless @tenant_id == other.tenant_id
-          return false unless @description == other.description
-          return false unless @website == other.website
-          return false unless @youtube == other.youtube
-          return false unless @twitter == other.twitter
-          return false unless @linkedin == other.linkedin
-          return false unless @instagram == other.instagram
-          return false unless @tiktok == other.tiktok
-          return false unless @monthly_traffic == other.monthly_traffic
+          return false unless @group_id == other.group_id
           true
         end
       end

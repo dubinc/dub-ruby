@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class CommissionCreatedEventStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           PROCESSED = new('processed')

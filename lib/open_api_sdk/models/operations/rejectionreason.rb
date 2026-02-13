@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # RejectionReason - The reason for rejecting the submission.
       class RejectionReason < T::Enum
-
-
         enums do
           INVALID_PROOF = new('invalidProof')
           DUPLICATE_SUBMISSION = new('duplicateSubmission')

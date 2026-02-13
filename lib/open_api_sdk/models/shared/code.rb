@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # Code - The error code.
       class Code < T::Enum
-
-
         enums do
           BAD_REQUEST = new('bad_request')
           UNAUTHORIZED = new('unauthorized')

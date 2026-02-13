@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListPayoutsQueryParamSortOrder - The sort order for the list of payouts.
       class ListPayoutsQueryParamSortOrder < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

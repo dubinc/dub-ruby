@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListPartnersQueryParamStatus - A filter on the list based on the partner's `status` field.
       class ListPartnersQueryParamStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')

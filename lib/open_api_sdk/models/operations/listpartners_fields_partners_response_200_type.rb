@@ -9,10 +9,8 @@ module OpenApiSDK
     module Operations
 
       class ListPartnersFieldsPartnersResponse200Type < T::Enum
-
-
         enums do
-          COUNTRY = new('country')
+          DATE = new('date')
         end
       end
     end

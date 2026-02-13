@@ -9,10 +9,8 @@ module OpenApiSDK
     module Operations
 
       class ListPartnersFieldsPartnersType < T::Enum
-
-
         enums do
-          TEXTAREA = new('textarea')
+          SELECT = new('select')
         end
       end
     end

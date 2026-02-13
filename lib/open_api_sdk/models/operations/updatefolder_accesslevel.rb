@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # UpdateFolderAccessLevel - The access level of the folder within the workspace.
       class UpdateFolderAccessLevel < T::Enum
-
-
         enums do
           WRITE = new('write')
           READ = new('read')

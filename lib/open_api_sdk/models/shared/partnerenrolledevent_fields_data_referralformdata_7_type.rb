@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsDataReferralFormData7Type < T::Enum
-
-
         enums do
           NUMBER = new('number')
         end

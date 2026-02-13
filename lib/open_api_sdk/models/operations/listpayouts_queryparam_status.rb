@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListPayoutsQueryParamStatus - Filter the list of payouts by their corresponding status.
       class ListPayoutsQueryParamStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           PROCESSING = new('processing')

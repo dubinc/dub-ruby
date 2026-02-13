@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # RejectBountySubmissionStatus - The status of the submission
       class RejectBountySubmissionStatus < T::Enum
-
-
         enums do
           DRAFT = new('draft')
           SUBMITTED = new('submitted')

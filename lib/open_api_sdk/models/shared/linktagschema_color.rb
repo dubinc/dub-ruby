@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # LinkTagSchemaColor - The color of the tag.
       class LinkTagSchemaColor < T::Enum
-
-
         enums do
           RED = new('red')
           YELLOW = new('yellow')

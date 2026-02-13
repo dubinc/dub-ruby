@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class FieldsType < T::Enum
-
-
         enums do
           TEXT = new('text')
         end

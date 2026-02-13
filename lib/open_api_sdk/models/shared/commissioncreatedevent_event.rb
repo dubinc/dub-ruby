@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class CommissionCreatedEventEvent < T::Enum
-
-
         enums do
           COMMISSION_CREATED = new('commission.created')
         end

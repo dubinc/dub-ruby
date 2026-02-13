@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class LinkClickedEventEvent < T::Enum
-
-
         enums do
           LINK_CLICKED = new('link.clicked')
         end

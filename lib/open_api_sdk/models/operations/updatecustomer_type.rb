@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class UpdateCustomerType < T::Enum
-
-
         enums do
           PERCENTAGE = new('percentage')
           FLAT = new('flat')

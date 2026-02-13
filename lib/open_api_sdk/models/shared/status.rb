@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # Status - The status of the partner's enrollment in the program.
       class Status < T::Enum
-
-
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')

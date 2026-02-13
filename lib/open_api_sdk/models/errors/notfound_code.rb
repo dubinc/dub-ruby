@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # NotFoundCode - A short code indicating the error code returned.
       class NotFoundCode < T::Enum
-
-
         enums do
           NOT_FOUND = new('not_found')
         end

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ListPayoutsMode < T::Enum
-
-
         enums do
           INTERNAL = new('internal')
           EXTERNAL = new('external')

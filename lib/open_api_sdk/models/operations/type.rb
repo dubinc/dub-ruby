@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # Type
       class Type < T::Enum
-
-
         enums do
           CLICK = new('click')
           LEAD = new('lead')

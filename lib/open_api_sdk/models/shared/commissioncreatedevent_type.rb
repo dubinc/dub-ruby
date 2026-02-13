@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class CommissionCreatedEventType < T::Enum
-
-
         enums do
           CLICK = new('click')
           LEAD = new('lead')

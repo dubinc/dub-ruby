@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # Continent - The continent to retrieve analytics for.
       class Continent < T::Enum
-
-
         enums do
           AF = new('AF')
           AN = new('AN')

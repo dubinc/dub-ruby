@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ListEventsResponseBodyEvent < T::Enum
-
-
         enums do
           LEAD = new('lead')
         end

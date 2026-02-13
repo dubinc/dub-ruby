@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsDataReferralFormData6Type < T::Enum
-
-
         enums do
           MULTI_SELECT = new('multiSelect')
         end

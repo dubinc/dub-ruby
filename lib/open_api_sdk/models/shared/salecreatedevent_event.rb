@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class SaleCreatedEventEvent < T::Enum
-
-
         enums do
           SALE_CREATED = new('sale.created')
         end

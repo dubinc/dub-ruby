@@ -23,11 +23,11 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Operations::CreatePartnerFieldsPartnersType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::CreatePartnerFieldsPartnersType, false) } }
+        field :type, Models::Operations::ListPartnersFieldsPartnersType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPartnersFieldsPartnersType, false) } }
 
         field :options, Crystalline::Array.new(Models::Operations::Options), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('options'), required: true } }
 
-        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::CreatePartnerFieldsPartnersType, options: T::Array[Models::Operations::Options]).void }
+        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::ListPartnersFieldsPartnersType, options: T::Array[Models::Operations::Options]).void }
         def initialize(key:, label:, required:, locked:, position:, type:, options:)
           @key = key
           @label = label

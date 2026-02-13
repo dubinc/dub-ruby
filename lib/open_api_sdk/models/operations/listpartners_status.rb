@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListPartnersStatus - The status of the partner's enrollment in the program.
       class ListPartnersStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')

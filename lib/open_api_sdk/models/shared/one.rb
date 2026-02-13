@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class One < T::Enum
-
-
         enums do
           LINK_CREATED = new('link.created')
         end

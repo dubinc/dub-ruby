@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # UnprocessableEntityCode - A short code indicating the error code returned.
       class UnprocessableEntityCode < T::Enum
-
-
         enums do
           UNPROCESSABLE_ENTITY = new('unprocessable_entity')
         end

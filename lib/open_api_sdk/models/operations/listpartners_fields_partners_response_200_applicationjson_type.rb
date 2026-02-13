@@ -9,10 +9,8 @@ module OpenApiSDK
     module Operations
 
       class ListPartnersFieldsPartnersResponse200ApplicationJSONType < T::Enum
-
-
         enums do
-          DATE = new('date')
+          MULTI_SELECT = new('multiSelect')
         end
       end
     end

@@ -4,12 +4,64 @@
 
 ### Available Operations
 
-* [create](#create) - Create a domain
 * [list](#list) - Retrieve a list of domains
-* [update](#update) - Update a domain
+* [create](#create) - Create a domain
 * [delete](#delete) - Delete a domain
+* [update](#update) - Update a domain
 * [register](#register) - Register a domain
 * [check_status](#check_status) - Check the availability of one or more domains
+
+## list
+
+Retrieve a list of domains associated with the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="listDomains" method="get" path="/domains" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::ListDomainsRequest.new()
+
+res = s.domains.list(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[T.nilable(Models::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## create
 
@@ -68,13 +120,13 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
-## list
+## delete
 
-Retrieve a list of domains associated with the authenticated workspace.
+Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="listDomains" method="get" path="/domains" -->
+<!-- UsageSnippet language="ruby" operationID="deleteDomain" method="delete" path="/domains/{slug}" -->
 ```ruby
 require 'dub'
 
@@ -85,9 +137,7 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::ListDomainsRequest.new()
-
-res = s.domains.list(request: req)
+res = s.domains.delete(slug: 'acme.com')
 
 unless res.nil?
   # handle response
@@ -97,13 +147,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [Models::Operations::ListDomainsRequest](../../models/operations/listdomainsrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter          | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `slug`             | *::String*         | :heavy_check_mark: | The domain name.   | acme.com           |
 
 ### Response
 
-**[T.nilable(Models::Operations::ListDomainsResponse)](../../models/operations/listdomainsresponse.md)**
+**[T.nilable(Models::Operations::DeleteDomainResponseBody)](../../models/operations/deletedomainresponsebody.md)**
 
 ### Errors
 
@@ -160,56 +210,6 @@ end
 ### Response
 
 **[T.nilable(Models::Shared::DomainSchema)](../../models/operations/domainschema.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## delete
-
-Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="deleteDomain" method="delete" path="/domains/{slug}" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-res = s.domains.delete(slug: 'acme.com')
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter          | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `slug`             | *::String*         | :heavy_check_mark: | The domain name.   | acme.com           |
-
-### Response
-
-**[T.nilable(Models::Operations::DeleteDomainResponseBody)](../../models/operations/deletedomainresponsebody.md)**
 
 ### Errors
 

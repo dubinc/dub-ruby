@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsType < T::Enum
-
-
         enums do
           TEXTAREA = new('textarea')
         end
