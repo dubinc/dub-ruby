@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class Two < T::Enum
-
-
         enums do
           TAG_ID = new('tagId')
         end

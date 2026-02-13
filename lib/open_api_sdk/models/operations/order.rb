@@ -11,8 +11,6 @@ module OpenApiSDK
       # 
       # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
       class Order < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

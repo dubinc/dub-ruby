@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ListEventsResponseBodyEventsEvent < T::Enum
-
-
         enums do
           SALE = new('sale')
         end

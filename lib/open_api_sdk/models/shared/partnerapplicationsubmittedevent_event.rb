@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerApplicationSubmittedEventEvent < T::Enum
-
-
         enums do
           PARTNER_APPLICATION_SUBMITTED = new('partner.application_submitted')
         end

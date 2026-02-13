@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # QueryParamSortBy - The field to sort the events by. The default is `timestamp`.
       class QueryParamSortBy < T::Enum
-
-
         enums do
           TIMESTAMP = new('timestamp')
         end

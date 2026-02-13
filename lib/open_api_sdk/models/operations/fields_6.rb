@@ -23,11 +23,11 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType, false) } }
+        field :type, Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType, false) } }
 
-        field :options, Crystalline::Array.new(Models::Operations::ListPartnersFieldsPartnersOptions), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('options'), required: true } }
+        field :options, Crystalline::Array.new(Models::Operations::CreatePartnerFieldsPartnersOptions), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('options'), required: true } }
 
-        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType, options: T::Array[Models::Operations::ListPartnersFieldsPartnersOptions]).void }
+        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType, options: T::Array[Models::Operations::CreatePartnerFieldsPartnersOptions]).void }
         def initialize(key:, label:, required:, locked:, position:, type:, options:)
           @key = key
           @label = label

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class UpdateCommissionStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           PROCESSED = new('processed')

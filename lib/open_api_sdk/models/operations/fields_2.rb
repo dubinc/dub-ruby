@@ -23,11 +23,11 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Operations::CreatePartnerFieldsType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::CreatePartnerFieldsType, false) } }
+        field :type, Models::Operations::ListPartnersFieldsType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPartnersFieldsType, false) } }
 
         field :constraints, Crystalline::Nilable.new(Models::Operations::FieldsConstraints), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('constraints') } }
 
-        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::CreatePartnerFieldsType, constraints: T.nilable(Models::Operations::FieldsConstraints)).void }
+        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::ListPartnersFieldsType, constraints: T.nilable(Models::Operations::FieldsConstraints)).void }
         def initialize(key:, label:, required:, locked:, position:, type:, constraints: nil)
           @key = key
           @label = label

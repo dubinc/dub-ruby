@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # AccessLevel - The access level of the folder within the workspace.
       class AccessLevel < T::Enum
-
-
         enums do
           WRITE = new('write')
           READ = new('read')

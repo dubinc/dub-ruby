@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # SortOrder - The sort order. The default is `desc`.
       class SortOrder < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

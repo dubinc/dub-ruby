@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # InviteExpiredCode - A short code indicating the error code returned.
       class InviteExpiredCode < T::Enum
-
-
         enums do
           INVITE_EXPIRED = new('invite_expired')
         end

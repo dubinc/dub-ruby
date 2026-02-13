@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # UpdateTagColor - The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown.
       class UpdateTagColor < T::Enum
-
-
         enums do
           RED = new('red')
           YELLOW = new('yellow')

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # QueryParamSortOrder - The sort order. The default is `desc`.
       class QueryParamSortOrder < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

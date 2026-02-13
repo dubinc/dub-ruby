@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsDataType < T::Enum
-
-
         enums do
           SELECT = new('select')
         end

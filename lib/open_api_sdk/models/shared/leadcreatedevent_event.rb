@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class LeadCreatedEventEvent < T::Enum
-
-
         enums do
           LEAD_CREATED = new('lead.created')
         end

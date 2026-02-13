@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class AnalyticsRegionsCity < T::Enum
-
-
         enums do
           WILDCARD_ = new('*')
         end

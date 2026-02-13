@@ -4,16 +4,70 @@
 
 ### Available Operations
 
-* [create](#create) - Create a link
 * [list](#list) - Retrieve a list of links
+* [create](#create) - Create a link
 * [count](#count) - Retrieve links count
 * [get](#get) - Retrieve a link
-* [update](#update) - Update a link
 * [delete](#delete) - Delete a link
+* [update](#update) - Update a link
 * [create_many](#create_many) - Bulk create links
-* [update_many](#update_many) - Bulk update links
 * [delete_many](#delete_many) - Bulk delete links
+* [update_many](#update_many) - Bulk update links
 * [upsert](#upsert) - Upsert a link
+
+## list
+
+Retrieve a paginated list of links for the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="getLinks" method="get" path="/links" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::GetLinksRequest.new(
+  page_size: 50.0,
+)
+
+res = s.links.list(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [Models::Operations::GetLinksRequest](../../models/operations/getlinksrequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::GetLinksResponse)](../../models/operations/getlinksresponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## create
 
@@ -67,60 +121,6 @@ end
 ### Response
 
 **[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## list
-
-Retrieve a paginated list of links for the authenticated workspace.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="getLinks" method="get" path="/links" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetLinksRequest.new(
-  page_size: 50.0,
-)
-
-res = s.links.list(request: req)
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [Models::Operations::GetLinksRequest](../../models/operations/getlinksrequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
-
-### Response
-
-**[T.nilable(Models::Operations::GetLinksResponse)](../../models/operations/getlinksresponse.md)**
 
 ### Errors
 
@@ -244,6 +244,56 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
+## delete
+
+Delete a link for the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="deleteLink" method="delete" path="/links/{linkId}" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+res = s.links.delete(link_id: '<id>')
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
+
+### Response
+
+**[T.nilable(Models::Operations::DeleteLinkResponseBody)](../../models/operations/deletelinkresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
 ## update
 
 Update a link for the authenticated workspace. If there's no change, returns it as it is.
@@ -295,56 +345,6 @@ end
 ### Response
 
 **[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## delete
-
-Delete a link for the authenticated workspace.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="deleteLink" method="delete" path="/links/{linkId}" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-res = s.links.delete(link_id: '<id>')
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `link_id`                                                                                                                             | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The id of the link to delete. You may use either `linkId` (obtained via `/links/info` endpoint) or `externalId` prefixed with `ext_`. |
-
-### Response
-
-**[T.nilable(Models::Operations::DeleteLinkResponseBody)](../../models/operations/deletelinkresponsebody.md)**
 
 ### Errors
 
@@ -431,6 +431,63 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
+## delete_many
+
+Bulk delete up to 100 links for the authenticated workspace.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="bulkDeleteLinks" method="delete" path="/links/bulk" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::BulkDeleteLinksRequest.new(
+  link_ids: [
+    'clux0rgak00011...',
+    'clux0rgak00022...',
+  ],
+)
+
+res = s.links.delete_many(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::BulkDeleteLinksRequest](../../models/operations/bulkdeletelinksrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::BulkDeleteLinksResponseBody)](../../models/operations/bulkdeletelinksresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
 ## update_many
 
 Bulk update up to 100 links with the same data for the authenticated workspace.
@@ -484,63 +541,6 @@ end
 ### Response
 
 **[T.nilable(T::Array[Models::Shared::LinkSchema])](../../models/operations/.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## delete_many
-
-Bulk delete up to 100 links for the authenticated workspace.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="bulkDeleteLinks" method="delete" path="/links/bulk" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::BulkDeleteLinksRequest.new(
-  link_ids: [
-    'clux0rgak00011...',
-    'clux0rgak00022...',
-  ],
-)
-
-res = s.links.delete_many(request: req)
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [Models::Operations::BulkDeleteLinksRequest](../../models/operations/bulkdeletelinksrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
-### Response
-
-**[T.nilable(Models::Operations::BulkDeleteLinksResponseBody)](../../models/operations/bulkdeletelinksresponsebody.md)**
 
 ### Errors
 

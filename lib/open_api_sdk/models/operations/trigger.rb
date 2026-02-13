@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # Trigger - The trigger to retrieve analytics for. If undefined, returns all trigger types.
       class Trigger < T::Enum
-
-
         enums do
           QR = new('qr')
           LINK = new('link')

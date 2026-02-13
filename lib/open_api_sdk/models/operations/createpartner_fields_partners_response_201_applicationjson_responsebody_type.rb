@@ -9,10 +9,8 @@ module OpenApiSDK
     module Operations
 
       class CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType < T::Enum
-
-
         enums do
-          NUMBER = new('number')
+          MULTI_SELECT = new('multiSelect')
         end
       end
     end

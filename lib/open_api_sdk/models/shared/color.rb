@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # Color - The color of the tag.
       class Color < T::Enum
-
-
         enums do
           RED = new('red')
           YELLOW = new('yellow')

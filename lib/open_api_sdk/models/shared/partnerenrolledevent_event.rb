@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventEvent < T::Enum
-
-
         enums do
           PARTNER_ENROLLED = new('partner.enrolled')
         end

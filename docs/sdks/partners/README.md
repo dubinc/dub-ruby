@@ -4,14 +4,73 @@
 
 ### Available Operations
 
-* [create](#create) - Create or update a partner
 * [list](#list) - List all partners
-* [create_link](#create_link) - Create a link for a partner
+* [create](#create) - Create or update a partner
 * [retrieve_links](#retrieve_links) - Retrieve a partner's links.
+* [create_link](#create_link) - Create a link for a partner
 * [upsert_link](#upsert_link) - Upsert a link for a partner
 * [analytics](#analytics) - Retrieve analytics for a partner
 * [ban](#ban) - Ban a partner
 * [deactivate](#deactivate) - Deactivate a partner
+
+## list
+
+List all partners for a partner program.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="listPartners" method="get" path="/partners" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+      security: Models::Shared::Security.new(
+        token: 'DUB_API_KEY',
+      ),
+    )
+
+req = Models::Operations::ListPartnersRequest.new(
+  status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,
+  country: 'US',
+  email: 'panic@thedis.co',
+  tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
+  search: 'john',
+  page_size: 50.0,
+)
+
+res = s.partners.list(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::ListPartnersRequest](../../models/operations/listpartnersrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+### Response
+
+**[T.nilable(T::Array[Models::Operations::ListPartnersResponseBody])](../../models/operations/.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
 ## create
 
@@ -83,13 +142,13 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
-## list
+## retrieve_links
 
-List all partners for a partner program.
+Retrieve a partner's links by their partner ID or tenant ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="listPartners" method="get" path="/partners" -->
+<!-- UsageSnippet language="ruby" operationID="retrieveLinks" method="get" path="/partners/links" -->
 ```ruby
 require 'dub'
 
@@ -100,16 +159,9 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::ListPartnersRequest.new(
-  status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,
-  country: 'US',
-  email: 'panic@thedis.co',
-  tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
-  search: 'john',
-  page_size: 50.0,
-)
+req = Models::Operations::RetrieveLinksRequest.new()
 
-res = s.partners.list(request: req)
+res = s.partners.retrieve_links(request: req)
 
 unless res.nil?
   # handle response
@@ -119,13 +171,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [Models::Operations::ListPartnersRequest](../../models/operations/listpartnersrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(T::Array[Models::Operations::ListPartnersResponseBody])](../../models/operations/.md)**
+**[T.nilable(T::Array[Models::Operations::RetrieveLinksResponseBody])](../../models/operations/.md)**
 
 ### Errors
 
@@ -195,58 +247,6 @@ end
 ### Response
 
 **[T.nilable(Models::Shared::LinkSchema)](../../models/operations/linkschema.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Models::Errors::BadRequest          | 400                                 | application/json                    |
-| Models::Errors::Unauthorized        | 401                                 | application/json                    |
-| Models::Errors::Forbidden           | 403                                 | application/json                    |
-| Models::Errors::NotFound            | 404                                 | application/json                    |
-| Models::Errors::Conflict            | 409                                 | application/json                    |
-| Models::Errors::InviteExpired       | 410                                 | application/json                    |
-| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
-| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
-| Models::Errors::InternalServerError | 500                                 | application/json                    |
-| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
-
-## retrieve_links
-
-Retrieve a partner's links by their partner ID or tenant ID.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="retrieveLinks" method="get" path="/partners/links" -->
-```ruby
-require 'dub'
-
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::RetrieveLinksRequest.new()
-
-res = s.partners.retrieve_links(request: req)
-
-unless res.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [Models::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
-
-### Response
-
-**[T.nilable(T::Array[Models::Operations::RetrieveLinksResponseBody])](../../models/operations/.md)**
 
 ### Errors
 

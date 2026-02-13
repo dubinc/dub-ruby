@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # SaleType - Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.
       class SaleType < T::Enum
-
-
         enums do
           NEW = new('new')
           RECURRING = new('recurring')

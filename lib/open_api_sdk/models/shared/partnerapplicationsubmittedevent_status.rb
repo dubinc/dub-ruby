@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # PartnerApplicationSubmittedEventStatus - The status of the partner's enrollment in the program.
       class PartnerApplicationSubmittedEventStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')

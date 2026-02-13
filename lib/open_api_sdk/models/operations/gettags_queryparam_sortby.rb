@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # GetTagsQueryParamSortBy - The field to sort the tags by.
       class GetTagsQueryParamSortBy < T::Enum
-
-
         enums do
           NAME = new('name')
           CREATED_AT = new('createdAt')

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # Trigger - The type of trigger method: link click or QR scan
       class Trigger < T::Enum
-
-
         enums do
           QR = new('qr')
           LINK = new('link')

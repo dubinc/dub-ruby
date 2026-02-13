@@ -496,31 +496,23 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::UpdateCustomerRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::UpdateCustomerResponseBody) }
-    def update(request:, timeout_ms: nil)
-      # update - Update a customer
-      # Update a customer for the authenticated workspace.
+    sig { params(id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteCustomerResponseBody) }
+    def delete(id:, timeout_ms: nil)
+      # delete - Delete a customer
+      # Delete a customer from a workspace.
+      request = Models::Operations::DeleteCustomerRequest.new(
+        id: id
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        Models::Operations::UpdateCustomerRequest,
+        Models::Operations::DeleteCustomerRequest,
         base_url,
         '/customers/{id}',
         request
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
-      headers['content-type'] = req_content_type
-
-      if form
-        body = Utils.encode_form(form)
-      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
-      else
-        body = data
-      end
-      query_params = Utils.get_query_params(Models::Operations::UpdateCustomerRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -536,7 +528,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'updateCustomer',
+        operation_id: 'deleteCustomer',
         security_source: @sdk_configuration.security_source
       )
 
@@ -545,11 +537,9 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).patch(url) do |req|
-          req.body = body
+        http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -595,7 +585,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::UpdateCustomerResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::DeleteCustomerResponseBody)
 
           return obj
         else
@@ -738,23 +728,31 @@ module OpenApiSDK
     end
 
 
-    sig { params(id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteCustomerResponseBody) }
-    def delete(id:, timeout_ms: nil)
-      # delete - Delete a customer
-      # Delete a customer from a workspace.
-      request = Models::Operations::DeleteCustomerRequest.new(
-        id: id
-      )
+    sig { params(request: Models::Operations::UpdateCustomerRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::UpdateCustomerResponseBody) }
+    def update(request:, timeout_ms: nil)
+      # update - Update a customer
+      # Update a customer for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        Models::Operations::DeleteCustomerRequest,
+        Models::Operations::UpdateCustomerRequest,
         base_url,
         '/customers/{id}',
         request
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
+      headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+      else
+        body = data
+      end
+      query_params = Utils.get_query_params(Models::Operations::UpdateCustomerRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -770,7 +768,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'deleteCustomer',
+        operation_id: 'updateCustomer',
         security_source: @sdk_configuration.security_source
       )
 
@@ -779,9 +777,11 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).delete(url) do |req|
+        http_response = T.must(connection).patch(url) do |req|
+          req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -827,7 +827,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::DeleteCustomerResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::UpdateCustomerResponseBody)
 
           return obj
         else

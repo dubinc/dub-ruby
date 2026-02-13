@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ResponseBodyEvent < T::Enum
-
-
         enums do
           CLICK = new('click')
         end

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class Three < T::Enum
-
-
         enums do
           USER_ID = new('userId')
         end

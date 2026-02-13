@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ListPayoutsStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           PROCESSING = new('processing')

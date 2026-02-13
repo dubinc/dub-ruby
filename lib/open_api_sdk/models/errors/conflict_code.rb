@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # ConflictCode - A short code indicating the error code returned.
       class ConflictCode < T::Enum
-
-
         enums do
           CONFLICT = new('conflict')
         end

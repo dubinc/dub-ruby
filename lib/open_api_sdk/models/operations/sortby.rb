@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # SortBy - The field to sort the links by. The default is `createdAt`.
       class SortBy < T::Enum
-
-
         enums do
           CREATED_AT = new('createdAt')
           CLICKS = new('clicks')

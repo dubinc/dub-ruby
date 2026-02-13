@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # QueryParamInterval - The interval to retrieve analytics for. If undefined, defaults to 24h.
       class QueryParamInterval < T::Enum
-
-
         enums do
           TWENTY_FOURH = new('24h')
           SEVEND = new('7d')

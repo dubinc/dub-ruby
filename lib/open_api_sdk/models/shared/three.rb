@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class Three < T::Enum
-
-
         enums do
           LINK_DELETED = new('link.deleted')
         end

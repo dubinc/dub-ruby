@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # QueryParamStatus - Filter the list of commissions by their corresponding status.
       class QueryParamStatus < T::Enum
-
-
         enums do
           PENDING = new('pending')
           PROCESSED = new('processed')

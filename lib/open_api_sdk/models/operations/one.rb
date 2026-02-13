@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class One < T::Enum
-
-
         enums do
           DOMAIN = new('domain')
         end

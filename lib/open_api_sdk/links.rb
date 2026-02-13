@@ -40,25 +40,16 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def create(request: nil, timeout_ms: nil)
-      # create - Create a link
-      # Create a link for the authenticated workspace.
+    sig { params(request: Models::Operations::GetLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetLinksResponse) }
+    def list(request:, timeout_ms: nil)
+      # list - Retrieve a list of links
+      # Retrieve a paginated list of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
-      headers['content-type'] = req_content_type
-
-      if form
-        body = Utils.encode_form(form)
-      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
-      else
-        body = data
-      end
+      query_params = Utils.get_query_params(Models::Operations::GetLinksRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -74,7 +65,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'createLink',
+        operation_id: 'getLinks',
         security_source: @sdk_configuration.security_source
       )
 
@@ -83,10 +74,10 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).post(url) do |req|
-          req.body = body
+        http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -132,9 +123,54 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::LinkSchema))
+          result = obj
+          response = Models::Operations::GetLinksResponse.new(
+            result: result
+          )
+          sdk = self
 
-          return obj
+          response.next_page = proc do 
+            request_page = T.must(!request.page.nil? ? request.page : 1)
+            next_page = request_page + 1
+            if !response_data
+              next nil
+            end
+            results = JSON.parse(response_data)
+            if results.nil?
+              next nil
+            end
+            if results.count.zero?
+              next nil
+            end
+            request_limit = !request.page_size.nil? ? request.page_size : 1
+            if results.count < request_limit
+              next nil
+            end
+
+            sdk.list(
+              request: Models::Operations::GetLinksRequest.new(
+                domain: request.domain,
+                tag_id: request.tag_id,
+                tag_ids: request.tag_ids,
+                tag_names: request.tag_names,
+                folder_id: request.folder_id,
+                search: request.search,
+                user_id: request.user_id,
+                tenant_id: request.tenant_id,
+                show_archived: request.show_archived,
+                with_tags: request.with_tags,
+                sort_by: request.sort_by,
+                sort_order: request.sort_order,
+                sort: request.sort,
+                page: next_page,
+                page_size: request.page_size
+              )
+            )
+          end
+
+
+          return response
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
@@ -275,16 +311,25 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetLinksResponse) }
-    def list(request:, timeout_ms: nil)
-      # list - Retrieve a list of links
-      # Retrieve a paginated list of links for the authenticated workspace.
+    sig { params(request: T.nilable(Models::Operations::CreateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
+    def create(request: nil, timeout_ms: nil)
+      # create - Create a link
+      # Create a link for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::GetLinksRequest, request, nil)
+      req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
+      headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -300,7 +345,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'getLinks',
+        operation_id: 'createLink',
         security_source: @sdk_configuration.security_source
       )
 
@@ -309,10 +354,10 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).get(url) do |req|
+        http_response = T.must(connection).post(url) do |req|
+          req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -358,54 +403,9 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::LinkSchema))
-          result = obj
-          response = Models::Operations::GetLinksResponse.new(
-            result: result
-          )
-          sdk = self
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
 
-          response.next_page = proc do 
-            request_page = T.must(!request.page.nil? ? request.page : 1)
-            next_page = request_page + 1
-            if !response_data
-              next nil
-            end
-            results = JSON.parse(response_data)
-            if results.nil?
-              next nil
-            end
-            if results.count.zero?
-              next nil
-            end
-            request_limit = !request.page_size.nil? ? request.page_size : 1
-            if results.count < request_limit
-              next nil
-            end
-
-            sdk.list(
-              request: Models::Operations::GetLinksRequest.new(
-                domain: request.domain,
-                tag_id: request.tag_id,
-                tag_ids: request.tag_ids,
-                tag_names: request.tag_names,
-                folder_id: request.folder_id,
-                search: request.search,
-                user_id: request.user_id,
-                tenant_id: request.tenant_id,
-                show_archived: request.show_archived,
-                with_tags: request.with_tags,
-                sort_by: request.sort_by,
-                sort_order: request.sort_order,
-                sort: request.sort,
-                page: next_page,
-                page_size: request.page_size
-              )
-            )
-          end
-
-
-          return response
+          return obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
@@ -998,34 +998,23 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, request_body: T.nilable(Models::Operations::UpdateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def update(link_id:, request_body: nil, timeout_ms: nil)
-      # update - Update a link
-      # Update a link for the authenticated workspace. If there's no change, returns it as it is.
-      request = Models::Operations::UpdateLinkRequest.new(
-        link_id: link_id,
-        request_body: request_body
+    sig { params(link_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteLinkResponseBody) }
+    def delete(link_id:, timeout_ms: nil)
+      # delete - Delete a link
+      # Delete a link for the authenticated workspace.
+      request = Models::Operations::DeleteLinkRequest.new(
+        link_id: link_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        Models::Operations::UpdateLinkRequest,
+        Models::Operations::DeleteLinkRequest,
         base_url,
         '/links/{linkId}',
         request
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
-      headers['content-type'] = req_content_type
-
-      if form
-        body = Utils.encode_form(form)
-      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
-      else
-        body = data
-      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -1041,7 +1030,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'updateLink',
+        operation_id: 'deleteLink',
         security_source: @sdk_configuration.security_source
       )
 
@@ -1050,8 +1039,7 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).patch(url) do |req|
-          req.body = body
+        http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
@@ -1099,7 +1087,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::DeleteLinkResponseBody)
 
           return obj
         else
@@ -1242,23 +1230,34 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteLinkResponseBody) }
-    def delete(link_id:, timeout_ms: nil)
-      # delete - Delete a link
-      # Delete a link for the authenticated workspace.
-      request = Models::Operations::DeleteLinkRequest.new(
-        link_id: link_id
+    sig { params(link_id: ::String, request_body: T.nilable(Models::Operations::UpdateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
+    def update(link_id:, request_body: nil, timeout_ms: nil)
+      # update - Update a link
+      # Update a link for the authenticated workspace. If there's no change, returns it as it is.
+      request = Models::Operations::UpdateLinkRequest.new(
+        link_id: link_id,
+        request_body: request_body
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        Models::Operations::DeleteLinkRequest,
+        Models::Operations::UpdateLinkRequest,
         base_url,
         '/links/{linkId}',
         request
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
+      headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -1274,7 +1273,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'deleteLink',
+        operation_id: 'updateLink',
         security_source: @sdk_configuration.security_source
       )
 
@@ -1283,7 +1282,8 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).delete(url) do |req|
+        http_response = T.must(connection).patch(url) do |req|
+          req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
@@ -1331,7 +1331,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::DeleteLinkResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
 
           return obj
         else
@@ -1709,25 +1709,16 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::BulkUpdateLinksRequestBody), timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::LinkSchema]) }
-    def update_many(request: nil, timeout_ms: nil)
-      # update_many - Bulk update links
-      # Bulk update up to 100 links with the same data for the authenticated workspace.
+    sig { params(request: Models::Operations::BulkDeleteLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::BulkDeleteLinksResponseBody) }
+    def delete_many(request:, timeout_ms: nil)
+      # delete_many - Bulk delete links
+      # Bulk delete up to 100 links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
-      headers['content-type'] = req_content_type
-
-      if form
-        body = Utils.encode_form(form)
-      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
-      else
-        body = data
-      end
+      query_params = Utils.get_query_params(Models::Operations::BulkDeleteLinksRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -1743,7 +1734,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'bulkUpdateLinks',
+        operation_id: 'bulkDeleteLinks',
         security_source: @sdk_configuration.security_source
       )
 
@@ -1752,10 +1743,10 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).patch(url) do |req|
-          req.body = body
+        http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -1801,7 +1792,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::LinkSchema))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::BulkDeleteLinksResponseBody)
 
           return obj
         else
@@ -1944,16 +1935,25 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::BulkDeleteLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::BulkDeleteLinksResponseBody) }
-    def delete_many(request:, timeout_ms: nil)
-      # delete_many - Bulk delete links
-      # Bulk delete up to 100 links for the authenticated workspace.
+    sig { params(request: T.nilable(Models::Operations::BulkUpdateLinksRequestBody), timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::LinkSchema]) }
+    def update_many(request: nil, timeout_ms: nil)
+      # update_many - Bulk update links
+      # Bulk update up to 100 links with the same data for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/links/bulk"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::BulkDeleteLinksRequest, request, nil)
+      req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
+      headers['content-type'] = req_content_type
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+      else
+        body = data
+      end
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -1969,7 +1969,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'bulkDeleteLinks',
+        operation_id: 'bulkUpdateLinks',
         security_source: @sdk_configuration.security_source
       )
 
@@ -1978,10 +1978,10 @@ module OpenApiSDK
       
       
       begin
-        http_response = T.must(connection).delete(url) do |req|
+        http_response = T.must(connection).patch(url) do |req|
+          req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -2027,7 +2027,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::BulkDeleteLinksResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Shared::LinkSchema))
 
           return obj
         else

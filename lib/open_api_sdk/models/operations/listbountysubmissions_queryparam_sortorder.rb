@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListBountySubmissionsQueryParamSortOrder - The order to sort the submissions by.
       class ListBountySubmissionsQueryParamSortOrder < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

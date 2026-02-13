@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # UnauthorizedCode - A short code indicating the error code returned.
       class UnauthorizedCode < T::Enum
-
-
         enums do
           UNAUTHORIZED = new('unauthorized')
         end

@@ -9,10 +9,8 @@ module OpenApiSDK
     module Operations
 
       class ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyReferralFormDataType < T::Enum
-
-
         enums do
-          NUMBER = new('number')
+          PHONE = new('phone')
         end
       end
     end

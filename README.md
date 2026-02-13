@@ -143,25 +143,11 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::CreateLinkRequestBody.new(
-  url: 'https://google.com',
-  external_id: '123456',
-  tag_ids: [
-    'clux0rgak00011...',
-  ],
-  test_variants: [
-    Models::Operations::TestVariants.new(
-      url: 'https://example.com/variant-1',
-      percentage: 50.0,
-    ),
-    Models::Operations::TestVariants.new(
-      url: 'https://example.com/variant-2',
-      percentage: 50.0,
-    ),
-  ],
+req = Models::Operations::GetLinksRequest.new(
+  page_size: 50.0,
 )
 
-res = s.links.create(request: req)
+res = s.links.list(request: req)
 
 unless res.nil?
   # handle response
@@ -195,15 +181,15 @@ end
 
 * [list](docs/sdks/customers/README.md#list) - Retrieve a list of customers
 * [get](docs/sdks/customers/README.md#get) - Retrieve a customer
-* [update](docs/sdks/customers/README.md#update) - Update a customer
 * [delete](docs/sdks/customers/README.md#delete) - Delete a customer
+* [update](docs/sdks/customers/README.md#update) - Update a customer
 
 ### [Domains](docs/sdks/domains/README.md)
 
-* [create](docs/sdks/domains/README.md#create) - Create a domain
 * [list](docs/sdks/domains/README.md#list) - Retrieve a list of domains
-* [update](docs/sdks/domains/README.md#update) - Update a domain
+* [create](docs/sdks/domains/README.md#create) - Create a domain
 * [delete](docs/sdks/domains/README.md#delete) - Delete a domain
+* [update](docs/sdks/domains/README.md#update) - Update a domain
 * [register](docs/sdks/domains/README.md#register) - Register a domain
 * [check_status](docs/sdks/domains/README.md#check_status) - Check the availability of one or more domains
 
@@ -217,30 +203,30 @@ end
 
 ### [Folders](docs/sdks/folders/README.md)
 
-* [create](docs/sdks/folders/README.md#create) - Create a folder
 * [list](docs/sdks/folders/README.md#list) - Retrieve a list of folders
-* [update](docs/sdks/folders/README.md#update) - Update a folder
+* [create](docs/sdks/folders/README.md#create) - Create a folder
 * [delete](docs/sdks/folders/README.md#delete) - Delete a folder
+* [update](docs/sdks/folders/README.md#update) - Update a folder
 
 ### [Links](docs/sdks/links/README.md)
 
-* [create](docs/sdks/links/README.md#create) - Create a link
 * [list](docs/sdks/links/README.md#list) - Retrieve a list of links
+* [create](docs/sdks/links/README.md#create) - Create a link
 * [count](docs/sdks/links/README.md#count) - Retrieve links count
 * [get](docs/sdks/links/README.md#get) - Retrieve a link
-* [update](docs/sdks/links/README.md#update) - Update a link
 * [delete](docs/sdks/links/README.md#delete) - Delete a link
+* [update](docs/sdks/links/README.md#update) - Update a link
 * [create_many](docs/sdks/links/README.md#create_many) - Bulk create links
-* [update_many](docs/sdks/links/README.md#update_many) - Bulk update links
 * [delete_many](docs/sdks/links/README.md#delete_many) - Bulk delete links
+* [update_many](docs/sdks/links/README.md#update_many) - Bulk update links
 * [upsert](docs/sdks/links/README.md#upsert) - Upsert a link
 
 ### [Partners](docs/sdks/partners/README.md)
 
-* [create](docs/sdks/partners/README.md#create) - Create or update a partner
 * [list](docs/sdks/partners/README.md#list) - List all partners
-* [create_link](docs/sdks/partners/README.md#create_link) - Create a link for a partner
+* [create](docs/sdks/partners/README.md#create) - Create or update a partner
 * [retrieve_links](docs/sdks/partners/README.md#retrieve_links) - Retrieve a partner's links.
+* [create_link](docs/sdks/partners/README.md#create_link) - Create a link for a partner
 * [upsert_link](docs/sdks/partners/README.md#upsert_link) - Upsert a link for a partner
 * [analytics](docs/sdks/partners/README.md#analytics) - Retrieve analytics for a partner
 * [ban](docs/sdks/partners/README.md#ban) - Ban a partner
@@ -256,10 +242,10 @@ end
 
 ### [Tags](docs/sdks/tags/README.md)
 
-* [create](docs/sdks/tags/README.md#create) - Create a tag
 * [list](docs/sdks/tags/README.md#list) - Retrieve a list of tags
-* [update](docs/sdks/tags/README.md#update) - Update a tag
+* [create](docs/sdks/tags/README.md#create) - Create a tag
 * [delete](docs/sdks/tags/README.md#delete) - Delete a tag
+* [update](docs/sdks/tags/README.md#update) - Update a tag
 
 ### [Track](docs/sdks/track/README.md)
 
@@ -283,7 +269,7 @@ By default an API error will raise a `Errors::APIError`, which has the following
 | `raw_response` | *Faraday::Response*                     | The raw HTTP response |
 | `body`        | *string*                                 | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `create` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `list` method throws the following exceptions:
 
 | Error Type                          | Status Code | Content Type     |
 | ----------------------------------- | ----------- | ---------------- |
@@ -311,25 +297,11 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 begin
-    req = Models::Operations::CreateLinkRequestBody.new(
-      url: 'https://google.com',
-      external_id: '123456',
-      tag_ids: [
-        'clux0rgak00011...',
-      ],
-      test_variants: [
-        Models::Operations::TestVariants.new(
-          url: 'https://example.com/variant-1',
-          percentage: 50.0,
-        ),
-        Models::Operations::TestVariants.new(
-          url: 'https://example.com/variant-2',
-          percentage: 50.0,
-        ),
-      ],
+    req = Models::Operations::GetLinksRequest.new(
+      page_size: 50.0,
     )
 
-    res = s.links.create(request: req)
+    res = s.links.list(request: req)
 
     unless res.nil?
       # handle response
@@ -386,25 +358,11 @@ s = ::OpenApiSDK::Dub.new(
       ),
     )
 
-req = Models::Operations::CreateLinkRequestBody.new(
-  url: 'https://google.com',
-  external_id: '123456',
-  tag_ids: [
-    'clux0rgak00011...',
-  ],
-  test_variants: [
-    Models::Operations::TestVariants.new(
-      url: 'https://example.com/variant-1',
-      percentage: 50.0,
-    ),
-    Models::Operations::TestVariants.new(
-      url: 'https://example.com/variant-2',
-      percentage: 50.0,
-    ),
-  ],
+req = Models::Operations::GetLinksRequest.new(
+  page_size: 50.0,
 )
 
-res = s.links.create(request: req)
+res = s.links.list(request: req)
 
 unless res.nil?
   # handle response

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class ListCommissionsType < T::Enum
-
-
         enums do
           CLICK = new('click')
           LEAD = new('lead')

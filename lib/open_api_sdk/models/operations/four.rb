@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class Four < T::Enum
-
-
         enums do
           FOLDER_ID = new('folderId')
         end

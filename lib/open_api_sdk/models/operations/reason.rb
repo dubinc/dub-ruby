@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
 
       class Reason < T::Enum
-
-
         enums do
           TOS_VIOLATION = new('tos_violation')
           INAPPROPRIATE_CONTENT = new('inappropriate_content')

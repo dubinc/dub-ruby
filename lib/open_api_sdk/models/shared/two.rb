@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class Two < T::Enum
-
-
         enums do
           LINK_UPDATED = new('link.updated')
         end

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsDataReferralFormDataType < T::Enum
-
-
         enums do
           COUNTRY = new('country')
         end

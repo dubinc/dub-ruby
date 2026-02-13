@@ -23,9 +23,9 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType, false) } }
+        field :type, Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType, false) } }
 
-        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::CreatePartnerFieldsPartnersResponse201ApplicationJSONResponseBodyType).void }
+        sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Operations::ListPartnersFieldsPartnersResponse200ApplicationJSONResponseBodyType).void }
         def initialize(key:, label:, required:, locked:, position:, type:)
           @key = key
           @label = label

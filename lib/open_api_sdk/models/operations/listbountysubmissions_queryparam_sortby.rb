@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListBountySubmissionsQueryParamSortBy - The field to sort the submissions by.
       class ListBountySubmissionsQueryParamSortBy < T::Enum
-
-
         enums do
           COMPLETED_AT = new('completedAt')
           PERFORMANCE_COUNT = new('performanceCount')

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListPayoutsQueryParamSortBy - The field to sort the list of payouts by.
       class ListPayoutsQueryParamSortBy < T::Enum
-
-
         enums do
           AMOUNT = new('amount')
           INITIATED_AT = new('initiatedAt')

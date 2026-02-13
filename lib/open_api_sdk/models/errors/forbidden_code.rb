@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # ForbiddenCode - A short code indicating the error code returned.
       class ForbiddenCode < T::Enum
-
-
         enums do
           FORBIDDEN = new('forbidden')
         end

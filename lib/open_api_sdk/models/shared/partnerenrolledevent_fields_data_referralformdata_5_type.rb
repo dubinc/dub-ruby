@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
 
       class PartnerEnrolledEventFieldsDataReferralFormData5Type < T::Enum
-
-
         enums do
           DATE = new('date')
         end

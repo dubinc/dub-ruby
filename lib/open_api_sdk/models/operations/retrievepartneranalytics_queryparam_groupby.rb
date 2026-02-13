@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # RetrievePartnerAnalyticsQueryParamGroupBy - The parameter to group the analytics data points by. Defaults to `count` if undefined.
       class RetrievePartnerAnalyticsQueryParamGroupBy < T::Enum
-
-
         enums do
           TOP_LINKS = new('top_links')
           TIMESERIES = new('timeseries')

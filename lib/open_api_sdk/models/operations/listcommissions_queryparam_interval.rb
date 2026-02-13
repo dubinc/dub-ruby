@@ -9,8 +9,6 @@ module OpenApiSDK
     module Operations
       # ListCommissionsQueryParamInterval - The interval to retrieve commissions for.
       class ListCommissionsQueryParamInterval < T::Enum
-
-
         enums do
           TWENTY_FOURH = new('24h')
           SEVEND = new('7d')

@@ -9,8 +9,6 @@ module OpenApiSDK
     module Errors
       # InternalServerErrorCode - A short code indicating the error code returned.
       class InternalServerErrorCode < T::Enum
-
-
         enums do
           INTERNAL_SERVER_ERROR = new('internal_server_error')
         end

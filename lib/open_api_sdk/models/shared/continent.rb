@@ -9,8 +9,6 @@ module OpenApiSDK
     module Shared
       # Continent - The 2-letter ISO 3166-1 code representing the continent associated with the location of the user.
       class Continent < T::Enum
-
-
         enums do
           AF = new('AF')
           AN = new('AN')
