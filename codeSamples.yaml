@@ -8,7 +8,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "retrieveAnalytics"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrieveAnalyticsRequest.new(\n  event: Models::Operations::Event::LEADS,\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.analytics.retrieve(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::RetrieveAnalyticsRequest.new(\n  event: Models::Operations::Event::LEADS,\n  domain: 'dub.co',\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.analytics.retrieve(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/bounties/{bountyId}/submissions"]["get"]
     update:
       "x-codeSamples":
@@ -104,7 +104,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "listEvents"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListEventsRequest.new(\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.events.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n      security: Models::Shared::Security.new(\n        token: 'DUB_API_KEY',\n      ),\n    )\n\nreq = Models::Operations::ListEventsRequest.new(\n  domain: 'dub.co',\n  timezone: 'America/New_York',\n  city: 'New York',\n  device: 'Desktop',\n  browser: 'Chrome',\n  os: 'Windows',\n  referer: 'google.com',\n  referer_url: 'https://dub.co/blog',\n  query: 'metadata[\\'key\\']:\\'value\\'',\n)\n\nres = s.events.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/folders"]["get"]
     update:
       "x-codeSamples":

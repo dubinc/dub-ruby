@@ -18,8 +18,12 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def external_id=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
-  def program_id(); end
-  def program_id=(str_); end
+  def tag_id(); end
+  def tag_id=(str_); end
+  def folder_id(); end
+  def folder_id=(str_); end
+  def group_id(); end
+  def group_id=(str_); end
   def partner_id(); end
   def partner_id=(str_); end
   def customer_id(); end
@@ -52,28 +56,6 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def referer_url=(str_); end
   def url(); end
   def url=(str_); end
-  def tag_ids(); end
-  def tag_ids=(str_); end
-  def folder_id(); end
-  def folder_id=(str_); end
-  def group_id(); end
-  def group_id=(str_); end
-  def root(); end
-  def root=(str_); end
-  def sale_type(); end
-  def sale_type=(str_); end
-  def query(); end
-  def query=(str_); end
-  def tag_id(); end
-  def tag_id=(str_); end
-  def qr(); end
-  def qr=(str_); end
-  def event(); end
-  def event=(str_); end
-  def group_by(); end
-  def group_by=(str_); end
-  def timezone(); end
-  def timezone=(str_); end
   def utm_source(); end
   def utm_source=(str_); end
   def utm_medium(); end
@@ -84,6 +66,22 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def utm_term=(str_); end
   def utm_content(); end
   def utm_content=(str_); end
-  def ref(); end
-  def ref=(str_); end
+  def root(); end
+  def root=(str_); end
+  def sale_type(); end
+  def sale_type=(str_); end
+  def query(); end
+  def query=(str_); end
+  def program_id(); end
+  def program_id=(str_); end
+  def tag_ids(); end
+  def tag_ids=(str_); end
+  def qr(); end
+  def qr=(str_); end
+  def event(); end
+  def event=(str_); end
+  def group_by(); end
+  def group_by=(str_); end
+  def timezone(); end
+  def timezone=(str_); end
 end
