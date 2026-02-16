@@ -12,19 +12,23 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The domain to filter analytics for.
+        # The domain to filter analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `dub.co`, `dub.co,google.com`, `-spam.com`.
         field :domain, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'domain', 'style': 'form', 'explode': true } }
         # The slug of the short link to retrieve analytics for. Must be used along with the corresponding `domain` of the short link to fetch analytics for a specific short link.
         field :key, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'key', 'style': 'form', 'explode': true } }
-        # The unique ID of the short link on Dub to retrieve analytics for.
+        # The unique ID of the link to retrieve analytics for.Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `link_123`, `link_123,link_456`, `-link_789`.
         field :link_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'linkId', 'style': 'form', 'explode': true } }
         # The ID of the link in the your database. Must be prefixed with 'ext_' when passed as a query parameter.
         field :external_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-        # The ID of the tenant that created the link inside your system.
+        # The ID of the tenant that created the link inside your system. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tenant_123`, `tenant_123,tenant_456`, `-tenant_789`.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
-        # The ID of the program to retrieve analytics for.
-        field :program_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
-        # The ID of the partner to retrieve analytics for.
+        # The tag ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `tag_123`, `tag_123,tag_456`, `-tag_789`.
+        field :tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
+        # The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
+        # The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
+        # The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
         # The ID of the customer to retrieve analytics for.
         field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
@@ -34,42 +38,48 @@ module OpenApiSDK
         field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
         # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
         field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
-        # The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code. See https://d.to/geo for more information.
+        # The country to retrieve analytics for. Must be passed as a 2-letter ISO 3166-1 country code (see https://d.to/geo). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `US`, `US,BR,FR`, `-US`.
         field :country, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }
-        # The city to retrieve analytics for.
+        # The city to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `New York`, `New York,London`, `-New York`.
         field :city, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'city', 'style': 'form', 'explode': true } }
-        # The ISO 3166-2 region code to retrieve analytics for.
+        # The ISO 3166-2 region code to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NY`, `NY,CA`, `-NY`.
         field :region, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'region', 'style': 'form', 'explode': true } }
-        # The continent to retrieve analytics for.
-        field :continent, Crystalline::Nilable.new(Models::Operations::Continent), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
-        # The device to retrieve analytics for.
+        # The continent to retrieve analytics for. Valid values: AF, AN, AS, EU, NA, OC, SA. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `NA`, `NA,EU`, `-AS`.
+        field :continent, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'continent', 'style': 'form', 'explode': true } }
+        # The device to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Desktop`, `Mobile,Tablet`, `-Mobile`.
         field :device, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'device', 'style': 'form', 'explode': true } }
-        # The browser to retrieve analytics for.
+        # The browser to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Chrome`, `Chrome,Firefox,Safari`, `-IE`.
         field :browser, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'browser', 'style': 'form', 'explode': true } }
-        # The OS to retrieve analytics for.
+        # The OS to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Windows`, `Mac,Windows,Linux`, `-Windows`.
         field :os, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
-        # The trigger to retrieve analytics for. If undefined, returns all trigger types.
-        field :trigger, Crystalline::Nilable.new(Models::Operations::Trigger), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
-        # The referer hostname to retrieve analytics for.
+        # The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.
+        field :trigger, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
+        # The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.
         field :referer, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
-        # The full referer URL to retrieve analytics for.
+        # The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.
         field :referer_url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'refererUrl', 'style': 'form', 'explode': true } }
-        # The URL to retrieve analytics for.
+        # The destination URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://example.com`, `https://example.com,https://other.com`, `-https://spam.com`.
         field :url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'url', 'style': 'form', 'explode': true } }
-        # The tag IDs to retrieve analytics for.
-        field :tag_ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
-        # The folder ID to retrieve analytics for. If not provided, return analytics for unsorted links.
-        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
-        # The group ID to retrieve analytics for.
-        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
-        # Filter for root domains. If true, filter for domains only. If false, filter for links only. If undefined, return both.
-        field :root, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
-        # Filter sales by type: 'new' for first-time purchases, 'recurring' for repeat purchases. If undefined, returns both.
-        field :sale_type, Crystalline::Nilable.new(Models::Operations::SaleType), { 'query_param': { 'field_name': 'saleType', 'style': 'form', 'explode': true } }
-        # Search the events by a custom metadata value. Only available for lead and sale events.
+        # The UTM source to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google`, `google,twitter`, `-spam`.
+        field :utm_source, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_source', 'style': 'form', 'explode': true } }
+        # The UTM medium to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `cpc`, `cpc,social`, `-email`.
+        field :utm_medium, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_medium', 'style': 'form', 'explode': true } }
+        # The UTM campaign to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `summer_sale`, `summer_sale,winter_sale`, `-old_campaign`.
+        field :utm_campaign, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_campaign', 'style': 'form', 'explode': true } }
+        # The UTM term to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+        field :utm_term, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
+        # The UTM content to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+        field :utm_content, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_content', 'style': 'form', 'explode': true } }
+        # Filter for root domains. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `true` (root domains only), `false` (regular links only), `true,false` (both). If undefined, return both.
+        field :root, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'root', 'style': 'form', 'explode': true } }
+        # Filter sales by type. Valid values: `new` (first-time purchases), `recurring` (repeat purchases). Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `new`, `new,recurring`, `-recurring`. If undefined, returns both.
+        field :sale_type, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'saleType', 'style': 'form', 'explode': true } }
+        # Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`
         field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
-        # Deprecated: Use `tagIds` instead. The tag ID to retrieve analytics for.
-        field :tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
+        # Deprecated: This is automatically inferred from your workspace's defaultProgramId. The ID of the program to retrieve analytics for.
+        field :program_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'programId', 'style': 'form', 'explode': true } }
+        # Deprecated: Use `tagId` instead. The tag IDs to retrieve analytics for.
+        field :tag_ids, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagIds', 'style': 'form', 'explode': true } }
         # Deprecated: Use the `trigger` field instead. Filter for QR code scans. If true, filter for QR codes only. If false, filter for links only. If undefined, return both.
         field :qr, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'qr', 'style': 'form', 'explode': true } }
         # The type of event to retrieve analytics for. Defaults to `clicks`.
@@ -78,27 +88,17 @@ module OpenApiSDK
         field :group_by, Crystalline::Nilable.new(Models::Operations::QueryParamGroupBy), { 'query_param': { 'field_name': 'groupBy', 'style': 'form', 'explode': true } }
         # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
         field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
-        # The UTM source of the short link.
-        field :utm_source, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_source', 'style': 'form', 'explode': true } }
-        # The UTM medium of the short link.
-        field :utm_medium, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_medium', 'style': 'form', 'explode': true } }
-        # The UTM campaign of the short link.
-        field :utm_campaign, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_campaign', 'style': 'form', 'explode': true } }
-        # The UTM term of the short link.
-        field :utm_term, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_term', 'style': 'form', 'explode': true } }
-        # The UTM content of the short link.
-        field :utm_content, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'utm_content', 'style': 'form', 'explode': true } }
-        # The ref of the short link.
-        field :ref, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'ref', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(Models::Operations::Continent), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(Models::Operations::Trigger), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), group_id: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::SaleType), query: T.nilable(::String), tag_id: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String)).void }
-        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, program_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, tag_ids: nil, folder_id: nil, group_id: nil, root: nil, sale_type: nil, query: nil, tag_id: nil, qr: nil, event: Models::Operations::Event::CLICKS, group_by: Models::Operations::QueryParamGroupBy::COUNT, timezone: 'UTC', utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil)
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), tag_id: T.nilable(::String), folder_id: T.nilable(::String), group_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(::String), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), root: T.nilable(::String), sale_type: T.nilable(::String), query: T.nilable(::String), program_id: T.nilable(::String), tag_ids: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, tag_id: nil, folder_id: nil, group_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, root: nil, sale_type: nil, query: nil, program_id: nil, tag_ids: nil, qr: nil, event: Models::Operations::Event::CLICKS, group_by: Models::Operations::QueryParamGroupBy::COUNT, timezone: 'UTC')
           @domain = domain
           @key = key
           @link_id = link_id
           @external_id = external_id
           @tenant_id = tenant_id
-          @program_id = program_id
+          @tag_id = tag_id
+          @folder_id = folder_id
+          @group_id = group_id
           @partner_id = partner_id
           @customer_id = customer_id
           @interval = interval
@@ -115,23 +115,20 @@ module OpenApiSDK
           @referer = referer
           @referer_url = referer_url
           @url = url
-          @tag_ids = tag_ids
-          @folder_id = folder_id
-          @group_id = group_id
-          @root = root
-          @sale_type = sale_type
-          @query = query
-          @tag_id = tag_id
-          @qr = qr
-          @event = event
-          @group_by = group_by
-          @timezone = timezone
           @utm_source = utm_source
           @utm_medium = utm_medium
           @utm_campaign = utm_campaign
           @utm_term = utm_term
           @utm_content = utm_content
-          @ref = ref
+          @root = root
+          @sale_type = sale_type
+          @query = query
+          @program_id = program_id
+          @tag_ids = tag_ids
+          @qr = qr
+          @event = event
+          @group_by = group_by
+          @timezone = timezone
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -142,7 +139,9 @@ module OpenApiSDK
           return false unless @link_id == other.link_id
           return false unless @external_id == other.external_id
           return false unless @tenant_id == other.tenant_id
-          return false unless @program_id == other.program_id
+          return false unless @tag_id == other.tag_id
+          return false unless @folder_id == other.folder_id
+          return false unless @group_id == other.group_id
           return false unless @partner_id == other.partner_id
           return false unless @customer_id == other.customer_id
           return false unless @interval == other.interval
@@ -159,23 +158,20 @@ module OpenApiSDK
           return false unless @referer == other.referer
           return false unless @referer_url == other.referer_url
           return false unless @url == other.url
-          return false unless @tag_ids == other.tag_ids
-          return false unless @folder_id == other.folder_id
-          return false unless @group_id == other.group_id
-          return false unless @root == other.root
-          return false unless @sale_type == other.sale_type
-          return false unless @query == other.query
-          return false unless @tag_id == other.tag_id
-          return false unless @qr == other.qr
-          return false unless @event == other.event
-          return false unless @group_by == other.group_by
-          return false unless @timezone == other.timezone
           return false unless @utm_source == other.utm_source
           return false unless @utm_medium == other.utm_medium
           return false unless @utm_campaign == other.utm_campaign
           return false unless @utm_term == other.utm_term
           return false unless @utm_content == other.utm_content
-          return false unless @ref == other.ref
+          return false unless @root == other.root
+          return false unless @sale_type == other.sale_type
+          return false unless @query == other.query
+          return false unless @program_id == other.program_id
+          return false unless @tag_ids == other.tag_ids
+          return false unless @qr == other.qr
+          return false unless @event == other.event
+          return false unless @group_by == other.group_by
+          return false unless @timezone == other.timezone
           true
         end
       end
