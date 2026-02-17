@@ -18,7 +18,7 @@ module OpenApiSDK
         field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
         # The end date and time when to retrieve analytics from. If not provided, defaults to the current date. If set along with `start`, takes precedence over `interval`.
         field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
-        # Search the events by a custom metadata value. Only available for lead and sale events.
+        # Search the events by a custom metadata value. Only available for lead and sale events. Examples: `metadata['key']:'value'`
         field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
         # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }

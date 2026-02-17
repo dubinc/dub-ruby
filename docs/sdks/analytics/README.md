@@ -25,6 +25,7 @@ s = ::OpenApiSDK::Dub.new(
 
 req = Models::Operations::RetrieveAnalyticsRequest.new(
   event: Models::Operations::Event::LEADS,
+  domain: 'dub.co',
   timezone: 'America/New_York',
   city: 'New York',
   device: 'Desktop',

@@ -28,10 +28,12 @@ module OpenApiSDK
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
         # The creation timestamp of the short link
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
-        # The comments of the short link
-        field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
         # The custom link preview title (og:title)
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
+        # The comments of the short link
+        field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
+        # The ID of the partner that the link belongs to (if applicable)
+        field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
         # The number of clicks from this link
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
         # The number of leads from this link
@@ -41,8 +43,8 @@ module OpenApiSDK
         # The total amount of sales from this link, in cents
         field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
 
-        sig { params(link: ::String, id: ::String, domain: ::String, key: ::String, short_link: ::String, url: ::String, created_at: ::String, comments: T.nilable(::String), title: T.nilable(::String), clicks: T.nilable(::Float), leads: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float)).void }
-        def initialize(link:, id:, domain:, key:, short_link:, url:, created_at:, comments: nil, title: nil, clicks: 0.0, leads: 0.0, sales: 0.0, sale_amount: 0.0)
+        sig { params(link: ::String, id: ::String, domain: ::String, key: ::String, short_link: ::String, url: ::String, created_at: ::String, title: T.nilable(::String), comments: T.nilable(::String), partner_id: T.nilable(::String), clicks: T.nilable(::Float), leads: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float)).void }
+        def initialize(link:, id:, domain:, key:, short_link:, url:, created_at:, title: nil, comments: nil, partner_id: nil, clicks: 0.0, leads: 0.0, sales: 0.0, sale_amount: 0.0)
           @link = link
           @id = id
           @domain = domain
@@ -50,8 +52,9 @@ module OpenApiSDK
           @short_link = short_link
           @url = url
           @created_at = created_at
-          @comments = comments
           @title = title
+          @comments = comments
+          @partner_id = partner_id
           @clicks = clicks
           @leads = leads
           @sales = sales
@@ -68,8 +71,9 @@ module OpenApiSDK
           return false unless @short_link == other.short_link
           return false unless @url == other.url
           return false unless @created_at == other.created_at
-          return false unless @comments == other.comments
           return false unless @title == other.title
+          return false unless @comments == other.comments
+          return false unless @partner_id == other.partner_id
           return false unless @clicks == other.clicks
           return false unless @leads == other.leads
           return false unless @sales == other.sales

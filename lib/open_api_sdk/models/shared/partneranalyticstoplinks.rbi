@@ -22,10 +22,12 @@ class OpenApiSDK::Models::Shared::PartnerAnalyticsTopLinks
   def url=(str_); end
   def created_at(); end
   def created_at=(str_); end
-  def comments(); end
-  def comments=(str_); end
   def title(); end
   def title=(str_); end
+  def comments(); end
+  def comments=(str_); end
+  def partner_id(); end
+  def partner_id=(str_); end
   def clicks(); end
   def clicks=(str_); end
   def leads(); end

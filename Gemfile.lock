@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dub (0.12.4)
+    dub (0.12.5)
       base64 (>= 0.2.0, < 1.0)
       faraday (>= 2.14.1)
       faraday-multipart (~> 1.2.0)
