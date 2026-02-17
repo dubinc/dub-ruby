@@ -24,6 +24,7 @@ s = ::OpenApiSDK::Dub.new(
     )
 
 req = Models::Operations::ListEventsRequest.new(
+  domain: 'dub.co',
   timezone: 'America/New_York',
   city: 'New York',
   device: 'Desktop',
