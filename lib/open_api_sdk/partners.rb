@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ListPartnersRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::ListPartnersResponseBody]) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::ListPartnersRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::ListPartnersResponseBody]) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - List all partners
       # List all partners for a partner program.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +80,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -265,8 +270,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CreatePartnerResponseBody) }
-    def create(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CreatePartnerResponseBody) }
+    def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create or update a partner
       # Creates or updates a partner record (upsert behavior). If a partner with the same email already exists, their program enrollment will be updated with the provided tenantId. If no existing partner is found, a new partner will be created using the supplied information.
       url, params = @sdk_configuration.get_server_details
@@ -277,7 +282,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -313,6 +318,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -500,8 +508,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrieveLinksRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::RetrieveLinksResponseBody]) }
-    def retrieve_links(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::RetrieveLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::RetrieveLinksResponseBody]) }
+    def retrieve_links(request:, timeout_ms: nil, http_headers: nil)
       # retrieve_links - Retrieve a partner's links.
       # Retrieve a partner's links by their partner ID or tenant ID.
       url, params = @sdk_configuration.get_server_details
@@ -539,6 +547,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -726,8 +737,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def create_link(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def create_link(request: nil, timeout_ms: nil, http_headers: nil)
       # create_link - Create a link for a partner
       # Create a link for a partner that is enrolled in your program.
       url, params = @sdk_configuration.get_server_details
@@ -738,7 +749,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -774,6 +785,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -961,8 +975,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def upsert_link(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def upsert_link(request: nil, timeout_ms: nil, http_headers: nil)
       # upsert_link - Upsert a link for a partner
       # Upsert a link for a partner that is enrolled in your program. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
       url, params = @sdk_configuration.get_server_details
@@ -973,7 +987,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1009,6 +1023,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1196,8 +1213,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrievePartnerAnalyticsRequest, timeout_ms: T.nilable(Integer)).returns(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks])) }
-    def analytics(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::RetrievePartnerAnalyticsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks])) }
+    def analytics(request:, timeout_ms: nil, http_headers: nil)
       # analytics - Retrieve analytics for a partner
       # Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
       url, params = @sdk_configuration.get_server_details
@@ -1235,6 +1252,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1422,8 +1442,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::BanPartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::BanPartnerResponseBody) }
-    def ban(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::BanPartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::BanPartnerResponseBody) }
+    def ban(request: nil, timeout_ms: nil, http_headers: nil)
       # ban - Ban a partner
       # Ban a partner from your program. This will disable all links and mark all commissions as canceled.
       url, params = @sdk_configuration.get_server_details
@@ -1434,7 +1454,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1470,6 +1490,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1657,8 +1680,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::DeactivatePartnerRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeactivatePartnerResponseBody) }
-    def deactivate(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::DeactivatePartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeactivatePartnerResponseBody) }
+    def deactivate(request: nil, timeout_ms: nil, http_headers: nil)
       # deactivate - Deactivate a partner
       # This will deactivate the partner from your program and disable all their active links. Their commissions and payouts will remain intact. You can reactivate them later if needed.
       url, params = @sdk_configuration.get_server_details
@@ -1669,7 +1692,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1705,6 +1728,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1890,5 +1916,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

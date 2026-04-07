@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::TrackLeadRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TrackLeadResponseBody) }
-    def lead(request: nil, timeout_ms: nil)
+
+
+    sig { params(request: T.nilable(Models::Operations::TrackLeadRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TrackLeadResponseBody) }
+    def lead(request: nil, timeout_ms: nil, http_headers: nil)
       # lead - Track a lead
       # Track a lead for a short link.
       url, params = @sdk_configuration.get_server_details
@@ -51,7 +53,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -87,6 +89,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -274,8 +279,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::TrackSaleRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TrackSaleResponseBody) }
-    def sale(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::TrackSaleRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TrackSaleResponseBody) }
+    def sale(request: nil, timeout_ms: nil, http_headers: nil)
       # sale - Track a sale
       # Track a sale for a short link.
       url, params = @sdk_configuration.get_server_details
@@ -286,7 +291,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -322,6 +327,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -507,5 +515,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

@@ -28,6 +28,8 @@ class OpenApiSDK::Models::Operations::CreatePartnerResponseBody
   def image=(str_); end
   def country(); end
   def country=(str_); end
+  def default_payout_method(); end
+  def default_payout_method=(str_); end
   def paypal_email(); end
   def paypal_email=(str_); end
   def stripe_connect_id(); end
@@ -62,6 +64,8 @@ class OpenApiSDK::Models::Operations::CreatePartnerResponseBody
   def banned_reason=(str_); end
   def referral_form_data(); end
   def referral_form_data=(str_); end
+  def application(); end
+  def application=(str_); end
   def total_clicks(); end
   def total_clicks=(str_); end
   def total_leads(); end

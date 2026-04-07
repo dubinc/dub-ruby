@@ -15,9 +15,9 @@ module OpenApiSDK
         # The 2-letter ISO 3166-1 country code of the country. Learn more: https://d.to/geo
         field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
 
-        field :region, Crystalline::Nilable.new(Models::Shared::Region), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('region'), 'decoder': Utils.enum_from_string(Models::Shared::Region, true) } }
+        field :region, Crystalline::Nilable.new(Models::Shared::Region), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('region'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Region, true) } }
 
-        field :city, Crystalline::Nilable.new(Models::Shared::City), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city'), 'decoder': Utils.enum_from_string(Models::Shared::City, true) } }
+        field :city, Crystalline::Nilable.new(Models::Shared::City), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::City, true) } }
         # The number of clicks from this country
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
         # The number of leads from this country

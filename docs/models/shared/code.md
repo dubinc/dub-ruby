@@ -2,6 +2,14 @@
 
 The error code.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Code::BAD_REQUEST
+```
+
 
 ## Values
 

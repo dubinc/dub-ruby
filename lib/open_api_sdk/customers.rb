@@ -7,6 +7,7 @@ require 'faraday'
 require 'faraday/multipart'
 require 'faraday/retry'
 require 'sorbet-runtime'
+require 'janeway'
 require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
@@ -39,8 +40,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetCustomersRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::GetCustomersResponseBody]) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::GetCustomersRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetCustomersResponse) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Retrieve a list of customers
       # Retrieve a list of customers for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +81,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -123,8 +129,46 @@ module OpenApiSDK
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::GetCustomersResponseBody))
+          result = obj
+          response = Models::Operations::GetCustomersResponse.new(
+            result: result
+          )
+          sdk = self
 
-          return obj
+          response.next_page = proc do 
+            next_cursor = Janeway.enum_for('$[-1].id', JSON.parse(response_data)).search
+            if next_cursor.nil?
+              next nil
+            else
+              next_cursor = next_cursor[0]
+              if next_cursor.nil?
+                next nil
+              end
+            end
+
+            sdk.list(
+              request: Models::Operations::GetCustomersRequest.new(
+                email: request.email,
+                external_id: request.external_id,
+                search: request.search,
+                country: request.country,
+                link_id: request.link_id,
+                program_id: request.program_id,
+                partner_id: request.partner_id,
+                include_expanded_fields: request.include_expanded_fields,
+                sort_by: request.sort_by,
+                sort_order: request.sort_order,
+                ending_before: request.ending_before,
+                starting_after: next_cursor,
+                page: request.page,
+                page_size: request.page_size
+              ),
+              http_headers: http_headers
+            )
+          end
+
+
+          return response
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
@@ -265,8 +309,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetCustomerRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetCustomerResponseBody) }
-    def get(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetCustomerRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetCustomerResponseBody) }
+    def get(request:, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a customer
       # Retrieve a customer by ID for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -309,6 +353,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -496,8 +543,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteCustomerResponseBody) }
-    def delete(id:, timeout_ms: nil)
+    sig { params(id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteCustomerResponseBody) }
+    def delete(id:, timeout_ms: nil, http_headers: nil)
       # delete - Delete a customer
       # Delete a customer from a workspace.
       request = Models::Operations::DeleteCustomerRequest.new(
@@ -541,6 +588,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -728,8 +778,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::UpdateCustomerRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::UpdateCustomerResponseBody) }
-    def update(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::UpdateCustomerRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::UpdateCustomerResponseBody) }
+    def update(request:, timeout_ms: nil, http_headers: nil)
       # update - Update a customer
       # Update a customer for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -745,7 +795,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -783,6 +833,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -968,5 +1021,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

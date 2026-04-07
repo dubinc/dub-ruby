@@ -17,7 +17,7 @@ module OpenApiSDK
         # The 2-letter ISO 3166-2 region code of the region.
         field :region, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('region'), required: true } }
 
-        field :city, Crystalline::Nilable.new(Models::Shared::AnalyticsRegionsCity), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city'), 'decoder': Utils.enum_from_string(Models::Shared::AnalyticsRegionsCity, true) } }
+        field :city, Crystalline::Nilable.new(Models::Shared::AnalyticsRegionsCity), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::AnalyticsRegionsCity, true) } }
         # The number of clicks from this region
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
         # The number of leads from this region

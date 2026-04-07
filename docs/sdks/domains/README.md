@@ -23,13 +23,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = Models::Operations::ListDomainsRequest.new()
-
+req = Models::Operations::ListDomainsRequest.new(
+  page: 1.0
+)
 res = s.domains.list(request: req)
 
 unless res.nil?
@@ -75,18 +76,17 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreateDomainRequestBody.new(
   slug: 'acme.com',
   expired_url: 'https://acme.com/expired',
   not_found_url: 'https://acme.com/not-found',
-  placeholder: 'https://dub.co/help/article/what-is-dub',
+  placeholder: 'https://dub.co/help/article/what-is-dub'
 )
-
 res = s.domains.create(request: req)
 
 unless res.nil?
@@ -132,11 +132,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.domains.delete(slug: 'acme.com')
 
 unless res.nil?
@@ -182,16 +181,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.domains.update(slug: 'acme.com', request_body: Models::Operations::UpdateDomainRequestBody.new(
   slug: 'acme.com',
   expired_url: 'https://acme.com/expired',
   not_found_url: 'https://acme.com/not-found',
-  placeholder: 'https://dub.co/help/article/what-is-dub',
+  placeholder: 'https://dub.co/help/article/what-is-dub'
 ))
 
 unless res.nil?
@@ -238,15 +236,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::RegisterDomainRequestBody.new(
-  domain: 'acme.link',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::RegisterDomainRequestBody.new(
+  domain: 'acme.link'
+)
 res = s.domains.register(request: req)
 
 unless res.nil?
@@ -292,15 +289,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::CheckDomainStatusRequest.new(
-  domains: '<value>',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::CheckDomainStatusRequest.new(
+  domains: '<value>'
+)
 res = s.domains.check_status(request: req)
 
 unless res.nil?

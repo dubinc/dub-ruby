@@ -2,6 +2,14 @@
 
 Filter the list of payouts by their corresponding status.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPayoutsQueryParamStatus::PENDING
+```
+
 
 ## Values
 

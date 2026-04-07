@@ -28,17 +28,21 @@ module OpenApiSDK
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
         # Whether to include expanded fields on the customer (`link`, `partner`, `discount`).
         field :include_expanded_fields, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'includeExpandedFields', 'style': 'form', 'explode': true } }
+        # If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
+        field :ending_before, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'endingBefore', 'style': 'form', 'explode': true } }
+        # If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.
+        field :starting_after, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'startingAfter', 'style': 'form', 'explode': true } }
+        # DEPRECATED. Use `startingAfter` instead.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The field to sort the customers by. The default is `createdAt`.
         field :sort_by, Crystalline::Nilable.new(Models::Operations::GetCustomersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The sort order. The default is `desc`.
         field :sort_order, Crystalline::Nilable.new(Models::Operations::GetCustomersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-        # The page number for pagination.
-        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(email: T.nilable(::String), external_id: T.nilable(::String), search: T.nilable(::String), country: T.nilable(::String), link_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::GetCustomersQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetCustomersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(email: nil, external_id: nil, search: nil, country: nil, link_id: nil, program_id: nil, partner_id: nil, include_expanded_fields: nil, sort_by: Models::Operations::GetCustomersQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::GetCustomersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
+        sig { params(email: T.nilable(::String), external_id: T.nilable(::String), search: T.nilable(::String), country: T.nilable(::String), link_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), include_expanded_fields: T.nilable(T::Boolean), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::GetCustomersQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetCustomersQueryParamSortOrder), page_size: T.nilable(::Float)).void }
+        def initialize(email: nil, external_id: nil, search: nil, country: nil, link_id: nil, program_id: nil, partner_id: nil, include_expanded_fields: nil, ending_before: nil, starting_after: nil, page: nil, sort_by: Models::Operations::GetCustomersQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::GetCustomersQueryParamSortOrder::DESC, page_size: 100.0)
           @email = email
           @external_id = external_id
           @search = search
@@ -47,9 +51,11 @@ module OpenApiSDK
           @program_id = program_id
           @partner_id = partner_id
           @include_expanded_fields = include_expanded_fields
+          @ending_before = ending_before
+          @starting_after = starting_after
+          @page = page
           @sort_by = sort_by
           @sort_order = sort_order
-          @page = page
           @page_size = page_size
         end
 
@@ -64,9 +70,11 @@ module OpenApiSDK
           return false unless @program_id == other.program_id
           return false unless @partner_id == other.partner_id
           return false unless @include_expanded_fields == other.include_expanded_fields
+          return false unless @ending_before == other.ending_before
+          return false unless @starting_after == other.starting_after
+          return false unless @page == other.page
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order
-          return false unless @page == other.page
           return false unless @page_size == other.page_size
           true
         end

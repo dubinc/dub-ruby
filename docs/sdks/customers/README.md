@@ -21,15 +21,17 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetCustomersRequest.new(
-  page_size: 50.0,
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetCustomersRequest.new(
+  ending_before: 'cus_1KAP4CDPBSVMMBMH9XX3YZZ0Z',
+  starting_after: 'cus_1KAP4CDPBSVMMBMH9XX3YZZ0Z',
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.customers.list(request: req)
 
 unless res.nil?
@@ -46,7 +48,7 @@ end
 
 ### Response
 
-**[T.nilable(T::Array[Models::Operations::GetCustomersResponseBody])](../../models/operations/.md)**
+**[T.nilable(Models::Operations::GetCustomersResponse)](../../models/operations/getcustomersresponse.md)**
 
 ### Errors
 
@@ -75,15 +77,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetCustomerRequest.new(
-  id: '<id>',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetCustomerRequest.new(
+  id: '<id>'
+)
 res = s.customers.get(request: req)
 
 unless res.nil?
@@ -129,11 +130,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.customers.delete(id: '<id>')
 
 unless res.nil?
@@ -179,15 +179,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::UpdateCustomerRequest.new(
-  id: '<id>',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::UpdateCustomerRequest.new(
+  id: '<id>'
+)
 res = s.customers.update(request: req)
 
 unless res.nil?

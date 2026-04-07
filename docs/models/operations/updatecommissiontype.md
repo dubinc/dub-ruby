@@ -1,5 +1,13 @@
 # UpdateCommissionType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = UpdateCommissionType::CLICK
+```
+
 
 ## Values
 

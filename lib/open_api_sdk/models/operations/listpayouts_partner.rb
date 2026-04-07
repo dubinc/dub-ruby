@@ -20,6 +20,8 @@ module OpenApiSDK
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
         # The partner's avatar image.
         field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image'), required: true } }
+        # The partner's default payout method. Connect: Bank account payouts via Stripe Connect; Stablecoin: USDC payouts directly to a crypto wallet; PayPal: Payouts via PayPal
+        field :default_payout_method, Crystalline::Nilable.new(Models::Operations::ListPayoutsDefaultPayoutMethod), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('defaultPayoutMethod'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListPayoutsDefaultPayoutMethod, false) } }
         # The date when the partner enabled payouts.
         field :payouts_enabled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt'), required: true } }
         # The partner's country (required for tax purposes).
@@ -29,12 +31,13 @@ module OpenApiSDK
         # The partner's group ID on Dub.
         field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
 
-        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String)).void }
-        def initialize(id:, name:, email: nil, image: nil, payouts_enabled_at: nil, country: nil, tenant_id: nil, group_id: nil)
+        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), default_payout_method: T.nilable(Models::Operations::ListPayoutsDefaultPayoutMethod), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String)).void }
+        def initialize(id:, name:, email: nil, image: nil, default_payout_method: nil, payouts_enabled_at: nil, country: nil, tenant_id: nil, group_id: nil)
           @id = id
           @name = name
           @email = email
           @image = image
+          @default_payout_method = default_payout_method
           @payouts_enabled_at = payouts_enabled_at
           @country = country
           @tenant_id = tenant_id
@@ -48,6 +51,7 @@ module OpenApiSDK
           return false unless @name == other.name
           return false unless @email == other.email
           return false unless @image == other.image
+          return false unless @default_payout_method == other.default_payout_method
           return false unless @payouts_enabled_at == other.payouts_enabled_at
           return false unless @country == other.country
           return false unless @tenant_id == other.tenant_id

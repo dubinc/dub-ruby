@@ -1,5 +1,13 @@
 # UpdateCustomerType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = UpdateCustomerType::PERCENTAGE
+```
+
 
 ## Values
 

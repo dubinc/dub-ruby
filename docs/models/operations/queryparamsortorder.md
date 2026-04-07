@@ -2,6 +2,14 @@
 
 The sort order. The default is `desc`.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = QueryParamSortOrder::ASC
+```
+
 
 ## Values
 

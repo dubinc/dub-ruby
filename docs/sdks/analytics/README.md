@@ -18,10 +18,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::RetrieveAnalyticsRequest.new(
   event: Models::Operations::Event::LEADS,
@@ -33,9 +33,8 @@ req = Models::Operations::RetrieveAnalyticsRequest.new(
   os: 'Windows',
   referer: 'google.com',
   referer_url: 'https://dub.co/blog',
-  query: 'metadata[\'key\']:\'value\'',
+  query: 'metadata[\'key\']:\'value\''
 )
-
 res = s.analytics.retrieve(request: req)
 
 unless res.nil?

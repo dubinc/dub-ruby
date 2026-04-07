@@ -1,5 +1,13 @@
 # UpdateCommissionStatus
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = UpdateCommissionStatus::PENDING
+```
+
 
 ## Values
 

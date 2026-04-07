@@ -5,7 +5,8 @@
 ### Available Operations
 
 * [list](#list) - List all commissions
-* [update](#update) - Update a commission.
+* [update](#update) - Update a commission
+* [update_many](#update_many) - Bulk update commissions
 
 ## list
 
@@ -19,15 +20,17 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::ListCommissionsRequest.new(
-  page_size: 50.0,
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::ListCommissionsRequest.new(
+  ending_before: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
+  starting_after: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.commissions.list(request: req)
 
 unless res.nil?
@@ -44,7 +47,7 @@ end
 
 ### Response
 
-**[T.nilable(T::Array[Models::Operations::ListCommissionsResponseBody])](../../models/operations/.md)**
+**[T.nilable(Models::Operations::ListCommissionsResponse)](../../models/operations/listcommissionsresponse.md)**
 
 ### Errors
 
@@ -73,15 +76,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::UpdateCommissionRequest.new(
-  id: 'cm_1JVR7XRCSR0EDBAF39FZ4PMYE',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::UpdateCommissionRequest.new(
+  id: 'cm_1JVR7XRCSR0EDBAF39FZ4PMYE'
+)
 res = s.commissions.update(request: req)
 
 unless res.nil?
@@ -99,6 +101,57 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::UpdateCommissionResponseBody)](../../models/operations/updatecommissionresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## update_many
+
+Bulk update up to 100 commissions with the same status.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="bulkUpdateCommissions" method="patch" path="/commissions/bulk" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
+
+req = nil
+res = s.commissions.update_many(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::BulkUpdateCommissionsRequestBody](../../models/operations/bulkupdatecommissionsrequestbody.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+### Response
+
+**[T.nilable(T::Array[Models::Operations::BulkUpdateCommissionsResponseBody])](../../models/operations/.md)**
 
 ### Errors
 

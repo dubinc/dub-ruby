@@ -1,5 +1,13 @@
 # CommissionCreatedEventStatus
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = CommissionCreatedEventStatus::PENDING
+```
+
 
 ## Values
 

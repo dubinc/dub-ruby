@@ -17,7 +17,7 @@ module OpenApiSDK
 
         field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
 
-        field :type, Models::Operations::UpdateCustomerType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::UpdateCustomerType, false) } }
+        field :type, Models::Operations::UpdateCustomerType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::UpdateCustomerType, false) } }
 
         field :max_duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('maxDuration'), required: true } }
 

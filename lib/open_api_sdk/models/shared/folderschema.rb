@@ -17,7 +17,7 @@ module OpenApiSDK
         # The name of the folder.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
 
-        field :type, Models::Shared::Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Type, false) } }
+        field :type, Models::Shared::Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Type, false) } }
         # The date the folder was created.
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
         # The date the folder was updated.
@@ -25,7 +25,7 @@ module OpenApiSDK
         # The description of the folder.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
         # The access level of the folder within the workspace.
-        field :access_level, Crystalline::Nilable.new(Models::Shared::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Shared::AccessLevel, true) } }
+        field :access_level, Crystalline::Nilable.new(Models::Shared::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::AccessLevel, true) } }
 
         sig { params(id: ::String, name: ::String, type: Models::Shared::Type, created_at: ::String, updated_at: ::String, description: T.nilable(::String), access_level: T.nilable(Models::Shared::AccessLevel)).void }
         def initialize(id:, name:, type:, created_at:, updated_at:, description: nil, access_level: nil)

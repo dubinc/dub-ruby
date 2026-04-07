@@ -18,15 +18,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::ListPayoutsRequest.new(
-  page_size: 50.0,
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::ListPayoutsRequest.new(
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.payouts.list(request: req)
 
 unless res.nil?

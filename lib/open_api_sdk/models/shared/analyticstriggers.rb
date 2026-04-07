@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The type of trigger method: link click or QR scan
-        field :trigger, Models::Shared::Trigger, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trigger'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Trigger, false) } }
+        field :trigger, Models::Shared::Trigger, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trigger'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Trigger, false) } }
         # The number of clicks from this trigger method
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
         # The number of leads from this trigger method

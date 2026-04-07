@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrieveAnalyticsRequest, timeout_ms: T.nilable(Integer)).returns(T.any(Models::Shared::AnalyticsCount, T::Array[Models::Shared::AnalyticsTimeseries], T::Array[Models::Shared::AnalyticsContinents], T::Array[Models::Shared::AnalyticsCountries], T::Array[Models::Shared::AnalyticsRegions], T::Array[Models::Shared::AnalyticsCities], T::Array[Models::Shared::AnalyticsDevices], T::Array[Models::Shared::AnalyticsBrowsers], T::Array[Models::Shared::AnalyticsOS], T::Array[Models::Shared::AnalyticsTriggers], T::Array[Models::Shared::AnalyticsReferers], T::Array[Models::Shared::AnalyticsRefererUrls], T::Array[Models::Shared::AnalyticsTopLinks], T::Array[Models::Shared::AnalyticsTopUrls])) }
-    def retrieve(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::RetrieveAnalyticsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T.any(Models::Shared::AnalyticsCount, T::Array[Models::Shared::AnalyticsTimeseries], T::Array[Models::Shared::AnalyticsContinents], T::Array[Models::Shared::AnalyticsCountries], T::Array[Models::Shared::AnalyticsRegions], T::Array[Models::Shared::AnalyticsCities], T::Array[Models::Shared::AnalyticsDevices], T::Array[Models::Shared::AnalyticsBrowsers], T::Array[Models::Shared::AnalyticsOS], T::Array[Models::Shared::AnalyticsTriggers], T::Array[Models::Shared::AnalyticsReferers], T::Array[Models::Shared::AnalyticsRefererUrls], T::Array[Models::Shared::AnalyticsTopLinks], T::Array[Models::Shared::AnalyticsTopUrls])) }
+    def retrieve(request:, timeout_ms: nil, http_headers: nil)
       # retrieve - Retrieve analytics for a link, a domain, or the authenticated workspace.
       # Retrieve analytics for a link, a domain, or the authenticated workspace. The response type depends on the `event` and `type` query parameters.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +80,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -263,5 +268,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

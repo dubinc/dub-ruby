@@ -1,5 +1,13 @@
 # Four
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Four::FOLDER_ID
+```
+
 
 ## Values
 

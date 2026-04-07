@@ -23,7 +23,7 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Shared::PartnerEnrolledEventFieldsType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsType, false) } }
+        field :type, Models::Shared::PartnerEnrolledEventFieldsType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsType, false) } }
 
         field :constraints, Crystalline::Nilable.new(Models::Shared::FieldsConstraints), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('constraints') } }
 

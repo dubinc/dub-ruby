@@ -1,5 +1,13 @@
 # Three
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Three::USER_ID
+```
+
 
 ## Values
 

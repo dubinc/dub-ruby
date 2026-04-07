@@ -16,6 +16,8 @@ class OpenApiSDK::Models::Operations::ListPayoutsPartner
   def email=(str_); end
   def image(); end
   def image=(str_); end
+  def default_payout_method(); end
+  def default_payout_method=(str_); end
   def payouts_enabled_at(); end
   def payouts_enabled_at=(str_); end
   def country(); end

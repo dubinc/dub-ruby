@@ -1,5 +1,13 @@
 # ListPartnersFieldsPartnersResponseType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPartnersFieldsPartnersResponseType::COUNTRY
+```
+
 
 ## Values
 

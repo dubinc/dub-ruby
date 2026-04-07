@@ -18,6 +18,8 @@ class OpenApiSDK::Models::Operations::ApproveBountySubmissionResponseBody
   def status=(str_); end
   def created_at(); end
   def created_at=(str_); end
+  def period_number(); end
+  def period_number=(str_); end
   def description(); end
   def description=(str_); end
   def urls(); end
@@ -26,6 +28,8 @@ class OpenApiSDK::Models::Operations::ApproveBountySubmissionResponseBody
   def files=(str_); end
   def performance_count(); end
   def performance_count=(str_); end
+  def social_metric_count(); end
+  def social_metric_count=(str_); end
   def completed_at(); end
   def completed_at=(str_); end
   def reviewed_at(); end
@@ -34,4 +38,6 @@ class OpenApiSDK::Models::Operations::ApproveBountySubmissionResponseBody
   def rejection_reason=(str_); end
   def rejection_note(); end
   def rejection_note=(str_); end
+  def social_metrics_last_synced_at(); end
+  def social_metrics_last_synced_at=(str_); end
 end

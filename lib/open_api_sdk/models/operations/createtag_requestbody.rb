@@ -14,11 +14,11 @@ module OpenApiSDK
 
         # The name of the tag to create.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-        # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown.
-        field :color, Crystalline::Nilable.new(Models::Operations::Color), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': Utils.enum_from_string(Models::Operations::Color, true) } }
+        # The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown, gray.
+        field :color, Crystalline::Nilable.new(Models::Operations::Color), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Color, true) } }
         # The name of the tag to create.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :tag, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tag') } }
 
         sig { params(name: T.nilable(::String), color: T.nilable(Models::Operations::Color), tag: T.nilable(::String)).void }

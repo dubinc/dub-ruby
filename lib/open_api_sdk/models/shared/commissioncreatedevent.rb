@@ -15,7 +15,7 @@ module OpenApiSDK
 
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
 
-        field :event, Models::Shared::CommissionCreatedEventEvent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('event'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::CommissionCreatedEventEvent, false) } }
+        field :event, Models::Shared::CommissionCreatedEventEvent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('event'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::CommissionCreatedEventEvent, false) } }
 
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
 

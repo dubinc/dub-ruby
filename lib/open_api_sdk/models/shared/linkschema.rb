@@ -33,8 +33,8 @@ module OpenApiSDK
         # The date and time when the short link was last updated.
         field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
         # Deprecated: Use `workspaceId` instead. The project ID of the short link.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :project_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('projectId'), required: true } }
         # The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
         field :external_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
@@ -87,8 +87,8 @@ module OpenApiSDK
         # The date and time when the short link was last clicked.
         field :last_clicked, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('lastClicked'), required: true } }
         # Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :tag_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId'), required: true } }
         # Whether to track conversions for the short link.
         field :track_conversion, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trackConversion') } }

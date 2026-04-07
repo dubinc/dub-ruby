@@ -16,6 +16,7 @@ module OpenApiSDK
           BLUE = new('blue')
           PURPLE = new('purple')
           BROWN = new('brown')
+          GRAY = new('gray')
           PINK = new('pink')
         end
       end

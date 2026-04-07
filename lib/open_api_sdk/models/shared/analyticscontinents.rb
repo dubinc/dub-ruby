@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The 2-letter ISO 3166-1 code representing the continent associated with the location of the user.
-        field :continent, Models::Shared::Continent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('continent'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Continent, false) } }
+        field :continent, Models::Shared::Continent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('continent'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Continent, false) } }
         # The number of clicks from this continent
         field :clicks, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clicks') } }
         # The number of leads from this continent

@@ -2,6 +2,14 @@
 
 A short code indicating the error code returned.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = InternalServerErrorCode::INTERNAL_SERVER_ERROR
+```
+
 
 ## Values
 

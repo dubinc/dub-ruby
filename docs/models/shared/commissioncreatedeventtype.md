@@ -1,5 +1,13 @@
 # CommissionCreatedEventType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = CommissionCreatedEventType::CLICK
+```
+
 
 ## Values
 

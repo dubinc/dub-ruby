@@ -40,8 +40,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetLinksResponse) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::GetLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetLinksResponse) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Retrieve a list of links
       # Retrieve a paginated list of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -79,6 +81,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -163,9 +168,12 @@ module OpenApiSDK
                 sort_by: request.sort_by,
                 sort_order: request.sort_order,
                 sort: request.sort,
+                ending_before: request.ending_before,
+                starting_after: request.starting_after,
                 page: next_page,
                 page_size: request.page_size
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -311,8 +319,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def create(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::CreateLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create a link
       # Create a link for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -323,7 +331,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -359,6 +367,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -546,8 +557,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetLinksCountRequest, timeout_ms: T.nilable(Integer)).returns(::Float) }
-    def count(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetLinksCountRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(::Float) }
+    def count(request:, timeout_ms: nil, http_headers: nil)
       # count - Retrieve links count
       # Retrieve the number of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -585,6 +596,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -772,8 +786,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetLinkInfoRequest, timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def get(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetLinkInfoRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def get(request:, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a link
       # Retrieve the info for a link.
       url, params = @sdk_configuration.get_server_details
@@ -811,6 +825,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -998,8 +1015,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteLinkResponseBody) }
-    def delete(link_id:, timeout_ms: nil)
+    sig { params(link_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteLinkResponseBody) }
+    def delete(link_id:, timeout_ms: nil, http_headers: nil)
       # delete - Delete a link
       # Delete a link for the authenticated workspace.
       request = Models::Operations::DeleteLinkRequest.new(
@@ -1043,6 +1060,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1230,8 +1250,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(link_id: ::String, request_body: T.nilable(Models::Operations::UpdateLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def update(link_id:, request_body: nil, timeout_ms: nil)
+    sig { params(link_id: ::String, request_body: T.nilable(Models::Operations::UpdateLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def update(link_id:, request_body: nil, timeout_ms: nil, http_headers: nil)
       # update - Update a link
       # Update a link for the authenticated workspace. If there's no change, returns it as it is.
       request = Models::Operations::UpdateLinkRequest.new(
@@ -1251,7 +1271,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1287,6 +1307,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1474,8 +1497,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(T::Array[Models::Operations::RequestBody]), timeout_ms: T.nilable(Integer)).returns(T::Array[T.any(Models::Shared::LinkSchema, Models::Shared::LinkErrorSchema)]) }
-    def create_many(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(T::Array[Models::Operations::RequestBody]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[T.any(Models::Shared::LinkSchema, Models::Shared::LinkErrorSchema)]) }
+    def create_many(request: nil, timeout_ms: nil, http_headers: nil)
       # create_many - Bulk create links
       # Bulk create up to 100 links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -1486,7 +1509,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1522,6 +1545,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1709,8 +1735,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::BulkDeleteLinksRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::BulkDeleteLinksResponseBody) }
-    def delete_many(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::BulkDeleteLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::BulkDeleteLinksResponseBody) }
+    def delete_many(request:, timeout_ms: nil, http_headers: nil)
       # delete_many - Bulk delete links
       # Bulk delete up to 100 links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -1748,6 +1774,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1935,8 +1964,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::BulkUpdateLinksRequestBody), timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::LinkSchema]) }
-    def update_many(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::BulkUpdateLinksRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Shared::LinkSchema]) }
+    def update_many(request: nil, timeout_ms: nil, http_headers: nil)
       # update_many - Bulk update links
       # Bulk update up to 100 links with the same data for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -1947,7 +1976,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1983,6 +2012,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2170,8 +2202,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::UpsertLinkRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkSchema) }
-    def upsert(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::UpsertLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    def upsert(request: nil, timeout_ms: nil, http_headers: nil)
       # upsert - Upsert a link
       # Upsert a link for the authenticated workspace by its URL. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
       url, params = @sdk_configuration.get_server_details
@@ -2182,7 +2214,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2218,6 +2250,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2403,5 +2438,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

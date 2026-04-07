@@ -17,7 +17,7 @@ module OpenApiSDK
         # The description of the folder.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
         # The access level of the folder within the workspace.
-        field :access_level, Crystalline::Nilable.new(Models::Operations::UpdateFolderAccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': Utils.enum_from_string(Models::Operations::UpdateFolderAccessLevel, true) } }
+        field :access_level, Crystalline::Nilable.new(Models::Operations::UpdateFolderAccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::UpdateFolderAccessLevel, true) } }
 
         sig { params(name: T.nilable(::String), description: T.nilable(::String), access_level: T.nilable(Models::Operations::UpdateFolderAccessLevel)).void }
         def initialize(name: nil, description: nil, access_level: nil)

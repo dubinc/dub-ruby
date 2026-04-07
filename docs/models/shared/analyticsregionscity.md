@@ -1,5 +1,13 @@
 # AnalyticsRegionsCity
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = AnalyticsRegionsCity::WILDCARD_
+```
+
 
 ## Values
 

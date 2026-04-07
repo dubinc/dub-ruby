@@ -26,6 +26,8 @@ class OpenApiSDK::Models::Shared::AnalyticsTopLinks
   def title=(str_); end
   def comments(); end
   def comments=(str_); end
+  def folder_id(); end
+  def folder_id=(str_); end
   def partner_id(); end
   def partner_id=(str_); end
   def clicks(); end

@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetTagsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Shared::LinkTagSchemaOutput]) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::GetTagsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Shared::LinkTagSchemaOutput]) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Retrieve a list of tags
       # Retrieve a list of tags for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +80,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -265,8 +270,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkTagSchemaOutput) }
-    def create(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::CreateTagRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkTagSchemaOutput) }
+    def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create a tag
       # Create a tag for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -277,7 +282,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -313,6 +318,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -500,8 +508,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteTagResponseBody) }
-    def delete(id:, timeout_ms: nil)
+    sig { params(id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteTagResponseBody) }
+    def delete(id:, timeout_ms: nil, http_headers: nil)
       # delete - Delete a tag
       # Delete a tag from the workspace. All existing links will still work, but they will no longer be associated with this tag.
       request = Models::Operations::DeleteTagRequest.new(
@@ -545,6 +553,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -732,8 +743,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateTagRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::LinkTagSchemaOutput) }
-    def update(id:, request_body: nil, timeout_ms: nil)
+    sig { params(id: ::String, request_body: T.nilable(Models::Operations::UpdateTagRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkTagSchemaOutput) }
+    def update(id:, request_body: nil, timeout_ms: nil, http_headers: nil)
       # update - Update a tag
       # Update a tag in the workspace.
       request = Models::Operations::UpdateTagRequest.new(
@@ -753,7 +764,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -789,6 +800,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -974,5 +988,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

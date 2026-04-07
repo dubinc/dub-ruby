@@ -23,7 +23,7 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData6Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData6Type, false) } }
+        field :type, Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData6Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData6Type, false) } }
 
         field :options, Crystalline::Array.new(Models::Shared::FieldsOptions), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('options'), required: true } }
 

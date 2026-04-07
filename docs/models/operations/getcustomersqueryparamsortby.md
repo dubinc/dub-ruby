@@ -2,6 +2,14 @@
 
 The field to sort the customers by. The default is `createdAt`.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = GetCustomersQueryParamSortBy::CREATED_AT
+```
+
 
 ## Values
 

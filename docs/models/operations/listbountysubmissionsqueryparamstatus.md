@@ -2,6 +2,14 @@
 
 The status of the submissions to list.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListBountySubmissionsQueryParamStatus::DRAFT
+```
+
 
 ## Values
 

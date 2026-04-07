@@ -29,8 +29,8 @@ module OpenApiSDK
         # Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex
         field :do_index, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('doIndex') } }
         # Deprecated: Use `dashboard` instead. Whether the short link's stats are publicly accessible. Defaults to `false` if not provided.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :public_stats, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
         # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
@@ -83,8 +83,8 @@ module OpenApiSDK
         # The date and time when the tests were or will be completed.
         field :test_completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
         # Deprecated: Use `tagIds` instead. The unique ID of the tag assigned to the short link.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :tag_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId') } }
 
         sig { params(url: T.nilable(::String), track_conversion: T.nilable(T::Boolean), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), folder_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), geo: T.nilable(T::Hash[Symbol, ::String]), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String]), test_variants: T.nilable(T::Array[Models::Operations::BulkUpdateLinksTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String), tag_id: T.nilable(::String)).void }

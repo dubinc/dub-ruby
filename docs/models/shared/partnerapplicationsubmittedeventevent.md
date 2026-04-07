@@ -1,5 +1,13 @@
 # PartnerApplicationSubmittedEventEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = PartnerApplicationSubmittedEventEvent::PARTNER_APPLICATION_SUBMITTED
+```
+
 
 ## Values
 

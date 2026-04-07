@@ -24,6 +24,12 @@ class OpenApiSDK::Models::Operations::GetLinksRequest
   def user_id=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
+  def ending_before(); end
+  def ending_before=(str_); end
+  def starting_after(); end
+  def starting_after=(str_); end
+  def page(); end
+  def page=(str_); end
   def show_archived(); end
   def show_archived=(str_); end
   def with_tags(); end
@@ -34,8 +40,6 @@ class OpenApiSDK::Models::Operations::GetLinksRequest
   def sort_order=(str_); end
   def sort(); end
   def sort=(str_); end
-  def page(); end
-  def page=(str_); end
   def page_size(); end
   def page_size=(str_); end
 end

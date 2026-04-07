@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :event, Models::Operations::ListEventsResponseBodyEventsEvent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('event'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListEventsResponseBodyEventsEvent, false) } }
+        field :event, Models::Operations::ListEventsResponseBodyEventsEvent, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('event'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListEventsResponseBodyEventsEvent, false) } }
 
         field :timestamp, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('timestamp'), required: true } }
 
@@ -29,68 +29,68 @@ module OpenApiSDK
 
         field :customer, Models::Operations::ResponseBodyCustomer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
         # Deprecated: Use `sale.amount` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :sale_amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount'), required: true } }
         # Deprecated: Use `sale.invoiceId` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :invoice_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoice_id'), required: true } }
         # Deprecated: Use `sale.paymentProcessor` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payment_processor'), required: true } }
         # Deprecated: Use `click.id` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :click_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('click_id'), required: true } }
         # Deprecated: Use `link.id` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :link_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link_id'), required: true } }
         # Deprecated: Use `link.domain` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain'), required: true } }
         # Deprecated: Use `link.key` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key'), required: true } }
         # Deprecated: Use `click.url` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
         # Deprecated: Use `click.continent` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :continent, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('continent'), required: true } }
         # Deprecated: Use `click.country` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
         # Deprecated: Use `click.city` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :city, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city'), required: true } }
         # Deprecated: Use `click.device` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :device, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('device'), required: true } }
         # Deprecated: Use `click.browser` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :browser, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('browser'), required: true } }
         # Deprecated: Use `click.os` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :os, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('os'), required: true } }
         # Deprecated: Use `click.qr` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :qr, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qr'), required: true } }
         # Deprecated: Use `click.ip` instead.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :ip, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ip'), required: true } }
 
         field :metadata, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }

@@ -51,10 +51,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreateLinkRequestBody.new(
   url: 'https://google.com',
@@ -65,15 +65,14 @@ req = Models::Operations::CreateLinkRequestBody.new(
   test_variants: [
     Models::Operations::TestVariants.new(
       url: 'https://example.com/variant-1',
-      percentage: 50.0,
+      percentage: 50.0
     ),
     Models::Operations::TestVariants.new(
       url: 'https://example.com/variant-2',
-      percentage: 50.0,
+      percentage: 50.0
     ),
-  ],
+  ]
 )
-
 res = s.links.create(request: req)
 
 unless res.nil?
@@ -89,10 +88,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::UpsertLinkRequestBody.new(
   url: 'https://google.com',
@@ -103,15 +102,14 @@ req = Models::Operations::UpsertLinkRequestBody.new(
   test_variants: [
     Models::Operations::UpsertLinkTestVariants.new(
       url: 'https://example.com/variant-1',
-      percentage: 50.0,
+      percentage: 50.0
     ),
     Models::Operations::UpsertLinkTestVariants.new(
       url: 'https://example.com/variant-2',
-      percentage: 50.0,
+      percentage: 50.0
     ),
-  ],
+  ]
 )
-
 res = s.links.upsert(request: req)
 
 unless res.nil?
@@ -138,15 +136,17 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetLinksRequest.new(
-  page_size: 50.0,
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetLinksRequest.new(
+  ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+  starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.links.list(request: req)
 
 unless res.nil?
@@ -175,7 +175,8 @@ end
 ### [Commissions](docs/sdks/commissions/README.md)
 
 * [list](docs/sdks/commissions/README.md#list) - List all commissions
-* [update](docs/sdks/commissions/README.md#update) - Update a commission.
+* [update](docs/sdks/commissions/README.md#update) - Update a commission
+* [update_many](docs/sdks/commissions/README.md#update_many) - Bulk update commissions
 
 ### [Customers](docs/sdks/customers/README.md)
 
@@ -291,16 +292,18 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 begin
     req = Models::Operations::GetLinksRequest.new(
-      page_size: 50.0,
+      ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+      starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+      page: 1.0,
+      page_size: 50.0
     )
-
     res = s.links.list(request: req)
 
     unless res.nil?
@@ -352,16 +355,18 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      server_url: 'https://api.dub.co',
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetLinksRequest.new(
-  page_size: 50.0,
+  server_url: 'https://api.dub.co',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetLinksRequest.new(
+  ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+  starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.links.list(request: req)
 
 unless res.nil?

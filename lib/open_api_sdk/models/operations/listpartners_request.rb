@@ -12,6 +12,8 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # A filter on the list based on the partner's `groupId` field.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
         # A filter on the list based on the partner's `status` field.
         field :status, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
         # A filter on the list based on the partner's `country` field.
@@ -22,39 +24,41 @@ module OpenApiSDK
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # A search query to filter partners by ID, name, email, or link.
         field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The field to sort the partners by. The default is `totalSaleAmount`.
         field :sort_by, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The sort order. The default is `desc`.
         field :sort_order, Crystalline::Nilable.new(Models::Operations::ListPartnersQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-        # The page number for pagination.
-        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(status: T.nilable(Models::Operations::ListPartnersQueryParamStatus), country: T.nilable(::String), email: T.nilable(::String), tenant_id: T.nilable(::String), search: T.nilable(::String), sort_by: T.nilable(Models::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPartnersQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(status: nil, country: nil, email: nil, tenant_id: nil, search: nil, sort_by: Models::Operations::ListPartnersQueryParamSortBy::TOTAL_SALE_AMOUNT, sort_order: Models::Operations::ListPartnersQueryParamSortOrder::DESC, page: 1.0, page_size: 100.0)
+        sig { params(group_id: T.nilable(::String), status: T.nilable(Models::Operations::ListPartnersQueryParamStatus), country: T.nilable(::String), email: T.nilable(::String), tenant_id: T.nilable(::String), search: T.nilable(::String), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::ListPartnersQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPartnersQueryParamSortOrder), page_size: T.nilable(::Float)).void }
+        def initialize(group_id: nil, status: nil, country: nil, email: nil, tenant_id: nil, search: nil, page: nil, sort_by: Models::Operations::ListPartnersQueryParamSortBy::TOTAL_SALE_AMOUNT, sort_order: Models::Operations::ListPartnersQueryParamSortOrder::DESC, page_size: 100.0)
+          @group_id = group_id
           @status = status
           @country = country
           @email = email
           @tenant_id = tenant_id
           @search = search
+          @page = page
           @sort_by = sort_by
           @sort_order = sort_order
-          @page = page
           @page_size = page_size
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @group_id == other.group_id
           return false unless @status == other.status
           return false unless @country == other.country
           return false unless @email == other.email
           return false unless @tenant_id == other.tenant_id
           return false unless @search == other.search
+          return false unless @page == other.page
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order
-          return false unless @page == other.page
           return false unless @page_size == other.page_size
           true
         end

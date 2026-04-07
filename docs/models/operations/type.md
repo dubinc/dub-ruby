@@ -1,5 +1,13 @@
 # Type
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Type::CLICK
+```
+
 
 ## Values
 

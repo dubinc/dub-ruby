@@ -2,6 +2,14 @@
 
 The reason for rejecting the submission.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = RejectionReason::INVALID_PROOF
+```
+
 
 ## Values
 

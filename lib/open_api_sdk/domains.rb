@@ -40,8 +40,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ListDomainsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::ListDomainsResponse) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::ListDomainsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ListDomainsResponse) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Retrieve a list of domains
       # Retrieve a list of domains associated with the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -79,6 +81,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -154,7 +159,8 @@ module OpenApiSDK
                 search: request.search,
                 page: next_page,
                 page_size: request.page_size
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -300,8 +306,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateDomainRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::DomainSchema) }
-    def create(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::CreateDomainRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::DomainSchema) }
+    def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create a domain
       # Create a domain for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
@@ -312,7 +318,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -348,6 +354,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -535,8 +544,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteDomainResponseBody) }
-    def delete(slug:, timeout_ms: nil)
+    sig { params(slug: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteDomainResponseBody) }
+    def delete(slug:, timeout_ms: nil, http_headers: nil)
       # delete - Delete a domain
       # Delete a domain from a workspace. It cannot be undone. This will also delete all the links associated with the domain.
       request = Models::Operations::DeleteDomainRequest.new(
@@ -580,6 +589,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -767,8 +779,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(slug: ::String, request_body: T.nilable(Models::Operations::UpdateDomainRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Shared::DomainSchema) }
-    def update(slug:, request_body: nil, timeout_ms: nil)
+    sig { params(slug: ::String, request_body: T.nilable(Models::Operations::UpdateDomainRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::DomainSchema) }
+    def update(slug:, request_body: nil, timeout_ms: nil, http_headers: nil)
       # update - Update a domain
       # Update a domain for the authenticated workspace.
       request = Models::Operations::UpdateDomainRequest.new(
@@ -788,7 +800,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -824,6 +836,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1011,8 +1026,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::RegisterDomainRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::RegisterDomainResponseBody) }
-    def register(request: nil, timeout_ms: nil)
+    sig { params(request: T.nilable(Models::Operations::RegisterDomainRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::RegisterDomainResponseBody) }
+    def register(request: nil, timeout_ms: nil, http_headers: nil)
       # register - Register a domain
       # Register a domain for the authenticated workspace. Only available for Enterprise Plans.
       url, params = @sdk_configuration.get_server_details
@@ -1023,7 +1038,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1059,6 +1074,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1246,8 +1264,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::CheckDomainStatusRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::CheckDomainStatusResponseBody]) }
-    def check_status(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::CheckDomainStatusRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::CheckDomainStatusResponseBody]) }
+    def check_status(request:, timeout_ms: nil, http_headers: nil)
       # check_status - Check the availability of one or more domains
       # Check if a domain name is available for purchase. You can check multiple domains at once.
       url, params = @sdk_configuration.get_server_details
@@ -1285,6 +1303,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1470,5 +1491,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

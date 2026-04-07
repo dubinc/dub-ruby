@@ -2,6 +2,14 @@
 
 The parameter to group the analytics data points by. Defaults to `count` if undefined.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = RetrievePartnerAnalyticsQueryParamGroupBy::TOP_LINKS
+```
+
 
 ## Values
 
