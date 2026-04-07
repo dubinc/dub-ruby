@@ -1,5 +1,13 @@
 # SaleCreatedEventEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = SaleCreatedEventEvent::SALE_CREATED
+```
+
 
 ## Values
 

@@ -25,20 +25,21 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::ListPartnersRequest.new(
+  group_id: 'grp_123',
   status: Models::Operations::ListPartnersQueryParamStatus::APPROVED,
   country: 'US',
   email: 'panic@thedis.co',
   tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
   search: 'john',
-  page_size: 50.0,
+  page: 1.0,
+  page_size: 50.0
 )
-
 res = s.partners.list(request: req)
 
 unless res.nil?
@@ -84,10 +85,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreatePartnerRequestBody.new(
   email: 'Summer50@yahoo.com',
@@ -99,16 +100,15 @@ req = Models::Operations::CreatePartnerRequestBody.new(
     test_variants: [
       Models::Operations::CreatePartnerTestVariants.new(
         url: 'https://example.com/variant-1',
-        percentage: 50.0,
+        percentage: 50.0
       ),
       Models::Operations::CreatePartnerTestVariants.new(
         url: 'https://example.com/variant-2',
-        percentage: 50.0,
+        percentage: 50.0
       ),
-    ],
-  ),
+    ]
+  )
 )
-
 res = s.partners.create(request: req)
 
 unless res.nil?
@@ -154,13 +154,12 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = Models::Operations::RetrieveLinksRequest.new()
-
+req = Models::Operations::RetrieveLinksRequest.new
 res = s.partners.retrieve_links(request: req)
 
 unless res.nil?
@@ -206,10 +205,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreatePartnerLinkRequestBody.new(
   link_props: Models::Operations::CreatePartnerLinkLinkProps.new(
@@ -220,16 +219,15 @@ req = Models::Operations::CreatePartnerLinkRequestBody.new(
     test_variants: [
       Models::Operations::CreatePartnerLinkTestVariants.new(
         url: 'https://example.com/variant-1',
-        percentage: 50.0,
+        percentage: 50.0
       ),
       Models::Operations::CreatePartnerLinkTestVariants.new(
         url: 'https://example.com/variant-2',
-        percentage: 50.0,
+        percentage: 50.0
       ),
-    ],
-  ),
+    ]
+  )
 )
-
 res = s.partners.create_link(request: req)
 
 unless res.nil?
@@ -275,10 +273,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::UpsertPartnerLinkRequestBody.new(
   url: 'https://bad-intent.org/',
@@ -290,16 +288,15 @@ req = Models::Operations::UpsertPartnerLinkRequestBody.new(
     test_variants: [
       Models::Operations::UpsertPartnerLinkTestVariants.new(
         url: 'https://example.com/variant-1',
-        percentage: 50.0,
+        percentage: 50.0
       ),
       Models::Operations::UpsertPartnerLinkTestVariants.new(
         url: 'https://example.com/variant-2',
-        percentage: 50.0,
+        percentage: 50.0
       ),
-    ],
-  ),
+    ]
+  )
 )
-
 res = s.partners.upsert_link(request: req)
 
 unless res.nil?
@@ -345,16 +342,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::RetrievePartnerAnalyticsRequest.new(
   timezone: 'America/New_York',
-  query: 'metadata[\'key\']:\'value\'',
+  query: 'metadata[\'key\']:\'value\''
 )
-
 res = s.partners.analytics(request: req)
 
 unless res.nil?
@@ -400,13 +396,12 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = 
-
+req = nil
 res = s.partners.ban(request: req)
 
 unless res.nil?
@@ -452,13 +447,12 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = 
-
+req = nil
 res = s.partners.deactivate(request: req)
 
 unless res.nil?

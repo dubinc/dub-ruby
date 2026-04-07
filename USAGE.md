@@ -4,10 +4,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreateLinkRequestBody.new(
   url: 'https://google.com',
@@ -18,15 +18,14 @@ req = Models::Operations::CreateLinkRequestBody.new(
   test_variants: [
     Models::Operations::TestVariants.new(
       url: 'https://example.com/variant-1',
-      percentage: 50.0,
+      percentage: 50.0
     ),
     Models::Operations::TestVariants.new(
       url: 'https://example.com/variant-2',
-      percentage: 50.0,
+      percentage: 50.0
     ),
-  ],
+  ]
 )
-
 res = s.links.create(request: req)
 
 unless res.nil?
@@ -40,10 +39,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::UpsertLinkRequestBody.new(
   url: 'https://google.com',
@@ -54,15 +53,14 @@ req = Models::Operations::UpsertLinkRequestBody.new(
   test_variants: [
     Models::Operations::UpsertLinkTestVariants.new(
       url: 'https://example.com/variant-1',
-      percentage: 50.0,
+      percentage: 50.0
     ),
     Models::Operations::UpsertLinkTestVariants.new(
       url: 'https://example.com/variant-2',
-      percentage: 50.0,
+      percentage: 50.0
     ),
-  ],
+  ]
 )
-
 res = s.links.upsert(request: req)
 
 unless res.nil?

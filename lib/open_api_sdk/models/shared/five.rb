@@ -23,7 +23,7 @@ module OpenApiSDK
 
         field :position, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('position'), required: true } }
 
-        field :type, Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData5Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData5Type, false) } }
+        field :type, Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData5Type, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData5Type, false) } }
 
         sig { params(key: ::String, label: ::String, required: T::Boolean, locked: T::Boolean, position: ::Integer, type: Models::Shared::PartnerEnrolledEventFieldsDataReferralFormData5Type).void }
         def initialize(key:, label:, required:, locked:, position:, type:)

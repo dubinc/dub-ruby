@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::GetQRCodeRequest, timeout_ms: T.nilable(Integer)).returns(::String) }
-    def get(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::GetQRCodeRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(::String) }
+    def get(request:, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a QR code
       # Retrieve a QR code for a link.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +80,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -121,7 +126,7 @@ module OpenApiSDK
             ),
             response: http_response
           )
-          return http_response.env.body
+          return http_response.env.body.force_encoding('UTF-8')
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
@@ -260,5 +265,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

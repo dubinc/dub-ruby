@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :reason, Models::Operations::Reason, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reason'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::Reason, false) } }
+        field :reason, Models::Operations::Reason, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reason'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Reason, false) } }
         # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
         field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
         # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.

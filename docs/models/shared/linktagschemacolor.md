@@ -2,6 +2,14 @@
 
 The color of the tag.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = LinkTagSchemaColor::RED
+```
+
 
 ## Values
 
@@ -13,4 +21,5 @@ The color of the tag.
 | `BLUE`   | blue     |
 | `PURPLE` | purple   |
 | `BROWN`  | brown    |
+| `GRAY`   | gray     |
 | `PINK`   | pink     |

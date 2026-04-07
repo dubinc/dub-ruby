@@ -17,7 +17,7 @@ module OpenApiSDK
         # The partner's full legal name.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
         # The status of the partner's enrollment in the program.
-        field :status, Models::Shared::PartnerApplicationSubmittedEventStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PartnerApplicationSubmittedEventStatus, false) } }
+        field :status, Models::Shared::PartnerApplicationSubmittedEventStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::PartnerApplicationSubmittedEventStatus, false) } }
         # If the partner profile type is a company, this is the partner's legal company name.
         field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('companyName'), required: true } }
         # The partner's email address. Should be a unique value across Dub.

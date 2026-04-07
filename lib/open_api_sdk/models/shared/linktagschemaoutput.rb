@@ -17,7 +17,7 @@ module OpenApiSDK
         # The name of the tag.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
         # The color of the tag.
-        field :color, Models::Shared::Color, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Color, false) } }
+        field :color, Models::Shared::Color, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('color'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Color, false) } }
 
         sig { params(id: ::String, name: ::String, color: Models::Shared::Color).void }
         def initialize(id:, name:, color:)

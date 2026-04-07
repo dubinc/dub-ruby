@@ -2,6 +2,14 @@
 
 The payment processor via which the sale was made.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = PaymentProcessor::STRIPE
+```
+
 
 ## Values
 

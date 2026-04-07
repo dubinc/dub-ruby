@@ -16,22 +16,22 @@ module OpenApiSDK
         field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
         # IDs of tags to filter by.
         field :ids, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': true } }
+        # The page number for pagination.
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The field to sort the tags by.
         field :sort_by, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The order to sort the tags by.
         field :sort_order, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-        # The page number for pagination.
-        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(search: T.nilable(::String), ids: T.nilable(T.any(::String, T::Array[::String])), sort_by: T.nilable(Models::Operations::GetTagsQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetTagsQueryParamSortOrder), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(search: nil, ids: nil, sort_by: Models::Operations::GetTagsQueryParamSortBy::NAME, sort_order: Models::Operations::GetTagsQueryParamSortOrder::ASC, page: 1.0, page_size: 100.0)
+        sig { params(search: T.nilable(::String), ids: T.nilable(T.any(::String, T::Array[::String])), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::GetTagsQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetTagsQueryParamSortOrder), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, ids: nil, page: nil, sort_by: Models::Operations::GetTagsQueryParamSortBy::NAME, sort_order: Models::Operations::GetTagsQueryParamSortOrder::ASC, page_size: 100.0)
           @search = search
           @ids = ids
+          @page = page
           @sort_by = sort_by
           @sort_order = sort_order
-          @page = page
           @page_size = page_size
         end
 
@@ -40,9 +40,9 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @search == other.search
           return false unless @ids == other.ids
+          return false unless @page == other.page
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order
-          return false unless @page == other.page
           return false unless @page_size == other.page_size
           true
         end

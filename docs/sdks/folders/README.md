@@ -21,13 +21,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = Models::Operations::ListFoldersRequest.new()
-
+req = Models::Operations::ListFoldersRequest.new(
+  page: 1.0
+)
 res = s.folders.list(request: req)
 
 unless res.nil?
@@ -73,13 +74,12 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = 
-
+req = nil
 res = s.folders.create(request: req)
 
 unless res.nil?
@@ -125,11 +125,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.folders.delete(id: '<id>')
 
 unless res.nil?
@@ -175,11 +174,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.folders.update(id: '<id>')
 
 unless res.nil?

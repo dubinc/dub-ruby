@@ -19,7 +19,7 @@ module OpenApiSDK
 
         field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
 
-        field :status, Models::Operations::ListPayoutsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPayoutsStatus, false) } }
+        field :status, Models::Operations::ListPayoutsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListPayoutsStatus, false) } }
 
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
 
@@ -31,20 +31,26 @@ module OpenApiSDK
 
         field :period_end, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('periodEnd'), required: true } }
 
+        field :updated_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt') } }
+
         field :initiated_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('initiatedAt'), required: true } }
 
         field :paid_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paidAt'), required: true } }
 
-        field :mode, Crystalline::Nilable.new(Models::Operations::ListPayoutsMode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListPayoutsMode, false) } }
+        field :mode, Crystalline::Nilable.new(Models::Operations::ListPayoutsMode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListPayoutsMode, false) } }
+
+        field :method, Crystalline::Nilable.new(Models::Operations::Method), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('method'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Method, false) } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
         field :failure_reason, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('failureReason') } }
 
+        field :trace_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('traceId') } }
+
         field :user, Crystalline::Nilable.new(Models::Operations::User), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user') } }
 
-        sig { params(id: ::String, amount: ::Float, currency: ::String, status: Models::Operations::ListPayoutsStatus, created_at: ::String, partner: Models::Operations::ListPayoutsPartner, invoice_id: T.nilable(::String), period_start: T.nilable(::String), period_end: T.nilable(::String), initiated_at: T.nilable(::String), paid_at: T.nilable(::String), mode: T.nilable(Models::Operations::ListPayoutsMode), description: T.nilable(::String), failure_reason: T.nilable(::String), user: T.nilable(Models::Operations::User)).void }
-        def initialize(id:, amount:, currency:, status:, created_at:, partner:, invoice_id: nil, period_start: nil, period_end: nil, initiated_at: nil, paid_at: nil, mode: nil, description: nil, failure_reason: nil, user: nil)
+        sig { params(id: ::String, amount: ::Float, currency: ::String, status: Models::Operations::ListPayoutsStatus, created_at: ::String, partner: Models::Operations::ListPayoutsPartner, invoice_id: T.nilable(::String), period_start: T.nilable(::String), period_end: T.nilable(::String), updated_at: T.nilable(::String), initiated_at: T.nilable(::String), paid_at: T.nilable(::String), mode: T.nilable(Models::Operations::ListPayoutsMode), method: T.nilable(Models::Operations::Method), description: T.nilable(::String), failure_reason: T.nilable(::String), trace_id: T.nilable(::String), user: T.nilable(Models::Operations::User)).void }
+        def initialize(id:, amount:, currency:, status:, created_at:, partner:, invoice_id: nil, period_start: nil, period_end: nil, updated_at: nil, initiated_at: nil, paid_at: nil, mode: nil, method: nil, description: nil, failure_reason: nil, trace_id: nil, user: nil)
           @id = id
           @amount = amount
           @currency = currency
@@ -54,11 +60,14 @@ module OpenApiSDK
           @invoice_id = invoice_id
           @period_start = period_start
           @period_end = period_end
+          @updated_at = updated_at
           @initiated_at = initiated_at
           @paid_at = paid_at
           @mode = mode
+          @method = method
           @description = description
           @failure_reason = failure_reason
+          @trace_id = trace_id
           @user = user
         end
 
@@ -74,11 +83,14 @@ module OpenApiSDK
           return false unless @invoice_id == other.invoice_id
           return false unless @period_start == other.period_start
           return false unless @period_end == other.period_end
+          return false unless @updated_at == other.updated_at
           return false unless @initiated_at == other.initiated_at
           return false unless @paid_at == other.paid_at
           return false unless @mode == other.mode
+          return false unless @method == other.method
           return false unless @description == other.description
           return false unless @failure_reason == other.failure_reason
+          return false unless @trace_id == other.trace_id
           return false unless @user == other.user
           true
         end

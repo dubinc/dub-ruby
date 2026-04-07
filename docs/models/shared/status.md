@@ -2,6 +2,14 @@
 
 The status of the partner's enrollment in the program.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Status::PENDING
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # CommissionCreatedEventEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = CommissionCreatedEventEvent::COMMISSION_CREATED
+```
+
 
 ## Values
 

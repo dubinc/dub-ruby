@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ListBountySubmissionsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::ListBountySubmissionsResponseBody]) }
-    def list_submissions(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::ListBountySubmissionsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::ListBountySubmissionsResponseBody]) }
+    def list_submissions(request:, timeout_ms: nil, http_headers: nil)
       # list_submissions - List bounty submissions
       # List all submissions for a specific bounty in your partner program.
       url, params = @sdk_configuration.get_server_details
@@ -83,6 +85,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -270,8 +275,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ApproveBountySubmissionRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::ApproveBountySubmissionResponseBody) }
-    def approve_submission(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::ApproveBountySubmissionRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ApproveBountySubmissionResponseBody) }
+    def approve_submission(request:, timeout_ms: nil, http_headers: nil)
       # approve_submission - Approve a bounty submission
       # Approve a bounty submission. Optionally specify a custom reward amount.
       url, params = @sdk_configuration.get_server_details
@@ -287,7 +292,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -323,6 +328,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -510,8 +518,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RejectBountySubmissionRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::RejectBountySubmissionResponseBody) }
-    def reject_submission(request:, timeout_ms: nil)
+    sig { params(request: Models::Operations::RejectBountySubmissionRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::RejectBountySubmissionResponseBody) }
+    def reject_submission(request:, timeout_ms: nil, http_headers: nil)
       # reject_submission - Reject a bounty submission
       # Reject a bounty submission with a specified reason and optional note.
       url, params = @sdk_configuration.get_server_details
@@ -527,7 +535,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -563,6 +571,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -748,5 +759,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

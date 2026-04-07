@@ -1,5 +1,13 @@
 # Two
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Two::LINK_UPDATED
+```
+
 
 ## Values
 

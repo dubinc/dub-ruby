@@ -19,9 +19,11 @@ module OpenApiSDK
         # The ID of the partner
         field :partner_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId'), required: true } }
         # The status of the submission
-        field :status, Models::Operations::ListBountySubmissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::ListBountySubmissionsStatus, false) } }
+        field :status, Models::Operations::ListBountySubmissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListBountySubmissionsStatus, false) } }
         # The date and time the submission was created
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
+        # The period number for this submission (1-indexed)
+        field :period_number, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('periodNumber'), required: true } }
         # The description of the submission
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
         # The URLs submitted for the submission
@@ -30,6 +32,8 @@ module OpenApiSDK
         field :files, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::Files)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('files'), required: true } }
         # The performance count of the submission
         field :performance_count, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('performanceCount'), required: true } }
+        # The social metric count (views or likes) for the social content
+        field :social_metric_count, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('socialMetricCount'), required: true } }
         # The date and time the submission was completed
         field :completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('completedAt'), required: true } }
         # The date and time the submission was reviewed
@@ -38,22 +42,27 @@ module OpenApiSDK
         field :rejection_reason, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionReason'), required: true } }
         # The note for rejecting the submission
         field :rejection_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionNote'), required: true } }
+        # The date and time the submission's social metrics were last synced
+        field :social_metrics_last_synced_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('socialMetricsLastSyncedAt') } }
 
-        sig { params(id: ::String, bounty_id: ::String, partner_id: ::String, status: Models::Operations::ListBountySubmissionsStatus, created_at: ::String, description: T.nilable(::String), urls: T.nilable(T::Array[::String]), files: T.nilable(T::Array[Models::Operations::Files]), performance_count: T.nilable(::Float), completed_at: T.nilable(::String), reviewed_at: T.nilable(::String), rejection_reason: T.nilable(::String), rejection_note: T.nilable(::String)).void }
-        def initialize(id:, bounty_id:, partner_id:, status:, created_at:, description: nil, urls: nil, files: nil, performance_count: nil, completed_at: nil, reviewed_at: nil, rejection_reason: nil, rejection_note: nil)
+        sig { params(id: ::String, bounty_id: ::String, partner_id: ::String, status: Models::Operations::ListBountySubmissionsStatus, created_at: ::String, period_number: ::Integer, description: T.nilable(::String), urls: T.nilable(T::Array[::String]), files: T.nilable(T::Array[Models::Operations::Files]), performance_count: T.nilable(::Float), social_metric_count: T.nilable(::Integer), completed_at: T.nilable(::String), reviewed_at: T.nilable(::String), rejection_reason: T.nilable(::String), rejection_note: T.nilable(::String), social_metrics_last_synced_at: T.nilable(::String)).void }
+        def initialize(id:, bounty_id:, partner_id:, status:, created_at:, period_number:, description: nil, urls: nil, files: nil, performance_count: nil, social_metric_count: nil, completed_at: nil, reviewed_at: nil, rejection_reason: nil, rejection_note: nil, social_metrics_last_synced_at: nil)
           @id = id
           @bounty_id = bounty_id
           @partner_id = partner_id
           @status = status
           @created_at = created_at
+          @period_number = period_number
           @description = description
           @urls = urls
           @files = files
           @performance_count = performance_count
+          @social_metric_count = social_metric_count
           @completed_at = completed_at
           @reviewed_at = reviewed_at
           @rejection_reason = rejection_reason
           @rejection_note = rejection_note
+          @social_metrics_last_synced_at = social_metrics_last_synced_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -64,14 +73,17 @@ module OpenApiSDK
           return false unless @partner_id == other.partner_id
           return false unless @status == other.status
           return false unless @created_at == other.created_at
+          return false unless @period_number == other.period_number
           return false unless @description == other.description
           return false unless @urls == other.urls
           return false unless @files == other.files
           return false unless @performance_count == other.performance_count
+          return false unless @social_metric_count == other.social_metric_count
           return false unless @completed_at == other.completed_at
           return false unless @reviewed_at == other.reviewed_at
           return false unless @rejection_reason == other.rejection_reason
           return false unless @rejection_note == other.rejection_note
+          return false unless @social_metrics_last_synced_at == other.social_metrics_last_synced_at
           true
         end
       end

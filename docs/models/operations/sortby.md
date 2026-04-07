@@ -2,6 +2,14 @@
 
 The field to sort the links by. The default is `createdAt`.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = SortBy::CREATED_AT
+```
+
 
 ## Values
 

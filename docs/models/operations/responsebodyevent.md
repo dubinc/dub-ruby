@@ -1,5 +1,13 @@
 # ResponseBodyEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ResponseBodyEvent::CLICK
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 The status of the submission
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListBountySubmissionsStatus::DRAFT
+```
+
 
 ## Values
 

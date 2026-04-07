@@ -13,8 +13,8 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique ID of the short link
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :link, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
         # The unique ID of the short link
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
@@ -32,6 +32,8 @@ module OpenApiSDK
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
         # The comments of the short link
         field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
+        # The ID of the folder that the link belongs to (if applicable)
+        field :folder_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('folderId') } }
         # The ID of the partner that the link belongs to (if applicable)
         field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
         # The number of clicks from this link
@@ -43,8 +45,8 @@ module OpenApiSDK
         # The total amount of sales from this link, in cents
         field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
 
-        sig { params(link: ::String, id: ::String, domain: ::String, key: ::String, short_link: ::String, url: ::String, created_at: ::String, title: T.nilable(::String), comments: T.nilable(::String), partner_id: T.nilable(::String), clicks: T.nilable(::Float), leads: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float)).void }
-        def initialize(link:, id:, domain:, key:, short_link:, url:, created_at:, title: nil, comments: nil, partner_id: nil, clicks: 0.0, leads: 0.0, sales: 0.0, sale_amount: 0.0)
+        sig { params(link: ::String, id: ::String, domain: ::String, key: ::String, short_link: ::String, url: ::String, created_at: ::String, title: T.nilable(::String), comments: T.nilable(::String), folder_id: T.nilable(::String), partner_id: T.nilable(::String), clicks: T.nilable(::Float), leads: T.nilable(::Float), sales: T.nilable(::Float), sale_amount: T.nilable(::Float)).void }
+        def initialize(link:, id:, domain:, key:, short_link:, url:, created_at:, title: nil, comments: nil, folder_id: nil, partner_id: nil, clicks: 0.0, leads: 0.0, sales: 0.0, sale_amount: 0.0)
           @link = link
           @id = id
           @domain = domain
@@ -54,6 +56,7 @@ module OpenApiSDK
           @created_at = created_at
           @title = title
           @comments = comments
+          @folder_id = folder_id
           @partner_id = partner_id
           @clicks = clicks
           @leads = leads
@@ -73,6 +76,7 @@ module OpenApiSDK
           return false unless @created_at == other.created_at
           return false unless @title == other.title
           return false unless @comments == other.comments
+          return false unless @folder_id == other.folder_id
           return false unless @partner_id == other.partner_id
           return false unless @clicks == other.clicks
           return false unless @leads == other.leads

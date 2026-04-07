@@ -2,6 +2,14 @@
 
 The interval to retrieve commissions for.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListCommissionsQueryParamInterval::TWENTY_FOURH
+```
+
 
 ## Values
 

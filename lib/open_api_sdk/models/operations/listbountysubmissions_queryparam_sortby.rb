@@ -12,6 +12,7 @@ module OpenApiSDK
         enums do
           COMPLETED_AT = new('completedAt')
           PERFORMANCE_COUNT = new('performanceCount')
+          SOCIAL_METRIC_COUNT = new('socialMetricCount')
         end
       end
     end

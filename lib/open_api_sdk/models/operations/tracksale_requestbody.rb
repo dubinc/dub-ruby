@@ -14,14 +14,14 @@ module OpenApiSDK
 
         # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
         field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId'), required: true } }
-        # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1437` JPY). Learn more: https://d.to/currency
+        # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1580` JPY). Learn more: https://d.to/currency
         field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
         # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
         field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
         # The name of the sale event. Recommended format: `Invoice paid` or `Subscription created`.
         field :event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
         # The payment processor via which the sale was made.
-        field :payment_processor, Crystalline::Nilable.new(Models::Operations::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': Utils.enum_from_string(Models::Operations::PaymentProcessor, true) } }
+        field :payment_processor, Crystalline::Nilable.new(Models::Operations::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::PaymentProcessor, true) } }
         # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
         field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # [For direct sale tracking]: The unique ID of the click that the sale conversion event is attributed to. You can read this value from `dub_id` cookie.

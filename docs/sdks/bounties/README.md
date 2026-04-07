@@ -20,16 +20,16 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::ListBountySubmissionsRequest.new(
   bounty_id: '<id>',
-  page_size: 50.0,
+  page: 1.0,
+  page_size: 50.0
 )
-
 res = s.bounties.list_submissions(request: req)
 
 unless res.nil?
@@ -75,16 +75,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::ApproveBountySubmissionRequest.new(
   bounty_id: '<id>',
-  submission_id: '<id>',
+  submission_id: '<id>'
 )
-
 res = s.bounties.approve_submission(request: req)
 
 unless res.nil?
@@ -130,16 +129,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::RejectBountySubmissionRequest.new(
   bounty_id: '<id>',
-  submission_id: '<id>',
+  submission_id: '<id>'
 )
-
 res = s.bounties.reject_submission(request: req)
 
 unless res.nil?

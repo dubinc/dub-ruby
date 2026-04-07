@@ -2,6 +2,14 @@
 
 The field to sort the list of payouts by.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPayoutsQueryParamSortBy::AMOUNT
+```
+
 
 ## Values
 

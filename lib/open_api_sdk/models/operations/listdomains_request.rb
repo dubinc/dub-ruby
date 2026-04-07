@@ -14,18 +14,18 @@ module OpenApiSDK
 
         # The search term to filter the domains by.
         field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
-        # Whether to include archived domains in the response. Defaults to `false` if not provided.
-        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'archived', 'style': 'form', 'explode': true } }
         # The page number for pagination.
         field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        # Whether to include archived domains in the response. Defaults to `false` if not provided.
+        field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'archived', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(search: T.nilable(::String), archived: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float)).void }
-        def initialize(search: nil, archived: false, page: 1.0, page_size: 50.0)
+        sig { params(search: T.nilable(::String), page: T.nilable(::Float), archived: T.nilable(T::Boolean), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, page: nil, archived: false, page_size: 50.0)
           @search = search
-          @archived = archived
           @page = page
+          @archived = archived
           @page_size = page_size
         end
 
@@ -33,8 +33,8 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @search == other.search
-          return false unless @archived == other.archived
           return false unless @page == other.page
+          return false unless @archived == other.archived
           return false unless @page_size == other.page_size
           true
         end

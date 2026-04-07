@@ -39,8 +39,10 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ListPayoutsRequest, timeout_ms: T.nilable(Integer)).returns(T::Array[Models::Operations::ListPayoutsResponseBody]) }
-    def list(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::ListPayoutsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::ListPayoutsResponseBody]) }
+    def list(request:, timeout_ms: nil, http_headers: nil)
       # list - List all payouts
       # Retrieve a list of payouts for your partner program.
       url, params = @sdk_configuration.get_server_details
@@ -78,6 +80,9 @@ module OpenApiSDK
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -263,5 +268,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

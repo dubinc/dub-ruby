@@ -1,5 +1,13 @@
 # City
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = City::WILDCARD_
+```
+
 
 ## Values
 

@@ -19,17 +19,16 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::TrackLeadRequestBody.new(
   click_id: '<id>',
   event_name: 'Sign up',
-  customer_external_id: '<id>',
+  customer_external_id: '<id>'
 )
-
 res = s.track.lead(request: req)
 
 unless res.nil?
@@ -75,18 +74,17 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::TrackSaleRequestBody.new(
   customer_external_id: '<id>',
   amount: 594_903,
   event_name: 'Invoice paid',
-  lead_event_name: 'Cloned template 1481267',
+  lead_event_name: 'Cloned template 1481267'
 )
-
 res = s.track.sale(request: req)
 
 unless res.nil?

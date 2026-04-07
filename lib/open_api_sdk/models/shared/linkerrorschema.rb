@@ -17,7 +17,7 @@ module OpenApiSDK
         # The error message.
         field :error, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('error'), required: true } }
         # The error code.
-        field :code, Models::Shared::Code, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Code, false) } }
+        field :code, Models::Shared::Code, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::Code, false) } }
 
         sig { params(link: ::Object, error: ::String, code: Models::Shared::Code).void }
         def initialize(link:, error:, code:)

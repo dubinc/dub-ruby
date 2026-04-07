@@ -108,5 +108,6 @@ module OpenApiSDK
 
       return Utils.template_url base_url, url_variables
     end
-  end
+
+end
 end

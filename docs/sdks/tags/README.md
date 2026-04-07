@@ -21,15 +21,15 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetTagsRequest.new(
-  page_size: 50.0,
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetTagsRequest.new(
+  page: 1.0,
+  page_size: 50.0
+)
 res = s.tags.list(request: req)
 
 unless res.nil?
@@ -75,13 +75,12 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
-req = 
-
+req = nil
 res = s.tags.create(request: req)
 
 unless res.nil?
@@ -127,11 +126,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.tags.delete(id: '<id>')
 
 unless res.nil?
@@ -177,11 +175,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 res = s.tags.update(id: '<id>')
 
 unless res.nil?

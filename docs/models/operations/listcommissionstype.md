@@ -1,5 +1,13 @@
 # ListCommissionsType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListCommissionsType::CLICK
+```
+
 
 ## Values
 

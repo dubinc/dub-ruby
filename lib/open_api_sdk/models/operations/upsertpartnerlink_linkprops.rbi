@@ -8,8 +8,6 @@ end
 
 
 class OpenApiSDK::Models::Operations::UpsertPartnerLinkLinkProps
-  def key_length(); end
-  def key_length=(str_); end
   def prefix(); end
   def prefix=(str_); end
   def archived(); end

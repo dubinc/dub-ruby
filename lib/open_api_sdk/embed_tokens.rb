@@ -39,10 +39,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreateReferralsEmbedTokenRequestBody), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CreateReferralsEmbedTokenResponseBody) }
-    def referrals(request: nil, timeout_ms: nil)
+
+
+    sig { params(request: T.nilable(Models::Operations::CreateReferralsEmbedTokenRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CreateReferralsEmbedTokenResponseBody) }
+    def referrals(request: nil, timeout_ms: nil, http_headers: nil)
       # referrals - Create a referrals embed token
-      # Create a referrals embed token for the given partner/tenant.
+      # Create a referrals embed token for the given partner/tenant. The endpoint first attempts to locate an existing enrollment using the provided tenantId. If no enrollment is found, it resolves the partner by email and creates a new enrollment as needed. This results in an upsert-style flow that guarantees a valid enrollment and returns a usable embed token.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tokens/embed/referrals"
@@ -51,7 +53,7 @@ module OpenApiSDK
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -87,6 +89,9 @@ module OpenApiSDK
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -272,5 +277,5 @@ module OpenApiSDK
 
       end
     end
-  end
+end
 end

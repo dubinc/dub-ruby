@@ -2,6 +2,14 @@
 
 The field to sort the partners by. The default is `totalSaleAmount`.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPartnersQueryParamSortBy::CREATED_AT
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # ListPartnersFieldsPartnersType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPartnersFieldsPartnersType::SELECT
+```
+
 
 ## Values
 

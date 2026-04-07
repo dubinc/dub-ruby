@@ -18,15 +18,14 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
-
-req = Models::Operations::GetQRCodeRequest.new(
-  url: 'https://needy-newsstand.biz/',
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
 )
 
+req = Models::Operations::GetQRCodeRequest.new(
+  url: 'https://needy-newsstand.biz/'
+)
 res = s.qr_codes.get(request: req)
 
 unless res.nil?

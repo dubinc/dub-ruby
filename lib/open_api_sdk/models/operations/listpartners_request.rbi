@@ -8,6 +8,8 @@ end
 
 
 class OpenApiSDK::Models::Operations::ListPartnersRequest
+  def group_id(); end
+  def group_id=(str_); end
   def status(); end
   def status=(str_); end
   def country(); end
@@ -18,12 +20,12 @@ class OpenApiSDK::Models::Operations::ListPartnersRequest
   def tenant_id=(str_); end
   def search(); end
   def search=(str_); end
+  def page(); end
+  def page=(str_); end
   def sort_by(); end
   def sort_by=(str_); end
   def sort_order(); end
   def sort_order=(str_); end
-  def page(); end
-  def page=(str_); end
   def page_size(); end
   def page_size=(str_); end
 end

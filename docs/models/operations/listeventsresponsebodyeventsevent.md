@@ -1,5 +1,13 @@
 # ListEventsResponseBodyEventsEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListEventsResponseBodyEventsEvent::SALE
+```
+
 
 ## Values
 

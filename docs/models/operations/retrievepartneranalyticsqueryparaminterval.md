@@ -2,6 +2,14 @@
 
 The interval to retrieve analytics for. If undefined, defaults to 24h.
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = RetrievePartnerAnalyticsQueryParamInterval::TWENTY_FOURH
+```
+
 
 ## Values
 

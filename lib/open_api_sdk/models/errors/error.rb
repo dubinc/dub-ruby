@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # A short code indicating the error code returned.
-        field :code, Models::Errors::Code, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Errors::Code, false) } }
+        field :code, Models::Errors::Code, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Errors::Code, false) } }
         # A human readable explanation of what went wrong.
         field :message, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('message'), required: true } }
         # A link to our documentation with more details about this error code

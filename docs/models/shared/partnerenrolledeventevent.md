@@ -1,5 +1,13 @@
 # PartnerEnrolledEventEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = PartnerEnrolledEventEvent::PARTNER_ENROLLED
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # LeadCreatedEventEvent
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = LeadCreatedEventEvent::LEAD_CREATED
+```
+
 
 ## Values
 

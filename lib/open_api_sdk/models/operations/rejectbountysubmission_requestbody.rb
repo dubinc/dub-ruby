@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The reason for rejecting the submission.
-        field :rejection_reason, Crystalline::Nilable.new(Models::Operations::RejectionReason), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionReason'), 'decoder': Utils.enum_from_string(Models::Operations::RejectionReason, true) } }
+        field :rejection_reason, Crystalline::Nilable.new(Models::Operations::RejectionReason), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionReason'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::RejectionReason, true) } }
         # The note for rejecting the submission.
         field :rejection_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionNote') } }
 

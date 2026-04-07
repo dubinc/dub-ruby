@@ -1,5 +1,13 @@
 # GetCustomerType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = GetCustomerType::PERCENTAGE
+```
+
 
 ## Values
 

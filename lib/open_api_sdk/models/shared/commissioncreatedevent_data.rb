@@ -21,7 +21,7 @@ module OpenApiSDK
 
         field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
 
-        field :status, Models::Shared::CommissionCreatedEventStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::CommissionCreatedEventStatus, false) } }
+        field :status, Models::Shared::CommissionCreatedEventStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::CommissionCreatedEventStatus, false) } }
 
         field :quantity, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('quantity'), required: true } }
 
@@ -31,7 +31,7 @@ module OpenApiSDK
 
         field :partner, Models::Shared::CommissionCreatedEventPartner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner'), required: true } }
 
-        field :type, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::CommissionCreatedEventType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::CommissionCreatedEventType, true) } }
 
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
 

@@ -26,16 +26,22 @@ class OpenApiSDK::Models::Operations::ListPayoutsResponseBody
   def period_start=(str_); end
   def period_end(); end
   def period_end=(str_); end
+  def updated_at(); end
+  def updated_at=(str_); end
   def initiated_at(); end
   def initiated_at=(str_); end
   def paid_at(); end
   def paid_at=(str_); end
   def mode(); end
   def mode=(str_); end
+  def method(); end
+  def method=(str_); end
   def description(); end
   def description=(str_); end
   def failure_reason(); end
   def failure_reason=(str_); end
+  def trace_id(); end
+  def trace_id=(str_); end
   def user(); end
   def user=(str_); end
 end

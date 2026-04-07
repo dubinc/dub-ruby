@@ -1,5 +1,13 @@
 # ListPayoutsStatus
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = ListPayoutsStatus::PENDING
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # FieldsType
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = FieldsType::TEXT
+```
+
 
 ## Values
 

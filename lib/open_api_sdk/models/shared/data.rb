@@ -55,8 +55,8 @@ module OpenApiSDK
 
         field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
         # Deprecated: Use `workspaceId` instead. The project ID of the short link.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :project_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('projectId'), required: true } }
         # The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
         field :external_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
@@ -103,8 +103,8 @@ module OpenApiSDK
 
         field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('userId'), required: true } }
         # Deprecated: Use `tags` instead. The unique ID of the tag assigned to the short link.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :tag_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId'), required: true } }
         # An array of A/B test URLs and the percentage of traffic to send to each URL.
         field :test_variants, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LinkWebhookEventTestVariants)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }

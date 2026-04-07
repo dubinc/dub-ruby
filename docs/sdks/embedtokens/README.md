@@ -8,7 +8,7 @@
 
 ## referrals
 
-Create a referrals embed token for the given partner/tenant.
+Create a referrals embed token for the given partner/tenant. The endpoint first attempts to locate an existing enrollment using the provided tenantId. If no enrollment is found, it resolves the partner by email and creates a new enrollment as needed. This results in an upsert-style flow that guarantees a valid enrollment and returns a usable embed token.
 
 ### Example Usage
 
@@ -18,10 +18,10 @@ require 'dub'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Dub.new(
-      security: Models::Shared::Security.new(
-        token: 'DUB_API_KEY',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
 
 req = Models::Operations::CreateReferralsEmbedTokenRequestBody.new(
   partner: Models::Operations::Partner.new(
@@ -34,17 +34,16 @@ req = Models::Operations::CreateReferralsEmbedTokenRequestBody.new(
       test_variants: [
         Models::Operations::CreateReferralsEmbedTokenTestVariants.new(
           url: 'https://example.com/variant-1',
-          percentage: 50.0,
+          percentage: 50.0
         ),
         Models::Operations::CreateReferralsEmbedTokenTestVariants.new(
           url: 'https://example.com/variant-2',
-          percentage: 50.0,
+          percentage: 50.0
         ),
-      ],
-    ),
-  ),
+      ]
+    )
+  )
 )
-
 res = s.embed_tokens.referrals(request: req)
 
 unless res.nil?

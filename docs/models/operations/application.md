@@ -1,0 +1,12 @@
+# Application
+
+Linked program application, including review outcome when applicable.
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `rejection_reason`                                                                                                   | [T.nilable(Models::Operations::ListPartnersRejectionReason)](../../models/operations/listpartnersrejectionreason.md) | :heavy_check_mark:                                                                                                   | Preset reason when the application was rejected.                                                                     |
+| `rejection_note`                                                                                                     | *T.nilable(::String)*                                                                                                | :heavy_check_mark:                                                                                                   | Free-form note when the application was rejected.                                                                    |
+| `reviewed_at`                                                                                                        | *T.nilable(::String)*                                                                                                | :heavy_check_mark:                                                                                                   | When the application was approved or rejected.                                                                       |

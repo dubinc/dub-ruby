@@ -1,6 +1,14 @@
 # UpdateTagColor
 
-The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown.
+The color of the tag. If not provided, a random color will be used from the list: red, yellow, green, blue, purple, brown, gray.
+
+## Example Usage
+
+```ruby
+require "dub"
+
+value = UpdateTagColor::RED
+```
 
 
 ## Values
@@ -13,4 +21,5 @@ The color of the tag. If not provided, a random color will be used from the list
 | `BLUE`   | blue     |
 | `PURPLE` | purple   |
 | `BROWN`  | brown    |
+| `GRAY`   | gray     |
 | `PINK`   | pink     |

@@ -12,9 +12,7 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The length of the short link slug. Defaults to 7 if not provided. When used with `prefix`, the total length of the key will be `prefix.length + keyLength`.
-        field :key_length, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('keyLength') } }
-        # The prefix of the short link slug for randomly-generated keys (e.g. if prefix is `/c/`, generated keys will be in the `/c/:key` format). Will be ignored if `key` is provided.
+        # Path prefix for each default referral link slug (e.g. `/c/` → `https://{domain}/c/{identity}`). If the group has multiple default links, a short random suffix is appended to the identity segment for uniqueness (e.g. `c/jane-a7f2`).
         field :prefix, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prefix') } }
         # Whether the short link is archived. Defaults to `false` if not provided.
         field :archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('archived') } }
@@ -59,9 +57,8 @@ module OpenApiSDK
         # The date and time when the tests were or will be completed.
         field :test_completed_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testCompletedAt') } }
 
-        sig { params(key_length: T.nilable(::Float), prefix: T.nilable(::String), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), external_id: T.nilable(::String), tenant_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), test_variants: T.nilable(T::Array[Models::Operations::UpsertPartnerLinkTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String)).void }
-        def initialize(key_length: nil, prefix: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, external_id: nil, tenant_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil)
-          @key_length = key_length
+        sig { params(prefix: T.nilable(::String), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), external_id: T.nilable(::String), tenant_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), test_variants: T.nilable(T::Array[Models::Operations::UpsertPartnerLinkTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String)).void }
+        def initialize(prefix: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, external_id: nil, tenant_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil)
           @prefix = prefix
           @archived = archived
           @tag_ids = tag_ids
@@ -89,7 +86,6 @@ module OpenApiSDK
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @key_length == other.key_length
           return false unless @prefix == other.prefix
           return false unless @archived == other.archived
           return false unless @tag_ids == other.tag_ids

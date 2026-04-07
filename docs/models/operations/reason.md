@@ -1,5 +1,13 @@
 # Reason
 
+## Example Usage
+
+```ruby
+require "dub"
+
+value = Reason::TOS_VIOLATION
+```
+
 
 ## Values
 

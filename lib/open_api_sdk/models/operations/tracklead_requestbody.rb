@@ -19,7 +19,7 @@ module OpenApiSDK
         # The unique ID of the customer in your system. Will be used to identify and attribute all future events to this customer.
         field :customer_external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerExternalId'), required: true } }
         # The mode to use for tracking the lead event. `async` will not block the request; `wait` will block the request until the lead event is fully recorded in Dub; `deferred` will defer the lead event creation to a subsequent request.
-        field :mode, Crystalline::Nilable.new(Models::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': Utils.enum_from_string(Models::Operations::Mode, true) } }
+        field :mode, Crystalline::Nilable.new(Models::Operations::Mode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mode'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Mode, true) } }
         # The numerical value associated with this lead event (e.g., number of provisioned seats in a free trial). If defined as N, the lead event will be tracked N times.
         field :event_quantity, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventQuantity') } }
         # Additional metadata to be stored with the lead event. Max 10,000 characters.
