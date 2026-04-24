@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Models
     module Operations
-
+      # Reason - The reason for banning the partner.
       class Reason < T::Enum
         enums do
           TOS_VIOLATION = new('tos_violation')

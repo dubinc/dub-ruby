@@ -44,7 +44,7 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::GetLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetLinksResponse) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of links
+      # list - List all links
       # Retrieve a paginated list of links for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

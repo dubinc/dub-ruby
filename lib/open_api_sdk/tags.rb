@@ -43,8 +43,8 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::GetTagsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Shared::LinkTagSchemaOutput]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of tags
-      # Retrieve a list of tags for the authenticated workspace.
+      # list - List all tags
+      # Retrieve a paginated list of tags for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/tags"

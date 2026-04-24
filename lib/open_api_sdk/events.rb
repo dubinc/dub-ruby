@@ -43,7 +43,7 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::ListEventsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[T.any(Models::Operations::ClickEvent, Models::Operations::LeadEvent, Models::Operations::SaleEvent)]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of events
+      # list - List all events
       # Retrieve a paginated list of events for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
