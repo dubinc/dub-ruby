@@ -213,6 +213,24 @@ actions:
         - "lang": "ruby"
           "label": "retrievePartnerAnalytics"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: 'America/New_York',\n  query: 'metadata[\\'key\\']:\\'value\\''\n)\nres = s.partners.analytics(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/applications"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "listPartnerApplications"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListPartnerApplicationsRequest.new(\n  country: 'US',\n  group_id: 'grp_123',\n  page: 1.0,\n  page_size: 50.0\n)\nres = s.partner_applications.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/applications/approve"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "approvePartner"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ApprovePartnerRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.approve(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/partners/applications/reject"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "rejectPartner"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RejectPartnerRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.reject(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/ban"]["post"]
     update:
       "x-codeSamples":

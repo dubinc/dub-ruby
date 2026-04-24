@@ -12,12 +12,12 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The new earnings amount for the commission. Paid commissions cannot be updated. If provided, will override the earnings calculated based on the sale amount and currency.
+        field :earnings, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings') } }
         # The new absolute amount for the sale. Paid commissions cannot be updated.
         field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
         # Modify the current sale amount: use positive values to increase the amount, negative values to decrease it. Takes precedence over `saleAmount`. Paid commissions cannot be updated.
         field :modify_sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('modifySaleAmount') } }
-        # The new absolute earnings for the custom commission. Paid commissions cannot be updated.
-        field :earnings, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings') } }
         # Useful for marking a commission as pending, refunded, duplicate, canceled, or fraudulent. Takes precedence over `saleAmount` and `modifySaleAmount`. When a commission is marked as pending, refunded, duplicate, canceled, or fraudulent, it will be omitted from the payout, and the payout amount will be recalculated accordingly. Paid commissions cannot be updated.
         field :status, Crystalline::Nilable.new(Models::Operations::Status), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Status, true) } }
         # Deprecated. Use `saleAmount` instead.
@@ -31,11 +31,11 @@ module OpenApiSDK
         # The currency of the sale amount to update. Accepts ISO 4217 currency codes.
         field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
 
-        sig { params(sale_amount: T.nilable(::Float), modify_sale_amount: T.nilable(::Float), earnings: T.nilable(::Float), status: T.nilable(Models::Operations::Status), amount: T.nilable(::Float), modify_amount: T.nilable(::Float), currency: T.nilable(::String)).void }
-        def initialize(sale_amount: nil, modify_sale_amount: nil, earnings: nil, status: nil, amount: nil, modify_amount: nil, currency: 'usd')
+        sig { params(earnings: T.nilable(::Float), sale_amount: T.nilable(::Float), modify_sale_amount: T.nilable(::Float), status: T.nilable(Models::Operations::Status), amount: T.nilable(::Float), modify_amount: T.nilable(::Float), currency: T.nilable(::String)).void }
+        def initialize(earnings: nil, sale_amount: nil, modify_sale_amount: nil, status: nil, amount: nil, modify_amount: nil, currency: 'usd')
+          @earnings = earnings
           @sale_amount = sale_amount
           @modify_sale_amount = modify_sale_amount
-          @earnings = earnings
           @status = status
           @amount = amount
           @modify_amount = modify_amount
@@ -45,9 +45,9 @@ module OpenApiSDK
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @earnings == other.earnings
           return false unless @sale_amount == other.sale_amount
           return false unless @modify_sale_amount == other.modify_sale_amount
-          return false unless @earnings == other.earnings
           return false unless @status == other.status
           return false unless @amount == other.amount
           return false unless @modify_amount == other.modify_amount

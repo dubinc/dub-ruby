@@ -44,8 +44,8 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::GetCustomersRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetCustomersResponse) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of customers
-      # Retrieve a list of customers for the authenticated workspace.
+      # list - List all customers
+      # Retrieve a paginated list of customers for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/customers"
@@ -312,7 +312,7 @@ module OpenApiSDK
     sig { params(request: Models::Operations::GetCustomerRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetCustomerResponseBody) }
     def get(request:, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a customer
-      # Retrieve a customer by ID for the authenticated workspace.
+      # Retrieve a customer by ID for the authenticated workspace. To retrieve a customer by external ID, prefix the ID with `ext_`.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(

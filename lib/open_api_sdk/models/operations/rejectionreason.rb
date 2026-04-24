@@ -7,13 +7,12 @@
 module OpenApiSDK
   module Models
     module Operations
-      # RejectionReason - The reason for rejecting the submission.
+      # RejectionReason - The reason for rejecting the partner application. This will be shared with the partner via email.
       class RejectionReason < T::Enum
         enums do
-          INVALID_PROOF = new('invalidProof')
-          DUPLICATE_SUBMISSION = new('duplicateSubmission')
-          OUT_OF_TIME_WINDOW = new('outOfTimeWindow')
-          DID_NOT_MEET_CRITERIA = new('didNotMeetCriteria')
+          NEEDS_MORE_DETAIL = new('needsMoreDetail')
+          DOES_NOT_MEET_REQUIREMENTS = new('doesNotMeetRequirements')
+          NOT_THE_RIGHT_FIT = new('notTheRightFit')
           OTHER = new('other')
         end
       end

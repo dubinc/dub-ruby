@@ -44,8 +44,8 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::ListDomainsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ListDomainsResponse) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of domains
-      # Retrieve a list of domains associated with the authenticated workspace.
+      # list - List all domains
+      # Retrieve a paginated list of domains for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/domains"

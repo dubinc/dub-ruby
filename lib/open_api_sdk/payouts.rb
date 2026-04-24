@@ -44,7 +44,7 @@ module OpenApiSDK
     sig { params(request: Models::Operations::ListPayoutsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::ListPayoutsResponseBody]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
       # list - List all payouts
-      # Retrieve a list of payouts for your partner program.
+      # Retrieve a paginated list of payouts for your partner program.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/payouts"

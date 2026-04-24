@@ -43,8 +43,8 @@ module OpenApiSDK
 
     sig { params(request: Models::Operations::ListFoldersRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Shared::FolderSchema]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
-      # list - Retrieve a list of folders
-      # Retrieve a list of folders for the authenticated workspace.
+      # list - List all folders
+      # Retrieve a paginated list of folders for the authenticated workspace.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/folders"

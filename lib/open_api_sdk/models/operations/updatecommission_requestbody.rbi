@@ -8,12 +8,12 @@ end
 
 
 class OpenApiSDK::Models::Operations::UpdateCommissionRequestBody
+  def earnings(); end
+  def earnings=(str_); end
   def sale_amount(); end
   def sale_amount=(str_); end
   def modify_sale_amount(); end
   def modify_sale_amount=(str_); end
-  def earnings(); end
-  def earnings=(str_); end
   def status(); end
   def status=(str_); end
   def amount(); end

@@ -14,14 +14,17 @@ module OpenApiSDK
 
         # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1580` JPY). Learn more: https://d.to/currency
         field :amount, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
+        # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
+        field :currency, ::Object, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
         # The payment processor via which the sale was made.
         field :payment_processor, Crystalline::Nilable.new(Models::Operations::ResponseBodyPaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ResponseBodyPaymentProcessor, true) } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
-        sig { params(amount: ::Integer, payment_processor: T.nilable(Models::Operations::ResponseBodyPaymentProcessor), invoice_id: T.nilable(::String)).void }
-        def initialize(amount:, payment_processor: Models::Operations::ResponseBodyPaymentProcessor::CUSTOM, invoice_id: nil)
+        sig { params(amount: ::Integer, currency: ::Object, payment_processor: T.nilable(Models::Operations::ResponseBodyPaymentProcessor), invoice_id: T.nilable(::String)).void }
+        def initialize(amount:, currency:, payment_processor: Models::Operations::ResponseBodyPaymentProcessor::CUSTOM, invoice_id: nil)
           @amount = amount
+          @currency = currency
           @payment_processor = payment_processor
           @invoice_id = invoice_id
         end
@@ -30,6 +33,7 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @amount == other.amount
+          return false unless @currency == other.currency
           return false unless @payment_processor == other.payment_processor
           return false unless @invoice_id == other.invoice_id
           true

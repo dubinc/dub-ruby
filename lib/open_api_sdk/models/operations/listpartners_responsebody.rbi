@@ -38,6 +38,8 @@ class OpenApiSDK::Models::Operations::ListPartnersResponseBody
   def payouts_enabled_at=(str_); end
   def trusted_at(); end
   def trusted_at=(str_); end
+  def identity_verified_at(); end
+  def identity_verified_at=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
   def links(); end

@@ -12,7 +12,7 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The reason for banning the partner.
         field :reason, Models::Operations::Reason, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reason'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Reason, false) } }
         # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
         field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
