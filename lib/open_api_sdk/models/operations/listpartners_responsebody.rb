@@ -16,6 +16,8 @@ module OpenApiSDK
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
         # The partner's full legal name.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The partner's network status on Dub.
+        field :network_status, Models::Operations::NetworkStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('networkStatus'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::NetworkStatus, false) } }
         # The program's unique ID on Dub.
         field :program_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId'), required: true } }
         # The partner's unique ID on Dub.
@@ -24,14 +26,16 @@ module OpenApiSDK
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
         # The status of the partner's enrollment in the program.
         field :status, Models::Operations::ListPartnersStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListPartnersStatus, false) } }
-        # If the partner profile type is a company, this is the partner's legal company name.
-        field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('companyName'), required: true } }
+        # The partner's unique username on Dub.
+        field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('username'), required: true } }
         # The partner's email address. Should be a unique value across Dub.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
         # The partner's avatar image.
         field :image, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('image'), required: true } }
         # The partner's country (required for tax purposes).
         field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
+        # If the partner profile type is a company, this is the partner's legal company name.
+        field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('companyName'), required: true } }
         # The partner's default payout method. Connect: Bank account payouts via Stripe Connect; Stablecoin: USDC payouts directly to a crypto wallet; PayPal: Payouts via PayPal
         field :default_payout_method, Crystalline::Nilable.new(Models::Operations::DefaultPayoutMethod), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('defaultPayoutMethod'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::DefaultPayoutMethod, false) } }
         # The partner's PayPal email (for receiving payouts via PayPal).
@@ -40,14 +44,14 @@ module OpenApiSDK
         field :stripe_connect_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeConnectId'), required: true } }
         # The date when the partner enabled payouts.
         field :payouts_enabled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('payoutsEnabledAt'), required: true } }
-        # The date when the partner received the trusted badge in the partner network.
-        field :trusted_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trustedAt'), required: true } }
         # The date when the partner's identity was verified.
         field :identity_verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('identityVerifiedAt'), required: true } }
         # The partner's unique ID within your database. Can be useful for associating the partner with a user in your database and retrieving/update their data in the future.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId'), required: true } }
         # The partner's referral links in this program.
         field :links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::Links)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('links'), required: true } }
+        # The tags associated with the partner.
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::Tags)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
         # A brief description of the partner and their background.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
         # The partner's group ID on Dub.
@@ -60,6 +64,8 @@ module OpenApiSDK
         field :lead_reward_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadRewardId') } }
 
         field :sale_reward_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleRewardId') } }
+
+        field :referral_reward_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('referralRewardId') } }
 
         field :discount_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discountId') } }
         # If the partner submitted an application to join the program, this is the ID of the application.
@@ -108,33 +114,40 @@ module OpenApiSDK
         field :instagram, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('instagram') } }
         # The partner's TikTok username (e.g. `johndoe`).
         field :tiktok, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tiktok') } }
+        # DEPRECATED: Use `networkStatus` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :trusted_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trustedAt') } }
 
-        sig { params(id: ::String, name: ::String, program_id: ::String, partner_id: ::String, created_at: ::String, status: Models::Operations::ListPartnersStatus, company_name: T.nilable(::String), email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), default_payout_method: T.nilable(Models::Operations::DefaultPayoutMethod), paypal_email: T.nilable(::String), stripe_connect_id: T.nilable(::String), payouts_enabled_at: T.nilable(::String), trusted_at: T.nilable(::String), identity_verified_at: T.nilable(::String), tenant_id: T.nilable(::String), links: T.nilable(T::Array[Models::Operations::Links]), description: T.nilable(::String), group_id: T.nilable(::String), total_commissions: T.nilable(::Float), click_reward_id: T.nilable(::String), lead_reward_id: T.nilable(::String), sale_reward_id: T.nilable(::String), discount_id: T.nilable(::String), application_id: T.nilable(::String), banned_at: T.nilable(::String), banned_reason: T.nilable(Models::Operations::BannedReason), referral_form_data: T.nilable(Models::Operations::ReferralFormData), application: T.nilable(Models::Operations::Application), total_clicks: T.nilable(::Float), total_leads: T.nilable(::Float), total_conversions: T.nilable(::Float), total_sales: T.nilable(::Float), total_sale_amount: T.nilable(::Float), net_revenue: T.nilable(::Float), earnings_per_click: T.nilable(::Float), average_lifetime_value: T.nilable(::Float), click_to_lead_rate: T.nilable(::Float), click_to_conversion_rate: T.nilable(::Float), lead_to_conversion_rate: T.nilable(::Float), return_on_ad_spend: T.nilable(::Float), website: T.nilable(::String), youtube: T.nilable(::String), twitter: T.nilable(::String), linkedin: T.nilable(::String), instagram: T.nilable(::String), tiktok: T.nilable(::String)).void }
-        def initialize(id:, name:, program_id:, partner_id:, created_at:, status:, company_name: nil, email: nil, image: nil, country: nil, default_payout_method: nil, paypal_email: nil, stripe_connect_id: nil, payouts_enabled_at: nil, trusted_at: nil, identity_verified_at: nil, tenant_id: nil, links: nil, description: nil, group_id: nil, total_commissions: 0.0, click_reward_id: nil, lead_reward_id: nil, sale_reward_id: nil, discount_id: nil, application_id: nil, banned_at: nil, banned_reason: nil, referral_form_data: nil, application: nil, total_clicks: 0.0, total_leads: 0.0, total_conversions: 0.0, total_sales: 0.0, total_sale_amount: 0.0, net_revenue: 0.0, earnings_per_click: nil, average_lifetime_value: nil, click_to_lead_rate: nil, click_to_conversion_rate: nil, lead_to_conversion_rate: nil, return_on_ad_spend: nil, website: nil, youtube: nil, twitter: nil, linkedin: nil, instagram: nil, tiktok: nil)
+        sig { params(id: ::String, name: ::String, network_status: Models::Operations::NetworkStatus, program_id: ::String, partner_id: ::String, created_at: ::String, status: Models::Operations::ListPartnersStatus, username: T.nilable(::String), email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), company_name: T.nilable(::String), default_payout_method: T.nilable(Models::Operations::DefaultPayoutMethod), paypal_email: T.nilable(::String), stripe_connect_id: T.nilable(::String), payouts_enabled_at: T.nilable(::String), identity_verified_at: T.nilable(::String), tenant_id: T.nilable(::String), links: T.nilable(T::Array[Models::Operations::Links]), tags: T.nilable(T::Array[Models::Operations::Tags]), description: T.nilable(::String), group_id: T.nilable(::String), total_commissions: T.nilable(::Float), click_reward_id: T.nilable(::String), lead_reward_id: T.nilable(::String), sale_reward_id: T.nilable(::String), referral_reward_id: T.nilable(::String), discount_id: T.nilable(::String), application_id: T.nilable(::String), banned_at: T.nilable(::String), banned_reason: T.nilable(Models::Operations::BannedReason), referral_form_data: T.nilable(Models::Operations::ReferralFormData), application: T.nilable(Models::Operations::Application), total_clicks: T.nilable(::Float), total_leads: T.nilable(::Float), total_conversions: T.nilable(::Float), total_sales: T.nilable(::Float), total_sale_amount: T.nilable(::Float), net_revenue: T.nilable(::Float), earnings_per_click: T.nilable(::Float), average_lifetime_value: T.nilable(::Float), click_to_lead_rate: T.nilable(::Float), click_to_conversion_rate: T.nilable(::Float), lead_to_conversion_rate: T.nilable(::Float), return_on_ad_spend: T.nilable(::Float), website: T.nilable(::String), youtube: T.nilable(::String), twitter: T.nilable(::String), linkedin: T.nilable(::String), instagram: T.nilable(::String), tiktok: T.nilable(::String), trusted_at: T.nilable(::String)).void }
+        def initialize(id:, name:, network_status:, program_id:, partner_id:, created_at:, status:, username: nil, email: nil, image: nil, country: nil, company_name: nil, default_payout_method: nil, paypal_email: nil, stripe_connect_id: nil, payouts_enabled_at: nil, identity_verified_at: nil, tenant_id: nil, links: nil, tags: nil, description: nil, group_id: nil, total_commissions: 0.0, click_reward_id: nil, lead_reward_id: nil, sale_reward_id: nil, referral_reward_id: nil, discount_id: nil, application_id: nil, banned_at: nil, banned_reason: nil, referral_form_data: nil, application: nil, total_clicks: 0.0, total_leads: 0.0, total_conversions: 0.0, total_sales: 0.0, total_sale_amount: 0.0, net_revenue: 0.0, earnings_per_click: nil, average_lifetime_value: nil, click_to_lead_rate: nil, click_to_conversion_rate: nil, lead_to_conversion_rate: nil, return_on_ad_spend: nil, website: nil, youtube: nil, twitter: nil, linkedin: nil, instagram: nil, tiktok: nil, trusted_at: nil)
           @id = id
           @name = name
+          @network_status = network_status
           @program_id = program_id
           @partner_id = partner_id
           @created_at = created_at
           @status = status
-          @company_name = company_name
+          @username = username
           @email = email
           @image = image
           @country = country
+          @company_name = company_name
           @default_payout_method = default_payout_method
           @paypal_email = paypal_email
           @stripe_connect_id = stripe_connect_id
           @payouts_enabled_at = payouts_enabled_at
-          @trusted_at = trusted_at
           @identity_verified_at = identity_verified_at
           @tenant_id = tenant_id
           @links = links
+          @tags = tags
           @description = description
           @group_id = group_id
           @total_commissions = total_commissions
           @click_reward_id = click_reward_id
           @lead_reward_id = lead_reward_id
           @sale_reward_id = sale_reward_id
+          @referral_reward_id = referral_reward_id
           @discount_id = discount_id
           @application_id = application_id
           @banned_at = banned_at
@@ -159,6 +172,7 @@ module OpenApiSDK
           @linkedin = linkedin
           @instagram = instagram
           @tiktok = tiktok
+          @trusted_at = trusted_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -166,28 +180,31 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @name == other.name
+          return false unless @network_status == other.network_status
           return false unless @program_id == other.program_id
           return false unless @partner_id == other.partner_id
           return false unless @created_at == other.created_at
           return false unless @status == other.status
-          return false unless @company_name == other.company_name
+          return false unless @username == other.username
           return false unless @email == other.email
           return false unless @image == other.image
           return false unless @country == other.country
+          return false unless @company_name == other.company_name
           return false unless @default_payout_method == other.default_payout_method
           return false unless @paypal_email == other.paypal_email
           return false unless @stripe_connect_id == other.stripe_connect_id
           return false unless @payouts_enabled_at == other.payouts_enabled_at
-          return false unless @trusted_at == other.trusted_at
           return false unless @identity_verified_at == other.identity_verified_at
           return false unless @tenant_id == other.tenant_id
           return false unless @links == other.links
+          return false unless @tags == other.tags
           return false unless @description == other.description
           return false unless @group_id == other.group_id
           return false unless @total_commissions == other.total_commissions
           return false unless @click_reward_id == other.click_reward_id
           return false unless @lead_reward_id == other.lead_reward_id
           return false unless @sale_reward_id == other.sale_reward_id
+          return false unless @referral_reward_id == other.referral_reward_id
           return false unless @discount_id == other.discount_id
           return false unless @application_id == other.application_id
           return false unless @banned_at == other.banned_at
@@ -212,6 +229,7 @@ module OpenApiSDK
           return false unless @linkedin == other.linkedin
           return false unless @instagram == other.instagram
           return false unless @tiktok == other.tiktok
+          return false unless @trusted_at == other.trusted_at
           true
         end
       end

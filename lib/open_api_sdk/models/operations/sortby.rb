@@ -7,13 +7,10 @@
 module OpenApiSDK
   module Models
     module Operations
-      # SortBy - The field to sort the links by. The default is `createdAt`.
+      # SortBy - The field to sort the events by. The default is `timestamp`.
       class SortBy < T::Enum
         enums do
-          CREATED_AT = new('createdAt')
-          CLICKS = new('clicks')
-          SALE_AMOUNT = new('saleAmount')
-          LAST_CLICKED = new('lastClicked')
+          TIMESTAMP = new('timestamp')
         end
       end
     end

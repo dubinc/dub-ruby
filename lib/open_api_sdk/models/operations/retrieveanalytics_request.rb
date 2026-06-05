@@ -26,6 +26,8 @@ module OpenApiSDK
         field :tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tagId', 'style': 'form', 'explode': true } }
         # The folder ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `folder_123`, `folder_123,folder_456`, `-folder_789`. If not provided, return analytics for all links.
         field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folderId', 'style': 'form', 'explode': true } }
+        # The partner tag ID(s) to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_123`, `ptag_123,ptag_456`, `-ptag_789`.
+        field :partner_tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerTagId', 'style': 'form', 'explode': true } }
         # The group ID to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `grp_123`, `grp_123,grp_456`, `-grp_789`.
         field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
         # The ID of the partner to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `pn_123`, `pn_123,pn_456`, `-pn_789`.
@@ -89,8 +91,8 @@ module OpenApiSDK
         # The IANA time zone code for aligning timeseries granularity (e.g. America/New_York). Defaults to UTC.
         field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), tag_id: T.nilable(::String), folder_id: T.nilable(::String), group_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(::String), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::SaleType), query: T.nilable(::String), program_id: T.nilable(::String), tag_ids: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String)).void }
-        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, tag_id: nil, folder_id: nil, group_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, root: nil, sale_type: nil, query: nil, program_id: nil, tag_ids: nil, qr: nil, event: Models::Operations::Event::CLICKS, group_by: Models::Operations::QueryParamGroupBy::COUNT, timezone: 'UTC')
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), tag_id: T.nilable(::String), folder_id: T.nilable(::String), partner_tag_id: T.nilable(::String), group_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::Interval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(::String), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::SaleType), query: T.nilable(::String), program_id: T.nilable(::String), tag_ids: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::Event), group_by: T.nilable(Models::Operations::QueryParamGroupBy), timezone: T.nilable(::String)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, tag_id: nil, folder_id: nil, partner_tag_id: nil, group_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, root: nil, sale_type: nil, query: nil, program_id: nil, tag_ids: nil, qr: nil, event: Models::Operations::Event::CLICKS, group_by: Models::Operations::QueryParamGroupBy::COUNT, timezone: 'UTC')
           @domain = domain
           @key = key
           @link_id = link_id
@@ -98,6 +100,7 @@ module OpenApiSDK
           @tenant_id = tenant_id
           @tag_id = tag_id
           @folder_id = folder_id
+          @partner_tag_id = partner_tag_id
           @group_id = group_id
           @partner_id = partner_id
           @customer_id = customer_id
@@ -141,6 +144,7 @@ module OpenApiSDK
           return false unless @tenant_id == other.tenant_id
           return false unless @tag_id == other.tag_id
           return false unless @folder_id == other.folder_id
+          return false unless @partner_tag_id == other.partner_tag_id
           return false unless @group_id == other.group_id
           return false unless @partner_id == other.partner_id
           return false unless @customer_id == other.customer_id

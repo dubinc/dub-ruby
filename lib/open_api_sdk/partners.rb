@@ -508,7 +508,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrieveLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::RetrieveLinksResponseBody]) }
+    sig { params(request: Models::Operations::RetrievePartnerLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::RetrievePartnerLinksResponseBody]) }
     def retrieve_links(request:, timeout_ms: nil, http_headers: nil)
       # retrieve_links - Retrieve a partner's links.
       # Retrieve a partner's links by their partner ID or tenant ID.
@@ -517,7 +517,7 @@ module OpenApiSDK
       url = "#{base_url}/partners/links"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::RetrieveLinksRequest, request, nil)
+      query_params = Utils.get_query_params(Models::Operations::RetrievePartnerLinksRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -533,7 +533,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'retrieveLinks',
+        operation_id: 'retrievePartnerLinks',
         security_source: @sdk_configuration.security_source
       )
 
@@ -594,7 +594,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::RetrieveLinksResponseBody))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::RetrievePartnerLinksResponseBody))
 
           return obj
         else

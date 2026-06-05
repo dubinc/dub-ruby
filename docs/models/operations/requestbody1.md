@@ -1,0 +1,12 @@
+# RequestBody1
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `type`                                                                            | [Models::Operations::RequestBodyType](../../models/operations/requestbodytype.md) | :heavy_check_mark:                                                                | N/A                                                                               |
+| `partner_id`                                                                      | *::String*                                                                        | :heavy_check_mark:                                                                | The ID of the partner to create the commission for.                               |
+| `amount`                                                                          | *::Float*                                                                         | :heavy_check_mark:                                                                | The commission amount in cents.                                                   |
+| `date`                                                                            | *T.nilable(::String)*                                                             | :heavy_minus_sign:                                                                | If not provided, the current date will be used.                                   |
+| `description`                                                                     | *T.nilable(::String)*                                                             | :heavy_minus_sign:                                                                | The description of the commission.                                                |

@@ -20,6 +20,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsRequest
   def tenant_id=(str_); end
   def group_id(); end
   def group_id=(str_); end
+  def partner_tag_id(); end
+  def partner_tag_id=(str_); end
   def invoice_id(); end
   def invoice_id=(str_); end
   def status(); end

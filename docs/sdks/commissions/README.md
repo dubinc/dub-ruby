@@ -5,6 +5,7 @@
 ### Available Operations
 
 * [list](#list) - List all commissions
+* [create](#create) - Create commission
 * [update](#update) - Update a commission
 * [update_many](#update_many) - Bulk update commissions
 
@@ -48,6 +49,57 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::ListCommissionsResponse)](../../models/operations/listcommissionsresponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## create
+
+Create one or more commissions (custom, lead or sale) for a partner. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="createCommission" method="post" path="/commissions" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
+
+req = nil
+res = s.commissions.create(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                                             | [T.any(Models::Operations::RequestBody1, Models::Operations::RequestBody2, Models::Operations::RequestBody3)](../../models/operations/createcommissionrequestbody.md) | :heavy_check_mark:                                                                                                                                                    | The request object to use for the request.                                                                                                                            |
+
+### Response
+
+**[T.nilable(Models::Operations::CreateCommissionResponseBody)](../../models/operations/createcommissionresponsebody.md)**
 
 ### Errors
 

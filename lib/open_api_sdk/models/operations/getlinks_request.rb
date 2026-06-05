@@ -38,17 +38,11 @@ module OpenApiSDK
         field :show_archived, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'showArchived', 'style': 'form', 'explode': true } }
         # DEPRECATED. Filter for links that have at least one tag assigned to them.
         field :with_tags, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'withTags', 'style': 'form', 'explode': true } }
-        # The field to sort the links by. The default is `createdAt`.
-        field :sort_by, Crystalline::Nilable.new(Models::Operations::SortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
-        # The sort order. The default is `desc`.
-        field :sort_order, Crystalline::Nilable.new(Models::Operations::SortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
-        # DEPRECATED. Use `sortBy` instead.
-        field :sort, Crystalline::Nilable.new(Models::Operations::Sort), { 'query_param': { 'field_name': 'sort', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), search: T.nilable(::String), user_id: T.nilable(::String), tenant_id: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Float), show_archived: T.nilable(T::Boolean), with_tags: T.nilable(T::Boolean), sort_by: T.nilable(Models::Operations::SortBy), sort_order: T.nilable(Models::Operations::SortOrder), sort: T.nilable(Models::Operations::Sort), page_size: T.nilable(::Float)).void }
-        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, ending_before: nil, starting_after: nil, page: nil, show_archived: false, with_tags: false, sort_by: Models::Operations::SortBy::CREATED_AT, sort_order: Models::Operations::SortOrder::DESC, sort: Models::Operations::Sort::CREATED_AT, page_size: 100.0)
+        sig { params(domain: T.nilable(::String), tag_id: T.nilable(::String), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), folder_id: T.nilable(::String), search: T.nilable(::String), user_id: T.nilable(::String), tenant_id: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Float), show_archived: T.nilable(T::Boolean), with_tags: T.nilable(T::Boolean), page_size: T.nilable(::Float)).void }
+        def initialize(domain: nil, tag_id: nil, tag_ids: nil, tag_names: nil, folder_id: nil, search: nil, user_id: nil, tenant_id: nil, ending_before: nil, starting_after: nil, page: nil, show_archived: false, with_tags: false, page_size: 100.0)
           @domain = domain
           @tag_id = tag_id
           @tag_ids = tag_ids
@@ -62,9 +56,6 @@ module OpenApiSDK
           @page = page
           @show_archived = show_archived
           @with_tags = with_tags
-          @sort_by = sort_by
-          @sort_order = sort_order
-          @sort = sort
           @page_size = page_size
         end
 
@@ -84,9 +75,6 @@ module OpenApiSDK
           return false unless @page == other.page
           return false unless @show_archived == other.show_archived
           return false unless @with_tags == other.with_tags
-          return false unless @sort_by == other.sort_by
-          return false unless @sort_order == other.sort_order
-          return false unless @sort == other.sort
           return false unless @page_size == other.page_size
           true
         end

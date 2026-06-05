@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 ruby:
-  version: 0.12.7
+  version: 0.12.8
   additionalDependencies:
     development: {}
     runtime: {}
@@ -53,6 +53,7 @@ ruby:
       webhooks: models/webhooks
   inferUnionDiscriminators: false
   inputModelSuffix: input
+  license: Apache-2.0
   maxMethodParams: 0
   module: OpenApiSdk
   multipartArrayFormat: legacy

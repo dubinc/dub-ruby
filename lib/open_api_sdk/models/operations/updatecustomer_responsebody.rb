@@ -14,12 +14,12 @@ module OpenApiSDK
 
         # The unique ID of the customer. You may use either the customer's `id` on Dub (obtained via `/customers` endpoint) or their `externalId` (unique ID within your system, prefixed with `ext_`, e.g. `ext_123`).
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
-        # Name of the customer.
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
         # Unique identifier for the customer in the client's app.
         field :external_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId'), required: true } }
         # The date the customer was created (usually the signup date or trial start date).
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
+        # Name of the customer.
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
         # Email of the customer.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email') } }
         # Avatar URL of the customer.
@@ -45,12 +45,12 @@ module OpenApiSDK
 
         field :discount, Crystalline::Nilable.new(Models::Operations::UpdateCustomerDiscount), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discount') } }
 
-        sig { params(id: ::String, name: ::String, external_id: ::String, created_at: ::String, email: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String), country: T.nilable(::String), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), first_sale_at: T.nilable(::String), subscription_canceled_at: T.nilable(::String), link: T.nilable(Models::Operations::UpdateCustomerLink), program_id: T.nilable(::String), partner: T.nilable(Models::Operations::UpdateCustomerPartner), discount: T.nilable(Models::Operations::UpdateCustomerDiscount)).void }
-        def initialize(id:, name:, external_id:, created_at:, email: nil, avatar: nil, stripe_customer_id: nil, country: nil, sales: nil, sale_amount: nil, first_sale_at: nil, subscription_canceled_at: nil, link: nil, program_id: nil, partner: nil, discount: nil)
+        sig { params(id: ::String, external_id: ::String, created_at: ::String, name: T.nilable(::String), email: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String), country: T.nilable(::String), sales: T.nilable(::Float), sale_amount: T.nilable(::Float), first_sale_at: T.nilable(::String), subscription_canceled_at: T.nilable(::String), link: T.nilable(Models::Operations::UpdateCustomerLink), program_id: T.nilable(::String), partner: T.nilable(Models::Operations::UpdateCustomerPartner), discount: T.nilable(Models::Operations::UpdateCustomerDiscount)).void }
+        def initialize(id:, external_id:, created_at:, name: nil, email: nil, avatar: nil, stripe_customer_id: nil, country: nil, sales: nil, sale_amount: nil, first_sale_at: nil, subscription_canceled_at: nil, link: nil, program_id: nil, partner: nil, discount: nil)
           @id = id
-          @name = name
           @external_id = external_id
           @created_at = created_at
+          @name = name
           @email = email
           @avatar = avatar
           @stripe_customer_id = stripe_customer_id
@@ -69,9 +69,9 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
-          return false unless @name == other.name
           return false unless @external_id == other.external_id
           return false unless @created_at == other.created_at
+          return false unless @name == other.name
           return false unless @email == other.email
           return false unless @avatar == other.avatar
           return false unless @stripe_customer_id == other.stripe_customer_id

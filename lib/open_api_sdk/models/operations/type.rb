@@ -7,12 +7,13 @@
 module OpenApiSDK
   module Models
     module Operations
-      # Type
+      # Type - Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.
       class Type < T::Enum
         enums do
           CLICK = new('click')
           LEAD = new('lead')
           SALE = new('sale')
+          REFERRAL = new('referral')
           CUSTOM = new('custom')
         end
       end
