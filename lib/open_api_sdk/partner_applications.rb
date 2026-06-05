@@ -270,7 +270,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::ApprovePartnerRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ApprovePartnerResponseBody) }
+    sig { params(request: Models::Operations::ApprovePartnerApplicationRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ApprovePartnerApplicationResponseBody) }
     def approve(request:, timeout_ms: nil, http_headers: nil)
       # approve - Approve a partner application
       # Approve a pending partner application to your program. The partner will be enrolled in the specified group and notified of the approval.
@@ -305,7 +305,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'approvePartner',
+        operation_id: 'approvePartnerApplication',
         security_source: @sdk_configuration.security_source
       )
 
@@ -366,7 +366,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::ApprovePartnerResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::ApprovePartnerApplicationResponseBody)
 
           return obj
         else
@@ -509,7 +509,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RejectPartnerRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::RejectPartnerResponseBody) }
+    sig { params(request: Models::Operations::RejectPartnerApplicationRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::RejectPartnerApplicationResponseBody) }
     def reject(request:, timeout_ms: nil, http_headers: nil)
       # reject - Reject a partner application
       # Reject a pending partner application to your program. The partner will be notified via email that their application was not approved.
@@ -544,7 +544,7 @@ module OpenApiSDK
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'rejectPartner',
+        operation_id: 'rejectPartnerApplication',
         security_source: @sdk_configuration.security_source
       )
 
@@ -605,7 +605,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::RejectPartnerResponseBody)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::RejectPartnerApplicationResponseBody)
 
           return obj
         else

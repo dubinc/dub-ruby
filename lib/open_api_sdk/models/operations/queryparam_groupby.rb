@@ -31,6 +31,7 @@ module OpenApiSDK
           TOP_BASE_URLS = new('top_base_urls')
           TOP_PARTNERS = new('top_partners')
           TOP_GROUPS = new('top_groups')
+          TOP_PARTNER_TAGS = new('top_partner_tags')
           UTM_SOURCES = new('utm_sources')
           UTM_MEDIUMS = new('utm_mediums')
           UTM_CAMPAIGNS = new('utm_campaigns')

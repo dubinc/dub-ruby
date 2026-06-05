@@ -148,7 +148,7 @@ Retrieve a partner's links by their partner ID or tenant ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="retrieveLinks" method="get" path="/partners/links" -->
+<!-- UsageSnippet language="ruby" operationID="retrievePartnerLinks" method="get" path="/partners/links" -->
 ```ruby
 require 'dub'
 
@@ -159,7 +159,7 @@ s = ::OpenApiSDK::Dub.new(
   )
 )
 
-req = Models::Operations::RetrieveLinksRequest.new
+req = Models::Operations::RetrievePartnerLinksRequest.new
 res = s.partners.retrieve_links(request: req)
 
 unless res.nil?
@@ -170,13 +170,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [Models::Operations::RetrieveLinksRequest](../../models/operations/retrievelinksrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::RetrievePartnerLinksRequest](../../models/operations/retrievepartnerlinksrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(T::Array[Models::Operations::RetrieveLinksResponseBody])](../../models/operations/.md)**
+**[T.nilable(T::Array[Models::Operations::RetrievePartnerLinksResponseBody])](../../models/operations/.md)**
 
 ### Errors
 

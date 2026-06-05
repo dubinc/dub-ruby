@@ -33,6 +33,12 @@ actions:
         - "lang": "ruby"
           "label": "listCommissions"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListCommissionsRequest.new(\n  ending_before: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',\n  starting_after: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',\n  page: 1.0,\n  page_size: 50.0\n)\nres = s.commissions.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/commissions"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "createCommission"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = nil\nres = s.commissions.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/commissions/bulk"]["patch"]
     update:
       "x-codeSamples":
@@ -223,14 +229,14 @@ actions:
     update:
       "x-codeSamples":
         - "lang": "ruby"
-          "label": "approvePartner"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ApprovePartnerRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.approve(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "label": "approvePartnerApplication"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ApprovePartnerApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.approve(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/applications/reject"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
-          "label": "rejectPartner"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RejectPartnerRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.reject(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "label": "rejectPartnerApplication"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RejectPartnerApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.reject(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/ban"]["post"]
     update:
       "x-codeSamples":
@@ -247,8 +253,8 @@ actions:
     update:
       "x-codeSamples":
         - "lang": "ruby"
-          "label": "retrieveLinks"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RetrieveLinksRequest.new\nres = s.partners.retrieve_links(request: req)\n\nunless res.nil?\n  # handle response\nend"
+          "label": "retrievePartnerLinks"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RetrievePartnerLinksRequest.new\nres = s.partners.retrieve_links(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/links"]["post"]
     update:
       "x-codeSamples":

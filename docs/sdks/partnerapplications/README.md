@@ -70,7 +70,7 @@ Approve a pending partner application to your program. The partner will be enrol
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="approvePartner" method="post" path="/partners/applications/approve" -->
+<!-- UsageSnippet language="ruby" operationID="approvePartnerApplication" method="post" path="/partners/applications/approve" -->
 ```ruby
 require 'dub'
 
@@ -81,7 +81,7 @@ s = ::OpenApiSDK::Dub.new(
   )
 )
 
-req = Models::Operations::ApprovePartnerRequestBody.new(
+req = Models::Operations::ApprovePartnerApplicationRequestBody.new(
   partner_id: '<id>'
 )
 res = s.partner_applications.approve(request: req)
@@ -94,13 +94,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [Models::Operations::ApprovePartnerRequestBody](../../models/operations/approvepartnerrequestbody.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [Models::Operations::ApprovePartnerApplicationRequestBody](../../models/operations/approvepartnerapplicationrequestbody.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
 ### Response
 
-**[T.nilable(Models::Operations::ApprovePartnerResponseBody)](../../models/operations/approvepartnerresponsebody.md)**
+**[T.nilable(Models::Operations::ApprovePartnerApplicationResponseBody)](../../models/operations/approvepartnerapplicationresponsebody.md)**
 
 ### Errors
 
@@ -123,7 +123,7 @@ Reject a pending partner application to your program. The partner will be notifi
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="rejectPartner" method="post" path="/partners/applications/reject" -->
+<!-- UsageSnippet language="ruby" operationID="rejectPartnerApplication" method="post" path="/partners/applications/reject" -->
 ```ruby
 require 'dub'
 
@@ -134,7 +134,7 @@ s = ::OpenApiSDK::Dub.new(
   )
 )
 
-req = Models::Operations::RejectPartnerRequestBody.new(
+req = Models::Operations::RejectPartnerApplicationRequestBody.new(
   partner_id: '<id>'
 )
 res = s.partner_applications.reject(request: req)
@@ -147,13 +147,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [Models::Operations::RejectPartnerRequestBody](../../models/operations/rejectpartnerrequestbody.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::RejectPartnerApplicationRequestBody](../../models/operations/rejectpartnerapplicationrequestbody.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
-**[T.nilable(Models::Operations::RejectPartnerResponseBody)](../../models/operations/rejectpartnerresponsebody.md)**
+**[T.nilable(Models::Operations::RejectPartnerApplicationResponseBody)](../../models/operations/rejectpartnerapplicationresponsebody.md)**
 
 ### Errors
 

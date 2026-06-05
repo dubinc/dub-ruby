@@ -19,14 +19,14 @@ module OpenApiSDK
         # The page number for pagination.
         field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The field to sort the tags by.
-        field :sort_by, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
+        field :sort_by, Crystalline::Nilable.new(Models::Operations::QueryParamSortBy), { 'query_param': { 'field_name': 'sortBy', 'style': 'form', 'explode': true } }
         # The order to sort the tags by.
-        field :sort_order, Crystalline::Nilable.new(Models::Operations::GetTagsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
+        field :sort_order, Crystalline::Nilable.new(Models::Operations::QueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(search: T.nilable(::String), ids: T.nilable(T.any(::String, T::Array[::String])), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::GetTagsQueryParamSortBy), sort_order: T.nilable(Models::Operations::GetTagsQueryParamSortOrder), page_size: T.nilable(::Float)).void }
-        def initialize(search: nil, ids: nil, page: nil, sort_by: Models::Operations::GetTagsQueryParamSortBy::NAME, sort_order: Models::Operations::GetTagsQueryParamSortOrder::ASC, page_size: 100.0)
+        sig { params(search: T.nilable(::String), ids: T.nilable(T.any(::String, T::Array[::String])), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::QueryParamSortBy), sort_order: T.nilable(Models::Operations::QueryParamSortOrder), page_size: T.nilable(::Float)).void }
+        def initialize(search: nil, ids: nil, page: nil, sort_by: Models::Operations::QueryParamSortBy::NAME, sort_order: Models::Operations::QueryParamSortOrder::ASC, page_size: 100.0)
           @search = search
           @ids = ids
           @page = page

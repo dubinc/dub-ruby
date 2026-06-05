@@ -22,6 +22,8 @@ class OpenApiSDK::Models::Operations::RetrieveAnalyticsRequest
   def tag_id=(str_); end
   def folder_id(); end
   def folder_id=(str_); end
+  def partner_tag_id(); end
+  def partner_tag_id=(str_); end
   def group_id(); end
   def group_id=(str_); end
   def partner_id(); end

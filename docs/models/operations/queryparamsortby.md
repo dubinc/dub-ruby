@@ -1,18 +1,19 @@
 # QueryParamSortBy
 
-The field to sort the events by. The default is `timestamp`.
+The field to sort the tags by.
 
 ## Example Usage
 
 ```ruby
 require "dub"
 
-value = QueryParamSortBy::TIMESTAMP
+value = QueryParamSortBy::NAME
 ```
 
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `TIMESTAMP` | timestamp   |
+| Name         | Value        |
+| ------------ | ------------ |
+| `NAME`       | name         |
+| `CREATED_AT` | createdAt    |

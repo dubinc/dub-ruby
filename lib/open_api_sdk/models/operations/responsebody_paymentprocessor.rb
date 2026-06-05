@@ -14,7 +14,9 @@ module OpenApiSDK
           SHOPIFY = new('shopify')
           POLAR = new('polar')
           PADDLE = new('paddle')
+          APPLE = new('apple')
           REVENUECAT = new('revenuecat')
+          DUB = new('dub')
           CUSTOM = new('custom')
         end
       end

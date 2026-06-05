@@ -12,6 +12,8 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def network_status(); end
+  def network_status=(str_); end
   def program_id(); end
   def program_id=(str_); end
   def partner_id(); end
@@ -20,14 +22,16 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def created_at=(str_); end
   def status(); end
   def status=(str_); end
-  def company_name(); end
-  def company_name=(str_); end
+  def username(); end
+  def username=(str_); end
   def email(); end
   def email=(str_); end
   def image(); end
   def image=(str_); end
   def country(); end
   def country=(str_); end
+  def company_name(); end
+  def company_name=(str_); end
   def default_payout_method(); end
   def default_payout_method=(str_); end
   def paypal_email(); end
@@ -36,14 +40,14 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def stripe_connect_id=(str_); end
   def payouts_enabled_at(); end
   def payouts_enabled_at=(str_); end
-  def trusted_at(); end
-  def trusted_at=(str_); end
   def identity_verified_at(); end
   def identity_verified_at=(str_); end
   def tenant_id(); end
   def tenant_id=(str_); end
   def links(); end
   def links=(str_); end
+  def tags(); end
+  def tags=(str_); end
   def description(); end
   def description=(str_); end
   def group_id(); end
@@ -56,6 +60,8 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def lead_reward_id=(str_); end
   def sale_reward_id(); end
   def sale_reward_id=(str_); end
+  def referral_reward_id(); end
+  def referral_reward_id=(str_); end
   def discount_id(); end
   def discount_id=(str_); end
   def application_id(); end
@@ -104,4 +110,6 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def instagram=(str_); end
   def tiktok(); end
   def tiktok=(str_); end
+  def trusted_at(); end
+  def trusted_at=(str_); end
 end

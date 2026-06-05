@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Models
     module Operations
-      # QueryParamSortOrder - The sort order. The default is `desc`.
+      # QueryParamSortOrder - The order to sort the tags by.
       class QueryParamSortOrder < T::Enum
         enums do
           ASC = new('asc')
