@@ -16,11 +16,11 @@ module OpenApiSDK
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
         # The description of the folder.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
-        # The access level of the folder within the workspace.
+        # The workspace-level access level settings for the folder. Default is `write` which allows full access to the folder for all team members. The other options are `read` (view-only access) and `null` (no access) and are only available on Business plans and above.
         field :access_level, Crystalline::Nilable.new(Models::Operations::AccessLevel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accessLevel'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::AccessLevel, true) } }
 
         sig { params(name: ::String, description: T.nilable(::String), access_level: T.nilable(Models::Operations::AccessLevel)).void }
-        def initialize(name:, description: nil, access_level: nil)
+        def initialize(name:, description: nil, access_level: Models::Operations::AccessLevel::WRITE)
           @name = name
           @description = description
           @access_level = access_level

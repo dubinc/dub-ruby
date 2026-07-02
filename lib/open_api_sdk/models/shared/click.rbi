@@ -36,6 +36,8 @@ class OpenApiSDK::Models::Shared::Click
   def qr=(str_); end
   def ip(); end
   def ip=(str_); end
+  def ua(); end
+  def ua=(str_); end
   def trigger(); end
   def trigger=(str_); end
 end

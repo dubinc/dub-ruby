@@ -20,6 +20,8 @@ module OpenApiSDK
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
         # Filter the list of payouts by invoice ID (the unique ID of the invoice you receive for each batch payout you process on Dub). Pending payouts will not have an invoice ID.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'invoiceId', 'style': 'form', 'explode': true } }
+        # Filter the list of payouts by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
         # The page number for pagination.
         field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The field to sort the list of payouts by.
@@ -29,12 +31,13 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(status: T.nilable(Models::Operations::ListPayoutsQueryParamStatus), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), invoice_id: T.nilable(::String), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::ListPayoutsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPayoutsQueryParamSortOrder), page_size: T.nilable(::Float)).void }
-        def initialize(status: nil, partner_id: nil, tenant_id: nil, invoice_id: nil, page: nil, sort_by: Models::Operations::ListPayoutsQueryParamSortBy::AMOUNT, sort_order: Models::Operations::ListPayoutsQueryParamSortOrder::DESC, page_size: 100.0)
+        sig { params(status: T.nilable(Models::Operations::ListPayoutsQueryParamStatus), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), invoice_id: T.nilable(::String), group_id: T.nilable(::String), page: T.nilable(::Float), sort_by: T.nilable(Models::Operations::ListPayoutsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListPayoutsQueryParamSortOrder), page_size: T.nilable(::Float)).void }
+        def initialize(status: nil, partner_id: nil, tenant_id: nil, invoice_id: nil, group_id: nil, page: nil, sort_by: Models::Operations::ListPayoutsQueryParamSortBy::AMOUNT, sort_order: Models::Operations::ListPayoutsQueryParamSortOrder::DESC, page_size: 100.0)
           @status = status
           @partner_id = partner_id
           @tenant_id = tenant_id
           @invoice_id = invoice_id
+          @group_id = group_id
           @page = page
           @sort_by = sort_by
           @sort_order = sort_order
@@ -48,6 +51,7 @@ module OpenApiSDK
           return false unless @partner_id == other.partner_id
           return false unless @tenant_id == other.tenant_id
           return false unless @invoice_id == other.invoice_id
+          return false unless @group_id == other.group_id
           return false unless @page == other.page
           return false unless @sort_by == other.sort_by
           return false unless @sort_order == other.sort_order

@@ -15,6 +15,7 @@
 | `device`              | *::String*            | :heavy_check_mark:    | N/A                   |
 | `browser`             | *::String*            | :heavy_check_mark:    | N/A                   |
 | `os`                  | *::String*            | :heavy_check_mark:    | N/A                   |
+| `ua`                  | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `trigger`             | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `referer`             | *::String*            | :heavy_check_mark:    | N/A                   |
 | `referer_url`         | *::String*            | :heavy_check_mark:    | N/A                   |

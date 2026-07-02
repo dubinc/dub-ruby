@@ -222,6 +222,7 @@ module OpenApiSDK
       autoload :Order, 'open_api_sdk/models/operations/order.rb'
       autoload :Partner, 'open_api_sdk/models/operations/partner.rb'
       autoload :PaymentProcessor, 'open_api_sdk/models/operations/paymentprocessor.rb'
+      autoload :Prices, 'open_api_sdk/models/operations/prices.rb'
       autoload :QueryParamEvent, 'open_api_sdk/models/operations/queryparam_event.rb'
       autoload :QueryParamGroupBy, 'open_api_sdk/models/operations/queryparam_groupby.rb'
       autoload :QueryParamInterval, 'open_api_sdk/models/operations/queryparam_interval.rb'

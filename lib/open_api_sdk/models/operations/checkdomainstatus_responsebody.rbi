@@ -12,8 +12,10 @@ class OpenApiSDK::Models::Operations::CheckDomainStatusResponseBody
   def domain=(str_); end
   def available(); end
   def available=(str_); end
-  def price(); end
-  def price=(str_); end
   def premium(); end
   def premium=(str_); end
+  def prices(); end
+  def prices=(str_); end
+  def price(); end
+  def price=(str_); end
 end

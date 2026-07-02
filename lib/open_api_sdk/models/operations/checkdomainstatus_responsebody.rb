@@ -16,17 +16,22 @@ module OpenApiSDK
         field :domain, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domain'), required: true } }
         # Whether the domain is available.
         field :available, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('available'), required: true } }
-        # The price description.
-        field :price, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('price'), required: true } }
         # Whether the domain is a premium domain.
         field :premium, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('premium'), required: true } }
+        # Price details for the domain. Will be null if the domain is not available.
+        field :prices, Crystalline::Nilable.new(Models::Operations::Prices), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prices'), required: true } }
+        # Deprecated: Use `prices` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :price, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('price'), required: true } }
 
-        sig { params(domain: ::String, available: T::Boolean, price: T.nilable(::String), premium: T.nilable(T::Boolean)).void }
-        def initialize(domain:, available:, price: nil, premium: nil)
+        sig { params(domain: ::String, available: T::Boolean, premium: T.nilable(T::Boolean), prices: T.nilable(Models::Operations::Prices), price: T.nilable(::String)).void }
+        def initialize(domain:, available:, premium: nil, prices: nil, price: nil)
           @domain = domain
           @available = available
-          @price = price
           @premium = premium
+          @prices = prices
+          @price = price
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -34,8 +39,9 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @domain == other.domain
           return false unless @available == other.available
-          return false unless @price == other.price
           return false unless @premium == other.premium
+          return false unless @prices == other.prices
+          return false unless @price == other.price
           true
         end
       end
