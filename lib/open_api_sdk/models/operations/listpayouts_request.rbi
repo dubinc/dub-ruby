@@ -16,6 +16,8 @@ class OpenApiSDK::Models::Operations::ListPayoutsRequest
   def tenant_id=(str_); end
   def invoice_id(); end
   def invoice_id=(str_); end
+  def group_id(); end
+  def group_id=(str_); end
   def page(); end
   def page=(str_); end
   def sort_by(); end

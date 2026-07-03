@@ -7,7 +7,7 @@
 module OpenApiSDK
   module Models
     module Shared
-      # AccessLevel - The access level of the folder within the workspace.
+      # AccessLevel - The workspace-level access level settings for the folder. Default is `write` which allows full access to the folder for all team members. The other options are `read` (view-only access) and `null` (no access) and are only available on Business plans and above.
       class AccessLevel < T::Enum
         enums do
           WRITE = new('write')

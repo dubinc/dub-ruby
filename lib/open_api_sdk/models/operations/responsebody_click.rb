@@ -41,10 +41,12 @@ module OpenApiSDK
 
         field :ip, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ip'), required: true } }
 
+        field :ua, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ua') } }
+
         field :trigger, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('trigger') } }
 
-        sig { params(id: ::String, timestamp: ::String, url: ::String, country: ::String, city: ::String, region: ::String, continent: ::String, device: ::String, browser: ::String, os: ::String, referer: ::String, referer_url: ::String, qr: T::Boolean, ip: ::String, trigger: T.nilable(::String)).void }
-        def initialize(id:, timestamp:, url:, country:, city:, region:, continent:, device:, browser:, os:, referer:, referer_url:, qr:, ip:, trigger: nil)
+        sig { params(id: ::String, timestamp: ::String, url: ::String, country: ::String, city: ::String, region: ::String, continent: ::String, device: ::String, browser: ::String, os: ::String, referer: ::String, referer_url: ::String, qr: T::Boolean, ip: ::String, ua: T.nilable(::String), trigger: T.nilable(::String)).void }
+        def initialize(id:, timestamp:, url:, country:, city:, region:, continent:, device:, browser:, os:, referer:, referer_url:, qr:, ip:, ua: nil, trigger: nil)
           @id = id
           @timestamp = timestamp
           @url = url
@@ -59,6 +61,7 @@ module OpenApiSDK
           @referer_url = referer_url
           @qr = qr
           @ip = ip
+          @ua = ua
           @trigger = trigger
         end
 
@@ -79,6 +82,7 @@ module OpenApiSDK
           return false unless @referer_url == other.referer_url
           return false unless @qr == other.qr
           return false unless @ip == other.ip
+          return false unless @ua == other.ua
           return false unless @trigger == other.trigger
           true
         end

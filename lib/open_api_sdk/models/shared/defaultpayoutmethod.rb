@@ -13,6 +13,7 @@ module OpenApiSDK
           CONNECT = new('connect')
           STABLECOIN = new('stablecoin')
           PAYPAL = new('paypal')
+          TREMENDOUS = new('tremendous')
         end
       end
     end
