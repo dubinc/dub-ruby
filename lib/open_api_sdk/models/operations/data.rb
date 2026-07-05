@@ -74,8 +74,6 @@ module OpenApiSDK
         field :utm_content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('utm_content') } }
         # The referral tag of the short link. If set, this will populate or override the `ref` query parameter in the destination URL.
         field :ref, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ref') } }
-        # An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
-        field :webhook_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
         # An array of A/B test URLs and the percentage of traffic to send to each URL.
         field :test_variants, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::BulkUpdateLinksTestVariants)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('testVariants') } }
         # The date and time when the tests started.
@@ -86,9 +84,13 @@ module OpenApiSDK
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :tag_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagId') } }
+        # Deprecated: You can now enable link.clicked webhooks for all links in a workspace or folder without passing this field manually. An array of webhook IDs to trigger when the link is clicked. These webhooks will receive click event data.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :webhook_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('webhookIds') } }
 
-        sig { params(url: T.nilable(::String), track_conversion: T.nilable(T::Boolean), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), folder_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), geo: T.nilable(T::Hash[Symbol, ::String]), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String]), test_variants: T.nilable(T::Array[Models::Operations::BulkUpdateLinksTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String), tag_id: T.nilable(::String)).void }
-        def initialize(url: nil, track_conversion: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, public_stats: nil, tenant_id: nil, program_id: nil, partner_id: nil, folder_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, geo: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, webhook_ids: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil, tag_id: nil)
+        sig { params(url: T.nilable(::String), track_conversion: T.nilable(T::Boolean), archived: T.nilable(T::Boolean), tag_ids: T.nilable(T.any(::String, T::Array[::String])), tag_names: T.nilable(T.any(::String, T::Array[::String])), proxy: T.nilable(T::Boolean), rewrite: T.nilable(T::Boolean), do_index: T.nilable(T::Boolean), public_stats: T.nilable(T::Boolean), tenant_id: T.nilable(::String), program_id: T.nilable(::String), partner_id: T.nilable(::String), folder_id: T.nilable(::String), comments: T.nilable(::String), expires_at: T.nilable(::String), expired_url: T.nilable(::String), password: T.nilable(::String), title: T.nilable(::String), description: T.nilable(::String), image: T.nilable(::String), video: T.nilable(::String), ios: T.nilable(::String), android: T.nilable(::String), geo: T.nilable(T::Hash[Symbol, ::String]), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), ref: T.nilable(::String), test_variants: T.nilable(T::Array[Models::Operations::BulkUpdateLinksTestVariants]), test_started_at: T.nilable(::String), test_completed_at: T.nilable(::String), tag_id: T.nilable(::String), webhook_ids: T.nilable(T::Array[::String])).void }
+        def initialize(url: nil, track_conversion: nil, archived: nil, tag_ids: nil, tag_names: nil, proxy: nil, rewrite: nil, do_index: nil, public_stats: nil, tenant_id: nil, program_id: nil, partner_id: nil, folder_id: nil, comments: nil, expires_at: nil, expired_url: nil, password: nil, title: nil, description: nil, image: nil, video: nil, ios: nil, android: nil, geo: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, ref: nil, test_variants: nil, test_started_at: nil, test_completed_at: nil, tag_id: nil, webhook_ids: nil)
           @url = url
           @track_conversion = track_conversion
           @archived = archived
@@ -119,11 +121,11 @@ module OpenApiSDK
           @utm_term = utm_term
           @utm_content = utm_content
           @ref = ref
-          @webhook_ids = webhook_ids
           @test_variants = test_variants
           @test_started_at = test_started_at
           @test_completed_at = test_completed_at
           @tag_id = tag_id
+          @webhook_ids = webhook_ids
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -159,11 +161,11 @@ module OpenApiSDK
           return false unless @utm_term == other.utm_term
           return false unless @utm_content == other.utm_content
           return false unless @ref == other.ref
-          return false unless @webhook_ids == other.webhook_ids
           return false unless @test_variants == other.test_variants
           return false unless @test_started_at == other.test_started_at
           return false unless @test_completed_at == other.test_completed_at
           return false unless @tag_id == other.tag_id
+          return false unless @webhook_ids == other.webhook_ids
           true
         end
       end

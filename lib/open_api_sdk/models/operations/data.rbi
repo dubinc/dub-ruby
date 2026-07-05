@@ -68,8 +68,6 @@ class OpenApiSDK::Models::Operations::Data
   def utm_content=(str_); end
   def ref(); end
   def ref=(str_); end
-  def webhook_ids(); end
-  def webhook_ids=(str_); end
   def test_variants(); end
   def test_variants=(str_); end
   def test_started_at(); end
@@ -78,4 +76,6 @@ class OpenApiSDK::Models::Operations::Data
   def test_completed_at=(str_); end
   def tag_id(); end
   def tag_id=(str_); end
+  def webhook_ids(); end
+  def webhook_ids=(str_); end
 end
