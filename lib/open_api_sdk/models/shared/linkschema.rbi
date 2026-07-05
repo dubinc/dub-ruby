@@ -16,8 +16,6 @@ class OpenApiSDK::Models::Shared::LinkSchema
   def key=(str_); end
   def url(); end
   def url=(str_); end
-  def webhook_ids(); end
-  def webhook_ids=(str_); end
   def short_link(); end
   def short_link=(str_); end
   def qr_code(); end
@@ -30,6 +28,8 @@ class OpenApiSDK::Models::Shared::LinkSchema
   def updated_at=(str_); end
   def project_id(); end
   def project_id=(str_); end
+  def webhook_ids(); end
+  def webhook_ids=(str_); end
   def external_id(); end
   def external_id=(str_); end
   def tenant_id(); end
