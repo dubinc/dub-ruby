@@ -29,8 +29,8 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::ListCommissionsRequest.new(
   ending_before: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
   starting_after: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.commissions.list(request: req)
 

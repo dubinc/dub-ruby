@@ -29,7 +29,7 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::ListDomainsRequest.new(
-  page: 1.0
+  page: 1
 )
 res = s.domains.list(request: req)
 

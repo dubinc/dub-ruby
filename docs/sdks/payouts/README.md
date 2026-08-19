@@ -24,8 +24,8 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::ListPayoutsRequest.new(
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.payouts.list(request: req)
 

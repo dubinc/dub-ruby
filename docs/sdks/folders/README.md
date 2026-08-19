@@ -27,7 +27,7 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::ListFoldersRequest.new(
-  page: 1.0
+  page: 1
 )
 res = s.folders.list(request: req)
 

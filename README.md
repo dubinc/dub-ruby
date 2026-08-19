@@ -144,8 +144,8 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::GetLinksRequest.new(
   ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
   starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.links.list(request: req)
 
@@ -185,6 +185,12 @@ end
 * [get](docs/sdks/customers/README.md#get) - Retrieve a customer
 * [delete](docs/sdks/customers/README.md#delete) - Delete a customer
 * [update](docs/sdks/customers/README.md#update) - Update a customer
+
+### [DiscountCodes](docs/sdks/discountcodes/README.md)
+
+* [list](docs/sdks/discountcodes/README.md#list) - List discount codes
+* [create](docs/sdks/discountcodes/README.md#create) - Create a discount code
+* [delete](docs/sdks/discountcodes/README.md#delete) - Delete a discount code
 
 ### [Domains](docs/sdks/domains/README.md)
 
@@ -308,8 +314,8 @@ begin
     req = Models::Operations::GetLinksRequest.new(
       ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
       starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
-      page: 1.0,
-      page_size: 50.0
+      page: 1,
+      page_size: 50
     )
     res = s.links.list(request: req)
 
@@ -371,8 +377,8 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::GetLinksRequest.new(
   ending_before: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
   starting_after: 'link_1KAP4CDPBSVMMBMH9XX3YZZ0Z...',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.links.list(request: req)
 

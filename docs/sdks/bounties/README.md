@@ -27,8 +27,8 @@ s = ::OpenApiSDK::Dub.new(
 
 req = Models::Operations::ListBountySubmissionsRequest.new(
   bounty_id: '<id>',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.bounties.list_submissions(request: req)
 
