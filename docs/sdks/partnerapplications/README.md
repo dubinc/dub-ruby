@@ -28,8 +28,8 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::ListPartnerApplicationsRequest.new(
   country: 'US',
   group_id: 'grp_123',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.partner_applications.list(request: req)
 

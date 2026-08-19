@@ -37,8 +37,8 @@ req = Models::Operations::ListPartnersRequest.new(
   email: 'panic@thedis.co',
   tenant_id: '1K0NM7HCN944PEMZ3CQPH43H8',
   search: 'john',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.partners.list(request: req)
 

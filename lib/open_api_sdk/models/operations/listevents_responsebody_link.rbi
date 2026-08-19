@@ -20,10 +20,6 @@ class OpenApiSDK::Models::Operations::ListEventsResponseBodyLink
   def track_conversion=(str_); end
   def archived(); end
   def archived=(str_); end
-  def expires_at(); end
-  def expires_at=(str_); end
-  def disabled_at(); end
-  def disabled_at=(str_); end
   def proxy(); end
   def proxy=(str_); end
   def rewrite(); end
@@ -36,14 +32,8 @@ class OpenApiSDK::Models::Operations::ListEventsResponseBodyLink
   def short_link=(str_); end
   def qr_code(); end
   def qr_code=(str_); end
-  def test_started_at(); end
-  def test_started_at=(str_); end
-  def test_completed_at(); end
-  def test_completed_at=(str_); end
   def workspace_id(); end
   def workspace_id=(str_); end
-  def last_clicked(); end
-  def last_clicked=(str_); end
   def created_at(); end
   def created_at=(str_); end
   def updated_at(); end
@@ -60,8 +50,12 @@ class OpenApiSDK::Models::Operations::ListEventsResponseBodyLink
   def program_id=(str_); end
   def partner_id(); end
   def partner_id=(str_); end
+  def expires_at(); end
+  def expires_at=(str_); end
   def expired_url(); end
   def expired_url=(str_); end
+  def disabled_at(); end
+  def disabled_at=(str_); end
   def password(); end
   def password=(str_); end
   def title(); end
@@ -94,8 +88,14 @@ class OpenApiSDK::Models::Operations::ListEventsResponseBodyLink
   def utm_term=(str_); end
   def utm_content(); end
   def utm_content=(str_); end
+  def test_started_at(); end
+  def test_started_at=(str_); end
+  def test_completed_at(); end
+  def test_completed_at=(str_); end
   def user_id(); end
   def user_id=(str_); end
+  def last_clicked(); end
+  def last_clicked=(str_); end
   def tag_id(); end
   def tag_id=(str_); end
   def test_variants(); end

@@ -29,8 +29,8 @@ s = ::OpenApiSDK::Dub.new(
 req = Models::Operations::GetCustomersRequest.new(
   ending_before: 'cus_1KAP4CDPBSVMMBMH9XX3YZZ0Z',
   starting_after: 'cus_1KAP4CDPBSVMMBMH9XX3YZZ0Z',
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.customers.list(request: req)
 

@@ -27,8 +27,8 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::GetTagsRequest.new(
-  page: 1.0,
-  page_size: 50.0
+  page: 1,
+  page_size: 50
 )
 res = s.tags.list(request: req)
 

@@ -32,6 +32,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsResponseBody
   def invoice_id=(str_); end
   def description(); end
   def description=(str_); end
+  def paid_at(); end
+  def paid_at=(str_); end
   def user_id(); end
   def user_id=(str_); end
   def customer(); end
