@@ -16,28 +16,30 @@ module OpenApiSDK
 
         # The commission's unique ID on Dub.
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
-
+        # The type of commission. Can be `click`, `lead`, `sale`, `referral`, or `custom`.
+        field :type, Models::Operations::ListCommissionsType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListCommissionsType, false) } }
+        # The associated event amount in cents. For sale commissions, this is the sale amount.
         field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
-
+        # The amount earned by the partner, in cents.
         field :earnings, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('earnings'), required: true } }
-
+        # The currency of the commission, as an ISO 4217 currency code.
         field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
-
+        # The current status of the commission.
         field :status, Models::Operations::ListCommissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListCommissionsStatus, false) } }
-
+        # The event quantity. Used for click and lead commissions; typically `1` for sale and custom commissions.
         field :quantity, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('quantity'), required: true } }
-
+        # The date and time when the commission was created.
         field :created_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('createdAt'), required: true } }
-
+        # The date and time when the commission was last updated.
         field :updated_at, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updatedAt'), required: true } }
 
         field :partner, Models::Operations::ListCommissionsPartner, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner'), required: true } }
-
-        field :type, Crystalline::Nilable.new(Models::Operations::ListCommissionsType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListCommissionsType, true) } }
-
+        # The associated invoice ID. Only set for sale commissions.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
-
+        # An optional description of the commission.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+        # User-provided metadata from the associated lead or sale event (`lead.metadata` / `sale.metadata`).
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
         # The date the commission was paid out to the partner. Null if not paid yet.
         field :paid_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paidAt'), required: true } }
         # The user who created the manual commission.
@@ -45,9 +47,10 @@ module OpenApiSDK
 
         field :customer, Crystalline::Nilable.new(Models::Operations::ListCommissionsCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
-        sig { params(id: ::String, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Operations::ListCommissionsStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Operations::ListCommissionsPartner, type: T.nilable(Models::Operations::ListCommissionsType), invoice_id: T.nilable(::String), description: T.nilable(::String), paid_at: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Operations::ListCommissionsCustomer)).void }
-        def initialize(id:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, type: nil, invoice_id: nil, description: nil, paid_at: nil, user_id: nil, customer: nil)
+        sig { params(id: ::String, type: Models::Operations::ListCommissionsType, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Operations::ListCommissionsStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Operations::ListCommissionsPartner, invoice_id: T.nilable(::String), description: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object]), paid_at: T.nilable(::String), user_id: T.nilable(::String), customer: T.nilable(Models::Operations::ListCommissionsCustomer)).void }
+        def initialize(id:, type:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, invoice_id: nil, description: nil, metadata: nil, paid_at: nil, user_id: nil, customer: nil)
           @id = id
+          @type = type
           @amount = amount
           @earnings = earnings
           @currency = currency
@@ -56,9 +59,9 @@ module OpenApiSDK
           @created_at = created_at
           @updated_at = updated_at
           @partner = partner
-          @type = type
           @invoice_id = invoice_id
           @description = description
+          @metadata = metadata
           @paid_at = paid_at
           @user_id = user_id
           @customer = customer
@@ -68,6 +71,7 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
+          return false unless @type == other.type
           return false unless @amount == other.amount
           return false unless @earnings == other.earnings
           return false unless @currency == other.currency
@@ -76,9 +80,9 @@ module OpenApiSDK
           return false unless @created_at == other.created_at
           return false unless @updated_at == other.updated_at
           return false unless @partner == other.partner
-          return false unless @type == other.type
           return false unless @invoice_id == other.invoice_id
           return false unless @description == other.description
+          return false unless @metadata == other.metadata
           return false unless @paid_at == other.paid_at
           return false unless @user_id == other.user_id
           return false unless @customer == other.customer

@@ -18,10 +18,14 @@ class OpenApiSDK::Models::Operations::RequestBody3
   def customer=(str_); end
   def link_id(); end
   def link_id=(str_); end
-  def sale_amount(); end
-  def sale_amount=(str_); end
+  def date(); end
+  def date=(str_); end
+  def sale(); end
+  def sale=(str_); end
   def sale_event_date(); end
   def sale_event_date=(str_); end
+  def sale_amount(); end
+  def sale_amount=(str_); end
   def invoice_id(); end
   def invoice_id=(str_); end
   def product_id(); end

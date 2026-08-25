@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'dub'
-  s.version     = '0.12.12'
+  s.version     = '0.12.13'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['AGPL-3.0-only']
   s.summary     = ''

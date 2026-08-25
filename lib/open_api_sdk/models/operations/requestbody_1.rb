@@ -18,12 +18,11 @@ module OpenApiSDK
         field :type, Models::Operations::RequestBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::RequestBodyType, false) } }
         # The ID of the partner to create the commission for.
         field :partner_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId'), required: true } }
-        # The commission amount in cents. Use a negative amount to create a clawback.
+        # The commission earnings amount in cents. Use a negative amount to create a clawback.
         field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
         # If not provided, the current date will be used.
         field :date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date') } }
-        # The description of the commission. Required for clawbacks (negative `amount`).
-        # May be a known clawback reason (`order_canceled`, `fraud`, `terms_violation`, `tracking_error`, `payment_failed`, `ineligible_partner`, `duplicate_commission`) or an arbitrary string (max 190 characters).
+        # The description of the commission. Required for clawbacks (negative `amount`). May be a known clawback reason (`order_canceled`, `fraud`, `terms_violation`, `tracking_error`, `payment_failed`, `ineligible_partner`, `duplicate_commission`) or an arbitrary string (max 190 characters).
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
         sig { params(type: Models::Operations::RequestBodyType, partner_id: ::String, amount: ::Float, date: T.nilable(::String), description: T.nilable(::String)).void }

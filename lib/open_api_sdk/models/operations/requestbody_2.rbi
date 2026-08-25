@@ -18,6 +18,10 @@ class OpenApiSDK::Models::Operations::RequestBody2
   def customer=(str_); end
   def link_id(); end
   def link_id=(str_); end
+  def date(); end
+  def date=(str_); end
+  def lead(); end
+  def lead=(str_); end
   def lead_event_date(); end
   def lead_event_date=(str_); end
   def lead_event_name(); end

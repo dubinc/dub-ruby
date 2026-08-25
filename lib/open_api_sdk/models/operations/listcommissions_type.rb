@@ -9,7 +9,7 @@
 module OpenApiSDK
   module Models
     module Operations
-
+      # ListCommissionsType - The type of commission. Can be `click`, `lead`, `sale`, `referral`, or `custom`.
       class ListCommissionsType < T::Enum
         enums do
           CLICK = new('click')

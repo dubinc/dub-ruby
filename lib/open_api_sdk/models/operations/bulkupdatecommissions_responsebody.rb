@@ -16,7 +16,7 @@ module OpenApiSDK
 
         # The commission's unique ID on Dub.
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
-
+        # The current status of the commission.
         field :status, Models::Operations::BulkUpdateCommissionsCommissionsStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::BulkUpdateCommissionsCommissionsStatus, false) } }
 
         sig { params(id: ::String, status: Models::Operations::BulkUpdateCommissionsCommissionsStatus).void }

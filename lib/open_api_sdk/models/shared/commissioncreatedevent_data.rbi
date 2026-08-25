@@ -10,6 +10,8 @@ end
 class OpenApiSDK::Models::Shared::CommissionCreatedEventData
   def id(); end
   def id=(str_); end
+  def type(); end
+  def type=(str_); end
   def amount(); end
   def amount=(str_); end
   def earnings(); end
@@ -26,12 +28,12 @@ class OpenApiSDK::Models::Shared::CommissionCreatedEventData
   def updated_at=(str_); end
   def partner(); end
   def partner=(str_); end
-  def type(); end
-  def type=(str_); end
   def invoice_id(); end
   def invoice_id=(str_); end
   def description(); end
   def description=(str_); end
+  def metadata(); end
+  def metadata=(str_); end
   def link(); end
   def link=(str_); end
   def user_id(); end

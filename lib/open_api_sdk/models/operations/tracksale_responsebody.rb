@@ -19,9 +19,9 @@ module OpenApiSDK
 
         field :customer, Crystalline::Nilable.new(Models::Operations::TrackSaleCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer'), required: true } }
 
-        field :sale, Crystalline::Nilable.new(Models::Operations::Sale), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale'), required: true } }
+        field :sale, Crystalline::Nilable.new(Models::Operations::TrackSaleSale), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale'), required: true } }
 
-        sig { params(event_name: ::String, customer: T.nilable(Models::Operations::TrackSaleCustomer), sale: T.nilable(Models::Operations::Sale)).void }
+        sig { params(event_name: ::String, customer: T.nilable(Models::Operations::TrackSaleCustomer), sale: T.nilable(Models::Operations::TrackSaleSale)).void }
         def initialize(event_name:, customer: nil, sale: nil)
           @event_name = event_name
           @customer = customer

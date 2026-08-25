@@ -9,29 +9,32 @@
 module OpenApiSDK
   module Models
     module Operations
-
+      # The sale event object to associate the commission with.
       class Sale
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The amount of the sale in cents (for all two-decimal currencies). If the sale is in a zero-decimal currency, pass the full integer value (e.g. `1580` JPY). Learn more: https://d.to/currency
+        field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount') } }
+        # The currency of the sale. Accepts ISO 4217 currency codes. Sales will be automatically converted and stored as USD at the latest exchange rates. Learn more: https://d.to/currency
+        field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency') } }
+        # The name of the sale event. Recommended format: `Invoice paid` or `Subscription created`.
+        field :event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
+        # The payment processor via which the sale was made.
+        field :payment_processor, Crystalline::Nilable.new(Models::Operations::RequestBodyPaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::RequestBodyPaymentProcessor, true) } }
+        # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+        # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
+        field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
-        field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
-
-        field :currency, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('currency'), required: true } }
-
-        field :payment_processor, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), required: true } }
-
-        field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
-
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
-
-        sig { params(amount: ::Float, currency: ::String, payment_processor: ::String, invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(amount:, currency:, payment_processor:, invoice_id: nil, metadata: nil)
+        sig { params(amount: T.nilable(::Float), currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::RequestBodyPaymentProcessor), metadata: T.nilable(T::Hash[Symbol, ::Object]), invoice_id: T.nilable(::String)).void }
+        def initialize(amount: nil, currency: 'usd', event_name: 'Purchase', payment_processor: Models::Operations::RequestBodyPaymentProcessor::CUSTOM, metadata: nil, invoice_id: nil)
           @amount = amount
           @currency = currency
+          @event_name = event_name
           @payment_processor = payment_processor
-          @invoice_id = invoice_id
           @metadata = metadata
+          @invoice_id = invoice_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -39,9 +42,10 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @amount == other.amount
           return false unless @currency == other.currency
+          return false unless @event_name == other.event_name
           return false unless @payment_processor == other.payment_processor
-          return false unless @invoice_id == other.invoice_id
           return false unless @metadata == other.metadata
+          return false unless @invoice_id == other.invoice_id
           true
         end
       end

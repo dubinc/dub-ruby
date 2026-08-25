@@ -9,7 +9,7 @@
 module OpenApiSDK
   module Models
     module Operations
-
+      # BulkUpdateCommissionsCommissionsStatus - The current status of the commission.
       class BulkUpdateCommissionsCommissionsStatus < T::Enum
         enums do
           PENDING = new('pending')

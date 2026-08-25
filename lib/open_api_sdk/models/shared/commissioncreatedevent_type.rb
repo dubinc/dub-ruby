@@ -9,7 +9,7 @@
 module OpenApiSDK
   module Models
     module Shared
-
+      # CommissionCreatedEventType - The type of commission. Can be `click`, `lead`, `sale`, `referral`, or `custom`.
       class CommissionCreatedEventType < T::Enum
         enums do
           CLICK = new('click')

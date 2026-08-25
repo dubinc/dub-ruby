@@ -9,7 +9,7 @@
 module OpenApiSDK
   module Models
     module Shared
-
+      # CommissionCreatedEventStatus - The current status of the commission.
       class CommissionCreatedEventStatus < T::Enum
         enums do
           PENDING = new('pending')
