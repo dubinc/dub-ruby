@@ -25,17 +25,27 @@ module OpenApiSDK
         # The partner link ID to associate the commission with. If not provided, default to the link with the most revenue.
         field :link_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId') } }
         # The date and time of the lead event. If not provided, defaults to the current date and time.
+        field :date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date') } }
+        # The lead event object to associate the commission with.
+        field :lead, Crystalline::Nilable.new(Models::Operations::Lead), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('lead') } }
+        # Deprecated: Use `date` instead. The date and time of the lead event. If not provided, defaults to the current date and time.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :lead_event_date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventDate') } }
-        # The name of the lead event. If not provided, defaults to 'Sign up'.
+        # Deprecated: Use `lead.eventName` instead. The name of the lead event. If not provided, defaults to 'Sign up'.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :lead_event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('leadEventName') } }
 
-        sig { params(type: Models::Operations::CreateCommissionRequestBodyType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::Customer), link_id: T.nilable(::String), lead_event_date: T.nilable(::String), lead_event_name: T.nilable(::String)).void }
-        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, lead_event_date: nil, lead_event_name: 'Sign up')
+        sig { params(type: Models::Operations::CreateCommissionRequestBodyType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::Customer), link_id: T.nilable(::String), date: T.nilable(::String), lead: T.nilable(Models::Operations::Lead), lead_event_date: T.nilable(::String), lead_event_name: T.nilable(::String)).void }
+        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, date: nil, lead: nil, lead_event_date: nil, lead_event_name: 'Sign up')
           @type = type
           @partner_id = partner_id
           @customer_id = customer_id
           @customer = customer
           @link_id = link_id
+          @date = date
+          @lead = lead
           @lead_event_date = lead_event_date
           @lead_event_name = lead_event_name
         end
@@ -48,6 +58,8 @@ module OpenApiSDK
           return false unless @customer_id == other.customer_id
           return false unless @customer == other.customer
           return false unless @link_id == other.link_id
+          return false unless @date == other.date
+          return false unless @lead == other.lead
           return false unless @lead_event_date == other.lead_event_date
           return false unless @lead_event_name == other.lead_event_name
           true

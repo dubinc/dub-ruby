@@ -319,7 +319,7 @@ module OpenApiSDK
     sig { params(request: T.nilable(T.any(Models::Operations::RequestBody1, Models::Operations::RequestBody2, Models::Operations::RequestBody3)), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CreateCommissionResponseBody) }
     def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create commission
-      # Create one or more commissions (custom, lead or sale) for a partner. Custom commissions accept a negative `amount` to create a clawback; in that case `description` is required and may be a known clawback reason or any other string. Commission creation is processed asynchronously. Use the List Commissions endpoint or webhooks to be notified when the commission is created.
+      # Create one or more commissions (custom, lead or sale) for a partner. Custom commissions accept a negative `amount` to create a clawback. Commission creation is processed asynchronously – use the GET /commissions endpoint or webhooks to be notified when the commission is created.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/commissions"

@@ -24,26 +24,40 @@ module OpenApiSDK
         field :customer, Crystalline::Nilable.new(Models::Operations::RequestBodyCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
         # The partner link ID to associate the commission with. If not provided, default to the link with the most revenue.
         field :link_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId') } }
-        # Required when `importStripeInvoices` is `false`. The sale amount in cents for the manual sale event. Ignored when importing from Stripe.
-        field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
         # Only used when `importStripeInvoices` is `false`. The date of the manual sale event. Defaults to the current date and time if not provided.
+        field :date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date') } }
+        # The sale event object to associate the commission with.
+        field :sale, Crystalline::Nilable.new(Models::Operations::Sale), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale') } }
+        # Deprecated: Use `date` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :sale_event_date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleEventDate') } }
-        # Only used when `importStripeInvoices` is `false`. An optional invoice ID to attach to the generated sale event and commission entry for deduplication.
+        # Deprecated: Use `sale.amount` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :sale_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('saleAmount') } }
+        # Deprecated: Use `sale.invoiceId` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
-        # Only used when `importStripeInvoices` is `false`. An optional product ID stored on the sale event metadata – will also impact commission earnings calculation (if a `Sale` `Product ID` modifier is set).
+        # Deprecated: Use `sale.metadata.productId` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :product_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('productId') } }
-        # When `true`, import all unimported paid Stripe invoices for the customer and create a commission for each. When `false`, create a single manual sale event using `saleAmount`.
+        # When `true`, import all unimported paid Stripe invoices for the customer and create a commission for each. When `false`, create a single manual sale event using `sale.amount` (or deprecated `saleAmount`).
         field :import_stripe_invoices, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('importStripeInvoices') } }
 
-        sig { params(type: Models::Operations::CreateCommissionRequestBodyCommissionsType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::RequestBodyCustomer), link_id: T.nilable(::String), sale_amount: T.nilable(::Float), sale_event_date: T.nilable(::String), invoice_id: T.nilable(::String), product_id: T.nilable(::String), import_stripe_invoices: T.nilable(T::Boolean)).void }
-        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, sale_amount: nil, sale_event_date: nil, invoice_id: nil, product_id: nil, import_stripe_invoices: false)
+        sig { params(type: Models::Operations::CreateCommissionRequestBodyCommissionsType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::RequestBodyCustomer), link_id: T.nilable(::String), date: T.nilable(::String), sale: T.nilable(Models::Operations::Sale), sale_event_date: T.nilable(::String), sale_amount: T.nilable(::Float), invoice_id: T.nilable(::String), product_id: T.nilable(::String), import_stripe_invoices: T.nilable(T::Boolean)).void }
+        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, date: nil, sale: nil, sale_event_date: nil, sale_amount: nil, invoice_id: nil, product_id: nil, import_stripe_invoices: false)
           @type = type
           @partner_id = partner_id
           @customer_id = customer_id
           @customer = customer
           @link_id = link_id
-          @sale_amount = sale_amount
+          @date = date
+          @sale = sale
           @sale_event_date = sale_event_date
+          @sale_amount = sale_amount
           @invoice_id = invoice_id
           @product_id = product_id
           @import_stripe_invoices = import_stripe_invoices
@@ -57,8 +71,10 @@ module OpenApiSDK
           return false unless @customer_id == other.customer_id
           return false unless @customer == other.customer
           return false unless @link_id == other.link_id
-          return false unless @sale_amount == other.sale_amount
+          return false unless @date == other.date
+          return false unless @sale == other.sale
           return false unless @sale_event_date == other.sale_event_date
+          return false unless @sale_amount == other.sale_amount
           return false unless @invoice_id == other.invoice_id
           return false unless @product_id == other.product_id
           return false unless @import_stripe_invoices == other.import_stripe_invoices
