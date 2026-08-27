@@ -38,6 +38,8 @@ module OpenApiSDK
         field :end_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end', 'style': 'form', 'explode': true } }
 
         field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
+        # Filter by lead or sale event metadata. Top-level keys only. Compares string values only — numeric and boolean metadata values are not matched.
+        field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
         # If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
         field :ending_before, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'endingBefore', 'style': 'form', 'explode': true } }
         # If specified, the query only searches for results after this cursor. Mutually exclusive with `endingBefore`.
@@ -53,8 +55,8 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), partner_tag_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), timezone: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Integer), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page_size: T.nilable(::Integer)).void }
-        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, partner_tag_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, timezone: nil, ending_before: nil, starting_after: nil, page: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page_size: 100)
+        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), partner_tag_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), timezone: T.nilable(::String), query: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Integer), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page_size: T.nilable(::Integer)).void }
+        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, partner_tag_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, timezone: nil, query: nil, ending_before: nil, starting_after: nil, page: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page_size: 100)
           @type = type
           @customer_id = customer_id
           @payout_id = payout_id
@@ -67,6 +69,7 @@ module OpenApiSDK
           @start = start
           @end_ = end_
           @timezone = timezone
+          @query = query
           @ending_before = ending_before
           @starting_after = starting_after
           @page = page
@@ -91,6 +94,7 @@ module OpenApiSDK
           return false unless @start == other.start
           return false unless @end_ == other.end_
           return false unless @timezone == other.timezone
+          return false unless @query == other.query
           return false unless @ending_before == other.ending_before
           return false unless @starting_after == other.starting_after
           return false unless @page == other.page

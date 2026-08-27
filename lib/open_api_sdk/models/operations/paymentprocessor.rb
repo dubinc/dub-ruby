@@ -18,6 +18,7 @@ module OpenApiSDK
           PADDLE = new('paddle')
           APPLE = new('apple')
           REVENUECAT = new('revenuecat')
+          LEMONSQUEEZY = new('lemonsqueezy')
           DUB = new('dub')
           CUSTOM = new('custom')
         end
