@@ -165,6 +165,7 @@ module OpenApiSDK
                 start: request.start,
                 end_: request.end_,
                 timezone: request.timezone,
+                query: request.query,
                 ending_before: request.ending_before,
                 starting_after: next_cursor,
                 page: request.page,

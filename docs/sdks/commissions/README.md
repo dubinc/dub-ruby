@@ -27,6 +27,7 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::ListCommissionsRequest.new(
+  query: 'metadata[\'key\']=\'value\'',
   ending_before: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
   starting_after: 'cm_1KAP4CGN2Z5TPYYQ1W4JEYD56',
   page: 1,

@@ -150,7 +150,7 @@ module OpenApiSDK
             if results.count.zero?
               next nil
             end
-            request_limit = !request.page_size.nil? ? request.page_size : 1
+            request_limit = !request.page_size.nil? ? request.page_size : 100
             if results.count < request_limit
               next nil
             end

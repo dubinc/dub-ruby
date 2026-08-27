@@ -32,6 +32,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsRequest
   def end_=(str_); end
   def timezone(); end
   def timezone=(str_); end
+  def query(); end
+  def query=(str_); end
   def ending_before(); end
   def ending_before=(str_); end
   def starting_after(); end
