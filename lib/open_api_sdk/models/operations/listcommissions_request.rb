@@ -14,19 +14,37 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Filter the list of commissions by type. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `sale`, `sale,lead`, `-click`.
+        # Filter the list of commissions by type.
+        # Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+        # - "sale"
+        # - "sale,lead"
+        # - "-click"
         field :type, Crystalline::Nilable.new(Models::Operations::Type), { 'query_param': { 'field_name': 'type', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated customer.
         field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated payout.
         field :payout_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'payoutId', 'style': 'form', 'explode': true } }
-        # Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `partner_abc`, `partner_abc,partner_xyz`, `-partner_abc`.
+        # Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`.
+        # Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+        # Examples:
+        # - "partner_abc"
+        # - "partner_abc,partner_xyz"
+        # - "-partner_abc"
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated partner's `tenantId` (their unique ID within your database).
         field :tenant_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'tenantId', 'style': 'form', 'explode': true } }
-        # Filter the list of commissions by the associated partner group. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `group_abc`, `group_abc,group_xyz`, `-group_abc`.
+        # Filter the list of commissions by the associated partner group.
+        # Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples:
+        # - "group_abc"
+        # - "group_abc,group_xyz"
+        # - "-group_abc"
         field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'groupId', 'style': 'form', 'explode': true } }
-        # Filter the list of commissions by the associated partner tag. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `ptag_abc`, `ptag_abc,ptag_xyz`, `-ptag_abc`.
+        # Filter the list of commissions by the associated partner tag.
+        # Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
+        # Examples:
+        # - "ptag_abc"
+        # - "ptag_abc,ptag_xyz"
+        # - "-ptag_abc"
         field :partner_tag_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerTagId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'invoiceId', 'style': 'form', 'explode': true } }
@@ -39,6 +57,9 @@ module OpenApiSDK
 
         field :timezone, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'timezone', 'style': 'form', 'explode': true } }
         # Filter by lead or sale event metadata. Top-level keys only. Compares string values only — numeric and boolean metadata values are not matched.
+        # Examples:
+        # - "metadata['key']='value'"
+        # - "metadata['key']!='value'"
         field :query, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'query', 'style': 'form', 'explode': true } }
         # If specified, the query only searches for results before this cursor. Mutually exclusive with `startingAfter`.
         field :ending_before, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'endingBefore', 'style': 'form', 'explode': true } }
