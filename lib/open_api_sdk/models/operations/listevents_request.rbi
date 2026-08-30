@@ -52,6 +52,8 @@ class OpenApiSDK::Models::Operations::ListEventsRequest
   def os=(str_); end
   def trigger(); end
   def trigger=(str_); end
+  def event_name(); end
+  def event_name=(str_); end
   def referer(); end
   def referer=(str_); end
   def referer_url(); end

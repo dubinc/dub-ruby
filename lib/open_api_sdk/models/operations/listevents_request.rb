@@ -58,6 +58,8 @@ module OpenApiSDK
         field :os, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
         # The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.
         field :trigger, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
+        # The conversion event name to retrieve analytics for. Only available for lead and sale events. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Sign up`, `Sign up,Purchase`, `-Sign up`.
+        field :event_name, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'eventName', 'style': 'form', 'explode': true } }
         # The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.
         field :referer, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }
         # The full referer URL to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `https://google.com`, `https://google.com,https://twitter.com`, `-https://spam.com`.
@@ -101,8 +103,8 @@ module OpenApiSDK
         # DEPRECATED. Use `sortOrder` instead.
         field :order, Crystalline::Nilable.new(Models::Operations::Order), { 'query_param': { 'field_name': 'order', 'style': 'form', 'explode': true } }
 
-        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), tag_id: T.nilable(::String), folder_id: T.nilable(::String), partner_tag_id: T.nilable(::String), group_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(::String), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), program_id: T.nilable(::String), tag_ids: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), page: T.nilable(::Integer), limit: T.nilable(::Integer), sort_order: T.nilable(Models::Operations::SortOrder), sort_by: T.nilable(Models::Operations::SortBy), order: T.nilable(Models::Operations::Order)).void }
-        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, tag_id: nil, folder_id: nil, partner_tag_id: nil, group_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, referer: nil, referer_url: nil, url: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, root: nil, sale_type: nil, query: nil, program_id: nil, tag_ids: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', page: 1, limit: 100, sort_order: Models::Operations::SortOrder::DESC, sort_by: Models::Operations::SortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
+        sig { params(domain: T.nilable(::String), key: T.nilable(::String), link_id: T.nilable(::String), external_id: T.nilable(::String), tenant_id: T.nilable(::String), tag_id: T.nilable(::String), folder_id: T.nilable(::String), partner_tag_id: T.nilable(::String), group_id: T.nilable(::String), partner_id: T.nilable(::String), customer_id: T.nilable(::String), interval: T.nilable(Models::Operations::QueryParamInterval), start: T.nilable(::String), end_: T.nilable(::String), country: T.nilable(::String), city: T.nilable(::String), region: T.nilable(::String), continent: T.nilable(::String), device: T.nilable(::String), browser: T.nilable(::String), os: T.nilable(::String), trigger: T.nilable(::String), event_name: T.nilable(::String), referer: T.nilable(::String), referer_url: T.nilable(::String), url: T.nilable(::String), utm_source: T.nilable(::String), utm_medium: T.nilable(::String), utm_campaign: T.nilable(::String), utm_term: T.nilable(::String), utm_content: T.nilable(::String), root: T.nilable(T::Boolean), sale_type: T.nilable(Models::Operations::QueryParamSaleType), query: T.nilable(::String), program_id: T.nilable(::String), tag_ids: T.nilable(::String), qr: T.nilable(T::Boolean), event: T.nilable(Models::Operations::QueryParamEvent), timezone: T.nilable(::String), page: T.nilable(::Integer), limit: T.nilable(::Integer), sort_order: T.nilable(Models::Operations::SortOrder), sort_by: T.nilable(Models::Operations::SortBy), order: T.nilable(Models::Operations::Order)).void }
+        def initialize(domain: nil, key: nil, link_id: nil, external_id: nil, tenant_id: nil, tag_id: nil, folder_id: nil, partner_tag_id: nil, group_id: nil, partner_id: nil, customer_id: nil, interval: nil, start: nil, end_: nil, country: nil, city: nil, region: nil, continent: nil, device: nil, browser: nil, os: nil, trigger: nil, event_name: nil, referer: nil, referer_url: nil, url: nil, utm_source: nil, utm_medium: nil, utm_campaign: nil, utm_term: nil, utm_content: nil, root: nil, sale_type: nil, query: nil, program_id: nil, tag_ids: nil, qr: nil, event: Models::Operations::QueryParamEvent::CLICKS, timezone: 'UTC', page: 1, limit: 100, sort_order: Models::Operations::SortOrder::DESC, sort_by: Models::Operations::SortBy::TIMESTAMP, order: Models::Operations::Order::DESC)
           @domain = domain
           @key = key
           @link_id = link_id
@@ -125,6 +127,7 @@ module OpenApiSDK
           @browser = browser
           @os = os
           @trigger = trigger
+          @event_name = event_name
           @referer = referer
           @referer_url = referer_url
           @url = url
@@ -173,6 +176,7 @@ module OpenApiSDK
           return false unless @browser == other.browser
           return false unless @os == other.os
           return false unless @trigger == other.trigger
+          return false unless @event_name == other.event_name
           return false unless @referer == other.referer
           return false unless @referer_url == other.referer_url
           return false unless @url == other.url
