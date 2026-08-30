@@ -22,6 +22,7 @@ module OpenApiSDK
       autoload :AnalyticsCount, 'open_api_sdk/models/shared/analyticscount.rb'
       autoload :AnalyticsCountries, 'open_api_sdk/models/shared/analyticscountries.rb'
       autoload :AnalyticsDevices, 'open_api_sdk/models/shared/analyticsdevices.rb'
+      autoload :AnalyticsEventNames, 'open_api_sdk/models/shared/analyticseventnames.rb'
       autoload :AnalyticsOS, 'open_api_sdk/models/shared/analyticsos.rb'
       autoload :AnalyticsRefererUrls, 'open_api_sdk/models/shared/analyticsrefererurls.rb'
       autoload :AnalyticsReferers, 'open_api_sdk/models/shared/analyticsreferers.rb'

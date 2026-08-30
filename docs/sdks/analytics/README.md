@@ -51,7 +51,7 @@ end
 
 ### Response
 
-**[T.nilable(T.any(Models::Shared::AnalyticsCount, T::Array[Models::Shared::AnalyticsTimeseries], T::Array[Models::Shared::AnalyticsContinents], T::Array[Models::Shared::AnalyticsCountries], T::Array[Models::Shared::AnalyticsRegions], T::Array[Models::Shared::AnalyticsCities], T::Array[Models::Shared::AnalyticsDevices], T::Array[Models::Shared::AnalyticsBrowsers], T::Array[Models::Shared::AnalyticsOS], T::Array[Models::Shared::AnalyticsTriggers], T::Array[Models::Shared::AnalyticsReferers], T::Array[Models::Shared::AnalyticsRefererUrls], T::Array[Models::Shared::AnalyticsTopLinks], T::Array[Models::Shared::AnalyticsTopUrls]))](../../models/operations/retrieveanalyticsresponsebody.md)**
+**[T.nilable(T.any(Models::Shared::AnalyticsCount, T::Array[Models::Shared::AnalyticsTimeseries], T::Array[Models::Shared::AnalyticsContinents], T::Array[Models::Shared::AnalyticsCountries], T::Array[Models::Shared::AnalyticsRegions], T::Array[Models::Shared::AnalyticsCities], T::Array[Models::Shared::AnalyticsDevices], T::Array[Models::Shared::AnalyticsBrowsers], T::Array[Models::Shared::AnalyticsOS], T::Array[Models::Shared::AnalyticsTriggers], T::Array[Models::Shared::AnalyticsEventNames], T::Array[Models::Shared::AnalyticsReferers], T::Array[Models::Shared::AnalyticsRefererUrls], T::Array[Models::Shared::AnalyticsTopLinks], T::Array[Models::Shared::AnalyticsTopUrls]))](../../models/operations/retrieveanalyticsresponsebody.md)**
 
 ### Errors
 

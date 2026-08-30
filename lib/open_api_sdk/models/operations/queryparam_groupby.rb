@@ -23,6 +23,7 @@ module OpenApiSDK
           OS = new('os')
           TRIGGER = new('trigger')
           TRIGGERS = new('triggers')
+          EVENT_NAMES = new('event_names')
           REFERERS = new('referers')
           REFERER_URLS = new('referer_urls')
           TOP_FOLDERS = new('top_folders')
