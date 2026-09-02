@@ -18,6 +18,8 @@ class OpenApiSDK::Models::Operations::RequestBody3
   def customer=(str_); end
   def link_id(); end
   def link_id=(str_); end
+  def discount_code(); end
+  def discount_code=(str_); end
   def date(); end
   def date=(str_); end
   def sale(); end
