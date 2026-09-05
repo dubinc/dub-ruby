@@ -20,7 +20,7 @@ module OpenApiSDK
         field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
         # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
-        # The URL to shorten (if not provided, the program's default URL will be used). Will throw an error if the domain doesn't match the program's default URL domain.
+        # The URL to shorten (if not provided, the program's default URL will be used).
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url') } }
         # The comments for the short link.
         field :comments, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('comments') } }
