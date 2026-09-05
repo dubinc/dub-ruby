@@ -88,9 +88,9 @@ module OpenApiSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.12.17'
-      @gen_version = '2.934.1'
-      @user_agent = 'speakeasy-sdk/ruby 0.12.17 2.934.1 0.0.1 dub'
+      @sdk_version = '0.12.18'
+      @gen_version = '2.935.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.12.18 2.935.1 0.0.1 dub'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

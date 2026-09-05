@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 5a2dd83e-da98-455b-8ef9-0100a914efdf
 management:
-  docChecksum: 4a5c88917edd89070470cd4cefad49fe
+  docChecksum: f8e3c84578ab84ff18212f403855edb3
   docVersion: 0.0.1
-  speakeasyVersion: 1.796.3
-  generationVersion: 2.934.1
-  releaseVersion: 0.12.17
-  configChecksum: 5bffe86019935baffa79ed1397f41714
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 0.12.18
+  configChecksum: cfca4dcfa8a8a67bae273545d8ec0d0e
   repoURL: https://github.com/dubinc/dub-ruby.git
   installationURL: https://github.com/dubinc/dub-ruby
   published: true
 persistentEdits:
-  generation_id: 9999b8e3-f78a-49d6-b3ac-46cf1f6597c2
-  pristine_commit_hash: dbaeb3aa84d8a41335f1c2c18d2930dae0c35122
-  pristine_tree_hash: c7a8eee07a7eea3e71d918d282cee8ba359f885d
+  generation_id: f2814cbc-46b2-43a2-8b6a-e8d5270bf315
+  pristine_commit_hash: 45c3b41875a54c47723a20eebe1cbeb4a7a2e770
+  pristine_tree_hash: f0834a3ed7012b8c8d2c85b712c50622c86d9ef9
 features:
   ruby:
     constsAndDefaults: 0.1.4
@@ -50,8 +50,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:c167e4bd6085cc110a03f1a2e5cd986739aaa45c
-    pristine_git_object: 776015e2bf58703929fc641d4161489d7c65b928
+    last_write_checksum: sha1:8853b3b1af96ee7fb729f8ba9024909cd4d95cb3
+    pristine_git_object: 8bce3a1f753010cdebc7ee9d76f285c762e3631e
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:c572639efdae8c7b24141ee5c02d8f009e101ed8
@@ -414,8 +414,8 @@ trackedFiles:
     pristine_git_object: 730a74b2188f43c955e1b11ee1e9f306d57b936e
   docs/models/operations/createpartnerlinkrequestbody.md:
     id: febe6fdd6895
-    last_write_checksum: sha1:b3ccb79bd805fe6eddde6e4d59f1edc1938b5b85
-    pristine_git_object: bfd15a8a08bca185f291736bb16545e50c938df5
+    last_write_checksum: sha1:3378afc5dba5256b9555d45166681f767a87d217
+    pristine_git_object: c61f4d91be41d25911117f7201485db0b7e103b3
   docs/models/operations/createpartnerlinks.md:
     id: 1fd78f95d437
     last_write_checksum: sha1:39950de68907cbcd4ed6858bcc1ce5a6fa890ad7
@@ -1438,8 +1438,8 @@ trackedFiles:
     pristine_git_object: c78c2a5ae92344a1f67d1f08261f638f3b9f8d04
   docs/models/operations/upsertpartnerlinkrequestbody.md:
     id: c979f5a7d50e
-    last_write_checksum: sha1:551a524ee9ea73d52e41ad36457a3af0a99a88f2
-    pristine_git_object: b6a52ef8e0c44d046c156a95a7382c186f08f358
+    last_write_checksum: sha1:9f0ef22696bc63c60dae889f72e9ef229c2de6fc
+    pristine_git_object: 282e79100e7f54b9173121b23346ed9015a3571d
   docs/models/operations/upsertpartnerlinktagids.md:
     id: d5cd29a01c90
     last_write_checksum: sha1:7d1a4e151c8b7515d3c2dae5f2acddcc0f684800
@@ -2038,8 +2038,8 @@ trackedFiles:
     pristine_git_object: ce52788b0d03eaf00d0f4325a08a5fab162e0360
   dub.gemspec:
     id: 6a9f7d6677d8
-    last_write_checksum: sha1:ea719f2c8e188ed20677f8c6b3c6e25892e0f0dc
-    pristine_git_object: 34b57ab0574a616deaf5554010c6b0613640d019
+    last_write_checksum: sha1:bef204a365b0f99dc832e18d8a7ae65efcf39231
+    pristine_git_object: b36b6f59b45b421b05cc8284e8fbd05ec78d17e4
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -2926,8 +2926,8 @@ trackedFiles:
     pristine_git_object: c70f1692563693635135b6569fab2dcd78c0182f
   lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rb:
     id: 3fd7f2905c7f
-    last_write_checksum: sha1:10c976405b163af34f8149aa1501ce5cb8382cee
-    pristine_git_object: b398ba07d1110ba0e5d9689558f95c7de1b1a2b2
+    last_write_checksum: sha1:d52622eca5178ef22f965440b629b7289dc36733
+    pristine_git_object: f1a58a9cb0e62e03d2cd74d6be3053e6e8d90737
   lib/open_api_sdk/models/operations/createpartnerlink_requestbody.rbi:
     id: 2375a694f31e
     last_write_checksum: sha1:135d2142142100fe13ceb79fa5fc13ebdcc9c37d
@@ -4886,8 +4886,8 @@ trackedFiles:
     pristine_git_object: 0ac835c4984ccef4eaebfe3a8707c8fa52ad4c5a
   lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rb:
     id: 51a79bd363c7
-    last_write_checksum: sha1:9e2ccc09066bcdd66a322660bd1526aef3d8f1e3
-    pristine_git_object: 8c54e4df6fbfebd4f355a6dabc428c38dbde47d4
+    last_write_checksum: sha1:26fda0aa55757dceb35b5c1a6cd7e33e03191e04
+    pristine_git_object: be9e497695fc02f71a3de7820fdd7bd01a6b5116
   lib/open_api_sdk/models/operations/upsertpartnerlink_requestbody.rbi:
     id: 1719e72cd41e
     last_write_checksum: sha1:6a14cfd0a3414e2149443c8635bf19989ade0654
@@ -5986,8 +5986,8 @@ trackedFiles:
     pristine_git_object: 4fce7e216368e7b49f005b6fefd09db483840c15
   lib/open_api_sdk/sdkconfiguration.rb:
     id: f4510466a9d9
-    last_write_checksum: sha1:fc374517c17f2ad02acf2a594d2ac91c08c2cb0e
-    pristine_git_object: 3cbbc4260f6781e50c6fe56e0ba46766e64e7840
+    last_write_checksum: sha1:3cfb9a37f10ad49d6a5077729e43223e726f0db2
+    pristine_git_object: a65c55b2dd00307c960c245568103c1bc57b1310
   lib/open_api_sdk/sdkconfiguration.rbi:
     id: c1e574df15f1
     last_write_checksum: sha1:0b796b05d0d50a43f6b7d3a53ca4a6939701305b
@@ -6030,8 +6030,8 @@ trackedFiles:
     pristine_git_object: ca5a1ed55acbada23d41f4ebc9d8efa731958389
   lib/open_api_sdk/utils/utils.rb:
     id: 6492e7d3950f
-    last_write_checksum: sha1:8c850163ad97a7964ec889ed42e71c26650d7e2a
-    pristine_git_object: d46e9b16d240702c46a4e777b17176ccab870e1c
+    last_write_checksum: sha1:70c2dee9ea5bcc45d9af06efffad68562747b58a
+    pristine_git_object: 129077cc34c441a05d9aa3154981fd2c4f6fb144
   sorbet/config:
     id: 59392da43f94
     last_write_checksum: sha1:d02b32628dad70edc5929a9b9801d5e2dca15d40
@@ -7712,7 +7712,6 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://dub.co/docs/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes:\n* `dub.commissions.create()`: \n  *  `request.union(3).discount_code` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
