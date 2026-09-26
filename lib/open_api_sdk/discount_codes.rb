@@ -44,7 +44,7 @@ module OpenApiSDK
     sig { params(request: Models::Operations::ListDiscountCodesRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Shared::DiscountCodeSchema]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
       # list - List discount codes
-      # Retrieve a paginated list of discount codes for a partner / a given discount / the whole program.
+      # Retrieve a paginated list of discount codes in a program or filtered by partner, discount, or code.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/discount-codes"
