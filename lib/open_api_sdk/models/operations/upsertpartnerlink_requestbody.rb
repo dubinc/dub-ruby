@@ -12,7 +12,7 @@ module OpenApiSDK
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The URL to upsert for. Will throw an error if the domain doesn't match the program's default URL domain.
+        # The URL to upsert for.
         field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
         # The short link slug. If not provided, a random 7-character slug will be generated.
         field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key') } }

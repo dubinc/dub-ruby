@@ -12,6 +12,8 @@ class OpenApiSDK::Models::Operations::ListDiscountCodesRequest
   def partner_id=(str_); end
   def discount_id(); end
   def discount_id=(str_); end
+  def code(); end
+  def code=(str_); end
   def page(); end
   def page=(str_); end
   def page_size(); end
