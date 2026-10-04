@@ -22,6 +22,8 @@ module OpenApiSDK
         field :customer_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'customerId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated payout.
         field :payout_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'payoutId', 'style': 'form', 'explode': true } }
+        # Filter the list of commissions by the associated bounty submission.
+        field :bounty_submission_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'bountySubmissionId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by the associated partner. When specified, takes precedence over `tenantId`.
         # Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`).
         # Examples:
@@ -47,7 +49,7 @@ module OpenApiSDK
         # Filter the list of commissions by the associated invoice. Since invoiceId is unique on a per-program basis, this will only return one commission per invoice.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'invoiceId', 'style': 'form', 'explode': true } }
         # Filter the list of commissions by their corresponding status.
-        field :status, Crystalline::Nilable.new(Models::Operations::QueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        field :status, Crystalline::Nilable.new(Models::Operations::ListCommissionsQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
         # The start date of the date range to filter the commissions by.
         field :start, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start', 'style': 'form', 'explode': true } }
         # The end date of the date range to filter the commissions by.
@@ -74,11 +76,12 @@ module OpenApiSDK
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), partner_tag_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::QueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), timezone: T.nilable(::String), query: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Integer), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page_size: T.nilable(::Integer)).void }
-        def initialize(type: nil, customer_id: nil, payout_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, partner_tag_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, timezone: nil, query: nil, ending_before: nil, starting_after: nil, page: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page_size: 100)
+        sig { params(type: T.nilable(Models::Operations::Type), customer_id: T.nilable(::String), payout_id: T.nilable(::String), bounty_submission_id: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String), partner_tag_id: T.nilable(::String), invoice_id: T.nilable(::String), status: T.nilable(Models::Operations::ListCommissionsQueryParamStatus), start: T.nilable(::String), end_: T.nilable(::String), timezone: T.nilable(::String), query: T.nilable(::String), ending_before: T.nilable(::String), starting_after: T.nilable(::String), page: T.nilable(::Integer), sort_by: T.nilable(Models::Operations::ListCommissionsQueryParamSortBy), sort_order: T.nilable(Models::Operations::ListCommissionsQueryParamSortOrder), interval: T.nilable(Models::Operations::ListCommissionsQueryParamInterval), page_size: T.nilable(::Integer)).void }
+        def initialize(type: nil, customer_id: nil, payout_id: nil, bounty_submission_id: nil, partner_id: nil, tenant_id: nil, group_id: nil, partner_tag_id: nil, invoice_id: nil, status: nil, start: nil, end_: nil, timezone: nil, query: nil, ending_before: nil, starting_after: nil, page: nil, sort_by: Models::Operations::ListCommissionsQueryParamSortBy::CREATED_AT, sort_order: Models::Operations::ListCommissionsQueryParamSortOrder::DESC, interval: Models::Operations::ListCommissionsQueryParamInterval::ALL, page_size: 100)
           @type = type
           @customer_id = customer_id
           @payout_id = payout_id
+          @bounty_submission_id = bounty_submission_id
           @partner_id = partner_id
           @tenant_id = tenant_id
           @group_id = group_id
@@ -104,6 +107,7 @@ module OpenApiSDK
           return false unless @type == other.type
           return false unless @customer_id == other.customer_id
           return false unless @payout_id == other.payout_id
+          return false unless @bounty_submission_id == other.bounty_submission_id
           return false unless @partner_id == other.partner_id
           return false unless @tenant_id == other.tenant_id
           return false unless @group_id == other.group_id

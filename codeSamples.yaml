@@ -237,24 +237,6 @@ actions:
         - "lang": "ruby"
           "label": "retrievePartnerAnalytics"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RetrievePartnerAnalyticsRequest.new(\n  timezone: 'America/New_York',\n  query: 'metadata[\\'key\\']:\\'value\\''\n)\nres = s.partners.analytics(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/partners/applications"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "listPartnerApplications"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListPartnerApplicationsRequest.new(\n  country: 'US',\n  group_id: 'grp_123',\n  page: 1,\n  page_size: 50\n)\nres = s.partner_applications.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/partners/applications/approve"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "approvePartnerApplication"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ApprovePartnerApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.approve(request: req)\n\nunless res.nil?\n  # handle response\nend"
-  - target: $["paths"]["/partners/applications/reject"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "rejectPartnerApplication"
-          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RejectPartnerApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.partner_applications.reject(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners/ban"]["post"]
     update:
       "x-codeSamples":
@@ -291,6 +273,24 @@ actions:
         - "lang": "ruby"
           "label": "listPayouts"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListPayoutsRequest.new(\n  page: 1,\n  page_size: 50\n)\nres = s.payouts.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/program-applications"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "listProgramApplications"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListProgramApplicationsRequest.new(\n  country: 'US',\n  group_id: 'grp_123',\n  page: 1,\n  page_size: 50\n)\nres = s.program_applications.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/program-applications/approve"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "approveProgramApplication"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ApproveProgramApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.program_applications.approve(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/program-applications/reject"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "rejectProgramApplication"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::RejectProgramApplicationRequestBody.new(\n  partner_id: '<id>'\n)\nres = s.program_applications.reject(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/qr"]["get"]
     update:
       "x-codeSamples":

@@ -20,4 +20,6 @@ class OpenApiSDK::Models::Operations::UpdateCustomerRequestBody
   def avatar=(str_); end
   def stripe_customer_id(); end
   def stripe_customer_id=(str_); end
+  def subscription_canceled_at(); end
+  def subscription_canceled_at=(str_); end
 end
