@@ -16,7 +16,7 @@ module OpenApiSDK
         field :partner_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId'), required: true } }
         # The ID of the partner's referral link to associate this discount code with. Each link can only have one discount code.
         field :link_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId'), required: true } }
-        # The discount code to create. If omitted, a unique code will be generated automatically from the partner's name.
+        # The discount code to create. If omitted, a unique code will be generated automatically from the partner's name. Stripe and Shopify codes can only contain letters, numbers, dashes, and underscores. Custom provider codes can contain any characters.
         field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code') } }
 
         sig { params(partner_id: ::String, link_id: ::String, code: T.nilable(::String)).void }

@@ -16,7 +16,7 @@ module OpenApiSDK
   class Dub
     extend T::Sig
 
-    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :partner_applications, :discount_codes, :commissions, :payouts, :embed_tokens, :qr_codes, :bounties
+    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :program_applications, :discount_codes, :commissions, :payouts, :embed_tokens, :qr_codes, :bounties
 
     # Instantiates the SDK, configuring it with the provided parameters.
     #
@@ -87,7 +87,7 @@ module OpenApiSDK
       @track = Track.new(@sdk_configuration)
       @customers = Customers.new(@sdk_configuration)
       @partners = Partners.new(@sdk_configuration)
-      @partner_applications = PartnerApplications.new(@sdk_configuration)
+      @program_applications = ProgramApplications.new(@sdk_configuration)
       @discount_codes = DiscountCodes.new(@sdk_configuration)
       @commissions = Commissions.new(@sdk_configuration)
       @payouts = Payouts.new(@sdk_configuration)

@@ -44,9 +44,11 @@ module OpenApiSDK
         field :rejection_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejectionNote'), required: true } }
         # The date and time the submission's social metrics were last synced
         field :social_metrics_last_synced_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('socialMetricsLastSyncedAt') } }
+        # The highest social metric milestone that has been approved and paid out for this submission
+        field :approved_social_metric_threshold, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('approvedSocialMetricThreshold') } }
 
-        sig { params(id: ::String, bounty_id: ::String, partner_id: ::String, status: Models::Operations::ListBountySubmissionsStatus, created_at: ::String, period_number: ::Integer, description: T.nilable(::String), urls: T.nilable(T::Array[::String]), files: T.nilable(T::Array[Models::Operations::Files]), performance_count: T.nilable(::Float), social_metric_count: T.nilable(::Integer), completed_at: T.nilable(::String), reviewed_at: T.nilable(::String), rejection_reason: T.nilable(::String), rejection_note: T.nilable(::String), social_metrics_last_synced_at: T.nilable(::String)).void }
-        def initialize(id:, bounty_id:, partner_id:, status:, created_at:, period_number:, description: nil, urls: nil, files: nil, performance_count: nil, social_metric_count: nil, completed_at: nil, reviewed_at: nil, rejection_reason: nil, rejection_note: nil, social_metrics_last_synced_at: nil)
+        sig { params(id: ::String, bounty_id: ::String, partner_id: ::String, status: Models::Operations::ListBountySubmissionsStatus, created_at: ::String, period_number: ::Integer, description: T.nilable(::String), urls: T.nilable(T::Array[::String]), files: T.nilable(T::Array[Models::Operations::Files]), performance_count: T.nilable(::Float), social_metric_count: T.nilable(::Integer), completed_at: T.nilable(::String), reviewed_at: T.nilable(::String), rejection_reason: T.nilable(::String), rejection_note: T.nilable(::String), social_metrics_last_synced_at: T.nilable(::String), approved_social_metric_threshold: T.nilable(::Integer)).void }
+        def initialize(id:, bounty_id:, partner_id:, status:, created_at:, period_number:, description: nil, urls: nil, files: nil, performance_count: nil, social_metric_count: nil, completed_at: nil, reviewed_at: nil, rejection_reason: nil, rejection_note: nil, social_metrics_last_synced_at: nil, approved_social_metric_threshold: nil)
           @id = id
           @bounty_id = bounty_id
           @partner_id = partner_id
@@ -63,6 +65,7 @@ module OpenApiSDK
           @rejection_reason = rejection_reason
           @rejection_note = rejection_note
           @social_metrics_last_synced_at = social_metrics_last_synced_at
+          @approved_social_metric_threshold = approved_social_metric_threshold
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -84,6 +87,7 @@ module OpenApiSDK
           return false unless @rejection_reason == other.rejection_reason
           return false unless @rejection_note == other.rejection_note
           return false unless @social_metrics_last_synced_at == other.social_metrics_last_synced_at
+          return false unless @approved_social_metric_threshold == other.approved_social_metric_threshold
           true
         end
       end

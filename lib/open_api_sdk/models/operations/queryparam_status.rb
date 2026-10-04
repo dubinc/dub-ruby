@@ -7,17 +7,12 @@
 module OpenApiSDK
   module Models
     module Operations
-      # QueryParamStatus - Filter the list of commissions by their corresponding status.
+      # QueryParamStatus - Filter applications by status. One of `pending`, `approved`, or `rejected`. Defaults to `pending`.
       class QueryParamStatus < T::Enum
         enums do
           PENDING = new('pending')
-          PROCESSED = new('processed')
-          PAID = new('paid')
-          REFUNDED = new('refunded')
-          DUPLICATE = new('duplicate')
-          FRAUD = new('fraud')
-          CANCELED = new('canceled')
-          HOLD = new('hold')
+          APPROVED = new('approved')
+          REJECTED = new('rejected')
         end
       end
     end
