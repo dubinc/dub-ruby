@@ -62,6 +62,8 @@ class OpenApiSDK::Models::Shared::PartnerEnrolledEventData
   def sale_reward_id=(str_); end
   def referral_reward_id(); end
   def referral_reward_id=(str_); end
+  def custom_reward_id(); end
+  def custom_reward_id=(str_); end
   def discount_id(); end
   def discount_id=(str_); end
   def application_id(); end

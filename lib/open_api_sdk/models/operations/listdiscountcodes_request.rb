@@ -16,15 +16,18 @@ module OpenApiSDK
         field :partner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'partnerId', 'style': 'form', 'explode': true } }
         # Filter discount codes by discount ID.
         field :discount_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'discountId', 'style': 'form', 'explode': true } }
+        # Filter discount codes by the alphanumeric code (e.g. `PARTNER10OFF`).
+        field :code, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'code', 'style': 'form', 'explode': true } }
         # The page number for pagination. The first page is `1`.
         field :page, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(partner_id: T.nilable(::String), discount_id: T.nilable(::String), page: T.nilable(::Integer), page_size: T.nilable(::Integer)).void }
-        def initialize(partner_id: nil, discount_id: nil, page: nil, page_size: 100)
+        sig { params(partner_id: T.nilable(::String), discount_id: T.nilable(::String), code: T.nilable(::String), page: T.nilable(::Integer), page_size: T.nilable(::Integer)).void }
+        def initialize(partner_id: nil, discount_id: nil, code: nil, page: nil, page_size: 100)
           @partner_id = partner_id
           @discount_id = discount_id
+          @code = code
           @page = page
           @page_size = page_size
         end
@@ -34,6 +37,7 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @partner_id == other.partner_id
           return false unless @discount_id == other.discount_id
+          return false unless @code == other.code
           return false unless @page == other.page
           return false unless @page_size == other.page_size
           true

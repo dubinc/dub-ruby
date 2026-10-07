@@ -20,10 +20,14 @@ class OpenApiSDK::Models::Operations::RequestBody3
   def link_id=(str_); end
   def discount_code(); end
   def discount_code=(str_); end
+  def stripe_invoices_to_import(); end
+  def stripe_invoices_to_import=(str_); end
   def date(); end
   def date=(str_); end
   def sale(); end
   def sale=(str_); end
+  def import_stripe_invoices(); end
+  def import_stripe_invoices=(str_); end
   def sale_event_date(); end
   def sale_event_date=(str_); end
   def sale_amount(); end
@@ -32,6 +36,4 @@ class OpenApiSDK::Models::Operations::RequestBody3
   def invoice_id=(str_); end
   def product_id(); end
   def product_id=(str_); end
-  def import_stripe_invoices(); end
-  def import_stripe_invoices=(str_); end
 end

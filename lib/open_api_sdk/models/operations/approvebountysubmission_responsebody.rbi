@@ -40,4 +40,6 @@ class OpenApiSDK::Models::Operations::ApproveBountySubmissionResponseBody
   def rejection_note=(str_); end
   def social_metrics_last_synced_at(); end
   def social_metrics_last_synced_at=(str_); end
+  def approved_social_metric_threshold(); end
+  def approved_social_metric_threshold=(str_); end
 end

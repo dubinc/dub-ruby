@@ -24,10 +24,16 @@ module OpenApiSDK
         field :link_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId') } }
         # The partner discount code to resolve the associated link. Use this when the link ID is unknown. Cannot be provided together with `linkId`.
         field :discount_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discountCode') } }
-        # Only used when `importStripeInvoices` is `false`. The date of the manual sale event. Defaults to the current date and time if not provided.
+        # Import paid Stripe invoices for the customer and create a commission for each. Pass `all` to import every unimported, paid invoice, or an array of Stripe invoice IDs to import only those invoices. Refunded invoices are not imported. When not provided, create a single manual sale event using `sale.amount`
+        field :stripe_invoices_to_import, Crystalline::Nilable.new(Crystalline::Union.new(Models::Operations::StripeInvoicesToImport1, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeInvoicesToImport') } }
+        # Only used when `stripeInvoicesToImport` is not provided. The date of the manual sale event. Defaults to the current date and time if not provided.
         field :date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date') } }
         # The sale event object to associate the commission with.
         field :sale, Crystalline::Nilable.new(Models::Operations::Sale), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale') } }
+        # Deprecated: Use `stripeInvoicesToImport: all` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :import_stripe_invoices, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('importStripeInvoices') } }
         # Deprecated: Use `date` instead.
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -44,24 +50,23 @@ module OpenApiSDK
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :product_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('productId') } }
-        # When `true`, import all unimported paid Stripe invoices for the customer and create a commission for each. When `false`, create a single manual sale event using `sale.amount` (or deprecated `saleAmount`).
-        field :import_stripe_invoices, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('importStripeInvoices') } }
 
-        sig { params(type: Models::Operations::CreateCommissionRequestBodyCommissionsType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::RequestBodyCustomer), link_id: T.nilable(::String), discount_code: T.nilable(::String), date: T.nilable(::String), sale: T.nilable(Models::Operations::Sale), sale_event_date: T.nilable(::String), sale_amount: T.nilable(::Float), invoice_id: T.nilable(::String), product_id: T.nilable(::String), import_stripe_invoices: T.nilable(T::Boolean)).void }
-        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, discount_code: nil, date: nil, sale: nil, sale_event_date: nil, sale_amount: nil, invoice_id: nil, product_id: nil, import_stripe_invoices: false)
+        sig { params(type: Models::Operations::CreateCommissionRequestBodyCommissionsType, partner_id: ::String, customer_id: T.nilable(::String), customer: T.nilable(Models::Operations::RequestBodyCustomer), link_id: T.nilable(::String), discount_code: T.nilable(::String), stripe_invoices_to_import: T.nilable(T.any(Models::Operations::StripeInvoicesToImport1, T::Array[::String])), date: T.nilable(::String), sale: T.nilable(Models::Operations::Sale), import_stripe_invoices: T.nilable(T::Boolean), sale_event_date: T.nilable(::String), sale_amount: T.nilable(::Float), invoice_id: T.nilable(::String), product_id: T.nilable(::String)).void }
+        def initialize(type:, partner_id:, customer_id: nil, customer: nil, link_id: nil, discount_code: nil, stripe_invoices_to_import: nil, date: nil, sale: nil, import_stripe_invoices: nil, sale_event_date: nil, sale_amount: nil, invoice_id: nil, product_id: nil)
           @type = type
           @partner_id = partner_id
           @customer_id = customer_id
           @customer = customer
           @link_id = link_id
           @discount_code = discount_code
+          @stripe_invoices_to_import = stripe_invoices_to_import
           @date = date
           @sale = sale
+          @import_stripe_invoices = import_stripe_invoices
           @sale_event_date = sale_event_date
           @sale_amount = sale_amount
           @invoice_id = invoice_id
           @product_id = product_id
-          @import_stripe_invoices = import_stripe_invoices
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -73,13 +78,14 @@ module OpenApiSDK
           return false unless @customer == other.customer
           return false unless @link_id == other.link_id
           return false unless @discount_code == other.discount_code
+          return false unless @stripe_invoices_to_import == other.stripe_invoices_to_import
           return false unless @date == other.date
           return false unless @sale == other.sale
+          return false unless @import_stripe_invoices == other.import_stripe_invoices
           return false unless @sale_event_date == other.sale_event_date
           return false unless @sale_amount == other.sale_amount
           return false unless @invoice_id == other.invoice_id
           return false unless @product_id == other.product_id
-          return false unless @import_stripe_invoices == other.import_stripe_invoices
           true
         end
       end

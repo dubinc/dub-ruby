@@ -24,15 +24,18 @@ module OpenApiSDK
         field :avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avatar') } }
         # The customer's Stripe customer ID. This is useful for attributing recurring sale events to the partner who referred the customer.
         field :stripe_customer_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeCustomerId') } }
+        # The date the customer canceled their subscription. Set to a timestamp to mark the subscription as canceled, or `null` to clear it (e.g. if they resubscribe).
+        field :subscription_canceled_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subscriptionCanceledAt') } }
 
-        sig { params(external_id: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String)).void }
-        def initialize(external_id: nil, country: nil, email: nil, name: nil, avatar: nil, stripe_customer_id: nil)
+        sig { params(external_id: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), name: T.nilable(::String), avatar: T.nilable(::String), stripe_customer_id: T.nilable(::String), subscription_canceled_at: T.nilable(::String)).void }
+        def initialize(external_id: nil, country: nil, email: nil, name: nil, avatar: nil, stripe_customer_id: nil, subscription_canceled_at: nil)
           @external_id = external_id
           @country = country
           @email = email
           @name = name
           @avatar = avatar
           @stripe_customer_id = stripe_customer_id
+          @subscription_canceled_at = subscription_canceled_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -44,6 +47,7 @@ module OpenApiSDK
           return false unless @name == other.name
           return false unless @avatar == other.avatar
           return false unless @stripe_customer_id == other.stripe_customer_id
+          return false unless @subscription_canceled_at == other.subscription_canceled_at
           true
         end
       end

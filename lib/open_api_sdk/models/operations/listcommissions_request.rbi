@@ -14,6 +14,8 @@ class OpenApiSDK::Models::Operations::ListCommissionsRequest
   def customer_id=(str_); end
   def payout_id(); end
   def payout_id=(str_); end
+  def bounty_submission_id(); end
+  def bounty_submission_id=(str_); end
   def partner_id(); end
   def partner_id=(str_); end
   def tenant_id(); end

@@ -40,9 +40,9 @@ module OpenApiSDK
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :public_stats, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('publicStats') } }
-        # The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace.
+        # The ID of the link in your database. If set, it can be used to identify the link in future API requests (must be prefixed with 'ext_' when passed as a query parameter). This key is unique across your workspace. Pass `null` or an empty string to remove it.
         field :external_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('externalId') } }
-        # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant.
+        # The ID of the tenant that created the link inside your system. If set, it can be used to fetch all links for a tenant. Pass `null` or an empty string to remove it.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
         # The ID of the program the short link is associated with.
         field :program_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('programId') } }
