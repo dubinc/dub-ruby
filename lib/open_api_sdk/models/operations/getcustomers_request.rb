@@ -16,7 +16,7 @@ module OpenApiSDK
         field :email, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'email', 'style': 'form', 'explode': true } }
         # A case-sensitive filter on the list based on the customer's `externalId` field. The value must be a string. Takes precedence over `search`.
         field :external_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'externalId', 'style': 'form', 'explode': true } }
-        # A search query to filter customers by email, externalId, or name. If `email` or `externalId` is provided, this will be ignored.
+        # A search query to filter customers by email, name, or customer ID (`cus_...`). If `email` or `externalId` is provided, this will be ignored.
         field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
         # A filter on the list based on the customer's `country` field.
         field :country, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'country', 'style': 'form', 'explode': true } }

@@ -14,6 +14,7 @@ module OpenApiSDK
           SUBMITTED = new('submitted')
           APPROVED = new('approved')
           REJECTED = new('rejected')
+          PARTIALLY_APPROVED = new('partiallyApproved')
         end
       end
     end
