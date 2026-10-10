@@ -14,6 +14,10 @@ class OpenApiSDK::Models::Operations::CreatePartnerRequestBody
   def tenant_id=(str_); end
   def group_id(); end
   def group_id=(str_); end
+  def tag_ids(); end
+  def tag_ids=(str_); end
+  def tag_names(); end
+  def tag_names=(str_); end
   def link_props(); end
   def link_props=(str_); end
   def name(); end

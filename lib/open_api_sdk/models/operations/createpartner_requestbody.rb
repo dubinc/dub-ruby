@@ -18,6 +18,10 @@ module OpenApiSDK
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
         # The group ID to add the partner to. If not provided, the partner will be added to the default group.
         field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
+        # The IDs of the partner tags to assign when creating the partner. Existing tags are kept. Takes priority over `tagNames` only when it contains at least one ID.
+        field :tag_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagIds') } }
+        # The names of the partner tags to assign when creating the partner. Existing tags are kept. Ignored only when `tagIds` contains at least one ID.
+        field :tag_names, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
         # Additional properties that you can pass to the partner's short link. Will be used to override the default link properties for this partner.
         field :link_props, Crystalline::Nilable.new(Models::Operations::LinkProps), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkProps') } }
         # The partner's full name. If undefined, the partner's email will be used in lieu of their name (e.g. `john@acme.com`)
@@ -31,11 +35,13 @@ module OpenApiSDK
         # A brief description of the partner and their background. Max 5,000 characters.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
-        sig { params(email: ::String, tenant_id: T.nilable(::String), group_id: T.nilable(::String), link_props: T.nilable(Models::Operations::LinkProps), name: T.nilable(::String), username: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), description: T.nilable(::String)).void }
-        def initialize(email:, tenant_id: nil, group_id: nil, link_props: nil, name: nil, username: nil, image: nil, country: nil, description: nil)
+        sig { params(email: ::String, tenant_id: T.nilable(::String), group_id: T.nilable(::String), tag_ids: T.nilable(T::Array[::String]), tag_names: T.nilable(T::Array[::String]), link_props: T.nilable(Models::Operations::LinkProps), name: T.nilable(::String), username: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), description: T.nilable(::String)).void }
+        def initialize(email:, tenant_id: nil, group_id: nil, tag_ids: nil, tag_names: nil, link_props: nil, name: nil, username: nil, image: nil, country: nil, description: nil)
           @email = email
           @tenant_id = tenant_id
           @group_id = group_id
+          @tag_ids = tag_ids
+          @tag_names = tag_names
           @link_props = link_props
           @name = name
           @username = username
@@ -50,6 +56,8 @@ module OpenApiSDK
           return false unless @email == other.email
           return false unless @tenant_id == other.tenant_id
           return false unless @group_id == other.group_id
+          return false unless @tag_ids == other.tag_ids
+          return false unless @tag_names == other.tag_names
           return false unless @link_props == other.link_props
           return false unless @name == other.name
           return false unless @username == other.username
