@@ -24,7 +24,8 @@ s = ::OpenApiSDK::Dub.new(
 )
 
 req = Models::Operations::GetQRCodeRequest.new(
-  url: 'https://needy-newsstand.biz/'
+  url: 'https://needy-newsstand.biz/',
+  bg_color: '#FFFFFF'
 )
 res = s.qr_codes.get(request: req)
 
@@ -42,7 +43,7 @@ end
 
 ### Response
 
-**[T.nilable(::String)](../../models/operations/.md)**
+**[T.nilable(::String)](../../models/operations/getqrcoderesponse.md)**
 
 ### Errors
 

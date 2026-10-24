@@ -41,8 +41,8 @@ module OpenApiSDK
 
 
 
-    sig { params(request: Models::Operations::GetQRCodeRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(::String) }
-    def get(request:, timeout_ms: nil, http_headers: nil)
+    sig { params(request: Models::Operations::GetQRCodeRequest, timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(::String) }
+    def get(request:, timeout_ms: nil, accept_header_override: nil, http_headers: nil)
       # get - Retrieve a QR code
       # Retrieve a QR code for a link.
       url, params = @sdk_configuration.get_server_details
@@ -51,7 +51,7 @@ module OpenApiSDK
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
       query_params = Utils.get_query_params(Models::Operations::GetQRCodeRequest, request, nil)
-      headers['Accept'] = 'image/png'
+      headers['Accept'] = accept_header_override || 'image/png;q=1, image/svg+xml;q=0'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       security = @sdk_configuration.security_source&.call
@@ -120,6 +120,14 @@ module OpenApiSDK
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'image/png')
+          @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          return http_response.env.body.force_encoding('UTF-8')
+        elsif Utils.match_content_type(content_type, 'image/svg+xml')
           @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
