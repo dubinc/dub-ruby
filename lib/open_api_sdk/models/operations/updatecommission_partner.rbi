@@ -12,6 +12,8 @@ class OpenApiSDK::Models::Operations::UpdateCommissionPartner
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def network_status(); end
+  def network_status=(str_); end
   def email(); end
   def email=(str_); end
   def image(); end

@@ -14,14 +14,20 @@ module OpenApiSDK
 
         # The reason for banning the partner.
         field :reason, Models::Operations::Reason, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reason'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::Reason, false) } }
+        # Whether to flag the partner for fraud review by the Dub team.
+        field :flag_for_fraud, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flagForFraud') } }
+        # The reason for flagging the partner for fraud. Required when flagForFraud is true.
+        field :flag_for_fraud_reason, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('flagForFraudReason') } }
         # The ID of the partner to create a link for. Will take precedence over `tenantId` if provided.
         field :partner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId') } }
         # The ID of the partner in your system. If both `partnerId` and `tenantId` are not provided, an error will be thrown.
         field :tenant_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tenantId') } }
 
-        sig { params(reason: Models::Operations::Reason, partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
-        def initialize(reason:, partner_id: nil, tenant_id: nil)
+        sig { params(reason: Models::Operations::Reason, flag_for_fraud: T.nilable(T::Boolean), flag_for_fraud_reason: T.nilable(::String), partner_id: T.nilable(::String), tenant_id: T.nilable(::String)).void }
+        def initialize(reason:, flag_for_fraud: nil, flag_for_fraud_reason: nil, partner_id: nil, tenant_id: nil)
           @reason = reason
+          @flag_for_fraud = flag_for_fraud
+          @flag_for_fraud_reason = flag_for_fraud_reason
           @partner_id = partner_id
           @tenant_id = tenant_id
         end
@@ -30,6 +36,8 @@ module OpenApiSDK
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @reason == other.reason
+          return false unless @flag_for_fraud == other.flag_for_fraud
+          return false unless @flag_for_fraud_reason == other.flag_for_fraud_reason
           return false unless @partner_id == other.partner_id
           return false unless @tenant_id == other.tenant_id
           true

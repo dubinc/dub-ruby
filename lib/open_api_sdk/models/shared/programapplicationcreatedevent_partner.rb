@@ -48,7 +48,7 @@ module OpenApiSDK
         field :instagram, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('instagram') } }
         # The partner's TikTok username (e.g. `johndoe`).
         field :tiktok, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tiktok') } }
-        # The partner's website and social profiles, including when each was verified.
+        # The partner's website and social profiles, including when each was verified and audience stats (subscribers, views, and posts).
         field :platforms, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Platforms)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('platforms') } }
 
         sig { params(id: ::String, name: ::String, status: Models::Shared::ProgramApplicationCreatedEventStatus, network_status: Models::Shared::ProgramApplicationCreatedEventNetworkStatus, company_name: T.nilable(::String), email: T.nilable(::String), image: T.nilable(::String), country: T.nilable(::String), default_payout_method: T.nilable(Models::Shared::ProgramApplicationCreatedEventDefaultPayoutMethod), payouts_enabled_at: T.nilable(::String), description: T.nilable(::String), group_id: T.nilable(::String), website: T.nilable(::String), youtube: T.nilable(::String), twitter: T.nilable(::String), linkedin: T.nilable(::String), instagram: T.nilable(::String), tiktok: T.nilable(::String), platforms: T.nilable(T::Array[Models::Shared::Platforms])).void }

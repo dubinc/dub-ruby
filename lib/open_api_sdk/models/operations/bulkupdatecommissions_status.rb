@@ -15,6 +15,7 @@ module OpenApiSDK
           DUPLICATE = new('duplicate')
           CANCELED = new('canceled')
           FRAUD = new('fraud')
+          HOLD = new('hold')
         end
       end
     end

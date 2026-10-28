@@ -18,12 +18,21 @@ module OpenApiSDK
         field :identifier, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('identifier'), required: true } }
 
         field :verified_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('verifiedAt'), required: true } }
+        # Subscribers or followers for social profiles, or domain rating for websites.
+        field :subscribers, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('subscribers') } }
+        # Number of posts on the profile.
+        field :posts, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('posts') } }
+        # Video views for YouTube, or impressions for other social profiles.
+        field :views, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('views') } }
 
-        sig { params(type: Models::Operations::ListProgramApplicationsType, identifier: ::String, verified_at: T.nilable(::String)).void }
-        def initialize(type:, identifier:, verified_at: nil)
+        sig { params(type: Models::Operations::ListProgramApplicationsType, identifier: ::String, verified_at: T.nilable(::String), subscribers: T.nilable(::Integer), posts: T.nilable(::Integer), views: T.nilable(::Integer)).void }
+        def initialize(type:, identifier:, verified_at: nil, subscribers: 0, posts: 0, views: 0)
           @type = type
           @identifier = identifier
           @verified_at = verified_at
+          @subscribers = subscribers
+          @posts = posts
+          @views = views
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -32,6 +41,9 @@ module OpenApiSDK
           return false unless @type == other.type
           return false unless @identifier == other.identifier
           return false unless @verified_at == other.verified_at
+          return false unless @subscribers == other.subscribers
+          return false unless @posts == other.posts
+          return false unless @views == other.views
           true
         end
       end
