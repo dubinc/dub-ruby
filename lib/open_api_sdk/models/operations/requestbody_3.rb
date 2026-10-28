@@ -24,7 +24,7 @@ module OpenApiSDK
         field :link_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('linkId') } }
         # The partner discount code to resolve the associated link. Use this when the link ID is unknown. Cannot be provided together with `linkId`.
         field :discount_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('discountCode') } }
-        # Import paid Stripe invoices for the customer and create a commission for each. Pass `all` to import every unimported, paid invoice, or an array of Stripe invoice IDs to import only those invoices. Refunded invoices are not imported. When not provided, create a single manual sale event using `sale.amount`
+        # Import paid Stripe invoices for the customer and create a commission for each. Pass `all` to import every unimported, paid invoice, or an array of Stripe invoice IDs to import only those invoices. Refunded invoices are not imported. When not provided, create a single manual sale event using `sale.amount`. Omitted `customer.email` and `customer.name` are taken from the customer's latest paid Stripe invoice that has them.
         field :stripe_invoices_to_import, Crystalline::Nilable.new(Crystalline::Union.new(Models::Operations::StripeInvoicesToImport1, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stripeInvoicesToImport') } }
         # Only used when `stripeInvoicesToImport` is not provided. The date of the manual sale event. Defaults to the current date and time if not provided.
         field :date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date') } }

@@ -15,6 +15,7 @@ module OpenApiSDK
           APPROVED = new('approved')
           REJECTED = new('rejected')
           TRUSTED = new('trusted')
+          BANNED = new('banned')
         end
       end
     end

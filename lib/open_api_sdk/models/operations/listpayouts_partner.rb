@@ -16,6 +16,8 @@ module OpenApiSDK
         field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
         # The partner's full legal name.
         field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        # The partner's network status on Dub.
+        field :network_status, Models::Operations::ListPayoutsNetworkStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('networkStatus'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::ListPayoutsNetworkStatus, false) } }
         # The partner's email address. Should be a unique value across Dub.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
         # The partner's avatar image.
@@ -31,10 +33,11 @@ module OpenApiSDK
         # The partner's group ID on Dub.
         field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
 
-        sig { params(id: ::String, name: ::String, email: T.nilable(::String), image: T.nilable(::String), default_payout_method: T.nilable(Models::Operations::ListPayoutsDefaultPayoutMethod), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String)).void }
-        def initialize(id:, name:, email: nil, image: nil, default_payout_method: nil, payouts_enabled_at: nil, country: nil, tenant_id: nil, group_id: nil)
+        sig { params(id: ::String, name: ::String, network_status: Models::Operations::ListPayoutsNetworkStatus, email: T.nilable(::String), image: T.nilable(::String), default_payout_method: T.nilable(Models::Operations::ListPayoutsDefaultPayoutMethod), payouts_enabled_at: T.nilable(::String), country: T.nilable(::String), tenant_id: T.nilable(::String), group_id: T.nilable(::String)).void }
+        def initialize(id:, name:, network_status:, email: nil, image: nil, default_payout_method: nil, payouts_enabled_at: nil, country: nil, tenant_id: nil, group_id: nil)
           @id = id
           @name = name
+          @network_status = network_status
           @email = email
           @image = image
           @default_payout_method = default_payout_method
@@ -49,6 +52,7 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @name == other.name
+          return false unless @network_status == other.network_status
           return false unless @email == other.email
           return false unless @image == other.image
           return false unless @default_payout_method == other.default_payout_method

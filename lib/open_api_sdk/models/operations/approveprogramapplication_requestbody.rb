@@ -16,13 +16,19 @@ module OpenApiSDK
         field :partner_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partnerId'), required: true } }
         # The ID of the application to approve. If not provided, the partner's most recent pending or rejected application is used. For a partner who is already approved in the program, only a pending application is used.
         field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applicationId') } }
+        # The IDs of the partner tags to assign as part of approval. Existing tags are kept. Takes priority over `tagNames` only when it contains at least one ID.
+        field :tag_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagIds') } }
+        # The names of the partner tags to assign as part of approval. Existing tags are kept. Ignored only when `tagIds` contains at least one ID.
+        field :tag_names, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tagNames') } }
         # The ID of the group to assign the partner to. If not provided, the partner will be assigned to the group they applied to, or the program's default group if no application group is set.
         field :group_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('groupId') } }
 
-        sig { params(partner_id: ::String, application_id: T.nilable(::String), group_id: T.nilable(::String)).void }
-        def initialize(partner_id:, application_id: nil, group_id: nil)
+        sig { params(partner_id: ::String, application_id: T.nilable(::String), tag_ids: T.nilable(T::Array[::String]), tag_names: T.nilable(T::Array[::String]), group_id: T.nilable(::String)).void }
+        def initialize(partner_id:, application_id: nil, tag_ids: nil, tag_names: nil, group_id: nil)
           @partner_id = partner_id
           @application_id = application_id
+          @tag_ids = tag_ids
+          @tag_names = tag_names
           @group_id = group_id
         end
 
@@ -31,6 +37,8 @@ module OpenApiSDK
           return false unless other.is_a? self.class
           return false unless @partner_id == other.partner_id
           return false unless @application_id == other.application_id
+          return false unless @tag_ids == other.tag_ids
+          return false unless @tag_names == other.tag_names
           return false unless @group_id == other.group_id
           true
         end
