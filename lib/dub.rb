@@ -21,6 +21,7 @@ module OpenApiSDK
   autoload :EmbedTokens, 'open_api_sdk/embed_tokens'
   autoload :QRCodes, 'open_api_sdk/qr_codes'
   autoload :Bounties, 'open_api_sdk/bounties'
+  autoload :Messages, 'open_api_sdk/messages'
   module Models
     autoload :Shared, 'open_api_sdk/models/shared'
     autoload :Operations, 'open_api_sdk/models/operations'

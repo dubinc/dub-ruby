@@ -1,0 +1,13 @@
+# MessageReceivedEventPartner
+
+The partner in the conversation. `email` is `null` for partners from the network who haven't joined your program.
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `id`                                                              | *::String*                                                        | :heavy_check_mark:                                                | The partner's unique ID on Dub.                                   |
+| `name`                                                            | *::String*                                                        | :heavy_check_mark:                                                | The partner's full legal name.                                    |
+| `email`                                                           | *T.nilable(::String)*                                             | :heavy_check_mark:                                                | The partner's email address. Should be a unique value across Dub. |
+| `image`                                                           | *T.nilable(::String)*                                             | :heavy_check_mark:                                                | The partner's avatar image.                                       |
