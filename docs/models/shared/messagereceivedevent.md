@@ -1,0 +1,13 @@
+# MessageReceivedEvent
+
+Triggered when a partner sends a message to a program.
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `event`                                                                                       | [Models::Shared::MessageReceivedEventEvent](../../models/shared/messagereceivedeventevent.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `created_at`                                                                                  | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `data`                                                                                        | [Models::Shared::MessageReceivedEventData](../../models/shared/messagereceivedeventdata.md)   | :heavy_check_mark:                                                                            | N/A                                                                                           |

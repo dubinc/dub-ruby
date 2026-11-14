@@ -219,6 +219,18 @@ actions:
         - "lang": "ruby"
           "label": "updateLink"
           "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\nres = s.links.update(link_id: '<id>', request_body: Models::Operations::UpdateLinkRequestBody.new(\n  url: 'https://google.com',\n  external_id: '123456',\n  tag_ids: [\n    'clux0rgak00011...',\n  ],\n  test_variants: [\n    Models::Operations::UpdateLinkTestVariants.new(\n      url: 'https://example.com/variant-1',\n      percentage: 50.0\n    ),\n    Models::Operations::UpdateLinkTestVariants.new(\n      url: 'https://example.com/variant-2',\n      percentage: 50.0\n    ),\n  ]\n))\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/messages"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "listMessages"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = Models::Operations::ListMessagesRequest.new(\n  ending_before: 'msg_1KAP4CDPBSVMMBMH9XX3YZZ0Z',\n  starting_after: 'msg_1KAP4CDPBSVMMBMH9XX3YZZ0Z',\n  page_size: 50\n)\nres = s.messages.list(request: req)\n\nunless res.nil?\n  # handle response\nend"
+  - target: $["paths"]["/messages"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "createMessage"
+          "source": "require 'dub'\n\nModels = ::OpenApiSDK::Models\ns = ::OpenApiSDK::Dub.new(\n  security: Models::Shared::Security.new(\n    token: 'DUB_API_KEY'\n  )\n)\n\nreq = nil\nres = s.messages.create(request: req)\n\nunless res.nil?\n  # handle response\nend"
   - target: $["paths"]["/partners"]["get"]
     update:
       "x-codeSamples":

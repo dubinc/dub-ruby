@@ -15,7 +15,7 @@ module OpenApiSDK
 
   SERVERS = T.let([
     'https://api.dub.co', # 1 - Production API
-  ].freeze, T::Array[String])
+  ].freeze, T::Array[::String])
   # Contains the list of servers available to the SDK
 
   class SDKConfiguration
@@ -30,7 +30,7 @@ module OpenApiSDK
     sig { returns(T.nilable(::OpenApiSDK::Utils::RetryConfig)) }
     attr_accessor :retry_config
 
-    sig { returns(T.nilable(Float)) }
+    sig { returns(T.nilable(::Float)) }
     attr_accessor :timeout
 
     
@@ -38,27 +38,27 @@ module OpenApiSDK
     attr_accessor :security_source
 
     
-    sig { returns(T.nilable(String)) }
+    sig { returns(T.nilable(::String)) }
     attr_accessor :server_url
 
     
-    sig { returns(T.nilable(Integer)) }
+    sig { returns(T.nilable(::Integer)) }
     attr_accessor :server_idx
 
     
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :language
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :openapi_doc_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :sdk_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :gen_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :user_agent
 
     sig do
@@ -66,11 +66,11 @@ module OpenApiSDK
         client: T.nilable(Faraday::Connection),
         hooks: ::OpenApiSDK::SDKHooks::Hooks,
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
-        timeout_ms: T.nilable(Integer),
+        timeout_ms: T.nilable(::Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
-        server_url: T.nilable(String),
-        server_idx: T.nilable(Integer)
+        server_url: T.nilable(::String),
+        server_idx: T.nilable(::Integer)
       ).void
     end
     def initialize(client, hooks, retry_config, timeout_ms, security, security_source, server_url, server_idx)
@@ -80,7 +80,7 @@ module OpenApiSDK
       @server_url = server_url
       @timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       @server_idx = server_idx.nil? ? 0 : server_idx
-      raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
+      raise ::StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       if !security_source.nil?
         @security_source = security_source
       elsif !security.nil?
@@ -88,12 +88,12 @@ module OpenApiSDK
       end
       @language = 'ruby'
       @openapi_doc_version = '0.0.1'
-      @sdk_version = '0.13.1'
-      @gen_version = '2.954.8'
-      @user_agent = 'speakeasy-sdk/ruby 0.13.1 2.954.8 0.0.1 dub'
+      @sdk_version = '0.13.2'
+      @gen_version = '2.961.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.13.2 2.961.1 0.0.1 dub'
     end
 
-    sig { returns([String, T::Hash[Symbol, String]]) }
+    sig { returns([::String, T::Hash[::Symbol, ::String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
       @server_idx = T.must(@server_idx)

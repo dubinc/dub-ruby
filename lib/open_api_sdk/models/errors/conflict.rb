@@ -8,7 +8,7 @@ module OpenApiSDK
   module Models
     module Errors
       # This response is sent when a request conflicts with the current state of the server.
-      class Conflict < StandardError
+      class Conflict < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

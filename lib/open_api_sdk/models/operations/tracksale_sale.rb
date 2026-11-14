@@ -21,9 +21,9 @@ module OpenApiSDK
 
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId'), required: true } }
 
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
 
-        sig { params(amount: ::Float, currency: ::String, payment_processor: ::String, invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(amount: ::Float, currency: ::String, payment_processor: ::String, invoice_id: T.nilable(::String), metadata: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(amount:, currency:, payment_processor:, invoice_id: nil, metadata: nil)
           @amount = amount
           @currency = currency

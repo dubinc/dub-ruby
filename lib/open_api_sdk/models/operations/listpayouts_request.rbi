@@ -18,6 +18,8 @@ class OpenApiSDK::Models::Operations::ListPayoutsRequest
   def invoice_id=(str_); end
   def group_id(); end
   def group_id=(str_); end
+  def partner_tag_id(); end
+  def partner_tag_id=(str_); end
   def page(); end
   def page=(str_); end
   def sort_by(); end
