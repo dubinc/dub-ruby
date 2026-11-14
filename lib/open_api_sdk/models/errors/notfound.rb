@@ -8,7 +8,7 @@ module OpenApiSDK
   module Models
     module Errors
       # The server cannot find the requested resource.
-      class NotFound < StandardError
+      class NotFound < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

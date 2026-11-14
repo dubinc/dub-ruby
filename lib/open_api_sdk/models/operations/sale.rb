@@ -21,11 +21,11 @@ module OpenApiSDK
         # The payment processor via which the sale was made.
         field :payment_processor, Crystalline::Nilable.new(Models::Operations::RequestBodyPaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::RequestBodyPaymentProcessor, true) } }
         # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
         field :invoice_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('invoiceId') } }
 
-        sig { params(amount: T.nilable(::Float), currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::RequestBodyPaymentProcessor), metadata: T.nilable(T::Hash[Symbol, ::Object]), invoice_id: T.nilable(::String)).void }
+        sig { params(amount: T.nilable(::Float), currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::RequestBodyPaymentProcessor), metadata: T.nilable(T::Hash[::Symbol, ::Object]), invoice_id: T.nilable(::String)).void }
         def initialize(amount: nil, currency: 'usd', event_name: 'Purchase', payment_processor: Models::Operations::RequestBodyPaymentProcessor::CUSTOM, metadata: nil, invoice_id: nil)
           @amount = amount
           @currency = currency

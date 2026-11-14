@@ -23,7 +23,7 @@ module OpenApiSDK
       
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
@@ -41,7 +41,7 @@ module OpenApiSDK
 
 
 
-    sig { params(request: Models::Operations::ListPartnersRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::ListPartnersResponseBody]) }
+    sig { params(request: Models::Operations::ListPartnersRequest, timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(T::Array[Models::Operations::ListPartnersResponseBody]) }
     def list(request:, timeout_ms: nil, http_headers: nil)
       # list - List all partners
       # List all partners for a partner program.
@@ -49,7 +49,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::ListPartnersRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -70,7 +70,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -91,7 +91,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -127,7 +127,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::ListPartnersResponseBody))
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Crystalline::Array.new(Models::Operations::ListPartnersResponseBody))
 
           return obj
         else
@@ -142,7 +142,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -156,7 +156,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -170,7 +170,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -184,7 +184,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -198,7 +198,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -212,7 +212,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -226,7 +226,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -240,7 +240,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -254,7 +254,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -270,7 +270,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CreatePartnerResponseBody) }
+    sig { params(request: T.nilable(Models::Operations::CreatePartnerRequestBody), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::CreatePartnerResponseBody) }
     def create(request: nil, timeout_ms: nil, http_headers: nil)
       # create - Create or update a partner
       # Creates a partner and enrolls them in the program. If that email is already enrolled, the enrollment is returned unchanged, except a different `tenantId` replaces the current one when it is not already associated with another partner in the program.
@@ -278,14 +278,14 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -308,7 +308,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -329,7 +329,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -365,7 +365,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::CreatePartnerResponseBody)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Operations::CreatePartnerResponseBody)
 
           return obj
         else
@@ -380,7 +380,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -394,7 +394,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -408,7 +408,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -422,7 +422,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -436,7 +436,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -450,7 +450,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -464,7 +464,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -478,7 +478,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -492,7 +492,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -508,7 +508,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrievePartnerLinksRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T::Array[Models::Operations::RetrievePartnerLinksResponseBody]) }
+    sig { params(request: Models::Operations::RetrievePartnerLinksRequest, timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(T::Array[Models::Operations::RetrievePartnerLinksResponseBody]) }
     def retrieve_links(request:, timeout_ms: nil, http_headers: nil)
       # retrieve_links - Retrieve a partner's links.
       # Retrieve a partner's links by their partner ID or tenant ID.
@@ -516,7 +516,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/links"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::RetrievePartnerLinksRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -537,7 +537,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -558,7 +558,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -594,7 +594,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Array.new(Models::Operations::RetrievePartnerLinksResponseBody))
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Crystalline::Array.new(Models::Operations::RetrievePartnerLinksResponseBody))
 
           return obj
         else
@@ -609,7 +609,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -623,7 +623,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -637,7 +637,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -651,7 +651,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -665,7 +665,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -679,7 +679,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -693,7 +693,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -707,7 +707,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -721,7 +721,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -737,7 +737,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    sig { params(request: T.nilable(Models::Operations::CreatePartnerLinkRequestBody), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Shared::LinkSchema) }
     def create_link(request: nil, timeout_ms: nil, http_headers: nil)
       # create_link - Create a link for a partner
       # Create a link for a partner that is enrolled in your program.
@@ -745,14 +745,14 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/links"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -775,7 +775,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -796,7 +796,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -832,7 +832,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::LinkSchema)
 
           return obj
         else
@@ -847,7 +847,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -861,7 +861,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -875,7 +875,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -889,7 +889,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -903,7 +903,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -917,7 +917,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -931,7 +931,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -945,7 +945,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -959,7 +959,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -975,7 +975,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Shared::LinkSchema) }
+    sig { params(request: T.nilable(Models::Operations::UpsertPartnerLinkRequestBody), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Shared::LinkSchema) }
     def upsert_link(request: nil, timeout_ms: nil, http_headers: nil)
       # upsert_link - Upsert a link for a partner
       # Upsert a link for a partner that is enrolled in your program. If a link with the same URL already exists, return it (or update it if there are any changes). Otherwise, a new link will be created.
@@ -983,14 +983,14 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/links/upsert"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -1013,7 +1013,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1034,7 +1034,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1070,7 +1070,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::LinkSchema)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::LinkSchema)
 
           return obj
         else
@@ -1085,7 +1085,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1099,7 +1099,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1113,7 +1113,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1127,7 +1127,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1141,7 +1141,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1155,7 +1155,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1169,7 +1169,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1183,7 +1183,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1197,7 +1197,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1213,7 +1213,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Operations::RetrievePartnerAnalyticsRequest, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks])) }
+    sig { params(request: Models::Operations::RetrievePartnerAnalyticsRequest, timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(T.any(Models::Shared::PartnerAnalyticsCount, T::Array[Models::Shared::PartnerAnalyticsTimeseries], T::Array[Models::Shared::PartnerAnalyticsTopLinks])) }
     def analytics(request:, timeout_ms: nil, http_headers: nil)
       # analytics - Retrieve analytics for a partner
       # Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
@@ -1221,7 +1221,7 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/analytics"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::RetrievePartnerAnalyticsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1242,7 +1242,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1263,7 +1263,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1299,7 +1299,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Union.new(Models::Shared::PartnerAnalyticsCount, Crystalline::Array.new(Models::Shared::PartnerAnalyticsTimeseries), Crystalline::Array.new(Models::Shared::PartnerAnalyticsTopLinks)))
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Crystalline::Union.new(Models::Shared::PartnerAnalyticsCount, Crystalline::Array.new(Models::Shared::PartnerAnalyticsTimeseries), Crystalline::Array.new(Models::Shared::PartnerAnalyticsTopLinks)))
 
           return obj
         else
@@ -1314,7 +1314,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1328,7 +1328,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1342,7 +1342,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1356,7 +1356,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1370,7 +1370,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1384,7 +1384,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1398,7 +1398,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1412,7 +1412,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1426,7 +1426,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1442,7 +1442,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::BanPartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::BanPartnerResponseBody) }
+    sig { params(request: T.nilable(Models::Operations::BanPartnerRequestBody), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::BanPartnerResponseBody) }
     def ban(request: nil, timeout_ms: nil, http_headers: nil)
       # ban - Ban a partner
       # Ban a partner from your program. This will disable all links and mark all commissions as canceled.
@@ -1450,14 +1450,14 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/ban"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -1480,7 +1480,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1501,7 +1501,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1537,7 +1537,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::BanPartnerResponseBody)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Operations::BanPartnerResponseBody)
 
           return obj
         else
@@ -1552,7 +1552,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1566,7 +1566,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1580,7 +1580,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1594,7 +1594,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1608,7 +1608,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1622,7 +1622,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1636,7 +1636,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1650,7 +1650,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1664,7 +1664,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1680,7 +1680,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: T.nilable(Models::Operations::DeactivatePartnerRequestBody), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeactivatePartnerResponseBody) }
+    sig { params(request: T.nilable(Models::Operations::DeactivatePartnerRequestBody), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::DeactivatePartnerResponseBody) }
     def deactivate(request: nil, timeout_ms: nil, http_headers: nil)
       # deactivate - Deactivate a partner
       # This will deactivate the partner from your program and disable all their active links. Their commissions and payouts will remain intact. You can reactivate them later if needed.
@@ -1688,14 +1688,14 @@ module OpenApiSDK
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/partners/deactivate"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -1718,7 +1718,7 @@ module OpenApiSDK
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1739,7 +1739,7 @@ module OpenApiSDK
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1775,7 +1775,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::DeactivatePartnerResponseBody)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Operations::DeactivatePartnerResponseBody)
 
           return obj
         else
@@ -1790,7 +1790,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequest)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequest)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1804,7 +1804,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Unauthorized)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Unauthorized)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1818,7 +1818,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Forbidden)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Forbidden)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1832,7 +1832,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFound)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFound)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1846,7 +1846,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::Conflict)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::Conflict)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1860,7 +1860,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InviteExpired)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InviteExpired)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1874,7 +1874,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntity)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntity)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1888,7 +1888,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RateLimitExceeded)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RateLimitExceeded)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1902,7 +1902,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerError)
           raise obj
         else
           raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'

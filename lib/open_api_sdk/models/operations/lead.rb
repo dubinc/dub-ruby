@@ -15,9 +15,9 @@ module OpenApiSDK
         # The name of the lead event to track. If not provided, defaults to 'Sign up'.
         field :event_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventName') } }
         # Additional metadata to be stored with the lead event. Max 10,000 characters.
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
 
-        sig { params(event_name: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(event_name: T.nilable(::String), metadata: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(event_name: nil, metadata: nil)
           @event_name = event_name
           @metadata = metadata

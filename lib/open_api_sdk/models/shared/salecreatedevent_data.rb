@@ -23,11 +23,11 @@ module OpenApiSDK
 
         field :sale, Models::Shared::Sale, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sale'), required: true } }
 
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
 
         field :partner, Crystalline::Nilable.new(Models::Shared::SaleCreatedEventPartner), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner') } }
 
-        sig { params(event_name: ::String, customer: Models::Shared::SaleCreatedEventCustomer, click: Models::Shared::SaleCreatedEventClick, link: Models::Shared::SaleCreatedEventLink, sale: Models::Shared::Sale, metadata: T.nilable(T::Hash[Symbol, ::Object]), partner: T.nilable(Models::Shared::SaleCreatedEventPartner)).void }
+        sig { params(event_name: ::String, customer: Models::Shared::SaleCreatedEventCustomer, click: Models::Shared::SaleCreatedEventClick, link: Models::Shared::SaleCreatedEventLink, sale: Models::Shared::Sale, metadata: T.nilable(T::Hash[::Symbol, ::Object]), partner: T.nilable(Models::Shared::SaleCreatedEventPartner)).void }
         def initialize(event_name:, customer:, click:, link:, sale:, metadata: nil, partner: nil)
           @event_name = event_name
           @customer = customer
