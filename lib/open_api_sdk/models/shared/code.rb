@@ -21,6 +21,7 @@ module OpenApiSDK
           UNPROCESSABLE_ENTITY = new('unprocessable_entity')
           RATE_LIMIT_EXCEEDED = new('rate_limit_exceeded')
           INTERNAL_SERVER_ERROR = new('internal_server_error')
+          SERVICE_UNAVAILABLE = new('service_unavailable')
         end
       end
     end

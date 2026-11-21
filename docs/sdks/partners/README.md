@@ -9,9 +9,12 @@
 * [retrieve_links](#retrieve_links) - Retrieve a partner's links.
 * [create_link](#create_link) - Create a link for a partner
 * [upsert_link](#upsert_link) - Upsert a link for a partner
+* [list_network](#list_network) - List all partners in the network
 * [analytics](#analytics) - Retrieve analytics for a partner
 * [ban](#ban) - Ban a partner
 * [deactivate](#deactivate) - Deactivate a partner
+* [update_tags](#update_tags) - Update the tags of partners
+* [update_group](#update_group) - Update the group of partners
 
 ## list
 
@@ -330,6 +333,60 @@ end
 | Models::Errors::InternalServerError | 500                                 | application/json                    |
 | Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
 
+## list_network
+
+List the partners in the Dub partner network for your program. The partner network must be enabled for the program.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="listNetworkPartners" method="get" path="/partners/network" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
+
+req = Models::Operations::ListNetworkPartnersRequest.new(
+  page: 1,
+  page_size: 50
+)
+res = s.partners.list_network(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::ListNetworkPartnersRequest](../../models/operations/listnetworkpartnersrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+### Response
+
+**[T.nilable(T::Array[Models::Shared::NetworkPartner])](../../models/operations/.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
 ## analytics
 
 Retrieve analytics for a partner within a program. The response type vary based on the `groupBy` query parameter.
@@ -470,6 +527,120 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::DeactivatePartnerResponseBody)](../../models/operations/deactivatepartnerresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## update_tags
+
+Add and remove partner tags on up to 100 partners enrolled in your program. Tags that a partner already has are not added again, and tags a partner does not have are skipped on removal. The call fails without changes if any partner is not enrolled in your program or any tag is not in your program.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="updatePartnerTags" method="post" path="/partners/update-tags" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
+
+req = Models::Operations::UpdatePartnerTagsRequestBody.new(
+  partner_ids: [
+    'pn_1JRQ9DY1X0PDS2G0WGZ7EYTXD',
+  ],
+  add_tag_ids: [
+    'ptag_1JRQ9DY1X0PDS2G0WGZ7EYTXD',
+  ]
+)
+res = s.partners.update_tags(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::UpdatePartnerTagsRequestBody](../../models/operations/updatepartnertagsrequestbody.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[T.nilable(Models::Operations::UpdatePartnerTagsResponseBody)](../../models/operations/updatepartnertagsresponsebody.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Models::Errors::BadRequest          | 400                                 | application/json                    |
+| Models::Errors::Unauthorized        | 401                                 | application/json                    |
+| Models::Errors::Forbidden           | 403                                 | application/json                    |
+| Models::Errors::NotFound            | 404                                 | application/json                    |
+| Models::Errors::Conflict            | 409                                 | application/json                    |
+| Models::Errors::InviteExpired       | 410                                 | application/json                    |
+| Models::Errors::UnprocessableEntity | 422                                 | application/json                    |
+| Models::Errors::RateLimitExceeded   | 429                                 | application/json                    |
+| Models::Errors::InternalServerError | 500                                 | application/json                    |
+| Errors::APIError                    | 4XX, 5XX                            | \*/\*                               |
+
+## update_group
+
+Move up to 100 partners enrolled in your program into a group. They get the group's rewards and discount. Partners already in the group are skipped, unless `disableGroupMove` is set, in which case their setting is updated and they're counted. The call fails without changes if any partner is not enrolled in your program.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="updatePartnersGroup" method="post" path="/partners/update-group" -->
+```ruby
+require 'dub'
+
+Models = ::OpenApiSDK::Models
+s = ::OpenApiSDK::Dub.new(
+  security: Models::Shared::Security.new(
+    token: 'DUB_API_KEY'
+  )
+)
+
+req = Models::Operations::UpdatePartnersGroupRequestBody.new(
+  partner_ids: [
+    'pn_1JRQ9DY1X0PDS2G0WGZ7EYTXD',
+  ],
+  group_id: 'grp_1JRQ9DY1X0PDS2G0WGZ7EYTXD'
+)
+res = s.partners.update_group(request: req)
+
+unless res.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::UpdatePartnersGroupRequestBody](../../models/operations/updatepartnersgrouprequestbody.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::UpdatePartnersGroupResponseBody)](../../models/operations/updatepartnersgroupresponsebody.md)**
 
 ### Errors
 

@@ -23,7 +23,7 @@ module OpenApiSDK
         # The payment processor via which the sale was made.
         field :payment_processor, Crystalline::Nilable.new(Models::Operations::PaymentProcessor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paymentProcessor'), 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Operations::PaymentProcessor, true) } }
         # Additional metadata to be stored with the sale event. Max 10,000 characters when stringified.
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # [For direct sale tracking]: The unique ID of the click that the sale conversion event is attributed to. You can read this value from `dub_id` cookie.
         field :click_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('clickId') } }
         # The invoice ID of the sale. Can be used as a idempotency key – only one sale event can be recorded for a given invoice ID.
@@ -37,7 +37,7 @@ module OpenApiSDK
         # [For direct sale tracking]: The avatar URL of the customer.
         field :customer_avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
 
-        sig { params(customer_external_id: ::String, amount: ::Integer, currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::PaymentProcessor), metadata: T.nilable(T::Hash[Symbol, ::Object]), click_id: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
+        sig { params(customer_external_id: ::String, amount: ::Integer, currency: T.nilable(::String), event_name: T.nilable(::String), payment_processor: T.nilable(Models::Operations::PaymentProcessor), metadata: T.nilable(T::Hash[::Symbol, ::Object]), click_id: T.nilable(::String), invoice_id: T.nilable(::String), lead_event_name: T.nilable(::String), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
         def initialize(customer_external_id:, amount:, currency: 'usd', event_name: 'Purchase', payment_processor: Models::Operations::PaymentProcessor::CUSTOM, metadata: nil, click_id: nil, invoice_id: nil, lead_event_name: nil, customer_name: nil, customer_email: nil, customer_avatar: nil)
           @customer_external_id = customer_external_id
           @amount = amount

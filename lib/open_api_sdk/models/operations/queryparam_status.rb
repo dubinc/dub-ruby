@@ -7,12 +7,13 @@
 module OpenApiSDK
   module Models
     module Operations
-      # QueryParamStatus - Filter applications by status. One of `pending`, `approved`, or `rejected`. Defaults to `pending`.
+      # QueryParamStatus - Filter the list of partners by their status for your program. `discover` returns the partners that are not in your program and that you have not ignored, ranked by relevance.
       class QueryParamStatus < T::Enum
         enums do
-          PENDING = new('pending')
-          APPROVED = new('approved')
-          REJECTED = new('rejected')
+          DISCOVER = new('discover')
+          INVITED = new('invited')
+          RECRUITED = new('recruited')
+          IGNORED = new('ignored')
         end
       end
     end
