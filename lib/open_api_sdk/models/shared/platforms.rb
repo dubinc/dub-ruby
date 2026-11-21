@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :type, Models::Shared::ProgramApplicationCreatedEventType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::ProgramApplicationCreatedEventType, false) } }
+        field :type, Models::Shared::NetworkPartnerType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': ::OpenApiSDK::Utils.enum_from_string(Models::Shared::NetworkPartnerType, false) } }
 
         field :identifier, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('identifier'), required: true } }
 
@@ -25,7 +25,7 @@ module OpenApiSDK
         # Video views for YouTube, or impressions for other social profiles.
         field :views, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('views') } }
 
-        sig { params(type: Models::Shared::ProgramApplicationCreatedEventType, identifier: ::String, verified_at: T.nilable(::String), subscribers: T.nilable(::Integer), posts: T.nilable(::Integer), views: T.nilable(::Integer)).void }
+        sig { params(type: Models::Shared::NetworkPartnerType, identifier: ::String, verified_at: T.nilable(::String), subscribers: T.nilable(::Integer), posts: T.nilable(::Integer), views: T.nilable(::Integer)).void }
         def initialize(type:, identifier:, verified_at: nil, subscribers: 0, posts: 0, views: 0)
           @type = type
           @identifier = identifier
