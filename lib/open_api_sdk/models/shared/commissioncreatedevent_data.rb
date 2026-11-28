@@ -37,7 +37,7 @@ module OpenApiSDK
         # An optional description of the commission.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
         # Metadata from the associated lead or sale event (`lead.metadata` / `sale.metadata`), or from Stripe webhook metadata.
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata'), required: true } }
 
         field :link, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventLink), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('link'), required: true } }
         # The user who created the manual commission.
@@ -45,7 +45,7 @@ module OpenApiSDK
 
         field :customer, Crystalline::Nilable.new(Models::Shared::CommissionCreatedEventCustomer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customer') } }
 
-        sig { params(id: ::String, type: Models::Shared::CommissionCreatedEventType, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::CommissionCreatedEventPartner, invoice_id: T.nilable(::String), description: T.nilable(::String), metadata: T.nilable(T::Hash[Symbol, ::Object]), link: T.nilable(Models::Shared::CommissionCreatedEventLink), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
+        sig { params(id: ::String, type: Models::Shared::CommissionCreatedEventType, amount: ::Float, earnings: ::Float, currency: ::String, status: Models::Shared::CommissionCreatedEventStatus, quantity: ::Float, created_at: ::String, updated_at: ::String, partner: Models::Shared::CommissionCreatedEventPartner, invoice_id: T.nilable(::String), description: T.nilable(::String), metadata: T.nilable(T::Hash[::Symbol, ::Object]), link: T.nilable(Models::Shared::CommissionCreatedEventLink), user_id: T.nilable(::String), customer: T.nilable(Models::Shared::CommissionCreatedEventCustomer)).void }
         def initialize(id:, type:, amount:, earnings:, currency:, status:, quantity:, created_at:, updated_at:, partner:, invoice_id: nil, description: nil, metadata: nil, link: nil, user_id: nil, customer: nil)
           @id = id
           @type = type

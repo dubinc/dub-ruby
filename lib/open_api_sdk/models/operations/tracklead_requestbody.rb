@@ -23,7 +23,7 @@ module OpenApiSDK
         # The numerical value associated with this lead event (e.g., number of provisioned seats in a free trial). If defined as N, the lead event will be tracked N times.
         field :event_quantity, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('eventQuantity') } }
         # Additional metadata to be stored with the lead event. Max 10,000 characters.
-        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('metadata') } }
         # The name of the customer. If not passed, a random name will be generated (e.g. “Big Red Caribou”).
         field :customer_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerName') } }
         # The email address of the customer.
@@ -31,7 +31,7 @@ module OpenApiSDK
         # The avatar URL of the customer.
         field :customer_avatar, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('customerAvatar') } }
 
-        sig { params(click_id: ::String, event_name: ::String, customer_external_id: ::String, mode: T.nilable(Models::Operations::Mode), event_quantity: T.nilable(::Integer), metadata: T.nilable(T::Hash[Symbol, ::Object]), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
+        sig { params(click_id: ::String, event_name: ::String, customer_external_id: ::String, mode: T.nilable(Models::Operations::Mode), event_quantity: T.nilable(::Integer), metadata: T.nilable(T::Hash[::Symbol, ::Object]), customer_name: T.nilable(::String), customer_email: T.nilable(::String), customer_avatar: T.nilable(::String)).void }
         def initialize(click_id:, event_name:, customer_external_id:, mode: Models::Operations::Mode::ASYNC, event_quantity: nil, metadata: nil, customer_name: nil, customer_email: nil, customer_avatar: nil)
           @click_id = click_id
           @event_name = event_name

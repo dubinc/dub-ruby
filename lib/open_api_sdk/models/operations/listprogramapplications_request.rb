@@ -23,12 +23,12 @@ module OpenApiSDK
         # The sort order. The default is `desc`.
         field :sort_order, Crystalline::Nilable.new(Models::Operations::ListProgramApplicationsQueryParamSortOrder), { 'query_param': { 'field_name': 'sortOrder', 'style': 'form', 'explode': true } }
         # Filter applications by status. One of `pending`, `approved`, or `rejected`. Defaults to `pending`.
-        field :status, Crystalline::Nilable.new(Models::Operations::QueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        field :status, Crystalline::Nilable.new(Models::Operations::ListProgramApplicationsQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
         # The number of items per page.
         field :page_size, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'pageSize', 'style': 'form', 'explode': true } }
 
-        sig { params(country: T.nilable(::String), group_id: T.nilable(::String), search: T.nilable(::String), page: T.nilable(::Integer), sort_order: T.nilable(Models::Operations::ListProgramApplicationsQueryParamSortOrder), status: T.nilable(Models::Operations::QueryParamStatus), page_size: T.nilable(::Integer)).void }
-        def initialize(country: nil, group_id: nil, search: nil, page: nil, sort_order: Models::Operations::ListProgramApplicationsQueryParamSortOrder::DESC, status: Models::Operations::QueryParamStatus::PENDING, page_size: 100)
+        sig { params(country: T.nilable(::String), group_id: T.nilable(::String), search: T.nilable(::String), page: T.nilable(::Integer), sort_order: T.nilable(Models::Operations::ListProgramApplicationsQueryParamSortOrder), status: T.nilable(Models::Operations::ListProgramApplicationsQueryParamStatus), page_size: T.nilable(::Integer)).void }
+        def initialize(country: nil, group_id: nil, search: nil, page: nil, sort_order: Models::Operations::ListProgramApplicationsQueryParamSortOrder::DESC, status: Models::Operations::ListProgramApplicationsQueryParamStatus::PENDING, page_size: 100)
           @country = country
           @group_id = group_id
           @search = search
