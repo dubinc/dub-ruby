@@ -56,7 +56,7 @@ module OpenApiSDK
         field :os, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'os', 'style': 'form', 'explode': true } }
         # The trigger to retrieve analytics for. Valid values: qr, link, pageview. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `qr`, `qr,link`, `-qr`. If undefined, returns all trigger types.
         field :trigger, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'trigger', 'style': 'form', 'explode': true } }
-        # The conversion event name to retrieve analytics for. Only available for lead and sale events. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `Sign up`, `Sign up,Purchase`, `-Sign up`.
+        # The conversion event name to retrieve analytics for. Only available for lead and sale events. Supports advanced filtering: single value, multiple values (comma-separated), exclusion (prefix with `-`), or case-insensitive substring match (prefix with `~`, combine with `-` to exclude). Examples: `Sign up`, `Sign up,Purchase`, `-Sign up`, `~deposit`, `-~test`.
         field :event_name, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'eventName', 'style': 'form', 'explode': true } }
         # The referer hostname to retrieve analytics for. Supports advanced filtering: single value, multiple values (comma-separated), or exclusion (prefix with `-`). Examples: `google.com`, `google.com,twitter.com`, `-facebook.com`.
         field :referer, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'referer', 'style': 'form', 'explode': true } }

@@ -16,7 +16,7 @@ module OpenApiSDK
   class Dub
     extend T::Sig
 
-    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :program_applications, :discount_codes, :commissions, :payouts, :embed_tokens, :qr_codes, :bounties
+    attr_accessor :links, :analytics, :events, :tags, :folders, :domains, :track, :customers, :partners, :program_applications, :discount_codes, :commissions, :payouts, :embed_tokens, :qr_codes, :bounties, :messages
 
     # Instantiates the SDK, configuring it with the provided parameters.
     #
@@ -32,12 +32,12 @@ module OpenApiSDK
       params(
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
-        timeout_ms: T.nilable(Integer),
+        timeout_ms: T.nilable(::Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
-        server_idx: T.nilable(Integer),
-        server_url: T.nilable(String),
-        url_params: T.nilable(T::Hash[Symbol, String])
+        server_idx: T.nilable(::Integer),
+        server_url: T.nilable(::String),
+        url_params: T.nilable(T::Hash[::Symbol, ::String])
       ).void
     end
     def initialize(client: nil, retry_config: nil, timeout_ms: nil, security: nil, security_source: nil, server_idx: nil, server_url: nil, url_params: nil)
@@ -94,9 +94,10 @@ module OpenApiSDK
       @embed_tokens = EmbedTokens.new(@sdk_configuration)
       @qr_codes = QRCodes.new(@sdk_configuration)
       @bounties = Bounties.new(@sdk_configuration)
+      @messages = Messages.new(@sdk_configuration)
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
